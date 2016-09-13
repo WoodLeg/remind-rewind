@@ -1,3 +1,7 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import jQuery from 'jquery';
+
 class CommentBox extends React.Component {
 
   constructor() {
