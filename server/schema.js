@@ -58,6 +58,26 @@ const QueryType = new GraphQLObjectType({
             resolve: () => {
                 return promiseListAll()
             }
+        },
+        user: {
+            type: UserType,
+            args: {
+                id: {
+                    type: new GraphQLNonNull(GraphQLString)
+                }
+            },
+            resolve: (root, args) => {
+                return new Promise((resolve, reject) => {
+                    UserModel.findById(args.id, (err, user) => {
+                        if (err || !user) {
+                            reject(err)
+                        }
+                        else {
+                            resolve(user)
+                        }
+                    });
+                });
+            }
         }
     })
 });
@@ -137,4 +157,4 @@ const Schema = new GraphQLSchema({
     mutation: MutationType
 });
 
-export default Schema; 
+export default Schema;
