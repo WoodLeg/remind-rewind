@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import jQuery from 'jquery';
 
+
 class DummyComponent extends React.Component {
 
     constructor() {
@@ -10,6 +11,8 @@ class DummyComponent extends React.Component {
     }
 
     componentWillMount() {
+
+
     }
 
     render() {
