@@ -23,8 +23,8 @@ const QueryType = new GraphQLObjectType({
 var MutationType = new GraphQLObjectType({
     name: 'Mutation',
     fields: {
-        add: UserMutation.add,
-        destroy: UserMutation.destroy,
+        addUser: UserMutation.add,
+        destroyUser: UserMutation.destroy,
     }
 });
 
