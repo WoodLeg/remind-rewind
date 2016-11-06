@@ -10,7 +10,6 @@
     }
     &-title {
         font-size: 1em;
-        color: $primary-text-color;
         font-weight: 700;
     }
 }
@@ -18,7 +17,6 @@
 .modal__body {
     &-content {
         font-size: 1em;
-        font-family: 'Lato Light', sans-serif;
     }
 
 }
@@ -31,7 +29,6 @@
         box-shadow: none;
         transition: all 0.3s ease;
         &:hover {
-            background: $accent-color;
             color: white;
         }
     }

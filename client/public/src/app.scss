@@ -1,42 +1,17 @@
 @import 'bootstrap';
 @import 'bootstrap/theme';
 
-@import 'assets/style/palette';
 @import 'assets/style/variables';
 @import 'assets/style/mixins';
-@import 'assets/style/typography';
 @import 'assets/style/common';
 @import 'assets/style/main';
-@import 'assets/style/forms';
 @import 'assets/style/errors';
-@import 'assets/style/buttons';
-@import 'assets/style/form';
 @import 'assets/style/main';
-@import 'assets/style/background';
+@import 'assets/style/typography';
+
 
 @import 'common/notification/notification';
 @import 'common/spinner/spinner';
 @import 'common/modal/modal';
-@import 'common/sharing/sharing';
-@import 'common/mailer/mailer';
-@import 'common/soon/soon';
-@import 'common/error/error';
-@import 'common/ticker/ticker';
-@import 'common/background/background';
 
-@import 'components/home/home';
-@import 'components/user/signup/signup';
-@import 'components/user/signin/signin';
-@import 'components/user/reset/reset';
-@import 'components/core/administration/administration';
-@import 'components/core/core';
-@import 'components/core/vms/vms';
-@import 'components/core/vms/manager/vms-manager';
-@import 'components/core/vms/manager/devices/vms-manager-devices';
-@import 'components/core/vms/liveshare/liveshare';
-@import 'components/core/vms/sharing/sharing';
-@import 'components/core/resources/resources';
-@import 'components/core/profile/profile';
-@import 'components/core/home/home';
 @import 'components/menu/menu';
-@import 'components/footer/footer';

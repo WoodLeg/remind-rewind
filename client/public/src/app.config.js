@@ -6,14 +6,15 @@
     .config(config)
     .run(run);
 
-    config.$inject = ['$locationProvider', '$httpProvider', 'ANALYTICS', '$logProvider', 'HAPPYHOUR', '$translatePartialLoaderProvider'];
-    function config($locationProvider, $httpProvider, ANALYTICS, $logProvider, HAPPYHOUR, $translatePartialLoaderProvider) {
+    config.$inject = ['$locationProvider', '$httpProvider', 'ANALYTICS', '$logProvider', 'HAPPYHOUR', '$translatePartialLoaderProvider', '$compileProvider'];
+    function config($locationProvider, $httpProvider, ANALYTICS, $logProvider, HAPPYHOUR, $translatePartialLoaderProvider, $compileProvider) {
         $locationProvider.html5Mode(true).hashPrefix('!');
 
         $httpProvider.defaults.headers.common['Content-Type'] = 'application/json';
 
         $httpProvider.interceptors.push('spinnerInterceptor');
 
+        $compileProvider.debugInfoEnabled(false);
         // Setup jwt interceptor
         // HTTP calls can override with { skipAuthorization: true }
         $httpProvider.interceptors.push('authHttpResponseInterceptor');
@@ -67,7 +68,7 @@
         });
 
         $rootScope.$on('$stateChangeSuccess', function() {
-            
+
         });
     }
 })();
