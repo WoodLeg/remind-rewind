@@ -2,9 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import jQuery from 'jquery';
 
-import MenuComponent from './components/menu/menu.js';
 
-class DummyComponent extends React.Component {
+class MenuComponent extends React.Component {
 
     constructor() {
         super();
@@ -18,7 +17,9 @@ class DummyComponent extends React.Component {
 
     render() {
         return(
-            <MenuComponent />
+            <div className="col-xs-12">
+                <h1> Start to code bro ! </h1>
+            </div>
         );
     }
 
@@ -26,7 +27,7 @@ class DummyComponent extends React.Component {
 
 jQuery(function() {
     ReactDOM.render(
-        <DummyComponent />,
-        document.getElementById('dummy-component')
+        <MenuComponent />,
+        document.getElementById('menu-component')
     );
 })

@@ -1,0 +1,16 @@
+{
+  "name": "RemindRewind",
+  "description": "Musique",
+  "main": "index.js",
+  "authors": [
+    "Paul Souvestre <paul.souvestre@gmail.com>"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "babel",
+    "gulp",
+    "es2015"
+  ],
+  "homepage": "https://github.com/WoodLeg/remind-rewind",
+  "moduleType": []
+}
