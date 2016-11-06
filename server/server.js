@@ -6,6 +6,7 @@ import bodyParser from 'body-parser';
 import morgan from 'morgan';
 
 import headers from './middlewares/headers';
+import authorization from './middlewares/authorization';
 import userRouter from './components/users/routes';
 
 const app = express();
@@ -16,6 +17,10 @@ mongoose.connect('mongodb://localhost/graphql', function (error) {
 });
 
 app.use(morgan('dev'));
+// app.use('/graphql', authorization.verifyJWT);
+app.use(bodyParser.json());
+app.use(headers.default);
+app.use(headers.options);
 
 app.use('/graphql', graphQLHTTP({
     schema: Schema,
@@ -23,9 +28,7 @@ app.use('/graphql', graphQLHTTP({
     graphiql: true
 }));
 
-app.use(bodyParser.json());
-app.use(headers.default);
-app.use(headers.options);
+
 
 app.use('/users', userRouter);
 

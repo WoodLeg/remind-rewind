@@ -22,10 +22,8 @@
                 cancel: 'Close'
             }).then(function(user){
                 userFactory.signin(user).then(function(response){
-                    $log.debug('SUCC: ', response);
-                    self.user = response.data;
+                    self.user = response.data.user;
                 }).catch(function(err){
-                    $log.debug('ERR: ', err);
                     modalFactory.launch({
                         title: 'ERR',
                         content: err.data.msg,

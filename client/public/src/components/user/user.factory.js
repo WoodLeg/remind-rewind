@@ -48,7 +48,7 @@
             return userService.signin(payload).then(function(response) {
                 $log.debug('Success: ', response);
                 userFactory.setToken(response.data.token);
-                userFactory.setUser(response.data);
+                userFactory.setUser(response.data.user);
                 return response;
             }, function(reason){
                 return $q.reject(reason);

@@ -1,10 +1,12 @@
 import {
     GraphQLNonNull,
-    GraphQLString
+    GraphQLString,
+    GraphQLBoolean
 } from 'graphql';
 
 import UserType from './user.type';
 import User from './user.model';
+import bcrypt from 'bcrypt';
 
 const MutationAdd = {
     type: UserType,
@@ -25,22 +27,38 @@ const MutationAdd = {
         password: {
             name: 'password',
             type: new GraphQLNonNull(GraphQLString)
+        },
+        isAdmin: {
+            name: 'isAdmin',
+            type: GraphQLBoolean
         }
     },
     resolve: (root, args) => {
-        let newUser = new User({
-            firstName: args.firstName,
-            lastName: args.lastName,
-            email: args.email,
-            password: args.password
-        });
-        newUser.id = newUser._id;
-        return new Promise((resolve, reject) => {
-            newUser.save(function (err, user) {
-                if (err) reject(err)
-                else resolve(user)
-            });
-        });
+        bcrypt.hash(args.password, 10, function(err, hash){
+            if (err){
+                return new Promise((resolve, reject) => {
+                    reject(err);
+                });
+            } else {
+                let newUser = new User({
+                    firstName: args.firstName,
+                    lastName: args.lastName,
+                    email: args.email,
+                    password: hash
+                });
+                newUser.id = newUser._id;
+                return new Promise((resolve, reject) => {
+                    newUser.save(function (err, user) {
+                        if (err) {
+                            reject(err)
+                        } else {
+                            resolve(user)
+                        }
+                    });
+                });
+            }
+        })
+
     }
 };
 

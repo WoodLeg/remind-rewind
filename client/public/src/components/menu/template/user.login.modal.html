@@ -9,7 +9,10 @@
             <label for="">Password</label>
             <input ng-model="ctrl.user.password" type="password" name="password" class="form-control menu__signin-modal-password" value="">
         </div>
-        <button type="submit" class="menu__signin-modal-btn btn">Signin</button>
-        <button type="button" ng-click="ctrl.cancel()" class="menu__signin-modal-btn btn">Cancel</button>
+        <div class="form-group">
+            <button type="button" ng-click="ctrl.cancel()" class="menu__signin-modal-btn col-sm-6 btn">Cancel</button>
+            <button type="submit" class="menu__signin-modal-btn btn col-xs-12 col-sm-6">Signin</button>
+        </div>
+        <div class="clearfix"></div>
     </form>
 </div>
