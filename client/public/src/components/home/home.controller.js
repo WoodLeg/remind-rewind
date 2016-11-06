@@ -5,11 +5,9 @@
     .module('remindRewind.home')
     .controller('homeController', HomeController);
 
-    HomeController.$inject = ['HAPPYHOUR'];
+    HomeController.$inject = [];
 
-    function HomeController(HAPPYHOUR) {
-        this.happyHour = HAPPYHOUR;
-
+    function HomeController() {
 
     }
 

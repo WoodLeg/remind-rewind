@@ -6,7 +6,8 @@ const UserModel = mongoose.model('users', {
     lastName: String,
     username: String,
     email: String,
-    isAdmin: Boolean
+    isAdmin: Boolean,
+    password: String
 });
 
 export default UserModel;

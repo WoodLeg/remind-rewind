@@ -6,8 +6,6 @@ import {
 import UserType from './user.type';
 import User from './user.model';
 
-
-
 const MutationAdd = {
     type: UserType,
     description: 'Add a User',
@@ -23,20 +21,25 @@ const MutationAdd = {
         email: {
             name: 'email',
             type: new GraphQLNonNull(GraphQLString)
+        },
+        password: {
+            name: 'password',
+            type: new GraphQLNonNull(GraphQLString)
         }
     },
     resolve: (root, args) => {
         let newUser = new User({
             firstName: args.firstName,
             lastName: args.lastName,
-            email: args.email
+            email: args.email,
+            password: args.password
         });
         newUser.id = newUser._id;
         return new Promise((resolve, reject) => {
             newUser.save(function (err, user) {
                 if (err) reject(err)
                 else resolve(user)
-            })
+            });
         });
     }
 };

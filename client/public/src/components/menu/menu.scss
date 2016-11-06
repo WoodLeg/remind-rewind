@@ -1,7 +1,43 @@
-menu {
+.menu {
     height: 60px;
     width: 100%;
     position: fixed;
     margin: 0;
     padding: 0;
+    top:0;
+    left: 0;
+    &__list {
+        height: 60px;
+        &-item {
+            display: inline-block;
+            line-height: 60px;
+            font-size: 1.3em;
+            padding: 0 20px 0px 20px;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+    &__signin-modal {
+        &-container {
+            .modal-dialog {
+                margin-top: 100px;
+                width: 350px;
+            }
+            .modal-content {
+                padding-bottom: 15px;
+            }
+        }
+        h2 {
+            margin-top: 0;
+        }
+        &-btn {
+            display: block;
+            margin: 0 auto;
+            border-radius: 0;
+
+        }
+
+
+    }
 }

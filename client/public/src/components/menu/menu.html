@@ -1,4 +1,9 @@
 <div class="menu">
-    
+    <ul class="menu__list pull-left">
+        <li ng-if="ctrl.user" class="menu__list-item" >{{ctrl.user.firstName}}</li>
+        <li ng-if="!ctrl.user" class="menu__list-item" ng-click="ctrl.signup()">Signup</li>
+        <li ng-if="!ctrl.user" class="menu__list-item" ng-click="ctrl.login()">Login</li>
+        <li ng-if="ctrl.user" class="menu__list-item" ng-click="ctrl.logout()">Logout</li>
+    </ul>
     <div class="clearfix"></div>
 </div>

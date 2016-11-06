@@ -2,6 +2,11 @@ import express from 'express';
 import Schema from './schema';
 import graphQLHTTP from 'express-graphql';
 import mongoose from 'mongoose';
+import bodyParser from 'body-parser';
+import morgan from 'morgan';
+
+import headers from './middlewares/headers';
+import userRouter from './components/users/routes';
 
 const app = express();
 
@@ -10,11 +15,19 @@ mongoose.connect('mongodb://localhost/graphql', function (error) {
     else console.log('mongo connected')
 });
 
-app.use('/', graphQLHTTP({
+app.use(morgan('dev'));
+
+app.use('/graphql', graphQLHTTP({
     schema: Schema,
     pretty: true,
     graphiql: true
 }));
+
+app.use(bodyParser.json());
+app.use(headers.default);
+app.use(headers.options);
+
+app.use('/users', userRouter);
 
 app.listen(8080, (err) => {
     if (err) {
