@@ -1,19 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="remindRewind">
+	<head>
+		<base href="/" />
+		<title translate="i18n.COMMON.PRODUCT_NAME"></title>
+		<meta name="description" content="The official web application of the Genymotion Cloud platform.">
+		<meta name="author" content="Genymobile">
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="fragment" content="!" />
+		<!-- inject:css -->
+		<!-- endinject -->
+	</head>
 
-  <head>
-    <meta charset="UTF-8">
-    <!-- inject:css -->
-    <!-- endinject -->
-  </head>
-
-  <body>
-
-
-    <div id="remindrewind-component"></div>
-
-    <!-- inject:js -->
-    <!-- endinject -->
-  </body>
-
+	<body>
+		<div id="wrap">
+			<div class="content" ui-view="content"></div>
+		</div>
+		<!-- inject:js -->
+		<!-- endinject -->
+	</body>
 </html>

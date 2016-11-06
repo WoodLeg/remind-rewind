@@ -1,0 +1,53 @@
+<div class="sharing">
+    <div class="sharing__liveshare">
+        <div class="sharing__wrapper">
+            <ng-transclude></ng-transclude>
+            <div class="sharing__liveshare-link" ng-if="ctrl.uniqueURL">
+                <div class="sharing__liveshare-link">
+                    <div class="col-md-1 sharing__liveshare-link-img"><img src="http://placehold.it/16x16" /></div>
+                    <div class="sharing__liveshare-link-label col-md-11"></div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+        <form name="inviteForm" class="sharing__liveshare-email" novalidate="novalidate">
+            <label class="sharing__liveshare-email-label" translate="SHARING.RECIPIENTS.EMAILS"></label>
+            <a class="pull-right sharing__liveshare-toggle-link" ng-click="ctrl.advanced = !ctrl.advanced" ng-bind="ctrl.advanced ? 'default setting' : 'advanced setting'" ng-if="ctrl.mode === 'liveshare'"></a>
+            <ul class="sharing__liveshare-email-list default" ng-if="!ctrl.advanced">
+                <li class="sharing__liveshare-email-list-item" ng-repeat="user in ctrl.liveshareParticipants">
+                    <span class="sharing__liveshare-email-list-item-label">{{user}}</span>
+                    <a ng-click="ctrl.deleteRecipient(user)"><img class="sharing__liveshare-email-list-item-img default" src="/assets/img/ic_small_close_default.svg" /></a>
+                </li>
+                <li class="sharing__liveshare-email-list-item" ng-repeat="user in ctrl.liveshareRecipients">
+                    <span class="sharing__liveshare-email-list-item-label">{{user}}</span>
+                    <a ng-click="ctrl.deleteRecipient(user)"><img class="sharing__liveshare-email-list-item-img default" src="/assets/img/ic_small_close_default.svg" /></a>
+                </li>
+                <li class="sharing__liveshare-email-list-input">
+                    <input autocomplete="off" type="text" placeholder="{{'SHARING.RECIPIENTS.PLACEHOLDER' | translate}}" name="email" ng-model="ctrl.email" ng-keypress="inviteForm.$invalid ? false : ($event.keyCode == 13 ? ctrl.moreRecipients() : null)" validate-email/>
+                </li>
+                <div class="clearfix"></div>
+            </ul>
+            <ul class="sharing__liveshare-email-list advanced" ng-if="ctrl.advanced">
+                <li class="sharing__liveshare-email-list-item col-md-12" ng-repeat="user in ctrl.liveshareParticipants">
+                    <span class="pull-left sharing__liveshare-email-list-item-avatar"><avatar class="sharing__liveshare-email-list-item-img" email="{{user}}"></avatar></span>
+                    <span class="pull-left sharing__liveshare-email-list-item-label">{{user}}</span>
+                    <a ng-click="ctrl.deleteRecipient(user)"><img class="pull-right sharing__liveshare-email-list-item-img" src="/assets/img/ic_small_close_default.svg" /></a>
+                    <div class="clearfix"></div>
+                </li>
+                <div class="clearfix"></div>
+            </ul>
+            <textarea class="sharing__optional-message" ng-show="ctrl.options.message" placeholder="{{'SHARING.MESSAGE.PLACEHOLDER' | translate}}" ng-model="ctrl.optionalMessage"></textarea>
+            <div class="sharing__liveshare-error" ng-if="ctrl.limitLiveshareParticipants" translate="SHARING.ERRORS.TOO_MANY_PARTICIPANTS"></div>
+            <div ng-if="inviteForm.email.$dirty" class="messages" ng-messages="inviteForm.email.$error" role="alert">
+                <div ng-messages-include="/src/common/form/errors/form-errors.html"></div>
+            </div>
+        </form>
+        <div class="clearfix"></div>
+        <div class="sharing__liveshare-footer {{ctrl.mode}}">
+            <button class="btn cancel {{ctrl.mode}}" type="button" ng-click="ctrl.api.cancel()" ng-bind="ctrl.options.cancel" ng-if="ctrl.options.cancel"></button>
+            <button class="btn confirm {{ctrl.mode}}" type="button" ng-click="ctrl.formData.optionalMessage = ctrl.optionalMessage; ctrl.api.confirm(ctrl.formData)" ng-bind="ctrl.options.confirm"></button>
+            <div class="clearfix"></div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>

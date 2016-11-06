@@ -1,0 +1,52 @@
+.modal__header, .modal__footer {
+    border: none;
+}
+
+.modal__header {
+    img {
+        float:left;
+        margin-right:10px;
+        width: 18px;
+    }
+    &-title {
+        font-size: 1em;
+        color: $primary-text-color;
+        font-weight: 700;
+    }
+}
+
+.modal__body {
+    &-content {
+        font-size: 1em;
+        font-family: 'Lato Light', sans-serif;
+    }
+
+}
+
+.modal__footer {
+    .btn {
+        text-transform: uppercase;
+        background: transparent;
+        color: $accent-color;
+        box-shadow: none;
+        transition: all 0.3s ease;
+        &:hover {
+            background: $accent-color;
+            color: white;
+        }
+    }
+}
+
+
+
+/****** BOOTSTRAP OVERLOAD *****/
+
+.modal-dialog {
+    @media (min-width: $screen-sm-min) {
+        margin-top: 250px;
+    }
+    .modal-content {
+        border-radius: 2px;
+        padding: 15px 15px 0px 15px;
+    }
+}

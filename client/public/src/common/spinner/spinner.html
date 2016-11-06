@@ -1,0 +1,14 @@
+<div ng-class="{'spinner__container_overlay': ctrl.options.mode === 'overlay', 'spinner__container_inline': ctrl.options.mode === 'inline'}">
+        <div class="logo">
+            <div class="spinner-wrapper left">
+                <div class="spinner"></div>
+            </div>
+            <div class="spinner-wrapper right">
+                <div class="spinner"></div>
+            </div>
+        </div>
+
+        <div class="spinner__container-message" ng-if="ctrl.msg" >
+            <span ng-bind="ctrl.msg"></span>
+        </div>
+</div>

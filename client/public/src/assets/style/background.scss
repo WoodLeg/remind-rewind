@@ -1,0 +1,119 @@
+.animated-bg{
+    z-index: -10000;
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    min-height: 100%;
+    height: auto;
+    background: url('/assets/img/nuage_1er_plan.svg') repeat-x;
+    background-color: #202020;
+    background-size: cover;
+
+    animation: animatedBackground1 120s linear infinite;
+    -moz-animation: animatedBackground1 120s linear infinite;
+    -webkit-animation: animatedBackground1 120s linear infinite;
+    -ms-animation: animatedBackground1 120s linear infinite;
+    -o-animation: animatedBackground1 120s linear infinite;
+
+    .animated-bg__second-cloud{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        min-height: 100%;
+        height: auto;
+        background: url('/assets/img/nuage_2nd_plan.svg') repeat-x;
+        background-size: cover;
+
+        animation: animatedBackground 50s linear infinite;
+        -moz-animation: animatedBackground 50s linear infinite;
+        -webkit-animation: animatedBackground 50s linear infinite;
+        -ms-animation: animatedBackground 50s linear infinite;
+        -o-animation: animatedBackground 50s linear infinite;
+
+    }
+    .animated-bg__third-cloud{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        min-height: 100%;
+        height: auto;
+        background: url('/assets/img/nuage_3rd_plan.svg') repeat-x;
+        background-size: cover;
+
+        animation: animatedBackground 240s linear infinite;
+        -moz-animation: animatedBackground 240s linear infinite;
+        -webkit-animation: animatedBackground 240s linear infinite;
+        -ms-animation: animatedBackground 240s linear infinite;
+        -o-animation: animatedBackground 240s linear infinite;
+    }
+    .animated-bg__montgolifere{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        min-height: 100%;
+        height: auto;
+        background: url('/assets/img/montgolifere.svg') repeat-y;
+        background-size: cover;
+
+        animation: animatedMont 60s linear infinite;
+        -moz-animation: animatedMont 60s linear infinite;
+        -webkit-animation: animatedMont 60s linear infinite;
+        -ms-animation: animatedMont 60s linear infinite;
+        -o-animation: animatedMont 60s linear infinite;
+    }
+}
+
+@media only screen and (max-width: 1600px){
+    @keyframes animatedBackground {
+        0% { background-position: 0 50px; }
+        100% { background-position: -1920px 50px; }
+    }
+
+    @keyframes animatedBackground1 {
+        0% { background-position: 0 0; }
+        100% { background-position: 1920px 0; }
+    }
+
+    @keyframes animatedMont {
+        0% { background-position: 0 0; }
+        100% { background-position: 0 -1080px; }
+    }
+}
+
+@media only screen and (min-width: 1601px){
+    @keyframes animatedBackground {
+        0% { background-position: 0 50px; }
+        100% { background-position: -1920px 50px; }
+    }
+
+    @keyframes animatedBackground1 {
+        0% { background-position: 0 0; }
+        100% { background-position: 1920px 0; }
+    }
+
+    @keyframes animatedMont {
+        0% { background-position: 0 0; }
+        100% { background-position: 0 -1080px; }
+    }
+}
+
+@media only screen and (min-width: 1917px){
+    @keyframes animatedBackground {
+        0% { background-position: 0 -50px; }
+        100% { background-position: -1920px -50px; }
+    }
+
+    @keyframes animatedBackground1 {
+        0% { background-position: 0 -100px; }
+        100% { background-position: 1920px -100px; }
+    }
+
+    @keyframes animatedMont {
+        0% { background-position: 0 0; }
+        100% { background-position: 0 -1080px; }
+    }
+}

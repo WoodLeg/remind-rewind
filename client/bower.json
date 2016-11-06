@@ -1,16 +1,37 @@
 {
-  "name": "RemindRewind",
-  "description": "Musique",
-  "main": "index.js",
+  "name": "genymotion-cloud-fe-portal",
+  "version": "0.0.0",
   "authors": [
-    "Paul Souvestre <paul.souvestre@gmail.com>"
+    "Genymobile"
   ],
-  "license": "ISC",
-  "keywords": [
-    "babel",
-    "gulp",
-    "es2015"
+  "main": "public/src/index.html",
+  "moduleType": [
+    "globals"
   ],
-  "homepage": "https://github.com/WoodLeg/remind-rewind",
-  "moduleType": []
+  "license": "SEE LICENSE IN LICENSE.md",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.7",
+    "angular-animate": "^1.5.7",
+    "angular-bootstrap": "^1.3.3",
+    "angular-jwt": "~0.0.9",
+    "angular-messages": "^1.5.7",
+    "angular-mocks": "^1.5.7",
+    "angular-ui-router": "^0.3.1",
+    "bootstrap-sass": "3.3.4",
+    "ngstorage": "^0.3.10",
+    "angular-cookies": "^1.5.7",
+    "angular-translate": "^2.11.0",
+    "angular-translate-loader-partial": "^2.11.0",
+    "angular-translate-storage-cookie": "^2.11.0",
+    "angular-translate-storage-local": "^2.11.0",
+    "angular-translate-loader-static-files": "^2.11.0",
+    "angular-translate-handler-log": "^2.11.0"
+  }
 }

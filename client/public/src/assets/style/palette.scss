@@ -1,0 +1,39 @@
+/****************
+*** V2 STYLES ***
+****************/
+
+$genymotion-pink: #E6195E;
+
+/* BACKGROUND */
+$background-color-alt: #fff;
+$background-color-player: #BBB;
+$background-color-item-selected: #E6E6E6;
+
+/* NAVIGATION */
+$nav-color-default: #161616;
+$nav-color-player: $genymotion-pink;
+$nav-color-liveshare: #FFF;
+
+/* ICONOGRAPHY */
+$icon-color-disabled: #C4C4C4;
+$icon-color-default: #3D3D3D;
+$icon-color-hover: $nav-color-default;
+$icon-background-color-active: rgba(196,196,196,0.54);
+
+$icon-color-default-alt: #E5E5E5;
+$icon-color-hover-alt: #FFF;
+$icon-background-color-active-alt: rgba(255,255,255,0.14);
+
+/* TYPOGRAPHY */
+$text-color-default: #3D3D3D;
+$text-color-title: #161616;
+$text-color-accent: $genymotion-pink;
+
+$text-color-default-alt: #fff;
+$text-color-title-alt: #fff;
+$text-color-accent-alt: #fff;
+
+$text-color-label: #aaa;
+
+/* EFFECTS */
+$border-color-list-item: #E5E5E5;

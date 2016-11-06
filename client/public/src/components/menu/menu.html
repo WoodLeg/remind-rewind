@@ -1,0 +1,69 @@
+<div class="default" ng-class="{
+    'menu__container-emulator-default': toState.data.page === 'vms',
+    'menu__container-emulator-liveshare': toState.data.page === 'live',
+    'menu__container-home': (toState.data.page === 'home' || toState.data.page === 'manager'),
+    'menu__container-profile': toState.data.page === 'profile',
+    'menu__container-admin': toState.data.page === 'admin'
+}">
+
+    <div ng-if="toState.data.page === 'home' || toState.data.page === 'manager' || toState.data.page === 'vms' || toState.data.page === 'live'" class="menu__logo--left pull-left">
+        <a ui-sref="remindRewind.core.home">
+            <div class="menu__logo-img"></div>
+        </a>
+    </div>
+
+    <div ng-if="toState.data.page === 'profile'" class="pull-left">
+        <div class="menu__container-profile-icon pull-left" ui-sref="remindRewind.core.home"></div>
+        <div class="menu__container-profile-title pull-left" translate="i18n.COMMON.MENU_PROFILE"></div>
+    </div>
+
+    <div ng-if="toState.data.page === 'admin'" class="pull-left">
+        <div class="menu__container-admin-icon pull-left" ui-sref="remindRewind.core.home"></div>
+        <div class="menu__container-admin-title pull-left" translate="i18n.COMMON.MENU_ADMIN"></div>
+    </div>
+
+    <div ng-if="toState.data.page === 'home' || toState.data.page === 'manager' || toState.data.page === 'live' || toState.data.page === 'vms'"class="menu__nav-dropdown--left">
+        <div class="menu__nav-dropdown-trigger" ng-click="ctrl.toggleDropdownMenu()">
+            <a class="menu__nav-dropdown-item pull-left">{{ ctrl.currentPage }}</a>
+            <span class="menu__nav-dropdown-img pull-right carrot"></span>
+        </div>
+        <div ng-show="ctrl.dropdownMenu" class="menu__nav-dropdown-container col-sm-12">
+            <ul>
+                <li ng-click="ctrl.toggleDropdownMenu()"><span class="carrot-li"></span></li>
+                <li class="menu__nav-dropdown-item-home" ng-click="ctrl.showPage('home'); ctrl.toggleDropdownMenu()" translate="i18n.COMMON.MENU_RESOURCES"></li>
+                <li class="menu__nav-dropdown-item-vms" ng-if="ctrl.runningDevice" ng-click="ctrl.showPage('vms'); ctrl.toggleDropdownMenu()" translate="i18n.COMMON.MENU_RUNNING"></li>
+                <li class="menu__nav-dropdown-item-liveshare" ng-click="ctrl.showPage('liveshare-list'); ctrl.toggleDropdownMenu()" translate="i18n.COMMON.MENU_LIVESHARE"></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="menu__nav-action-bar--right col-md-8">
+        <ul class="pull-right menu__nav-action-bar-list-container">
+            <li ng-if="ctrl.user.is_staff" class="menu__nav-action-bar-item admin" uib-tooltip="Under construction" tooltip-placement="bottom"></li>
+            <li class="menu__nav-action-bar-item">
+                <div class="dropdown">
+                    <span class="menu__nav-action-bar-item-profile profile btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">
+                    </span>
+                    <div class="dropdown-menu dropdown-menu-right shadow-2" aria-labelledby="dropdownMenuButton">
+                        <div class="menu__nav-action-bar-item-profile-resume">
+                            <div class="menu__nav-action-bar-item-profile-resume-img col-xs-12 col-sm-2">
+                                <avatar email="ctrl.user.profile.email"></avatar>
+                            </div>
+                            <div class="menu__nav-action-bar-item-profile-resume-data col-xs-12 col-sm-10">
+                                {{ ctrl.user.first_name }} {{ ctrl.user.last_name }}
+                                {{ ctrl.user.email }}
+                                <button ng-click="ctrl.showPage('profile')" class="btn menu__nav-action-bar-item-profile-resume-btn btn-secondary">{{'i18n.COMMON.MENU_EDIT_PROFILE' | translate }}</button>
+                            </div>
+                        </div>
+                        <div class="menu__nav-action-bar-item-profile-actions">
+                            <ul>
+                                <li class="menu__nav-action-bar-item-profile-actions-logout" ng-click="ctrl.logout();">{{ 'i18n.COMMON.MENU_SIGNOUT' | translate }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="clearfix"></div>
+</div>

@@ -1,0 +1,8 @@
+{
+    "SPINNER": {
+        "GENERIC": "Now loading. Please wait.",
+        "VD_CREATE": "Creating your Virtual Device...",
+        "VD_CREATE_PROGRESS": "We are creating your VM...",
+        "VD_START": "Starting your virtual device..."
+    }
+}

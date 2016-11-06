@@ -1,0 +1,89 @@
+@mixin box-shadow($top, $left, $blur, $color, $inset: null) {
+    -webkit-box-shadow: $top $left $blur $color #{$inset};
+    -moz-box-shadow: $top $left $blur $color #{$inset};
+    box-shadow: $top $left $blur $color #{$inset};
+}
+
+@mixin metal-gradient() {
+    background: rgba(248,250,252,1);
+    background: -moz-linear-gradient(top, rgba(222,222,222,1) 0%, rgba(255,255,255,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(222,222,222,1)), color-stop(100%, rgba(255,255,255,1)));
+    background: -webkit-linear-gradient(top, rgba(222,222,222,1) 0%, rgba(255,255,255,1) 100%);
+    background: -o-linear-gradient(top, rgba(222,222,222,1) 0%, rgba(255,255,255,1) 100%);
+    background: -ms-linear-gradient(top, rgba(222,222,222,1) 0%, rgba(255,255,255,1) 100%);
+    background: linear-gradient(to bottom, rgba(222,222,222,1) 0%, rgba(255,255,255,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dedede', endColorstr='#ffffff', GradientType=0 );
+    background-attachment: fixed;
+}
+
+@mixin slide-in() {
+    &.ng-enter, &.ng-leave {
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+    }
+    &.ng-enter {
+        opacity: 0;
+        -webkit-transform:translate3d(500px, 0, 0);
+        -moz-transform:translate3d(500px, 0, 0);
+        transform:translate3d(500px, 0, 0);
+    }
+    &.ng-enter-active {
+        opacity: 1;
+        -webkit-transform:translate3d(0, 0, 0);
+        -moz-transform:translate3d(0, 0, 0);
+        transform:translate3d(0, 0, 0);
+    }
+    &.ng-leave {
+        opacity: 1;
+        -webkit-transform:translate3d(0, 0, 0);
+        -moz-transform:translate3d(0, 0, 0);
+        transform:translate3d(0, 0, 0);
+    }
+    &.ng-leave-active {
+        opacity: 0;
+        -webkit-transform:translate3d(-600px, 0, 0);
+        -moz-transform:translate3d(-600px, 0, 0);
+        transform:translate3d(-600px, 0, 0);
+    }
+}
+
+@mixin stagger-in($left) {
+    &.ng-enter, &.ng-leave {
+        -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+    }
+    &.ng-enter {
+        opacity: 0;
+        left: $left;
+    }
+    &.ng-enter-stagger {
+        transition-delay: 0.2s;
+        transition-duration: 0s;
+    }
+    &.ng-enter-active {
+        opacity: 1;
+        left: 0px;
+    }
+}
+
+@mixin font-smoothing($value: on) {
+    @if $value == on {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    @else {
+        -webkit-font-smoothing: subpixel-antialiased;
+        -moz-osx-font-smoothing: auto;
+    }
+}
+
+@mixin absolute-center() {
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}

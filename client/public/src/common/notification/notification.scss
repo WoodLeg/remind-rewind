@@ -1,0 +1,55 @@
+.alerts {
+    margin: auto;
+    position: fixed;
+    z-index: 999999999;
+    top: 0;
+    right: 0;
+    font-size: 1em;
+    opacity: 1;
+    -webkit-transition: 0.2s linear all;
+    transition: 0.2s linear all;
+
+    &.ng-hide-add, &.ng-hide-remove, &.ng-hide  {
+        display: block;
+    }
+
+    &.ng-hide {
+        opacity: 0;
+    }
+
+    .alert {
+
+        &.alert-warning {
+            color: #f5e79e;
+        }
+
+        width: 320px;
+        height: auto;
+        margin: auto;
+        position: absolute;
+        top: 10px; right: 10px;
+        z-index: 999999999;
+        -webkit-transition: 0.1s linear all;
+        transition: 0.1s linear all;
+        background: rgba(40,51,58, 1);
+        text-shadow: none;
+        border-width: 0 0 10px 0;
+
+        @include slide-in();
+
+        label {
+            font-size: 1.5em;
+            text-shadow: 1px 1px 1px #000;
+        }
+
+        button.close {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 32px;
+            height: 32px;
+            font-size: 2em;
+            color: white;
+        }
+    }
+}
