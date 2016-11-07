@@ -9,7 +9,6 @@
 
     function AdminController(userFactory){
 
-        var self = this;
         this.me = userFactory.getUser();
 
     }

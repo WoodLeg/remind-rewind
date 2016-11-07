@@ -18,10 +18,19 @@
             }).catch(function(reason){
                 return $q.reject(reason);
             });
-        }
+        };
 
-        graphqlFactory.mutation = function(dataSended) {
+        graphqlFactory.addUserMutation = function(dataSended) {
             var payload = graphqlProvider.prepareAddUserMutation(dataSended);
+            return graphqlService.send(payload).then(function(response){
+                return $q.resolve(response.data);
+            }).catch(function(reason){
+                return $q.reject(reason);
+            });
+        };
+
+        graphqlFactory.destroyUserMutation = function(dataSended) {
+            var payload = graphqlProvider.prepareDestroyUserMutation(dataSended);
             return graphqlService.send(payload).then(function(response){
                 return $q.resolve(response.data);
             }).catch(function(reason){

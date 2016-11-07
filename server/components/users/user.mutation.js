@@ -31,6 +31,10 @@ const MutationAdd = {
         isAdmin: {
             name: 'isAdmin',
             type: GraphQLBoolean
+        },
+        isModerator: {
+            name: 'isModerator',
+            type: GraphQLBoolean
         }
     },
     resolve: (root, args) => {
@@ -44,7 +48,8 @@ const MutationAdd = {
                         lastName: args.lastName,
                         email: args.email,
                         password: hash,
-                        isAdmin: args.isAdmin
+                        isAdmin: args.isAdmin,
+                        isModerator: args.isModerator
                     });
                     newUser.id = newUser._id;
                     newUser.save(function (err, user) {

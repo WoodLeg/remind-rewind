@@ -22,6 +22,9 @@ const UserType = new GraphQLObjectType({
         },
         isAdmin: {
             type: GraphQLBoolean
+        },
+        isModerator: {
+            type: GraphQLBoolean
         }
     })
 });

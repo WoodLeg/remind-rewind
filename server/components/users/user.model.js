@@ -7,6 +7,7 @@ const UserModel = mongoose.model('users', {
     username: String,
     email: String,
     isAdmin: Boolean,
+    isModerator: Boolean,
     password: String
 });
 
