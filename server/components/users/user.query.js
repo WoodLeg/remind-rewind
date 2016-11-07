@@ -19,7 +19,6 @@ const promiseListAll = () => {
 const users = {
     type: new GraphQLList(UserType),
     resolve: (root) => {
-        console.log(root);
         root.token = {};
         if (root.token) {
             return promiseListAll()

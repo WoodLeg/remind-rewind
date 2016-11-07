@@ -21,10 +21,11 @@
             'remindRewind.units',
             'remindRewind.authentication',
             'remindRewind.user',
-            'remindRewind.home',
             'remindRewind.spinner',
             'remindRewind.modal',
             'remindRewind.menu',
-            'remindRewind.error'
+            'remindRewind.error',
+            'remindRewind.home',
+            'remindRewind.admin'
         ]);
 })();

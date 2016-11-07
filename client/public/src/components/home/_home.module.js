@@ -15,9 +15,6 @@
                     'content@': {
                         templateUrl: '/src/components/home/home.html',
                         controller: 'homeController as ctrl'
-                    },
-                    'background@': {
-                        templateUrl: '/src/common/background/background.html'
                     }
                 }
             });

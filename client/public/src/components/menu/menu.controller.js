@@ -5,9 +5,9 @@
         .module('remindRewind.menu')
         .controller('menuController', MenuController);
 
-    MenuController.$inject = ['modalFactory', 'userFactory', '$log']
+    MenuController.$inject = ['modalFactory', 'userFactory', '$log', '$state']
 
-    function MenuController(modalFactory, userFactory, $log){
+    function MenuController(modalFactory, userFactory, $log, $state){
 
         var self = this;
         this.user = userFactory.getUser() || null;
@@ -36,6 +36,7 @@
         this.logout = function(){
             userFactory.clean();
             self.user = null;
+            $state.go('remindRewind.home');
         };
 
     }
