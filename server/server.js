@@ -17,17 +17,17 @@ mongoose.connect('mongodb://localhost/graphql', function (error) {
 });
 
 app.use(morgan('dev'));
-// app.use('/graphql', authorization.verifyJWT);
+app.use(authorization.verifyJWT);
 app.use(bodyParser.json());
 app.use(headers.default);
 app.use(headers.options);
 
-app.use('/graphql', graphQLHTTP({
+app.use('/graphql', graphQLHTTP((request) => ({
     schema: Schema,
     pretty: true,
+    rootValue: { token: request._token },
     graphiql: true
-}));
-
+})));
 
 
 app.use('/users', userRouter);

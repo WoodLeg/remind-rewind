@@ -34,31 +34,26 @@ const MutationAdd = {
         }
     },
     resolve: (root, args) => {
-        bcrypt.hash(args.password, 10, function(err, hash){
-            if (err){
-                return new Promise((resolve, reject) => {
+        return new Promise((resolve, reject) => {
+            bcrypt.hash(args.password, 10, function(err, hash){
+                if (err){
                     reject(err);
-                });
-            } else {
-                let newUser = new User({
-                    firstName: args.firstName,
-                    lastName: args.lastName,
-                    email: args.email,
-                    password: hash
-                });
-                newUser.id = newUser._id;
-                return new Promise((resolve, reject) => {
-                    newUser.save(function (err, user) {
-                        if (err) {
-                            reject(err)
-                        } else {
-                            resolve(user)
-                        }
+                } else {
+                    let newUser = new User({
+                        firstName: args.firstName,
+                        lastName: args.lastName,
+                        email: args.email,
+                        password: hash,
+                        isAdmin: args.isAdmin
                     });
-                });
-            }
-        })
-
+                    newUser.id = newUser._id;
+                    newUser.save(function (err, user) {
+                        if (err) reject(err);
+                        else resolve(user);
+                    });
+                }
+            });
+        });
     }
 };
 
@@ -75,13 +70,13 @@ const MutationDestroy = {
         return new Promise((resolve, reject) => {
             User.findById(args.id, (err, user) => {
                 if (err) {
-                    reject(err)
+                    reject(err);
                 } else if (!user) {
-                    reject('Todo NOT found')
+                    reject('User NOT found');
                 } else {
                     user.remove((err) => {
-                        if (err) reject(err)
-                        else resolve(user)
+                        if (err) reject(err);
+                        else resolve(user);
                     });
                 }
             });

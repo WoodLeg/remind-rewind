@@ -18,8 +18,16 @@ const promiseListAll = () => {
 
 const users = {
     type: new GraphQLList(UserType),
-    resolve: () => {
-        return promiseListAll()
+    resolve: (root) => {
+        console.log(root);
+        root.token = {};
+        if (root.token) {
+            return promiseListAll()
+        } else {
+            return new Promise((resolve, reject) => {
+                reject("Not authorized");
+            });
+        }
     }
 };
 
