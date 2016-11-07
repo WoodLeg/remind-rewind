@@ -31,7 +31,8 @@
             graphqlFactory.addUserMutation(self.newUserData).then(function(response){
                 $log.debug('SUCCESS Add user: ', response);
                 self.users.push(response.data.addUser);
-                self.newUserData = {};
+                self.newUserData.isAdmin = false;
+                self.newUserData.isModerator = false;
                 self.toggleAddUser();
             }).catch(function(reason){
                 $log.debug('ERROR ADD USER: ', reason);
@@ -40,8 +41,11 @@
 
         this.destroyUser = function(id){
             graphqlFactory.destroyUserMutation(id).then(function(response){
-                var index = self.users.indexOf(response.data.destroyUser);
-                self.users.splice(index, 1);
+                for (var i = 0; i < self.users.length; i++) {
+                    if (self.users[i].id === response.data.destroyUser.id) {
+                        self.users.splice(i, 1);
+                    }
+                }
             }).catch(function(reason){
                 $log.debug('ERROR DEL USER: ', reason);
             });
