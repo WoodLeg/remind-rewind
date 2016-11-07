@@ -10,9 +10,10 @@
     function GraphqlService($http){
 
 
-        this.query = function(payload) {
+        this.send = function(payload) {
             return $http.post('http://localhost:8080/graphql', payload);
         };
+
 
 
     }

@@ -14,13 +14,13 @@
                 views: {
                     'admin': {
                         templateUrl: '/src/components/admin/posts/posts.html',
-                        controller: 'postsAdminController as ctrl'
+                        controller: 'postAdminController as ctrl'
                     }
                 },
                 resolve: {
                     accessGranted: ['$q', 'userFactory', '$timeout', '$state', function($q, userFactory, $timeout, $state){
                         var user = userFactory.getUser();
-                        if (user && user.isAdmin){
+                        if (user && (user.isAdmin || user.status === 'moderator')){
                             return true;
                         } else {
                             $timeout(function() {

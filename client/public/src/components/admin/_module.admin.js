@@ -18,7 +18,8 @@
                 abstract: true,
                 views: {
                     'content@': {
-                        templateUrl: '/src/components/admin/admin.html'
+                        templateUrl: '/src/components/admin/admin.html',
+                        controller: 'adminController as ctrl'
                     }
                 }
             });
