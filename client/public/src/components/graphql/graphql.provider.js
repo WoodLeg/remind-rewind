@@ -19,7 +19,7 @@
                 },
                 prepareAddUserMutation: function(dataMutation){
                     return {
-                        query: 'mutation {addUser(firstName: ' + dataMutation.firstName + ', lastName: ' + dataMutation.lastName + ', email: '+ dataMutation.email + ', isAdmin: ' + dataMutation.isAdmin +'){id firstName lastName email isAdmin}}',
+                        query: 'mutation {addUser(firstName: \"' + dataMutation.firstName + '\", lastName: \"' + dataMutation.lastName + '\", email: \"'+ dataMutation.email + '\", isAdmin: ' + dataMutation.isAdmin + ', password: \"'+ dataMutation.password + '\") {id firstName lastName email isAdmin}}',
                         variables: null
                     };
                 }

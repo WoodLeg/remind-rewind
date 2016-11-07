@@ -29,7 +29,8 @@
         this.addUser = function(){
             graphqlFactory.mutation(self.newUserData).then(function(response){
                 $log.debug('SUCCESS Add user: ', response);
-                self.users.push(response.data);
+                self.users.push(response.data.addUser);
+                self.newUserData = {};
             }).catch(function(reason){
                 $log.debug('ERROR ADD USER: ', reason);
             });
