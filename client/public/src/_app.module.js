@@ -12,19 +12,20 @@
             'ngMessages',
             'angular-jwt',
 
+
+
             // Components
             'remindRewind.i18n',
             'remindRewind.notification',
             'remindRewind.form',
             'remindRewind.list',
-            'remindRewind.soon',
-            'remindRewind.units',
             'remindRewind.authentication',
-            'remindRewind.user',
             'remindRewind.spinner',
             'remindRewind.modal',
-            'remindRewind.menu',
             'remindRewind.error',
+            'remindRewind.graphql',
+            'remindRewind.menu',
+            'remindRewind.user',
             'remindRewind.home',
             'remindRewind.admin'
         ]);

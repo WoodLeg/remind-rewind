@@ -14,8 +14,7 @@
 
         this.login = function(){
             modalFactory.launch({
-                title: 'Yo',
-                content: 'Bouyaka',
+                title: 'Sign in',
                 template: '/src/components/menu/template/user.login.modal.html',
                 windowClass: 'menu__signin-modal-container',
                 confirm: 'Send',
@@ -24,6 +23,7 @@
                 userFactory.signin(user).then(function(response){
                     self.user = response.data.user;
                 }).catch(function(err){
+                    // ERRor manager
                     modalFactory.launch({
                         title: 'ERR',
                         content: err.data.msg,

@@ -1,20 +1,25 @@
-.menu {
-    height: 60px;
+.menu, menu {
+    height: 40px;
     width: 100%;
     position: fixed;
     margin: 0;
     padding: 0;
     top:0;
     left: 0;
+    z-index: 90;
     &__list {
-        height: 60px;
+        height: 40px;
         &-item {
             display: inline-block;
-            line-height: 60px;
-            font-size: 1.3em;
+            line-height: 40px;
+            height: 40px;
+            font-size: 0.8em;
             padding: 0 20px 0px 20px;
+            font-family: 'Roboto Light', sans-serif;
+            transition: all 0.3s ease;
             &:hover {
                 cursor: pointer;
+                background: rgba(120,120,120,0.3)
             }
         }
     }
