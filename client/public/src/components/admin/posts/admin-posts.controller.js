@@ -24,6 +24,18 @@
             $state.go('remindRewind.admin.users.solo', {id: userID});
         };
 
+        this.destroyPost = function(postID){
+            graphqlFactory.drestroyPostMutation(postID).then(function(response){
+                for (var i = 0; i < self.posts.length; i++) {
+                    if (self.posts[i].id === response.data.destroyPost.id) {
+                        self.posts.splice(i, 1);
+                    }
+                }
+            }).catch(function(reason){
+                $log.debug('ERR DESTROY POST: ', reason);
+            });
+        }
+
         $timeout(function(){
             self.loadPosts();
         });

@@ -20,7 +20,7 @@
                 resolve: {
                     accessGranted: ['$q', 'userFactory', '$timeout', '$state', function($q, userFactory, $timeout, $state){
                         var user = userFactory.getUser();
-                        if (user && (user.isAdmin || user.status === 'moderator')){
+                        if (user && (user.isAdmin || user.isModerator)){
                             return true;
                         } else {
                             $timeout(function() {

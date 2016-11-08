@@ -56,7 +56,7 @@
                     // Do nothing if authenticated
                 }, function() {
                     // Redirect to signin otherwise
-                    $state.go('remindRewind.signin');
+                    $state.go('remindRewind.home');
                 });
             }
 

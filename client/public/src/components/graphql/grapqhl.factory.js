@@ -20,8 +20,8 @@
             });
         };
 
-        graphqlFactory.addUserMutation = function(dataSended) {
-            var payload = graphqlProvider.prepareAddUserMutation(dataSended);
+        graphqlFactory.addUserMutation = function(user) {
+            var payload = graphqlProvider.prepareAddUserMutation(user);
             return graphqlService.send(payload).then(function(response){
                 return $q.resolve(response.data);
             }).catch(function(reason){
@@ -29,14 +29,32 @@
             });
         };
 
-        graphqlFactory.destroyUserMutation = function(dataSended) {
-            var payload = graphqlProvider.prepareDestroyUserMutation(dataSended);
+        graphqlFactory.destroyUserMutation = function(user) {
+            var payload = graphqlProvider.prepareDestroyUserMutation(user);
             return graphqlService.send(payload).then(function(response){
                 return $q.resolve(response.data);
             }).catch(function(reason){
                 return $q.reject(reason);
             });
         };
+
+        graphqlFactory.addPostMutation = function(post, user){
+            var payload = graphqlProvider.prepapreAddPostMutation(post, user);
+            return graphqlService.send(payload).then(function(response){
+                return $q.resolve(response.data);
+            }).catch(function(reason){
+                return $q.reject(reason);
+            });
+        }
+
+        graphqlFactory.drestroyPostMutation = function(postID){
+            var payload = graphqlProvider.prepareDestroyPostMutation(postID);
+            return graphqlService.send(payload).then(function(response){
+                return $q.resolve(response.data);
+            }).catch(function(reason){
+                return $q.reject(reason);
+            });
+        }
 
         return graphqlFactory;
     }

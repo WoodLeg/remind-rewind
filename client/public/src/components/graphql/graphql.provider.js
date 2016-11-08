@@ -25,9 +25,21 @@
                 },
                 prepareDestroyUserMutation: function(id){
                     return {
-                        query: 'mutation {destroyUser (id: \"' + id + '\") {id firstName lastName email isAdmin isModerator}}',
+                        query: 'mutation {destroyUser (id: \"' + id + '\") {id}}',
                         variables: null
                     };
+                },
+                prepapreAddPostMutation: function(post, user) {
+                    return {
+                        query: 'mutation {addPost (title: \"'+ post.title +'\", content: \"'+ post.body +'\", author: \"'+user+'\", artist: \"'+ post.artist+'\") {id title content author{id firstName lastName} artist}}',
+                        variables: null
+                    }
+                },
+                prepareDestroyPostMutation: function (postID){
+                    return {
+                        query: 'mutation {destroyPost (id: \"'+postID+'\") {id}}',
+                        variables: null
+                    }
                 }
             };
         }];
