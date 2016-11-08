@@ -15,6 +15,7 @@ import PostMutation from './components/posts/post.mutation';
 
 const QueryType = new GraphQLObjectType({
     name: 'Query',
+    description: 'List of all data you can access.',
     fields: () => ({
         users: UserQuery.users,
         user: UserQuery.user,
@@ -25,6 +26,7 @@ const QueryType = new GraphQLObjectType({
 
 var MutationType = new GraphQLObjectType({
     name: 'Mutation',
+    description: 'List of every actions you can use on data.',
     fields: {
         addUser: UserMutation.add,
         destroyUser: UserMutation.destroy,

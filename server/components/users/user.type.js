@@ -6,25 +6,32 @@ import {
 } from 'graphql';
 
 const UserType = new GraphQLObjectType({
-    name: 'user',
+    name: 'User',
+    description: 'Desfinition of the User Type.',
     fields: () => ({
         id: {
-            type: GraphQLID
+            type: GraphQLID,
+            description: 'ID of the User'
         },
         firstName: {
-            type: GraphQLString
+            type: GraphQLString,
+            description: 'First name of the User'
         },
         lastName: {
-            type: GraphQLString
+            type: GraphQLString,
+            description: 'Last name of the User'
         },
         email: {
-            type: GraphQLString
+            type: GraphQLString,
+            description: 'Email of the User'
         },
         isAdmin: {
-            type: GraphQLBoolean
+            type: GraphQLBoolean,
+            description: 'Does the user is Admin ?'
         },
         isModerator: {
-            type: GraphQLBoolean
+            type: GraphQLBoolean,
+            descritpion: 'Does the user is Moderator ?'
         }
     })
 });
