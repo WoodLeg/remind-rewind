@@ -10,7 +10,7 @@ import ArtistType from './artist.type';
 import Artist from './artist.model';
 
 const searchArtist = {
-    type: ArtistType,
+    type: new GraphQLList(ArtistType),
     args: {
         name: {
             type: new GraphQLNonNull(GraphQLString)
@@ -22,7 +22,12 @@ const searchArtist = {
                 if(response.searchResults.searchResult.length === 0){
                     reject('Artist not found');
                 } else {
-                    resolve(response.searchResults.searchResult[0].artist);
+                    let artists = [];
+
+                    for (var i = 0; i < response.searchResults.searchResult.length; i++) {
+                        artists.push(response.searchResults.searchResult[i].artist);
+                    }
+                    resolve(artists);
                 }
             }).catch((reason) => {
                 reject(reason);
