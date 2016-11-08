@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 
-const UserModel = mongoose.model('users', {
+
+var UserSchema = new mongoose.Schema({
     id: mongoose.Schema.Types.ObjectId,
     firstName: String,
     lastName: String,
@@ -10,5 +11,7 @@ const UserModel = mongoose.model('users', {
     isModerator: Boolean,
     password: String
 });
+
+const UserModel = mongoose.model('users', UserSchema);
 
 export default UserModel;

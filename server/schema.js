@@ -10,13 +10,16 @@ import {
 
 import UserQuery from './components/users/user.query';
 import UserMutation from './components/users/user.mutation';
-
+import PostQuery from './components/posts/post.query';
+import PostMutation from './components/posts/post.mutation';
 
 const QueryType = new GraphQLObjectType({
     name: 'Query',
     fields: () => ({
         users: UserQuery.users,
-        user: UserQuery.user
+        user: UserQuery.user,
+        posts: PostQuery.posts,
+        post: PostQuery.post
     })
 });
 
@@ -25,6 +28,8 @@ var MutationType = new GraphQLObjectType({
     fields: {
         addUser: UserMutation.add,
         destroyUser: UserMutation.destroy,
+        addPost: PostMutation.add,
+        destroyPost: PostMutation.destroy
     }
 });
 
