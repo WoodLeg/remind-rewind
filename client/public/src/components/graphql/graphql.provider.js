@@ -40,6 +40,12 @@
                         query: 'mutation {destroyPost (id: \"'+postID+'\") {id}}',
                         variables: null
                     }
+                },
+                prepareAddArtistMutation: function(artist){
+                    return {
+                        query: 'mutation {addArtist (digital_id: \"'+artist.id+'\", name: \"'+artist.name+'\"){id name}}',
+                        variables: null
+                    }
                 }
             };
         }];

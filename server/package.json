@@ -17,6 +17,8 @@
     "graphql": "^0.7.0",
     "jwt-simple": "^0.5.0",
     "mongoose": "^4.6.1",
-    "morgan": "^1.7.0"
+    "morgan": "^1.7.0",
+    "request": "^2.78.0",
+    "request-promise": "^4.1.1"
   }
 }

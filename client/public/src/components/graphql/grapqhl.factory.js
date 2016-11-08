@@ -56,6 +56,15 @@
             });
         }
 
+        graphqlFactory.addArtistMutation = function(artist){
+            var payload = graphqlProvider.prepareAddArtistMutation(artist);
+            return graphqlService.send(payload).then(function(response){
+                return $q.resolve(response.data);
+            }).catch(function(reason){
+                return $q.reject(reason);
+            });
+        };
+
         return graphqlFactory;
     }
 

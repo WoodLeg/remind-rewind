@@ -12,6 +12,8 @@ import UserQuery from './components/users/user.query';
 import UserMutation from './components/users/user.mutation';
 import PostQuery from './components/posts/post.query';
 import PostMutation from './components/posts/post.mutation';
+import ArtistQuery from './components/artists/artist.query';
+import ArtistMutation from './components/artists/artist.mutation';
 
 const QueryType = new GraphQLObjectType({
     name: 'Query',
@@ -20,7 +22,9 @@ const QueryType = new GraphQLObjectType({
         users: UserQuery.users,
         user: UserQuery.user,
         posts: PostQuery.posts,
-        post: PostQuery.post
+        post: PostQuery.post,
+        artist: ArtistQuery.searchArtist,
+        artists: ArtistQuery.artists
     })
 });
 
@@ -31,7 +35,9 @@ var MutationType = new GraphQLObjectType({
         addUser: UserMutation.add,
         destroyUser: UserMutation.destroy,
         addPost: PostMutation.add,
-        destroyPost: PostMutation.destroy
+        destroyPost: PostMutation.destroy,
+        addArtist: ArtistMutation.add,
+        destroyArtist: ArtistMutation.destroy
     }
 });
 

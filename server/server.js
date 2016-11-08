@@ -9,6 +9,7 @@ import headers from './middlewares/headers';
 import authorization from './middlewares/authorization';
 import userRouter from './components/users/routes';
 
+
 const app = express();
 
 mongoose.connect('mongodb://localhost/graphql', function (error) {

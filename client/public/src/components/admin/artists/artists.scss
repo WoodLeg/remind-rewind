@@ -1,0 +1,8 @@
+.admin__content-artists {
+    background: blue;
+    &-modal {
+        .modal-dialog {
+            margin-top: 150px;
+        }
+    }
+}

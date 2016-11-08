@@ -1,0 +1,13 @@
+<div class="admin__content-artists-modal-success">
+    <div class="modal-header">
+        <h2 class="modal__header-title modal-title">{{ ctrl.options.artist.name }} {{ctrl.options.title}}</h2>
+    </div>
+    <div class="modal-body">
+        <p class="modal__body-content" ng-bind="ctrl.options.content"></p>
+    </div>
+    <div class="modal-footer">
+        <button class="modal__footer-btn-no btn" type="button" ng-click="ctrl.cancel()" ng-bind="ctrl.options.cancel" ng-if="ctrl.options.cancel"></button>
+        <button class="modal__footer-btn-yes btn" type="button" ng-click="ctrl.confirm(ctrl.options.artist)" ng-bind="ctrl.options.confirm"></button>
+    </div>
+
+</div>
