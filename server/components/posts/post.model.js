@@ -7,7 +7,7 @@ const PostModel = mongoose.model('posts', {
     id: mongoose.Schema.Types.ObjectId,
     title: String,
     content: String,
-    author: User.schema,
+    author: String,
     likes: Number,
     artist: String,
     date: Date
