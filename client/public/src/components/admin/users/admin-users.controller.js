@@ -50,14 +50,14 @@
             }).catch(function(reason){
                 $log.debug('ERROR DEL USER: ', reason);
             });
-        }
+        };
 
         this.goToUser = function(userID){
             $state.go('remindRewind.admin.users.solo', {id: userID});
         };
 
         $timeout(function(){
-            self.listUsers();;
+            self.listUsers();
         });
 
 

@@ -10,7 +10,6 @@
     function PostsAdminController(graphqlFactory, $timeout, $log, $state){
 
         var self = this;
-        console.log('POST');
 
         this.loadPosts = function(){
             graphqlFactory.query('{posts {id title content likes artist date author {id firstName lastName }}}').then(function(response){

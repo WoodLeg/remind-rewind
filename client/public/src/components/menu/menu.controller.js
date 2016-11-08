@@ -5,7 +5,7 @@
         .module('remindRewind.menu')
         .controller('menuController', MenuController);
 
-    MenuController.$inject = ['modalFactory', 'userFactory', '$log', '$state']
+    MenuController.$inject = ['modalFactory', 'userFactory', '$log', '$state'];
 
     function MenuController(modalFactory, userFactory, $log, $state){
 

@@ -9,7 +9,6 @@
 
     function UserFactory($q, $localStorage, userService, userProvider, $log) {
         var user = null;
-        var token = null;
         var userFactory = {};
 
         userFactory.setUser = function(obj) {
@@ -24,12 +23,12 @@
 
         userFactory.setToken = function(token){
             $localStorage.token = token;
-        }
+        };
 
         userFactory.clean = function(){
             delete $localStorage.token;
             delete $localStorage.user;
-        }
+        };
 
         userFactory.signup = function(credentials) {
             // Constructs payload

@@ -8,7 +8,6 @@
     UserAdminController.$inject = ['$stateParams', 'graphqlFactory', '$timeout', '$log'];
 
     function UserAdminController($stateParams, graphqlFactory, $timeout, $log){
-        console.log('USER SOLO: ', $stateParams.id);
 
         var self = this;
 
