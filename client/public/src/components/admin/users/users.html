@@ -46,7 +46,7 @@
                     </td>
                     <td>
                         <ul class="admin__content-users-table-actions-list">
-                            <li class="admin__content-users-table-actions-list-item edit">Edit</li>
+                            <li ng-click="ctrl.goToUser(user.id)" class="admin__content-users-table-actions-list-item edit">Edit</li>
                             <li ng-click="ctrl.destroyUser(user.id)" class="admin__content-users-table-actions-list-item delete">Delete</li>
                         </ul>
                     </td>

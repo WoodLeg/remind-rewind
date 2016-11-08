@@ -5,9 +5,9 @@
         .module('remindRewind.admin.users')
         .controller('usersAdminController', UsersAdminController);
 
-    UsersAdminController.$inject = ['graphqlFactory', '$timeout', '$log'];
+    UsersAdminController.$inject = ['graphqlFactory', '$timeout', '$log', '$state'];
 
-    function UsersAdminController(graphqlFactory, $timeout, $log){
+    function UsersAdminController(graphqlFactory, $timeout, $log, $state){
 
         var self = this;
         this.displayListUsers = true;
@@ -51,6 +51,10 @@
                 $log.debug('ERROR DEL USER: ', reason);
             });
         }
+
+        this.goToUser = function(userID){
+            $state.go('remindRewind.admin.users.solo', {id: userID});
+        };
 
         $timeout(function(){
             self.listUsers();;

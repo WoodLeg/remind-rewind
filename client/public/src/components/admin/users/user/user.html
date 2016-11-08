@@ -1,8 +1,41 @@
 <div class="admin__content-user">
-    <h1>{{ ctrl.user.firstName }} {{ ctrl.user.lastName }}</h1>
+    <div class="admin__content-user-infoscol-xs-12">
+        <h1>{{ ctrl.user.firstName }} {{ ctrl.user.lastName }}</h1>
 
-    <ul>
-        <li>Email: {{ ctrl.user.email }}</li>
-        <li>Role: {{ ctrl.user.isAdmin ? 'Admin' : ctrl.user.isModerator ? 'Moderator': 'User' }}</li>
-    </ul>
+        <ul>
+            <li>Email: {{ ctrl.user.email }}</li>
+            <li>Role: {{ ctrl.user.isAdmin ? 'Admin' : ctrl.user.isModerator ? 'Moderator': 'User' }}</li>
+        </ul>
+    </div>
+
+    <div class="admin__content-user-posts">
+        <h3>Posts</h3>
+        <table class="table admin__content-users-table ">
+            <thead>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Title
+                </th>
+                <th>
+                    Likes
+                </th>
+            </thead>
+            <tbody>
+                <tr ng-repeat="post in ctrl.user.posts">
+                    <td>
+                        {{ post.id }}
+                    </td>
+                    <td>
+                        {{ post.title }}
+                    </td>
+                    <td>
+                        {{ post.likes }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
 </div>

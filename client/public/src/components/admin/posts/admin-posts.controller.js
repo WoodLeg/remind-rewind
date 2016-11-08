@@ -3,11 +3,11 @@
 
     angular
         .module('remindRewind.admin.posts')
-        .controller('postAdminController', PostAdminController);
+        .controller('postsAdminController', PostsAdminController);
 
-    PostAdminController.$inject = ['graphqlFactory', '$timeout', '$log', '$state'];
+    PostsAdminController.$inject = ['graphqlFactory', '$timeout', '$log', '$state'];
 
-    function PostAdminController(graphqlFactory, $timeout, $log, $state){
+    function PostsAdminController(graphqlFactory, $timeout, $log, $state){
 
         var self = this;
         console.log('POST');

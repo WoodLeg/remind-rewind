@@ -2,8 +2,12 @@ import {
     GraphQLObjectType,
     GraphQLID,
     GraphQLBoolean,
-    GraphQLString
+    GraphQLString,
+    GraphQLList
 } from 'graphql';
+
+import PostType from '../posts/post.type';
+import Post from '../posts/post.model';
 
 const UserType = new GraphQLObjectType({
     name: 'User',
@@ -32,6 +36,21 @@ const UserType = new GraphQLObjectType({
         isModerator: {
             type: GraphQLBoolean,
             descritpion: 'Does the user is Moderator ?'
+        },
+        posts: {
+            type: new GraphQLList(PostType),
+            resolve: ({id}) => {
+                return new Promise((resolve, reject) => {
+                    Post.find({'author': id}, (err, posts) => {
+                        if (err || !posts) {
+                            reject(err)
+                        }
+                        else {
+                            resolve(posts)
+                        }
+                    });
+                });
+            }
         }
     })
 });

@@ -2,7 +2,9 @@
     'use strict';
 
     angular
-        .module('remindRewind.admin.posts', [])
+        .module('remindRewind.admin.posts', [
+            'remindRewind.admin.posts.solo'
+        ])
         .config(config);
 
     config.$inject = ['$stateProvider'];
@@ -11,10 +13,19 @@
         $stateProvider
             .state('remindRewind.admin.posts', {
                 url: '/posts',
+                abstract: true,
                 views: {
                     'admin': {
+                        templateUrl: '/src/components/admin/posts/index.html'
+                    }
+                }
+            })
+            .state('remindRewind.admin.posts.many', {
+                url: '',
+                views: {
+                    'admin-posts': {
                         templateUrl: '/src/components/admin/posts/posts.html',
-                        controller: 'postAdminController as ctrl'
+                        controller: 'postsAdminController as ctrl'
                     }
                 },
                 resolve: {
