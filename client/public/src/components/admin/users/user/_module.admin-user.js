@@ -2,31 +2,19 @@
     'use strict';
 
     angular
-        .module('remindRewind.admin.users', [
-            'remindRewind.admin.users.solo'
-        ])
+        .module('remindRewind.admin.users.solo', [])
         .config(config);
 
     config.$inject = ['$stateProvider'];
 
-
     function config($stateProvider){
         $stateProvider
-            .state('remindRewind.admin.users', {
-                url: '/users',
-                abstract: true,
-                views: {
-                    'admin': {
-                        templateUrl: '/src/components/admin/users/index.html'
-                    }
-                }
-            })
-            .state('remindRewind.admin.users.many', {
-                url: '',
+            .state('remindRewind.admin.users.solo', {
+                url: '/:id',
                 views: {
                     'admin-users': {
-                        templateUrl: '/src/components/admin/users/users.html',
-                        controller: 'usersAdminController as ctrl'
+                        templateUrl: '/src/components/admin/users/user/user.html',
+                        controller: 'userAdminController as ctrl'
                     }
                 },
                 resolve: {
@@ -44,8 +32,8 @@
                 },
                 protected: true
             });
-    }
 
+    }
 
 
 })();

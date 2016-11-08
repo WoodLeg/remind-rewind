@@ -1,0 +1,8 @@
+<div class="admin__content-user">
+    <h1>{{ ctrl.user.firstName }} {{ ctrl.user.lastName }}</h1>
+
+    <ul>
+        <li>Email: {{ ctrl.user.email }}</li>
+        <li>Role: {{ ctrl.user.isAdmin ? 'Admin' : ctrl.user.isModerator ? 'Moderator': 'User' }}</li>
+    </ul>
+</div>

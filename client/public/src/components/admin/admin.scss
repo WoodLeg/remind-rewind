@@ -35,13 +35,19 @@
     &__content {
         padding-top: 40px;
         padding-bottom: 60px;
-        &-users {
+        &-users, &-posts {
             padding-bottom: 50px;
             &-table {
                 margin-top: 20px;
                 tbody {
                     td {
                         vertical-align: middle !important;
+                        &.author {
+                            &:hover {
+                                text-decoration: underline;
+                                cursor: pointer;
+                            }
+                        }
                     }
                 }
                 &-actions {
