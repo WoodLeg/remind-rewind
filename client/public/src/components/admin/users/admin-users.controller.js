@@ -31,6 +31,7 @@
             graphqlFactory.addUserMutation(self.newUserData).then(function(response){
                 $log.debug('SUCCESS Add user: ', response);
                 self.users.push(response.data.addUser);
+                self.newUserData = {};
                 self.newUserData.isAdmin = false;
                 self.newUserData.isModerator = false;
                 self.toggleAddUser();
