@@ -24,6 +24,9 @@
         };
 
         this.searchArtist = function(){
+            if (self.artistToSearch !== self.artistToSave) {
+                self.artistToSave = null;
+            }
             if (self.artistToSearch === ''){
                 self.searchResult = [];
             } else {
@@ -34,7 +37,11 @@
                     graphqlFactory.query('{ artist(name: \"'+ self.artistToSearch +'\"){id name}}').then(function(response){
                         $log.debug('search artist: ', response);
                         if (response.hasOwnProperty('errors') && (response.data.artist === null)){
-                            self.noArtistFound = response.errors[0].message;
+                            if (self.artistToSearch === '') {
+                                self.noArtistFound = null;
+                            } else {
+                                self.noArtistFound = response.errors[0].message;
+                            }
                             self.searchResult = [];
                         } else {
                             self.searchResult = response.data.artist;

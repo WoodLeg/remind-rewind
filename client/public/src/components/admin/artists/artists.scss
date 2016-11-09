@@ -5,8 +5,14 @@
         }
     }
 
-    &-input {
-        width: 90%;
+    &-search {
+        &-input {
+            width: 85%;
+        }
+        &-btn {
+            margin-left: 5px;
+            height: 34px;
+        }
     }
 
     &-results {
