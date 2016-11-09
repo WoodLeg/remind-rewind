@@ -7,7 +7,7 @@
         <label for="">Search</label>
         <div class="admin__coontent-artists-search-container">
             <input ng-change="ctrl.searchArtist()" ng-model="ctrl.artistToSearch" type="text" name="firstname" class="form-control admin__content-artists-search-input pull-left" >
-            <button ng-if="ctrl.artistToSave" class="admin__content-artists-search-btn btn pull-left" type="button" name="Save">Save !</button>
+            <button ng-click="ctrl.saveArtist(ctrl.artistToSave)" ng-if="ctrl.artistToSave" class="admin__content-artists-search-btn btn pull-left" type="button" name="Save">Save !</button>
         </div>
     </div>
     <div class="clearfix"></div>
@@ -20,4 +20,16 @@
             </li>
         </ul>
     </div>
+
+    <div class="admin__content-artists-saved col-xs-12">
+        <h3>List</h3>
+        <div class="admin__content-artists-saved-list">
+            <div class="admin__content-artists-saved-list-item-container col-xs-12 col-sm-4 col-md-2" ng-repeat="artist in ctrl.artists">
+                <div class="admin__content-artists-saved-list-item">
+                    {{ artist.name }}
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>

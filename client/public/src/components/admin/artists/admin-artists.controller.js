@@ -15,11 +15,13 @@
         var timeout = null;
 
         this.saveArtist = function(artist){
-            $log.debug(artist);
             graphqlFactory.addArtistMutation(artist).then(function(response){
-
+                self.artists.push(response.data.addArtist);
+                self.artistToSave = null;
+                self.artistToSearch = '';
+                self.searchResult = [];
             }).catch(function(reason){
-
+                $log.debug(reason);
             });
         };
 
@@ -62,6 +64,7 @@
 
         this.listArtist = function(){
             graphqlFactory.query('{artists{id name}}').then(function(response){
+                $log.debug('LIST ARTISTS: ', response.data.artists);
                 self.artists = response.data.artists;
             }).catch(function(reason){
 
@@ -69,7 +72,7 @@
         };
 
         $timeout(function(){
-            // self.listArtist();
+            self.listArtist();
         });
 
     }

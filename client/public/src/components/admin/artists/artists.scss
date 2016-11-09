@@ -39,4 +39,14 @@
             }
         }
     }
+
+    &-saved {
+        &-list {
+            &-item {
+                border-radius: 2px;
+                padding: 10px;
+                background: rgba(220,220,220, 0.3);
+            }
+        }
+    }
 }
