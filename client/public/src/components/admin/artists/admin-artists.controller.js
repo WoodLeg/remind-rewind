@@ -12,6 +12,7 @@
         this.artistToSave = null;
         this.searchResult = [];
         this.noArtistFound = null;
+        var timeout = null;
 
         this.saveArtist = function(artist){
             $log.debug(artist);
@@ -26,18 +27,24 @@
             if (self.artistToSearch === ''){
                 self.searchResult = [];
             } else {
-                graphqlFactory.query('{ artist(name: \"'+ self.artistToSearch +'\"){id name}}').then(function(response){
-                    $log.debug('search artist: ', response);
-                    if (response.hasOwnProperty('errors') && (response.data.artist === null)){
-                        self.noArtistFound = response.errors[0].message;
-                        self.searchResult = [];
-                    } else {
-                        self.searchResult = response.data.artist;
-                        self.noArtistFound = null;
-                    }
-                }).catch(function(reason){
-                    $log.debug(reason);
-                });
+                if (timeout){
+                    $timeout.cancel(timeout);
+                }
+                timeout = $timeout(function(){
+                    graphqlFactory.query('{ artist(name: \"'+ self.artistToSearch +'\"){id name}}').then(function(response){
+                        $log.debug('search artist: ', response);
+                        if (response.hasOwnProperty('errors') && (response.data.artist === null)){
+                            self.noArtistFound = response.errors[0].message;
+                            self.searchResult = [];
+                        } else {
+                            self.searchResult = response.data.artist;
+                            self.noArtistFound = null;
+                        }
+                        timeout = null;
+                    }).catch(function(reason){
+                        $log.debug(reason);
+                    });
+                }, 500);
             }
         };
 
