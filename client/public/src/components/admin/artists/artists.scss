@@ -1,8 +1,36 @@
 .admin__content-artists {
-    background: blue;
     &-modal {
         .modal-dialog {
             margin-top: 150px;
+        }
+    }
+
+    &-input {
+        width: 90%;
+    }
+
+    &-results {
+        margin-top: 20px;
+        height: 0px;
+        transition: all 0.7s ease;
+        padding: 0;
+        box-shadow: inset  0  10px 20px -12px rgba(0,0,0,0.6), inset  0 -10px 20px -12px rgba(0,0,0,0.6);
+        &.open {
+            height: 350px;
+            overflow: auto;
+        }
+        &-list {
+            margin: 0;
+            &-item {
+                width: 100%;
+                height: 45px;
+                line-height: 45px;
+                padding-left: 10px;
+                &:hover {
+                    cursor: pointer;
+                    background: rgba(220,220,220, 0.3);
+                }
+            }
         }
     }
 }

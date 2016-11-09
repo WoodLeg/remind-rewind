@@ -9,6 +9,9 @@
 
     function ArtistsAdminController(graphqlFactory, $log, modalFactory, $timeout){
         var self = this;
+        this.artistToSave = null;
+        this.searchResult = [];
+        this.noArtistFound = null;
 
         this.saveArtist = function(artist){
             $log.debug(artist);
@@ -20,22 +23,27 @@
         };
 
         this.searchArtist = function(){
-            graphqlFactory.query('{ artist(name: \"'+ self.artistToSearch +'\"){id name}}').then(function(response){
-                $log.debug('search artist: ', response);
-                modalFactory.launch({
-                    title: 'Found !',
-                    content: 'Would you like to save it ?',
-                    template: '/src/components/admin/artists/modal/artist-found.html',
-                    artist: response.data.artist,
-                    windowClass: 'admin__content-artists-modal',
-                    confirm: 'Save',
-                    cancel: 'Cancel'
-                }).then(function(artist){
-                    self.saveArtist(artist);
+            if (self.artistToSearch === ''){
+                self.searchResult = [];
+            } else {
+                graphqlFactory.query('{ artist(name: \"'+ self.artistToSearch +'\"){id name}}').then(function(response){
+                    $log.debug('search artist: ', response);
+                    if (response.hasOwnProperty('errors') && (response.data.artist === null)){
+                        self.noArtistFound = response.errors[0].message;
+                        self.searchResult = [];
+                    } else {
+                        self.searchResult = response.data.artist;
+                        self.noArtistFound = null;
+                    }
+                }).catch(function(reason){
+                    $log.debug(reason);
                 });
-            }).catch(function(reason){
-                $log.debug(reason);
-            });
+            }
+        };
+
+        this.selectArtist = function(artist){
+            self.artistToSearch = artist.name;
+            self.artistToSave = artist;
         };
 
         this.listArtist = function(){
@@ -47,7 +55,7 @@
         };
 
         $timeout(function(){
-            self.listArtist();
+            // self.listArtist();
         });
 
     }

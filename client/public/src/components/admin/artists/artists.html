@@ -3,14 +3,21 @@
         <h1>Artists</h1>
     </div>
 
-    <form name="artistSearchForm" ng-submit="ctrl.searchArtist()" class="admin__content-artists-form col-xs-12 col-sm-6">
-        <div class="form-group">
-            <label for="">Search</label>
-            <input ng-model="ctrl.artistToSearch" type="text" name="firstname" class="form-control admin__content-users-form-input" value="">
+    <div class="admin__content-artists-search col-xs-12 col-sm-6">
+        <label for="">Search</label>
+        <div class="admin__coontent-artists-search-container">
+            <input ng-change="ctrl.searchArtist()" ng-model="ctrl.artistToSearch" type="text" name="firstname" class="form-control admin__content-artists-input pull-left" >
+            <button ng-if="ctrl.artistToSave" class="btn pull-right" type="button" name="Save">Save !</button>
         </div>
-        <div class="form-group">
-            <button type="submit" class="col-sm-6 btn">Search</button>
-        </div>
-        <div class="clearfix"></div>
-    </form>
+    </div>
+    <div class="clearfix"></div>
+
+    <div ng-show="ctrl.searchResult.length > 0 || ctrl.noArtistFound" ng-class="{'open': (ctrl.searchResult.length > 0) || ctrl.noArtistFound}" class="admin__content-artists-results col-xs-12">
+        <ul class="admin__content-artists-results-list">
+            <li class="admin__content-artists-results-list-item" ng-if="ctrl.noArtistFound">{{ctrl.noArtistFound}}</li>
+            <li ng-click="ctrl.selectArtist(artist)" class="admin__content-artists-results-list-item" ng-repeat="artist in ctrl.searchResult">
+                {{ artist.name }}
+            </li>
+        </ul>
+    </div>
 </div>
