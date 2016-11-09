@@ -20,7 +20,7 @@
         };
 
         this.listUsers = function(){
-            graphqlFactory.query('{users {id firstName lastName email isAdmin isModerator}}').then(function(response){
+            graphqlFactory.query('{users {id firstName lastName email isAdmin isModerator }}').then(function(response){
                 self.users = response.data.users;
             }).catch(function(reason){
                 $log.debug(reason);

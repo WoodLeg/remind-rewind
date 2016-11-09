@@ -5,9 +5,25 @@
     .module('remindRewind.home')
     .controller('homeController', HomeController);
 
-    HomeController.$inject = [];
+    HomeController.$inject = ['graphqlFactory', '$log', '$timeout'];
 
-    function HomeController() {
+    function HomeController(graphqlFactory, $log, $timeout) {
+
+        var self = this;
+
+
+
+        this.getPosts = function(){
+            graphqlFactory.query('{ posts { id title artist author {firstName}}}').then(function(response){
+                self.posts = response.data.posts;
+            }).catch(function(reason){
+                $log.debug('ERR LIST POST: ', reason)
+            });
+        };
+
+        $timeout(function(){
+            self.getPosts();
+        });
 
     }
 
