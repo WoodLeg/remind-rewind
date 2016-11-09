@@ -3,11 +3,24 @@
     padding-top: 120px;
     &__post {
         position: relative;
-        min-height: 150px;
-        background: rgba(120,120,120,0.4);
+        min-height: 250px;
         padding: 20px;
         border-radius: 2px;
         transition: all 0.3s ease;
+        overflow: hidden;
+        &-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: auto;
+            z-index: -10;
+            filter: blur(10px);
+            transition: filter 0.3s ease;
+            &:hover {
+                filter: blur(2px);
+            }
+        }
         &-title {
             margin-top: 0px;
         }
@@ -25,9 +38,7 @@
         height: 200px;
         border-radius: 2px;
         box-shadow: 0 2px 30px rgba(black, .2);
-        background: url('/assets/img/get_well.jpg') no-repeat top center;
-        background-size: cover;
-        background-position: 0 -30px;
+
         position: relative;
         padding: 0px;
         overflow: hidden;
