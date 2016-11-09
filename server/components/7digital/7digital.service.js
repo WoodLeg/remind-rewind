@@ -14,6 +14,19 @@ const request = {
         };
 
         return rp(options);
+    },
+    artistDetail: (digital_id) => {
+        let url = 'http://api.7digital.com/1.2/artist/details?artistid=' + digital_id + '&country=ww&oauth_consumer_key=' + config.API_DIGITAL.oauth_consumer_key;
+
+        let options = {
+            uri: url,
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            json: true
+        };
+
+        return rp(options);
     }
 };
 

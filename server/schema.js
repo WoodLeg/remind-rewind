@@ -24,7 +24,8 @@ const QueryType = new GraphQLObjectType({
         posts: PostQuery.posts,
         post: PostQuery.post,
         artist: ArtistQuery.searchArtist,
-        artists: ArtistQuery.artists
+        artists: ArtistQuery.artists,
+        artistDetail: ArtistQuery.artistDetail
     })
 });
 

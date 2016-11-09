@@ -34,13 +34,13 @@ const searchArtist = {
             });
         })
     }
-}
+};
 
 const artists = {
     type: new GraphQLList(ArtistType),
     resolve: (_) => {
         return new Promise((resolve, reject) => {
-            Artist.find({}, function(err, artists){
+            Artist.find({}, (err, artists) => {
                 if (err) {
                     reject(err);
                 } else {
@@ -49,9 +49,30 @@ const artists = {
             });
         })
     }
-}
+};
+
+const artistDetail = {
+    type: ArtistType,
+    args: {
+        id: {
+            type: new GraphQLNonNull(GraphQLString)
+        }
+    },
+    resolve: (_, args) => {
+        return new Promise((resolve, reject) => {
+            ApiDigital.artistDetail(args.id).then((response) => {
+                console.log('SUCCESS GET ARTIST DETAIL: ', response);
+                resolve(response.artist);
+            }).catch((reason) =>{
+                reject(reason);
+                console.log('FAILED GET ARTIST DETAIL: ', reason);
+            });
+        })
+    }
+};
 
 export default {
     searchArtist: searchArtist,
-    artists: artists
+    artists: artists,
+    artistDetail: artistDetail
 }

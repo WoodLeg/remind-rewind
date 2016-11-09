@@ -2,31 +2,24 @@
     'use strict';
 
     angular
-        .module('remindRewind.admin.artists', [
-            'remindRewind.admin.artists.solo'
-        ])
+        .module('remindRewind.admin.artists.solo', [])
         .config(config);
 
     config.$inject = ['$stateProvider'];
 
     function config($stateProvider){
         $stateProvider
-            .state('remindRewind.admin.artists', {
-                url: '/artists',
-                abstract: true,
-                views: {
-                    'admin': {
-                        templateUrl: '/src/components/admin/artists/index.html'
-                    }
-                }
-            })
-            .state('remindRewind.admin.artists.many', {
-                url: '',
+            .state('remindRewind.admin.artists.solo', {
+                url: '/:id',
                 views: {
                     'admin-artists': {
-                        templateUrl: '/src/components/admin/artists/artists.html',
-                        controller: 'artistsAdminController as ctrl'
+                        templateUrl: '/src/components/admin/artists/artist/artist.html',
+                        controller: 'adminArtistController as ctrl'
                     }
+                },
+                params: {
+                    id: '',
+                    artist: null
                 },
                 resolve: {
                     accessGranted: ['$q', 'userFactory', '$timeout', '$state', function($q, userFactory, $timeout, $state){

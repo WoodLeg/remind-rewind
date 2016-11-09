@@ -24,7 +24,7 @@
     <div class="admin__content-artists-saved col-xs-12">
         <h3>List</h3>
         <div class="admin__content-artists-saved-list">
-            <div class="admin__content-artists-saved-list-item-container col-xs-12 col-sm-4 col-md-2" ng-repeat="artist in ctrl.artists">
+            <div ng-click="ctrl.goToArtist(artist)" class="admin__content-artists-saved-list-item-container col-xs-12 col-sm-4 col-md-2" ng-repeat="artist in ctrl.artists">
                 <div class="admin__content-artists-saved-list-item">
                     {{ artist.name }}
                 </div>
