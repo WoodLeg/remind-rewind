@@ -4,7 +4,7 @@ import {
     GraphQLString
 } from 'graphql';
 
-import ApiDigital from '../7digital/7digital.service';
+import ApiDigital from '../apis/7digital/7digital.service';
 
 import ArtistType from './artist.type';
 import Artist from './artist.model';
