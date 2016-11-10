@@ -18,11 +18,11 @@ const ArtistType = new GraphQLObjectType({
             type: GraphQLString,
             description: 'ID of the artist/band Database'
         },
-        digital_id: {
+        spotify_id: {
             type: GraphQLString,
             description: 'ID of the artist/band to the 7Digital API.'
         },
-        image: {
+        images: {
             type: GraphQLString,
             description: 'Image path provided by 7Digital'
         }

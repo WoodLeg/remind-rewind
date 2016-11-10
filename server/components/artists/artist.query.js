@@ -20,10 +20,8 @@ const searchArtist = {
     resolve: (root, args) => {
         return new Promise((resolve, reject) => {
             ApiSpotify.searchArtist(args.name).then((response) => {
-                console.log('SUCCESS: ', response[0].images);
                 resolve(response);
             }).catch((reason) => {
-                console.log('ERROR: ',reason);
                 reject(reason);
             });
         })
@@ -54,12 +52,10 @@ const artistDetail = {
     },
     resolve: (_, args) => {
         return new Promise((resolve, reject) => {
-            ApiDigital.artistDetail(args.id).then((response) => {
-                console.log('SUCCESS GET ARTIST DETAIL: ', response);
-                resolve(response.artist);
-            }).catch((reason) =>{
+            ApiSpotify.getArtist(args.id).then((response) => {
+                resolve(response);
+            }).catch((reason) => {
                 reject(reason);
-                console.log('FAILED GET ARTIST DETAIL: ', reason);
             });
         })
     }

@@ -63,7 +63,7 @@
         };
 
         this.listArtist = function(){
-            graphqlFactory.query('{artists{id name digital_id}}').then(function(response){
+            graphqlFactory.query('{artists{id name spotify_id}}').then(function(response){
                 $log.debug('LIST ARTISTS: ', response.data.artists);
                 self.artists = response.data.artists;
             }).catch(function(reason){

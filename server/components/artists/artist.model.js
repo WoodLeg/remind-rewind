@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 
 var ArtistSchema = new mongoose.Schema({
-    digital_id: String,
+    spotify_id: String,
     name: String
 });
 

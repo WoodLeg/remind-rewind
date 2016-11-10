@@ -43,7 +43,7 @@
                 },
                 prepareAddArtistMutation: function(artist){
                     return {
-                        query: 'mutation {addArtist (digital_id: \"'+artist.id+'\", name: \"'+artist.name+'\"){id name}}',
+                        query: 'mutation {addArtist (spotify_id: \"'+artist.id+'\", name: \"'+artist.name+'\"){id name}}',
                         variables: null
                     }
                 }

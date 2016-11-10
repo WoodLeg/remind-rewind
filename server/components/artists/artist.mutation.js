@@ -12,7 +12,7 @@ const MutationAdd = {
     type: ArtistType,
     description: 'Add a Artist',
     args: {
-        digital_id: {
+        spotify_id: {
             name: '7Digital ID',
             type: new GraphQLNonNull(GraphQLID),
             description: 'ID of the 7Digital API.'
@@ -27,7 +27,7 @@ const MutationAdd = {
         return new Promise((resolve, reject) => {
             let newArtist = new Artist({
                 id: args.digital_id,
-                digital_id: args.digital_id,
+                spotify_id: args.spotify_id,
                 name: args.name
             });
             newArtist.save(function(err, artist){

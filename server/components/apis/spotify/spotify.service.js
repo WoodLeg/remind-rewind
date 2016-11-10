@@ -14,6 +14,13 @@ const request = {
         }).catch((reason) => {
             return reason
         });
+    },
+    getArtist: (id) => {
+        return spotifyApi.getArtist(id).then((response) => {
+            return response.body;
+        }).catch((reason) => {
+            return reason;
+        })
     }
 };
 
