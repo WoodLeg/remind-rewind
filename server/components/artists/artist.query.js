@@ -5,6 +5,7 @@ import {
 } from 'graphql';
 
 import ApiDigital from '../apis/7digital/7digital.service';
+import ApiSpotify from '../apis/spotify/spotify.service';
 
 import ArtistType from './artist.type';
 import Artist from './artist.model';
@@ -18,18 +19,11 @@ const searchArtist = {
     },
     resolve: (root, args) => {
         return new Promise((resolve, reject) => {
-            ApiDigital.searchArtist(args.name).then((response) => {
-                if(response.searchResults.searchResult.length === 0){
-                    reject('Artist not found');
-                } else {
-                    let artists = [];
-
-                    for (var i = 0; i < response.searchResults.searchResult.length; i++) {
-                        artists.push(response.searchResults.searchResult[i].artist);
-                    }
-                    resolve(artists);
-                }
+            ApiSpotify.searchArtist(args.name).then((response) => {
+                console.log('SUCCESS: ', response[0].images);
+                resolve(response);
             }).catch((reason) => {
+                console.log('ERROR: ',reason);
                 reject(reason);
             });
         })
