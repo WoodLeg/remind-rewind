@@ -16,7 +16,7 @@
         this.artist = $localStorage.adminArtist;
 
         this.getDetails = function(){
-            graphqlFactory.query('{artistDetail (id: \"'+self.artist.spotify_id+'\") {id name image}}').then(function(response){
+            graphqlFactory.query('{artistDetail (id: \"'+self.artist.spotify_id+'\") {id name images {url height width}}}').then(function(response){
                 self.artist = response.data.artistDetail;
             }).catch(function(reason){
                 $log.debug('ERR GET ARTIST DETAIL: ', reason);

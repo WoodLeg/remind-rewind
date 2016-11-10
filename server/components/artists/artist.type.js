@@ -6,6 +6,8 @@ import {
     GraphQLList
 } from 'graphql';
 
+import ImageType from '../common/image.type';
+
 const ArtistType = new GraphQLObjectType({
     name: 'Artist',
     description: 'Description of the Artist .',
@@ -23,7 +25,7 @@ const ArtistType = new GraphQLObjectType({
             description: 'ID of the artist/band to the 7Digital API.'
         },
         images: {
-            type: GraphQLString,
+            type: new GraphQLList(ImageType),
             description: 'Image path provided by 7Digital'
         }
     })
