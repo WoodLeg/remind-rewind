@@ -12,7 +12,7 @@
         var self = this;
 
         this.loadPosts = function(){
-            graphqlFactory.query('{posts {id title content likes artist date author {id firstName lastName }}}').then(function(response){
+            graphqlFactory.query('{posts {id title content likes artist date featured author {id firstName lastName }}}').then(function(response){
                 $log.debug('SUCC LIST POSTS: ', response);
                 self.posts = response.data.posts;
             }).catch(function(reason){

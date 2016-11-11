@@ -1,13 +1,27 @@
 <div class="home">
 
-    <!-- <div class="col-xs-12 col-sm-3" ng-repeat="post in ctrl.posts">
+
+    <div class="home__post-featured col-xs-12">
+        <div class="home__post-featured-filter">
+            <div class="home__post-featured-content col-xs-12 col-sm-5">
+                <h1>{{ ctrl.featuredPosts[0].title }}</h1>
+                <h2>{{ ctrl.featuredPosts[0].artist}}</h2>
+            </div>
+        </div>
+        <img src="/assets/img/get_well.jpg" alt="" />
+
+    </div>
+
+
+
+    <div class="col-xs-12 col-sm-3" ng-repeat="post in ctrl.posts">
         <div class="home__post shadow-1">
             <img class="home__post-img" src="/assets/img/get_well.jpg" alt="" />
             <h2 class="home__post-title">{{ post.title }}</h2>
             {{ post.artist }}
             <span class="home__post-author">{{ post.author.firstName }}</span>
         </div>
-    </div> -->
+    </div>
 
     <!-- <div style="margin-top: 100px;" class="col-xs-12 col-sm-3">
         <div class='box'>
