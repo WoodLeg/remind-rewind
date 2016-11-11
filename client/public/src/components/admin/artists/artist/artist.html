@@ -3,6 +3,15 @@
         <h1>{{ ctrl.artist.name }}</h1>
     </div>
 
-    <img ng-src="{{ ctrl.artist.images[1].url }}" alt="" />
+    <div class="col-xs-12">
+        <div class="admin__content-artist-albums col-xs-12 col-sm-6 col-md-4 " ng-repeat='album in ctrl.artist.albums'>
+            <img class="shadow-1" ng-src="{{ album.images[1].url }}" alt="" />
+            <h4>
+                {{album.name}} - {{ album.artists[0].name }}
+            </h4>
+        </div>
+    </div>
+
+
 
 </div>

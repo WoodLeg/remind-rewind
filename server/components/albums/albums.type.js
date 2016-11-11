@@ -12,7 +12,7 @@ const AlbumType = new GraphQLObjectType({
     name: 'Album',
     description: 'Description of the Album type.',
     fields: () => ({
-        artist: {
+        artists: {
             type: new GraphQLList(ArtistType),
             description: 'Artist of the album.'
         },

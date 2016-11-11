@@ -5,13 +5,14 @@
         .module('remindRewind.admin.artists')
         .controller('artistsAdminController', ArtistsAdminController);
 
-    ArtistsAdminController.$inject = ['graphqlFactory', '$log', 'modalFactory', '$timeout', '$state'];
+    ArtistsAdminController.$inject = ['graphqlFactory', '$log', 'modalFactory', '$timeout', '$state', '$localStorage'];
 
-    function ArtistsAdminController(graphqlFactory, $log, modalFactory, $timeout, $state){
+    function ArtistsAdminController(graphqlFactory, $log, modalFactory, $timeout, $state, $localStorage){
         var self = this;
         this.artistToSave = null;
         this.searchResult = [];
         this.noArtistFound = null;
+        delete $localStorage.adminArtist;
         var timeout = null;
 
         this.saveArtist = function(artist){
@@ -63,7 +64,7 @@
         };
 
         this.listArtist = function(){
-            graphqlFactory.query('{artists{id name spotify_id}}').then(function(response){
+            graphqlFactory.query('{artists{id name spotify_id images {url}}}').then(function(response){
                 $log.debug('LIST ARTISTS: ', response.data.artists);
                 self.artists = response.data.artists;
             }).catch(function(reason){

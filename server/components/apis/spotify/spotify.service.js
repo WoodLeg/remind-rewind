@@ -23,7 +23,7 @@ const request = {
         })
     },
     getArtistAlbums: (id) => {
-        return spotifyApi.getArtistAlbums(id, {limit: 50}).then((response) => {
+        return spotifyApi.getArtistAlbums(id, {limit: 15, type: 'album', market: 'FR'}).then((response) => {
             return response.body.items;
         }).catch((reason) => {
             return reason;

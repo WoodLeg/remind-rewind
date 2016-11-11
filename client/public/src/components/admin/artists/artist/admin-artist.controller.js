@@ -10,21 +10,26 @@
     function AdminArtistController ($stateParams, $log, graphqlFactory, $timeout, $localStorage){
         var self = this;
 
-        if (!$localStorage.adminArtist) {
-            $localStorage.adminArtist = $stateParams.artist;
-        }
-        this.artist = $localStorage.adminArtist;
 
-        this.getDetails = function(){
-            graphqlFactory.query('{artistDetail (id: \"'+self.artist.spotify_id+'\") {id name images {url height width}}}').then(function(response){
+
+        this.getDetails = function(artist){
+            $log.debug(artist);
+            graphqlFactory.query('{artistDetail (id: \"'+artist.spotify_id+'\") {id name albums {id artists {id name} name images {url}}}}').then(function(response){
                 self.artist = response.data.artistDetail;
+                $log.debug('Artist detail: ', self.artist);
             }).catch(function(reason){
                 $log.debug('ERR GET ARTIST DETAIL: ', reason);
             });
         };
 
         $timeout(function(){
-            self.getDetails();
+            if (!$localStorage.adminArtist) {
+                $localStorage.adminArtist = $stateParams.artist;
+            }
+
+            self.artist = $localStorage.adminArtist;
+
+            self.getDetails(self.artist);
         });
 
     }

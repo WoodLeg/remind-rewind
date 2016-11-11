@@ -27,6 +27,10 @@ const ArtistType = new GraphQLObjectType({
             type: GraphQLString,
             description: 'ID of the artist/band to the 7Digital API.'
         },
+        featured: {
+            type: GraphQLBoolean,
+            description: 'Status of the artist'
+        },
         images: {
             type: new GraphQLList(ImageType),
             description: 'Image path provided by 7Digital'

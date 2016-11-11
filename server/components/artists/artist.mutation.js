@@ -41,6 +41,38 @@ const MutationAdd = {
     }
 };
 
+const MutationFeatured = {
+    type: ArtistType,
+    description: 'Update artist/band informations',
+    args: {
+        id: {
+            name: "Id of the Artist",
+            type: GraphQLString
+        },
+        featured: {
+            name: 'Artist Object',
+            type: GraphQLBoolean
+        }
+    },
+    resolve: (root, args) => {
+        return new Promise((resolve, reject) => {
+            Artist.findById(args.id, (err, artist) => {
+                if (err) {
+                    reject(err);
+                } else if (!artist){
+                    reject('Artist not found');
+                } else {
+                    artist.featured = args.featured;
+                    artist.save((err) => {
+                        if (err) reject(err);
+                        else resolve(artist);
+                    });
+                }
+            })
+        })
+    }
+};
+
 const MutationDestroy = {
     type: ArtistType,
     description: 'Delete the user',
@@ -70,5 +102,6 @@ const MutationDestroy = {
 
 export default {
     add: MutationAdd,
-    destroy: MutationDestroy
+    destroy: MutationDestroy,
+    updateFeatured: MutationFeatured
 }
