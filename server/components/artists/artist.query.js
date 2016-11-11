@@ -51,14 +51,7 @@ const artistDetail = {
         }
     },
     resolve: (_, args) => {
-        return new Promise((resolve, reject) => {
-            ApiSpotify.getArtist(args.id).then((response) => {
-                console.log(response.images);
-                resolve(response);
-            }).catch((reason) => {
-                reject(reason);
-            });
-        })
+        return ApiSpotify.getArtist(args.id);
     }
 };
 

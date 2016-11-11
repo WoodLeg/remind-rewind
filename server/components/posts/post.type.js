@@ -28,16 +28,7 @@ const PostType = new GraphQLObjectType({
         author: {
             type: UserType,
             resolve: ({author}) => {
-                return new Promise((resolve, reject) => {
-                    User.findById(author, (err, user) => {
-                        if (err || !user) {
-                            reject(err)
-                        }
-                        else {
-                            resolve(user)
-                        }
-                    });
-                });
+                return User.findById(author).exec();
             },
             description: 'Author of the post'
         },

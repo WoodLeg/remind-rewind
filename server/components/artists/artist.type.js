@@ -7,6 +7,9 @@ import {
 } from 'graphql';
 
 import ImageType from '../common/image.type';
+import AlbumType from '../albums/albums.type';
+
+import ApiSpotify from '../apis/spotify/spotify.service';
 
 const ArtistType = new GraphQLObjectType({
     name: 'Artist',
@@ -27,6 +30,13 @@ const ArtistType = new GraphQLObjectType({
         images: {
             type: new GraphQLList(ImageType),
             description: 'Image path provided by 7Digital'
+        },
+        albums: {
+            type: new GraphQLList(AlbumType),
+            description: 'Albums of the artist',
+            resolve: ({id}) => {
+                return ApiSpotify.getArtistAlbums(id);
+            }
         }
     })
 });

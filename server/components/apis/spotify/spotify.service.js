@@ -21,6 +21,13 @@ const request = {
         }).catch((reason) => {
             return reason;
         })
+    },
+    getArtistAlbums: (id) => {
+        return spotifyApi.getArtistAlbums(id, {limit: 50}).then((response) => {
+            return response.body.items;
+        }).catch((reason) => {
+            return reason;
+        });
     }
 };
 
