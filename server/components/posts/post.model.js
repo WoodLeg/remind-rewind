@@ -10,7 +10,8 @@ const PostModel = mongoose.model('posts', {
     author: String,
     likes: Number,
     artist: String,
-    date: Date
+    date: Date,
+    featured: Boolean
 });
 
 export default PostModel;

@@ -54,6 +54,38 @@ const MutationAdd = {
     }
 };
 
+const MutationFeatured = {
+    type: PostType,
+    description: 'Update a post into a featured one',
+    args: {
+        id: {
+            type: GraphQLString,
+            description: 'ID of the post to update'
+        },
+        featured: {
+            type: GraphQLBoolean,
+            description: 'Featured value of the post'
+        }
+    },
+    resolve: (_, args) => {
+        return new Promise((resolve, reject) => {
+            Post.findById(args.id, (err, post) => {
+                if (err) {
+                    reject(err);
+                } else if (!post){
+                    reject('Post not found')
+                } else {
+                    post.featured = args.featured;
+                    post.save((err, newPost) => {
+                        if (err) reject(err);
+                        else resolve(newPost)
+                    });
+                }
+            })
+        })
+    }
+}
+
 const MutationDestroy = {
     type: PostType,
     description: 'Delete the post',
@@ -83,5 +115,6 @@ const MutationDestroy = {
 
 export default {
     add: MutationAdd,
-    destroy: MutationDestroy
+    destroy: MutationDestroy,
+    featured: MutationFeatured
 }

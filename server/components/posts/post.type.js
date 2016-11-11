@@ -43,6 +43,10 @@ const PostType = new GraphQLObjectType({
         date: {
             type: GraphQLString,
             description: 'Date of publication'
+        },
+        featured: {
+            type: GraphQLBoolean,
+            description: 'Featured post'
         }
     })
 });

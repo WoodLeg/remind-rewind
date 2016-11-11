@@ -37,6 +37,7 @@ var MutationType = new GraphQLObjectType({
         destroyUser: UserMutation.destroy,
         addPost: PostMutation.add,
         destroyPost: PostMutation.destroy,
+        updateFeaturedPost: PostMutation.featured,
         addArtist: ArtistMutation.add,
         destroyArtist: ArtistMutation.destroy,
         updateFeatureArtist: ArtistMutation.updateFeatured
