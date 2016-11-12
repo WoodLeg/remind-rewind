@@ -2,7 +2,7 @@
     &__post-featured {
         position:relative;
         padding: 0;
-        height: 600px;
+        height: 610px;
         overflow: hidden;
         &-btn {
             position: absolute;
@@ -45,15 +45,17 @@
         &-content {
             h1 {
                 margin-top: 40%;
-                font-family: 'Roboto Bold', sans-serif;
-                letter-spacing: -5px;
-                font-size: 5em;
+                // font-family: 'Roboto Bold', sans-serif;
+                font-family: 'Rock Salt', cursive;
+                line-height: 1.7em;
+                font-size: 3.5em;
                 text-transform: uppercase;
                 text-shadow: 1px 2px 3px black;
             }
             h2 {
                 font-size: 3em;
-                letter-spacing: 5px;
+                letter-spacing: 0px;
+                font-family: 'Rock Salt', cursive;
             }
         }
     }
@@ -91,7 +93,6 @@
             padding: 20px;
             min-height: 110px;
             margin-top: 0px;
-
         }
         &-artist {
             padding:0 0 0 10px;

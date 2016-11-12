@@ -5,7 +5,7 @@
         <div ng-click="ctrl.goToPost(ctrl.featuredPosts[ctrl.featurePostRandom].id)" class="home__post-featured-btn"></div>
         <div class="home__post-featured-filter"></div>
         <img ng-src="{{ ctrl.featuredPosts[ctrl.featurePostRandom].artist.albums[0].images[0].url }}" alt="" />
-        <div class="home__post-featured-content col-xs-12 col-sm-5">
+        <div class="home__post-featured-content col-xs-12 col-sm-4">
             <h1>{{ ctrl.featuredPosts[ctrl.featurePostRandom].title }}</h1>
             <h2>{{ ctrl.featuredPosts[ctrl.featurePostRandom].artist.name}}</h2>
         </div>
@@ -41,3 +41,4 @@
     </div>
 
 </div>
+<remind-footer></remind-footer>
