@@ -33,7 +33,7 @@
                         {{ post.title }}
                     </td>
                     <td>
-                        {{ post.content }}
+                        {{ post.content | limitTo: 50}}
                     </td>
                     <td>
                         {{ post.likes }}

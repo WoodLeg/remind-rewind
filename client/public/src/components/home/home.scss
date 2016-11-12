@@ -64,10 +64,12 @@
     &__post {
         position: relative;
         min-height: 250px;
-        padding: 20px;
+        height: 250px;
         border-radius: 2px;
         transition: all 0.3s ease;
         overflow: hidden;
+        color: white;
+        margin-bottom: 20px;
         &-img {
             position: absolute;
             top: 0;
@@ -79,8 +81,20 @@
             transition: filter 0.3s ease;
         }
         &-title {
+            padding: 20px;
+            min-height: 110px;
             margin-top: 0px;
+            background: rgba(31, 122, 190, 0.35);
         }
+        &-artist {
+            padding:0 0 0 10px;
+            height: 100%;
+            min-height: 100%;
+            vertical-align: center;
+            padding-top: 50px;
+            text-align: center;
+        }
+
         &-author {
             position: absolute;
             bottom:10px; right: 20px;
@@ -92,108 +106,5 @@
                 filter: blur(5px);
             }
         }
-    }
-    .box {
-        position: relative;
-        height: 250px;
-        border-radius: 2px;
-        box-shadow: 0 2px 30px rgba(black, .2);
-        padding: 0px;
-        overflow: hidden;
-        transform: translate3d(0, 0, 0);
-        .img-container {
-            // position: absolute;
-            top:-200px;
-            left:-50px;
-            img {
-                width: 100%;
-                height: auto;
-            }
-        }
-        &:after {
-            content: '';
-            display: block;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 11;
-            transform: translate3d(0, 0, 0);
-        }
-        .title {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            z-index: 1;
-            text-align: center;
-            transform: translate3d(0, 0, 0);
-            color: white;
-            text-transform: uppercase;
-            font-family: 'Roboto Light', serif;
-            letter-spacing: .2em;
-            font-size: 24px;
-            text-shadow: 0 1px 0 rgba(black, .1);
-            text-indent: .3em;
-        }
-        .wave {
-            opacity: .4;
-            position: absolute;
-            top: 3%;
-            left: 50%;
-            background: #0af;
-            width: 450px;
-            height: 450px;
-            margin-left: -225px;
-            margin-top: -270px;
-            transform-origin: 50% 48%;
-            border-radius: 43%;
-            animation: drift 15000ms infinite linear;
-            &.two {
-                animation: drift 20000ms infinite linear;
-                opacity: .1;
-                background: yellow;
-            }
-            &.three {
-                animation: drift 5500ms infinite linear;
-            }
-        }
-    }
-}
-
-@keyframes drift {
-    from { transform: rotate(0deg); }
-    from { transform: rotate(360deg); }
-}
-@keyframes reverseDrift {
-    from { transform: rotate(0deg); }
-    from { transform: rotate(-360deg); }
-}
-
-.clip-animation {
-    position: absolute;
-    -webkit-clip-path: inset(5% 5% 5% 5% round 42% 47% 54% 50%);
-    opacity: 1;
-    overflow: hidden;
-    height: 500px;
-    width: 500px;
-    animation: drift 10s infinite linear;
-    img {
-        position: absolute;
-        // transform-origin: 0px 0px;
-        animation: reverseDrift 10s infinite linear;
-    }
-}
-
-
-@keyframes clip {
-    0% {
-        -webkit-clip-path: inset(0 0 0 0 round 10% 45% 30% 27%);
-    }
-    50% {
-        -webkit-clip-path: inset(0 0 0 0 round 0 25% 0 25%);
-    }
-    100% {
-        -webkit-clip-path: inset(0 0 0 0 round 10% 45% 30% 27%);
     }
 }

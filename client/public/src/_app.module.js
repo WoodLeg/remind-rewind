@@ -27,6 +27,7 @@
             'remindRewind.menu',
             'remindRewind.user',
             'remindRewind.home',
-            'remindRewind.admin'
+            'remindRewind.admin',
+            'remindRewind.posts'
         ]);
 })();

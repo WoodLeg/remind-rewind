@@ -1,0 +1,22 @@
+<div class="post">
+    <div class="post__head">
+        <div class="post__head-container">
+            <img ng-src="{{ ctrl.post.artist.images[0].url }}" alt="" />
+            <div class="post__head-soundwave"></div>
+        </div>
+    </div>
+
+    <div class="post__title">
+        <h1>{{ ctrl.post.title }}</h1>
+    </div>
+
+    <div class="post__content">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+            <p>
+                {{ ctrl.post.content }}
+            </p>
+
+        </div>
+    </div>
+
+</div>

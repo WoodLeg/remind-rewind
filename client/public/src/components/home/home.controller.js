@@ -5,9 +5,9 @@
     .module('remindRewind.home')
     .controller('homeController', HomeController);
 
-    HomeController.$inject = ['graphqlFactory', '$log', '$timeout'];
+    HomeController.$inject = ['graphqlFactory', '$log', '$timeout', '$state'];
 
-    function HomeController(graphqlFactory, $log, $timeout) {
+    function HomeController(graphqlFactory, $log, $timeout, $state) {
 
         var self = this;
         this.featuredPosts = [];
@@ -15,7 +15,7 @@
 
 
         this.getPosts = function(){
-            graphqlFactory.query('{ posts { id title artist { name images {url}} featured author {firstName}}}').then(function(response){
+            graphqlFactory.query('{ posts { id title artist { name  albums { images {url}}} featured author {firstName}}}').then(function(response){
                 for (var i = 0; i < response.data.posts.length; i++) {
                     if (response.data.posts[i].featured){
                         self.featuredPosts.push(response.data.posts[i]);
@@ -23,10 +23,14 @@
                         self.posts.push(response.data.posts[i]);
                     }
                 }
-                console.log(self.featuredPosts);
+                $log.debug(self.posts);
             }).catch(function(reason){
                 $log.debug('ERR LIST POST: ', reason)
             });
+        };
+
+        this.goToPost = function(postID){
+            $state.go('remindRewind.posts', {id: postID});
         };
 
         $timeout(function(){

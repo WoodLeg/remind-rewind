@@ -4,34 +4,22 @@
     <div class="home__post-featured col-xs-12">
 
         <div class="home__post-featured-filter"></div>
-        <img ng-src="{{ ctrl.featuredPosts[0].artist.images[0].url }}" alt="" />
+        <img ng-src="{{ ctrl.featuredPosts[0].artist.albums[0].images[0].url }}" alt="" />
         <div class="home__post-featured-content col-xs-12 col-sm-5">
             <h1>{{ ctrl.featuredPosts[0].title }}</h1>
             <h2>{{ ctrl.featuredPosts[0].artist.name}}</h2>
-            <div class="home__post-featured-btn"></div>
+            <div ng-click="ctrl.goToPost(ctrl.featuredPosts[0].id)" class="home__post-featured-btn"></div>
         </div>
     </div>
 
-    <div class="col-xs-12 col-sm-3" ng-repeat="post in ctrl.posts">
+    <div ng-click="ctrl.goToPost(post.id)" style="margin-top:25px" class="col-xs-12 col-sm-3" ng-repeat="post in ctrl.posts">
         <div class="home__post shadow-1">
-            <img class="home__post-img" src="/assets/img/get_well.jpg" alt="" />
+            <img class="home__post-img" ng-src="{{ post.artist.albums[0].images[0].url }}" alt="" />
             <h2 class="home__post-title">{{ post.title }}</h2>
-            {{ post.artist }}
+            <h4 class="home__post-artist">{{ post.artist.name }}</h4>
             <span class="home__post-author">{{ post.author.firstName }}</span>
         </div>
     </div>
-
-    <!-- <div style="margin-top: 100px;" class="col-xs-12 col-sm-3">
-        <div class='box'>
-            <div class="img-container clip-animation">
-                <img src="/assets/img/get_well.jpg" alt="" />
-            </div>
-            <div class="img-container clip-animation-2">
-                <img src="/assets/img/get_well.jpg" alt="" />
-            </div>
-            <div class='title'>TEST</div>
-        </div>
-    </div> -->
 
     <!-- <div class="col-xs-12 col-sm-3" ng-repeat="post in ctrl.posts">
         <div class='box'>
