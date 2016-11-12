@@ -15,7 +15,7 @@
 
 
         this.getPosts = function(){
-            graphqlFactory.query('{ posts { id title artist featured author {firstName}}}').then(function(response){
+            graphqlFactory.query('{ posts { id title artist { name images {url}} featured author {firstName}}}').then(function(response){
                 for (var i = 0; i < response.data.posts.length; i++) {
                     if (response.data.posts[i].featured){
                         self.featuredPosts.push(response.data.posts[i]);
@@ -23,8 +23,7 @@
                         self.posts.push(response.data.posts[i]);
                     }
                 }
-                $log.debug('FEatured: ', self.featuredPosts);
-                $log.debug('Post: ', self.posts);
+                console.log(self.featuredPosts);
             }).catch(function(reason){
                 $log.debug('ERR LIST POST: ', reason)
             });

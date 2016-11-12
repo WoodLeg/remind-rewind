@@ -8,6 +8,10 @@ import {
 
 import UserType from '../users/user.type';
 import User from '../users/user.model';
+import ArtistType from '../artists/artist.type';
+import Artist from '../artists/artist.model';
+
+import ApiSpotify from '../apis/spotify/spotify.service';
 
 const PostType = new GraphQLObjectType({
     name: 'Post',
@@ -37,8 +41,13 @@ const PostType = new GraphQLObjectType({
             description: 'Number of Likes of the post'
         },
         artist: {
-            type: GraphQLString,
-            description: 'Artist involved in the post'
+            type: ArtistType,
+            description: 'Artist involved in the post',
+            resolve: ({artist}) => {
+                return Artist.findById(artist).exec().then((value) => {
+                    return ApiSpotify.getArtist(value.spotify_id);
+                });
+            }
         },
         date: {
             type: GraphQLString,

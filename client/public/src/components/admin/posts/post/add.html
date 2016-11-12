@@ -7,19 +7,20 @@
     <form name="addPostForm" ng-submit="ctrl.createPost()" class="admin__content-post-add-form col-xs-12 col-sm-6">
         <div class="form-group">
             <label for="">Title</label>
-            <input ng-model="ctrl.newPost.title" type="text" name="title" class="form-control admin__content-users-form-input" value="">
+            <input ng-model="ctrl.newPost.title" type="text" name="title" class="form-control admin__content-post-add-form-input" value="">
         </div>
         <div class="form-group">
             <label for="">Body</label>
-            <textarea ng-model="ctrl.newPost.body" class="form-control form-control admin__content-users-form-textarea" rows="3"></textarea>
+            <textarea ng-model="ctrl.newPost.body" class="form-control form-control admin__content-post-add-form-textarea" rows="3"></textarea>
         </div>
-        <div class="form-group">
-            <label for="">Artist</label>
-            <input ng-model="ctrl.newPost.artist" type="text" name="artist" class="form-control admin__content-users-form-input" value="">
+        <div ng-class="{'open': ctrl.artistsList.length > 0}" class="admin__content-post-add-artists">
+            <ul class="admin__content-post-add-artists-list">
+                <li select-artist ng-click="ctrl.selectedArtist(artist.spotify_id)" class="admin__content-post-add-artists-list-item not-selected" ng-repeat="artist in ctrl.artistsList">
+                    {{ artist.name }}
+                </li>
+            </ul>
         </div>
-        <div class="form-group">
-            <button type="submit" class="col-xs-12 col-sm-4 col-sm-offset-4 btn">Save</button>
-        </div>
+        <button type="submit" class="admin__content-post-add-submit col-xs-12 col-sm-4 col-sm-offset-4 btn">Save</button>
         <div class="clearfix"></div>
     </form>
 

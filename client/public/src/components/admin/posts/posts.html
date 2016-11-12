@@ -42,7 +42,7 @@
                         {{ post.featured }}
                     </td>
                     <td>
-                        {{ post.artist }}
+                        {{ post.artist.name }}
                     </td>
                     <td class="author" ng-click="ctrl.goToUser(post.author.id)">
                         {{ post.author.firstName }} {{ post.author.lastName}}

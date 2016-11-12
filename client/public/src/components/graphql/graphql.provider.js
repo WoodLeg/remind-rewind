@@ -31,7 +31,7 @@
                 },
                 prepapreAddPostMutation: function(post, user) {
                     return {
-                        query: 'mutation {addPost (title: \"'+ post.title +'\", content: \"'+ post.body +'\", author: \"'+user+'\", artist: \"'+ post.artist+'\") {id title content author{id firstName lastName} artist}}',
+                        query: 'mutation {addPost (title: \"'+ post.title +'\", content: \"'+ post.body +'\", author: \"'+user+'\", artist: \"'+ post.artist+'\") {id title content author{id firstName lastName} artist{id name}}}',
                         variables: null
                     }
                 },
