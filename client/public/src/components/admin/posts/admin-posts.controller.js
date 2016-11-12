@@ -34,7 +34,25 @@
             }).catch(function(reason){
                 $log.debug('ERR DESTROY POST: ', reason);
             });
-        }
+        };
+
+        this.updateFeaturePost = function(postID, featured){
+            graphqlFactory.updateFeaturePost(postID, featured).then(function(response){
+                $log.debug(response);
+                for (var i = 0; i < self.posts.length; i++) {
+                    if (self.posts[i].id === postID){
+                        self.posts[i].featured = response.data.updateFeaturedPost.featured;
+                    }
+                }
+            }).catch(function(reason){
+                for (var i = 0; i < self.posts.length; i++) {
+                    if (self.posts[i].id === postID){
+                        self.posts[i].featured = !featured;
+                    }
+                }
+                $log.debug(reason);
+            });
+        };
 
         $timeout(function(){
             self.loadPosts();

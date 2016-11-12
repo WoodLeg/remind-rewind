@@ -2,13 +2,12 @@
 
 
     <div class="home__post-featured col-xs-12">
-
+        <div ng-click="ctrl.goToPost(ctrl.featuredPosts[ctrl.featurePostRandom].id)" class="home__post-featured-btn"></div>
         <div class="home__post-featured-filter"></div>
-        <img ng-src="{{ ctrl.featuredPosts[0].artist.albums[0].images[0].url }}" alt="" />
+        <img ng-src="{{ ctrl.featuredPosts[ctrl.featurePostRandom].artist.albums[0].images[0].url }}" alt="" />
         <div class="home__post-featured-content col-xs-12 col-sm-5">
-            <h1>{{ ctrl.featuredPosts[0].title }}</h1>
-            <h2>{{ ctrl.featuredPosts[0].artist.name}}</h2>
-            <div ng-click="ctrl.goToPost(ctrl.featuredPosts[0].id)" class="home__post-featured-btn"></div>
+            <h1>{{ ctrl.featuredPosts[ctrl.featurePostRandom].title }}</h1>
+            <h2>{{ ctrl.featuredPosts[ctrl.featurePostRandom].artist.name}}</h2>
         </div>
     </div>
 

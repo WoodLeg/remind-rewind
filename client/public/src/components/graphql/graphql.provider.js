@@ -46,6 +46,12 @@
                         query: 'mutation {addArtist (spotify_id: \"'+artist.id+'\", name: \"'+artist.name+'\"){id name}}',
                         variables: null
                     }
+                },
+                prepareUpdateFeatureMutation: function(id, value){
+                    return {
+                        query: 'mutation {updateFeaturedPost(id: \"'+ id +'\", featured: '+ value +'){featured}}',
+                        variables: null
+                    }
                 }
             };
         }];

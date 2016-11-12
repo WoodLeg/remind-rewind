@@ -23,6 +23,8 @@
                         self.posts.push(response.data.posts[i]);
                     }
                 }
+                self.featurePostRandom = Math.floor(Math.random() * (self.featuredPosts.length - 0) + 0);
+                $log.debug(self.featurePostRandom);
                 $log.debug(self.posts);
             }).catch(function(reason){
                 $log.debug('ERR LIST POST: ', reason)

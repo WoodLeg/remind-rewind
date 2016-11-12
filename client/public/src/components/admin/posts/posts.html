@@ -39,7 +39,7 @@
                         {{ post.likes }}
                     </td>
                     <td>
-                        {{ post.featured }}
+                        <input ng-click="ctrl.updateFeaturePost(post.id, post.featured)" type="checkbox" name="name" ng-model="post.featured">
                     </td>
                     <td>
                         {{ post.artist.name }}

@@ -65,6 +65,15 @@
             });
         };
 
+        graphqlFactory.updateFeaturePost = function(id, value){
+            var payload = graphqlProvider.prepareUpdateFeatureMutation(id, value);
+            return graphqlService.send(payload).then(function(response){
+                return $q.resolve(response.data);
+            }).catch(function(reason){
+                return $q.reject(reason);
+            });
+        };
+
         return graphqlFactory;
     }
 
