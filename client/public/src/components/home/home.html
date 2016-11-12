@@ -10,15 +10,22 @@
             <h2>{{ ctrl.featuredPosts[ctrl.featurePostRandom].artist.name}}</h2>
         </div>
     </div>
+    <div class="clearfix"></div>
 
-    <div ng-click="ctrl.goToPost(post.id)" style="margin-top:25px" class="col-xs-12 col-sm-3" ng-repeat="post in ctrl.posts">
-        <div class="home__post shadow-1">
-            <img class="home__post-img" ng-src="{{ post.artist.albums[0].images[0].url }}" alt="" />
-            <h2 class="home__post-title">{{ post.title }}</h2>
-            <h4 class="home__post-artist">{{ post.artist.name }}</h4>
-            <span class="home__post-author">{{ post.author.firstName }}</span>
+    <div class="home__post-latest col-xs-12">
+        <div class="home__post-latest-title">
+            <h1>Latest boyz !</h1>
+        </div>
+        <div ng-click="ctrl.goToPost(post.id)" class="col-xs-12 col-sm-3" ng-repeat="post in ctrl.posts">
+            <div class="home__post shadow-2">
+                <img class="home__post-img" ng-src="{{ post.artist.albums[0].images[0].url }}" alt="" />
+                <h2 class="home__post-title">{{ post.title }}</h2>
+                <h4 class="home__post-artist">{{ post.artist.name }}</h4>
+                <span class="home__post-author">{{ post.author.firstName }}</span>
+            </div>
         </div>
     </div>
+
 
     <!-- <div class="col-xs-12 col-sm-3" ng-repeat="post in ctrl.posts">
         <div class='box'>
