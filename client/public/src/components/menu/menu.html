@@ -1,4 +1,10 @@
 <div class="menu">
+    <div class="menu__logo pull-left">
+        <div class="menu__logo-filter"></div>
+        <div class="menu__logo-title">
+            Remind Rewind
+        </div>
+    </div>
     <ul class="menu__list pull-right">
         <li class="menu__list-item" ui-sref="remindRewind.home">Home</li>
         <li ng-if="ctrl.user.isAdmin || ctrl.user.isModerator" class="menu__list-item" ui-sref="remindRewind.admin.posts.many">Admin</li>
