@@ -1,27 +1,41 @@
 import {
     GraphQLList,
     GraphQLNonNull,
-    GraphQLString
+    GraphQLString,
+    GraphQLBoolean
 } from 'graphql';
 
 import Post from './post.model';
 import PostType from './post.type';
 
-const promiseListAll = () => {
+const promiseListAll = (admin) => {
     return new Promise((resolve, reject) => {
-        Post.find((err, posts) => {
-            if (err) reject(err)
-            else resolve(posts)
-        });
+        if (admin) {
+            Post.find((err, posts) => {
+                if (err) reject(err)
+                else resolve(posts)
+            });
+        } else {
+            Post.find({'online': true}, (err, posts) => {
+                if (err) reject(err);
+                else resolve(posts);
+            });
+        }
     });
 };
 
 const posts = {
     type: new GraphQLList(PostType),
-    resolve: (root) => {
+    args: {
+        admin: {
+            name: 'Query all posts',
+            type: GraphQLBoolean
+        }
+    },
+    resolve: (root, args) => {
         root.token = {};
         if (root.token) {
-            return promiseListAll()
+            return promiseListAll(args.admin)
         } else {
             return new Promise((resolve, reject) => {
                 reject("Not authorized");

@@ -14,7 +14,7 @@
         this.posts = [];
 
         this.getPosts = function(){
-            graphqlFactory.query('{ posts { id title artist { name  albums { images {url}}} featured author {firstName}}}').then(function(response){
+            graphqlFactory.query('{ posts (admin: false){ id title artist { name  albums { images {url}}} featured author {firstName}}}').then(function(response){
                 for (var i = 0; i < response.data.posts.length; i++) {
                     if (response.data.posts[i].featured){
                         self.featuredPosts.push(response.data.posts[i]);
