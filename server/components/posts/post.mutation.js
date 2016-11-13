@@ -34,6 +34,14 @@ const MutationAdd = {
             type: new GraphQLNonNull(GraphQLString),
             description: 'Name of the artist'
         },
+        featured : {
+            name: 'Featured',
+            type: new GraphQLNonNull(GraphQLBoolean)
+        },
+        online: {
+            name: 'Online',
+            type: new GraphQLNonNull(GraphQLBoolean)
+        }
     },
     resolve: (root, args) => {
         return new Promise((resolve, reject) => {
@@ -43,7 +51,9 @@ const MutationAdd = {
                 author: args.author,
                 likes: 0,
                 artist: args.artist,
-                date: new Date()
+                date: new Date(),
+                featured: args.featured,
+                online: args.online
             });
             newPost.id = newPost._id;
             newPost.save(function (err, post) {
@@ -53,6 +63,53 @@ const MutationAdd = {
         });
     }
 };
+
+const MutationEdit = {
+    type: PostType,
+    description: 'Edit a Post',
+    args: {
+        id: {
+            name: 'ID',
+            type: new GraphQLNonNull(GraphQLString),
+            description: 'ID of the post to update'
+        },
+        title: {
+            name: 'Title',
+            type: new GraphQLNonNull(GraphQLString),
+            description: 'Title of the post'
+        },
+        content: {
+            name: 'Content',
+            type: new GraphQLNonNull(GraphQLString),
+            description: 'Content of the post'
+        },
+        artist: {
+            name: 'Artist',
+            type: new GraphQLNonNull(GraphQLString),
+            description: 'Name of the artist'
+        }
+    },
+    resolve: (root, args) => {
+        return new Promise((resolve, reject) => {
+            Post.findById(args.id, (err, value) => {
+                if (err) {
+                    reject(err);
+                } else if (!value){
+                    reject('Post not found')
+                } else {
+                    value.title = args.title;
+                    value.content = args.content;
+                    value.artist = args.artist;
+                    value.save((err, post) => {
+                        if (err) reject(err);
+                        else resolve(post);
+                    });
+                }
+            });
+        });
+    }
+};
+
 
 const MutationFeatured = {
     type: PostType,
@@ -86,6 +143,39 @@ const MutationFeatured = {
     }
 }
 
+const MutationOnline = {
+    type: PostType,
+    description: 'Update a post into a published one',
+    args: {
+        id: {
+            type: GraphQLString,
+            description: 'ID of the post to update'
+        },
+        online: {
+            type: GraphQLBoolean,
+            description: 'Online value of the post'
+        }
+    },
+    resolve: (_, args) => {
+        return new Promise((resolve, reject) => {
+            Post.findById(args.id, (err, post) => {
+                if (err) {
+                    reject(err);
+                } else if (!post){
+                    reject('Post not found')
+                } else {
+                    post.online = args.online;
+                    post.save((err, newPost) => {
+                        if (err) reject(err);
+                        else resolve(newPost)
+                    });
+                }
+            })
+        })
+    }
+}
+
+
 const MutationDestroy = {
     type: PostType,
     description: 'Delete the post',
@@ -116,5 +206,7 @@ const MutationDestroy = {
 export default {
     add: MutationAdd,
     destroy: MutationDestroy,
-    featured: MutationFeatured
+    featured: MutationFeatured,
+    onlined: MutationOnline,
+    edit: MutationEdit
 }

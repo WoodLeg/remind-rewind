@@ -11,7 +11,8 @@ const PostModel = mongoose.model('posts', {
     likes: Number,
     artist: String,
     date: Date,
-    featured: Boolean
+    featured: Boolean,
+    online: Boolean
 });
 
 export default PostModel;

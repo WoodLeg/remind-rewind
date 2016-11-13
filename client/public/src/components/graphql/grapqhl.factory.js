@@ -47,6 +47,15 @@
             });
         };
 
+        graphqlFactory.editPostMutation = function(post, user){
+            var payload = graphqlProvider.prepapreEditPostMutation(post, user);
+            return graphqlService.send(payload).then(function(response){
+                return $q.resolve(response.data);
+            }).catch(function(reason){
+                return $q.reject(reason);
+            });
+        };
+
         graphqlFactory.drestroyPostMutation = function(postID){
             var payload = graphqlProvider.prepareDestroyPostMutation(postID);
             return graphqlService.send(payload).then(function(response){
@@ -67,6 +76,14 @@
 
         graphqlFactory.updateFeaturePost = function(id, value){
             var payload = graphqlProvider.prepareUpdateFeatureMutation(id, value);
+            return graphqlService.send(payload).then(function(response){
+                return $q.resolve(response.data);
+            }).catch(function(reason){
+                return $q.reject(reason);
+            });
+        };
+        graphqlFactory.updateOnlinePost = function(id, value){
+            var payload = graphqlProvider.prepareUpdateOnlineMutation(id, value);
             return graphqlService.send(payload).then(function(response){
                 return $q.resolve(response.data);
             }).catch(function(reason){

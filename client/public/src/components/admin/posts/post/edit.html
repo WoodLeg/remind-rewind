@@ -1,0 +1,34 @@
+<div class="admin__content-post-edit">
+    <div class="col-xs-12">
+        <h1>Edit Post</h1>
+    </div>
+
+    <form name="editPostForm" ng-submit="ctrl.editPostSubmit()" class="admin__content-post-edit-form col-xs-12 col-sm-10">
+        <div class="form-group">
+            <label for="">Title</label>
+            <input ng-model="ctrl.editPost.title" type="text" name="title" class="form-control admin__content-post-edit-form-input" value="">
+        </div>
+        <div class="form-group">
+            <label for="">Content</label>
+            <textarea ng-model="ctrl.editPost.content" class="form-control form-control admin__content-post-edit-form-textarea" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+            <label>Featured</label>
+            <input ng-click="ctrl.updateFeaturePost(ctrl.editPost.id, ctrl.editPost.featured)" type="checkbox" name="name" ng-model="ctrl.editPost.featured">
+        </div>
+        <div class="form-group">
+            <label>Published</label>
+            <input ng-click="ctrl.updateOnlinePost(ctrl.editPost.id, ctrl.editPost.online)" type="checkbox" name="name" ng-model="ctrl.editPost.online">
+        </div>
+        <div ng-class="{'open': ctrl.artistsList.length > 0}" class="admin__content-post-edit-artists">
+            <ul class="admin__content-post-edit-artists-list">
+                <li select-artist ng-class="{'selected': artist.name === ctrl.editPost.artist.name}" ng-click="ctrl.editSelectedArtist(artist.spotify_id)" class="admin__content-post-edit-artists-list-item not-selected" ng-repeat="artist in ctrl.artistsList">
+                    {{ artist.name }}
+                </li>
+            </ul>
+        </div>
+        <button type="submit" class="admin__content-post-edit-submit col-xs-12 col-sm-4 col-sm-offset-4 btn">Save</button>
+        <div class="clearfix"></div>
+    </form>
+
+</div>

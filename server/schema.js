@@ -36,11 +36,13 @@ var MutationType = new GraphQLObjectType({
         addUser: UserMutation.add,
         destroyUser: UserMutation.destroy,
         addPost: PostMutation.add,
+        editPost: PostMutation.edit,
         destroyPost: PostMutation.destroy,
         updateFeaturedPost: PostMutation.featured,
         addArtist: ArtistMutation.add,
         destroyArtist: ArtistMutation.destroy,
-        updateFeatureArtist: ArtistMutation.updateFeatured
+        updateFeatureArtist: ArtistMutation.updateFeatured,
+        updateOnlinePost: PostMutation.onlined
     }
 });
 

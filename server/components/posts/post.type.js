@@ -44,7 +44,6 @@ const PostType = new GraphQLObjectType({
             type: ArtistType,
             description: 'Artist involved in the post',
             resolve: ({artist}) => {
-                console.log(artist);
                 return ApiSpotify.getArtist(artist);
             }
         },
@@ -55,6 +54,10 @@ const PostType = new GraphQLObjectType({
         featured: {
             type: GraphQLBoolean,
             description: 'Featured post'
+        },
+        online: {
+            type: GraphQLBoolean,
+            description: 'Published article'
         }
     })
 });

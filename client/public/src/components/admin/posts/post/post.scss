@@ -1,12 +1,12 @@
 .admin__content-post {
 
-    &-add {
+    &-add, &-edit {
         &-submit {
             margin-top: 25px;
         }
     }
 
-    &-add-artists{
+    &-add-artists, &-edit-artists{
         margin-top: 20px;
         height: 0px;
         transition: all 0.7s ease;

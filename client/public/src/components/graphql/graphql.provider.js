@@ -35,6 +35,12 @@
                         variables: null
                     };
                 },
+                prepapreEditPostMutation: function(post) {
+                    return {
+                        query: 'mutation {editPost (id: \"'+post.id+'\", title: \"'+ post.title +'\", content: \"'+ post.content +'\", artist: \"'+ post.artist+'\") {id}}',
+                        variables: null
+                    };
+                },
                 prepareDestroyPostMutation: function (postID){
                     return {
                         query: 'mutation {destroyPost (id: \"'+postID+'\") {id}}',
@@ -50,6 +56,12 @@
                 prepareUpdateFeatureMutation: function(id, value){
                     return {
                         query: 'mutation {updateFeaturedPost(id: \"'+ id +'\", featured: '+ value +'){featured}}',
+                        variables: null
+                    };
+                },
+                prepareUpdateOnlineMutation: function(id, value){
+                    return {
+                        query: 'mutation {updateOnlinePost(id: \"'+ id +'\", online: '+ value +'){online}}',
                         variables: null
                     };
                 }
