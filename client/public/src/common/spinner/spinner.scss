@@ -1,160 +1,50 @@
-// OVERLAY
-.spinner__container_overlay{
-    position:fixed;
+.spinner {
+    position: fixed;
     top:0;
     left:0;
     min-height: 100%;
     height: 100%;
-    width:100%;
-    z-index: 1049;
-    background: rgba(0,0,0,0.7);
-    .logo {
-    	margin: auto;
-    	position: fixed;
-    	top: 0; left: 0; bottom: 0; right: 0;
-        width: 270px;
-        height: 150px;
-        z-index: 999999999;
-
-        .spinner-wrapper.left, .spinner-wrapper.right {
-            margin: auto;
-            position: relative;
-            float: left;
-            width: 110px;
-            height: 110px;
-        }
-
-        .spinner-wrapper.right {
-            width: 150px;
-            height: 150px;
-            float: right;
-        }
-
-        div.spinner {
-            margin: auto;
-            position: relative;
-            width: 150px;
-            height: 150px;
-            -webkit-animation-name: spin;
-            -webkit-animation-duration: 1000ms;
-            -webkit-animation-iteration-count: infinite;
-            -webkit-animation-timing-function: ease-out;
-            -moz-animation-name: spin;
-            -moz-animation-duration: 1000ms;
-            -moz-animation-iteration-count: infinite;
-            -moz-animation-timing-function: ease-out;
-            -ms-animation-name: spin;
-            -ms-animation-duration: 1000ms;
-            -ms-animation-iteration-count: infinite;
-            -ms-animation-timing-function: ease-out;
-            animation-name: spin;
-            animation-duration: 1000ms;
-            animation-iteration-count: infinite;
-            animation-timing-function: ease-out;
-            border-left: 8px solid rgba(230, 25, 94, .15);
-            border-right: 8px solid rgba(230, 25, 94, .15);
-            border-bottom: 8px solid rgba(230, 25, 94, .15);
-            border-top: 8px solid rgba(230, 25, 94, .8);
-            border-radius: 100%;
-        }
-
-        .left div.spinner {
-            width: 110px;
-            height: 110px;
-            bottom: -40px;
-        }
-    }
-
-    .spinner__container-message{
-        margin: auto;
-    	position: fixed;
-        top: 0; left: 0; bottom: 0; right: 0;
-        width: 500px;
-        height: 325px;
-        font-size: 1.5em;
-        font-family: 'Lato Light', sans-serif;
-        text-align: center;
-        span {
-            width: 100%;
-            position: absolute;
-            bottom: 0;
-            left:0;
-            color: lighten($accent-color,5%);
-            text-shadow:1px 1px 2px rgba(0,0,0,0.3);
-        }
-    }
+    width: 100%;
+    background: rgba(0,0,0,0.8);
+    z-index: 1000;
+}
+.spinner-container {
+      position: fixed;
+      top:0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 250px;
+      height: 250px;
+      margin: auto;
 
 }
 
-// INLINE
-.spinner__container_inline{
-    .logo {
-    	position: relative;
-        width: 190px;
-        height: 100px;
-
-        .spinner-wrapper.left, .spinner-wrapper.right {
-            margin: auto;
-            position: relative;
-            float: left;
-            width: 70px;
-            height: 70px;
-        }
-
-        .spinner-wrapper.right {
-            width: 100px;
-            height: 100px;
-            float: right;
-        }
-
-        div.spinner {
-            margin: auto;
-            position: relative;
-            width: 100px;
-            height: 100px;
-            -webkit-animation-name: spin;
-            -webkit-animation-duration: 1000ms;
-            -webkit-animation-iteration-count: infinite;
-            -webkit-animation-timing-function: ease-out;
-            -moz-animation-name: spin;
-            -moz-animation-duration: 1000ms;
-            -moz-animation-iteration-count: infinite;
-            -moz-animation-timing-function: ease-out;
-            -ms-animation-name: spin;
-            -ms-animation-duration: 1000ms;
-            -ms-animation-iteration-count: infinite;
-            -ms-animation-timing-function: ease-out;
-            animation-name: spin;
-            animation-duration: 1000ms;
-            animation-iteration-count: infinite;
-            animation-timing-function: ease-out;
-            border-left: 4px solid rgba(230, 25, 94, .15);
-            border-right: 4px solid rgba(230, 25, 94, .15);
-            border-bottom: 4px solid rgba(230, 25, 94, .15);
-            border-top: 4px solid rgba(230, 25, 94, .8);
-            border-radius: 100%;
-        }
-
-        .left div.spinner {
-            width: 70px;
-            height: 70px;
-            bottom: -30px;
-        }
-    }
+.part {
+  width: 250px;
+  position: absolute;
 }
 
-
-@-webkit-keyframes spin {
-    from { -webkit-transform: rotate(0deg); }
-    to { -webkit-transform: rotate(360deg); }
+.svgpath {
+  fill: rgba(145,220,90,0);
+  stroke: rgba(241, 196, 15, 1);;
+  stroke-width: 1.5px;
+  stroke-dasharray: 1000;
+  stroke-linecap: round;
+  z-index: 2;
 }
 
-@-moz-keyframes spin {
-    from { -moz-transform: rotate(0deg); }
-    to { -moz-transform: rotate(360deg); }
+.svgbg {
+  fill: rgba(255,255,255,0.2);
+  z-index: 1;
+ }
+
+#playload {
+  animation: dash 2.5s reverse cubic-bezier(.25,.49,.79,.6) infinite;
 }
 
-@keyframes spin {
-    from {transform:rotate(0deg);}
-    to {transform:rotate(360deg);}
+@keyframes dash {
+  to {
+    stroke-dashoffset: 2000;
+  }
 }

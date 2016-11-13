@@ -14,19 +14,15 @@
 
         spinnerInterceptor.httpInterceptor = {
             'request': function(config){
-                $rootScope.$broadcast('spinner', {status: true});
+                $rootScope.$broadcast('spinner', true);
                 return config;
             },
             'response': function(response){
-                if (!$sessionStorage.pollingInProgress) {
-                    $rootScope.$broadcast('spinner', {status: false});
-                    $rootScope.$broadcast('spinner-msg', {msg: $filter('translate')('SPINNER.GENERIC')});
-                }
+                $rootScope.$broadcast('spinner', false);
                 return response;
             },
             'responseError': function(response){
-                $rootScope.$broadcast('spinner', {status: false});
-                $rootScope.$broadcast('spinner-msg', {msg: $filter('translate')('SPINNER.GENERIC')});
+                $rootScope.$broadcast('spinner', false);
                 return $q.reject(response);
             }
         };

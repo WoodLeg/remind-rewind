@@ -19,6 +19,18 @@
                 },
                 params: {
                     id: ''
+                },
+                resolve: {
+                    'post': ['$stateParams', 'graphqlFactory', '$timeout', '$q', '$state', function($stateParams, graphqlFactory, $timeout, $q, $state){
+                        return graphqlFactory.query('{post(id: \"'+$stateParams.id+'\") {id title date content author {firstName lastName} artist{ name id images {url} albums {name}}}}').then(function(response){
+                            return response.data.post;
+                        }).catch(function(reason){
+                            $timeout(function(){
+                                $state.go('remindRewind.home');
+                                return $q.reject(reason);
+                            });
+                        });
+                    }]
                 }
             });
     }

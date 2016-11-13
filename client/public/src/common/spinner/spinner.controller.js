@@ -5,15 +5,16 @@
         .module('remindRewind.spinner')
         .controller('spinnerController', SpinnerController);
 
-    SpinnerController.$inject = ['$rootScope', '$filter'];
+    SpinnerController.$inject = ['$rootScope'];
 
-    function SpinnerController($rootScope, $filter) {
+    function SpinnerController($rootScope) {
 
         var self = this;
-        self.msg = $filter('translate')('SPINNER.GENERIC');
+        this.display = false;
 
-        $rootScope.$on('spinner-msg', function(event, data){
-            self.msg = data.msg || $filter('translate')('SPINNER.GENERIC');
+        $rootScope.$on('spinner', function(event, data){
+            console.log(data);
+            self.display = data;
         });
 
     }
