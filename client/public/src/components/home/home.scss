@@ -60,8 +60,19 @@
         }
     }
     &__post-latest {
+        position: relative;
         padding-top: 30px;
         padding-bottom: 120px;
+        &-filter {
+            z-index: -20;
+            position: absolute;
+            top:0;
+            right:0;
+            background: #c0392b;
+            width: 40%;
+            height: 400px;
+            -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 80%);
+        }
         &-title {
             padding-left: 20px;
             padding-bottom: 40px;
