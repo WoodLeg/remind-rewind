@@ -13,7 +13,6 @@
         this.display = false;
 
         $rootScope.$on('spinner', function(event, data){
-            console.log(data);
             self.display = data;
         });
 

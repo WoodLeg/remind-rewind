@@ -45,7 +45,7 @@
             }).catch(function(reason){
                 return $q.reject(reason);
             });
-        }
+        };
 
         graphqlFactory.drestroyPostMutation = function(postID){
             var payload = graphqlProvider.prepareDestroyPostMutation(postID);
@@ -54,7 +54,7 @@
             }).catch(function(reason){
                 return $q.reject(reason);
             });
-        }
+        };
 
         graphqlFactory.addArtistMutation = function(artist){
             var payload = graphqlProvider.prepareAddArtistMutation(artist);

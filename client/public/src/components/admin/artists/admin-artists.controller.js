@@ -67,8 +67,6 @@
             graphqlFactory.query('{artists{id name spotify_id images {url}}}').then(function(response){
                 $log.debug('LIST ARTISTS: ', response.data.artists);
                 self.artists = response.data.artists;
-            }).catch(function(reason){
-
             });
         };
 

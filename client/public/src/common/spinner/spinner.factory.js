@@ -6,9 +6,9 @@
         .factory('spinnerInterceptor', SpinnerInterceptor);
 
 
-    SpinnerInterceptor.$inject = ['$q', '$log', '$rootScope', '$filter', '$sessionStorage'];
+    SpinnerInterceptor.$inject = ['$q', '$log', '$rootScope'];
 
-    function SpinnerInterceptor($q, $log, $rootScope, $filter, $sessionStorage){
+    function SpinnerInterceptor($q, $log, $rootScope){
 
         var spinnerInterceptor = {};
 

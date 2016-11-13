@@ -5,9 +5,9 @@
     .module('remindRewind.home')
     .controller('homeController', HomeController);
 
-    HomeController.$inject = ['graphqlFactory', '$log', '$timeout', '$state','$rootScope'];
+    HomeController.$inject = ['graphqlFactory', '$log', '$timeout', '$state'];
 
-    function HomeController(graphqlFactory, $log, $timeout, $state, $rootScope) {
+    function HomeController(graphqlFactory, $log, $timeout, $state) {
 
         var self = this;
         this.featuredPosts = [];
@@ -26,7 +26,7 @@
                 $log.debug(self.featurePostRandom);
                 $log.debug(self.posts);
             }).catch(function(reason){
-                $log.debug('ERR LIST POST: ', reason)
+                $log.debug('ERR LIST POST: ', reason);
             });
         };
 

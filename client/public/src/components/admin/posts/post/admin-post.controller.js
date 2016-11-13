@@ -14,8 +14,7 @@
         this.artistsListDisplay = false;
 
         this.createPost = function(){
-            console.log(self.newPost);
-            graphqlFactory.addPostMutation(self.newPost, this.user.id).then(function(response){
+            graphqlFactory.addPostMutation(self.newPost, this.user.id).then(function(){
                 $state.go('remindRewind.admin.posts.many');
             }).catch(function(reason){
                 $log.debug('ERR ADD POST: ', reason);
@@ -30,7 +29,6 @@
         };
 
         this.selectedArtist = function(id){
-            console.log('gsgzf');
             self.newPost.artist = id;
         };
 

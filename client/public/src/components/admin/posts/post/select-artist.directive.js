@@ -12,12 +12,11 @@
             restrict: 'A',
             link: function(_, elem){
                 elem.on('click', function(){
-                    $('.selected').removeClass('selected');
+                    angular.element('.selected').removeClass('selected');
                     elem.addClass('selected');
-                })
-
+                });
             }
-        }
+        };
     }
 
 
