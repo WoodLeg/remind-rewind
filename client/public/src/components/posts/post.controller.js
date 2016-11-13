@@ -11,7 +11,8 @@
         var self = this;
 
         self.post = post;
-        
+
+        $log.debug(this.post);
 
     }
 

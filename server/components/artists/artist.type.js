@@ -8,8 +8,12 @@ import {
 
 import ImageType from '../common/image.type';
 import AlbumType from '../albums/albums.type';
+import EventType from '../common/event.type';
+
+import Artist from '../artists/artist.model';
 
 import ApiSpotify from '../apis/spotify/spotify.service';
+import ApiSongkick from '../apis/songkick/songkick.service';
 
 const ArtistType = new GraphQLObjectType({
     name: 'Artist',
@@ -25,7 +29,7 @@ const ArtistType = new GraphQLObjectType({
         },
         spotify_id: {
             type: GraphQLString,
-            description: 'ID of the artist/band to the 7Digital API.'
+            description: 'ID of the artist/band to the Spotify API.'
         },
         featured: {
             type: GraphQLBoolean,
@@ -35,11 +39,32 @@ const ArtistType = new GraphQLObjectType({
             type: new GraphQLList(ImageType),
             description: 'Image path provided by 7Digital'
         },
+        songkick_id: {
+            type: GraphQLString,
+            description: 'ID of the artist/band on the Songkick API'
+        },
         albums: {
             type: new GraphQLList(AlbumType),
             description: 'Albums of the artist',
             resolve: ({id}) => {
                 return ApiSpotify.getArtistAlbums(id);
+            }
+        },
+        events: {
+            type: new GraphQLList(EventType),
+            description: 'Events associated to the Artist',
+            resolve: ({id}) => {
+                return new Promise((resolve, reject) => {
+                    Artist.findOne({'spotify_id': id}, (err, value) => {
+                        if (err) reject(err);
+                        ApiSongkick.getEvents(value.songkick_id).then((events) => {
+                            console.log(events.resultsPage.results.event);
+                            resolve(events.resultsPage.results.event);
+                        }).catch((reason) => {
+                            reject(reason);
+                        });
+                    });
+                });
             }
         }
     })

@@ -7,6 +7,7 @@ import {
 
 import ArtistType from './artist.type';
 import Artist from './artist.model';
+import ApiSongkick from '../apis/songkick/songkick.service';
 
 const MutationAdd = {
     type: ArtistType,
@@ -30,12 +31,16 @@ const MutationAdd = {
                 spotify_id: args.spotify_id,
                 name: args.name
             });
-            newArtist.save(function(err, artist){
-                if (err) {
-                    reject(err)
-                } else {
-                    resolve(artist);
-                }
+            ApiSongkick.searchArtist(args.name).then((value) => {
+                newArtist.songkick_id = value.resultsPage.results.artist[0].id;
+            }).finally(() => {
+                newArtist.save(function(err, artist){
+                    if (err) {
+                        reject(err)
+                    } else {
+                        resolve(artist);
+                    }
+                });
             });
         });
     }

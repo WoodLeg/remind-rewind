@@ -28,6 +28,9 @@
                             });
                             return $q.reject();
                         }
+                    }],
+                    editPost: [function(){
+                        return null
                     }]
                 },
                 protected: true

@@ -46,6 +46,19 @@
             font-size: 2em;
         }
     }
+    &__events {
+        margin-bottom: 80px;
+        &-title {
+
+        }
+        &-list {
+            margin-top: 30px;
+            &-item {
+                height: 50px;
+                font-size: 1.3em;
+            }
+        }
+    }
 }
 
 @keyframes drift {

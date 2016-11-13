@@ -6,6 +6,9 @@ const config = {
     SPOTIFY: {
         CLIENT_ID: '1b585babf09e4e5bba1df046c5585ee0',
         CLIENT_SECRET: 'f38194205ac547098f281e5007e24ebf'
+    },
+    SONGKICK: {
+        api_key: '9EIuF9lLz9fUHl0W'
     }
 };
 
