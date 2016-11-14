@@ -69,7 +69,7 @@
     &__post-latest {
         position: relative;
         padding-top: 30px;
-        padding-bottom: 120px;
+        padding-bottom: 80px;
         &-filter {
             z-index: -20;
             position: absolute;
@@ -135,8 +135,21 @@
 
     &__post {
         &-articles {
+            position: relative;
+            &-filter {
+                position: absolute;
+                top:0;
+                left:0;
+                z-index: -20;
+                width: 100%;
+                height: 100%;
+                background: #8e44ad;
+                -webkit-clip-path: polygon(0% 0%, 100% 0%, 70% 110%, 0% 20%);
+            }
             &-title {
-
+                margin-bottom: 50px;
+                margin-left: 20px;
+                color: white;
             }
         }
         &-article {
@@ -145,11 +158,13 @@
             height: 250px;
             margin-bottom: 30px;
             &:hover {
+                cursor: pointer;
                 .home__post-article-metadata {
                     height: 50px;
                 }
                 .home__post-article-title {
                     margin-top: 5px;
+
                 }
             }
             &-metadata {
@@ -164,6 +179,8 @@
             &-content {
                 padding-left: 0;
                 padding-right: 0;
+                background: white;
+                height: 100%;
                 &-title {
                     margin-top: 10px;
                     transition: all 0.7s cubic-bezier(.55,0,.1,1);
