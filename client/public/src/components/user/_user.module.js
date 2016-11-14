@@ -4,8 +4,8 @@
     angular
     .module('remindRewind.user', [
         // Libs
-        'ngStorage'
-
+        'ngStorage',
+        'remindRewind.user.signup'
     ]);
 
 })();

@@ -25,6 +25,9 @@
             height: 70px;
             line-height: 70px;
             font-size: 2em;
+            &:hover {
+                cursor: pointer;
+            }
         }
     }
     &__list {

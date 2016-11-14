@@ -1,7 +1,7 @@
 <div class="menu">
     <div class="menu__logo pull-left">
         <div class="menu__logo-filter"></div>
-        <div class="menu__logo-title">
+        <div ui-sref="remindRewind.home" class="menu__logo-title">
             Remind Rewind
         </div>
     </div>
@@ -10,9 +10,8 @@
             <li ng-if="ctrl.user" class="menu__list-item" >{{ctrl.user.firstName}}</li>
             <li ng-if="ctrl.user" class="menu__list-item" ng-click="ctrl.logout()">Logout</li>
             <li ng-if="!ctrl.user" class="menu__list-item" ng-click="ctrl.login()">Signin</li>
-            <li ng-if="!ctrl.user" class="menu__list-item" ng-click="ctrl.signup()">Signup</li>
+            <li ng-if="!ctrl.user" class="menu__list-item" ui-sref="remindRewind.signup">Signup</li>
             <li ng-if="ctrl.user.isAdmin || ctrl.user.isModerator" class="menu__list-item" ui-sref="remindRewind.admin.posts.many">Admin</li>
-            <li class="menu__list-item" ui-sref="remindRewind.home">Home</li>
         </div>
 
     </ul>
