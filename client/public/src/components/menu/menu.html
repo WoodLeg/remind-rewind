@@ -6,12 +6,15 @@
         </div>
     </div>
     <ul class="menu__list pull-right">
-        <li class="menu__list-item" ui-sref="remindRewind.home">Home</li>
-        <li ng-if="ctrl.user.isAdmin || ctrl.user.isModerator" class="menu__list-item" ui-sref="remindRewind.admin.posts.many">Admin</li>
-        <li ng-if="!ctrl.user" class="menu__list-item" ng-click="ctrl.signup()">Signup</li>
-        <li ng-if="!ctrl.user" class="menu__list-item" ng-click="ctrl.login()">Signin</li>
-        <li ng-if="ctrl.user" class="menu__list-item" ng-click="ctrl.logout()">Logout</li>
-        <li ng-if="ctrl.user" class="menu__list-item" >{{ctrl.user.firstName}}</li>
+        <div class="menu__list-filter">
+            <li ng-if="ctrl.user" class="menu__list-item" >{{ctrl.user.firstName}}</li>
+            <li ng-if="ctrl.user" class="menu__list-item" ng-click="ctrl.logout()">Logout</li>
+            <li ng-if="!ctrl.user" class="menu__list-item" ng-click="ctrl.login()">Signin</li>
+            <li ng-if="!ctrl.user" class="menu__list-item" ng-click="ctrl.signup()">Signup</li>
+            <li ng-if="ctrl.user.isAdmin || ctrl.user.isModerator" class="menu__list-item" ui-sref="remindRewind.admin.posts.many">Admin</li>
+            <li class="menu__list-item" ui-sref="remindRewind.home">Home</li>
+        </div>
+
     </ul>
     <div class="clearfix"></div>
 </div>
