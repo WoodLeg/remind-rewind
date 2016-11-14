@@ -16,9 +16,10 @@ const promiseListAll = (admin) => {
                 else resolve(posts)
             });
         } else {
-            Post.find({'online': true}, (err, posts) => {
-                if (err) reject(err);
-                else resolve(posts);
+            Post.find({'online': true}).sort({'date': -1}).exec().then((posts) => {
+                resolve(posts);
+            }).catch((err) => {
+                reject(err);
             });
         }
     });

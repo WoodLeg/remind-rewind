@@ -132,4 +132,61 @@
             }
         }
     }
+
+    &__post {
+        &-articles {
+            &-title {
+
+            }
+        }
+        &-article {
+            border-radius: 2px;
+            overflow:hidden;
+            height: 250px;
+            margin-bottom: 30px;
+            &:hover {
+                .home__post-article-metadata {
+                    height: 50px;
+                }
+                .home__post-article-title {
+                    margin-top: 5px;
+                }
+            }
+            &-metadata {
+                height: 0px;
+                background: rgba(31, 122, 190,0.8);
+                line-height: 50px;
+                font-size: 1.2em;
+                padding-left: 20px;
+                color: white;
+                transition: all 0.7s cubic-bezier(.55,0,.1,1);
+            }
+            &-content {
+                padding-left: 0;
+                padding-right: 0;
+                &-title {
+                    margin-top: 10px;
+                    transition: all 0.7s cubic-bezier(.55,0,.1,1);
+                }
+                &-artist{
+                    margin-bottom: 5px;
+                }
+                &-body {
+                    margin-top: 20px;
+                    font-size: 1.4em;
+                }
+
+            }
+            &-img-wrapper {
+                padding-left: 0;
+                padding-right: 0;
+                overflow:hidden;
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }
+    }
+
 }

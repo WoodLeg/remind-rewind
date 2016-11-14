@@ -14,7 +14,7 @@
         this.posts = [];
 
         this.getPosts = function(){
-            graphqlFactory.query('{ posts (admin: false){ id title artist { name  albums { images {url}}} featured author {firstName}}}').then(function(response){
+            graphqlFactory.query('{ posts (admin: false){ id title date content artist { name  albums { images {url}}} featured author {firstName}}}').then(function(response){
                 for (var i = 0; i < response.data.posts.length; i++) {
                     if (response.data.posts[i].featured){
                         self.featuredPosts.push(response.data.posts[i]);
@@ -23,7 +23,6 @@
                     }
                 }
                 self.featurePostRandom = Math.floor(Math.random() * (self.featuredPosts.length - 0) + 0);
-                $log.debug(self.featurePostRandom);
                 $log.debug(self.posts);
             }).catch(function(reason){
                 $log.debug('ERR LIST POST: ', reason);

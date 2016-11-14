@@ -17,7 +17,7 @@
         <div class="home__post-latest-title">
             <h1>Latest boyz !</h1>
         </div>
-        <div ng-click="ctrl.goToPost(post.id)" class="col-xs-12 col-sm-3" ng-repeat="post in ctrl.posts">
+        <div ng-click="ctrl.goToPost(post.id)" class="col-xs-12 col-sm-3" ng-repeat="post in ctrl.posts | limitTo: 4">
             <div class="home__post shadow-2">
                 <img class="home__post-img" ng-src="{{ post.artist.albums[0].images[0].url }}" alt="" />
                 <h2 class="home__post-title">{{ post.title }}</h2>
@@ -25,6 +25,31 @@
                 <span class="home__post-author">{{ post.author.firstName }}</span>
             </div>
         </div>
+    </div>
+
+    <div class="home__post-articles col-xs-12">
+        <div class="home__post-articles-title">
+            <h1>Articles</h1>
+        </div>
+        <div ng-if="$index > 3"ng-click="ctrl.goToPost(post.id)" class="col-xs-12 col-sm-6" ng-repeat="post in ctrl.posts">
+            <div class="home__post-article shadow-1">
+                <div class="home__post-article-img-wrapper col-xs-12 col-sm-6">
+                    <img class="home__post-article-img" ng-src="{{ post.artist.albums[0].images[0].url }}" alt="" />
+                </div>
+                <div class="home__post-article-content col-xs-12 col-sm-6">
+                    <div class="home__post-article-metadata">
+                        {{ post.date | date:'yyyy-MM-ddTHH'}} by {{ post.author.firstName}}
+                    </div>
+                    <div class="col-xs-12">
+                        <h2 class="home__post-article-content-title">{{ post.title }}</h2>
+                        <h4 class="home__post-article-content-artist">{{ post.artist.name }}</h4>
+                        <p class="home__post-article-content-body">
+                            {{ post.content }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div
     </div>
 
 
