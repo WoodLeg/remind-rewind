@@ -18,7 +18,7 @@
     </div>
 
     <div class="post__albums-container col-xs-12">
-        <div class="post__albums col-xs-12 col-sm-2 " ng-repeat="album in ctrl.post.artist.albums">
+        <div class="post__albums col-xs-12 col-sm-3 " ng-repeat="album in ctrl.post.artist.albums">
             <div class="post__albums-card shadow-1">
                 <img ng-src="{{album.images[0].url}}" alt="" />
                 {{ album.name }}
