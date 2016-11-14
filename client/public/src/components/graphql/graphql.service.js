@@ -5,13 +5,13 @@
         .module('remindRewind.graphql')
         .service('graphqlService', GraphqlService);
 
-    GraphqlService.$inject = ['$http'];
+    GraphqlService.$inject = ['$http', 'API'];
 
-    function GraphqlService($http){
+    function GraphqlService($http, API){
 
 
         this.send = function(payload) {
-            return $http.post('http://localhost:8080/graphql', payload);
+            return $http.post(API.URL, payload);
         };
 
 
