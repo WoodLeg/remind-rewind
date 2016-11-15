@@ -4,7 +4,7 @@
     angular
     .module('remindRewind')
     .constant('API', {
-        URL: 'http://api.remind-rewind.com:81',
+        URL: 'http://api.remind-rewind.com',
         ENDPOINT: {
             SIGNUP:     '/signup',
             SIGNIN:     '/users/signin',
