@@ -11,7 +11,7 @@
 
 
         this.send = function(payload) {
-            return $http.post(API.URL, payload);
+            return $http.post(API.URL + API.ENDPOINT.GRAPHQL, payload);
         };
 
 

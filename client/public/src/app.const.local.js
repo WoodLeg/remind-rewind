@@ -3,8 +3,9 @@
 
     angular
     .module('remindRewind')
+    .constant('PROD', false)
     .constant('API', {
-        URL: 'http://localhost:8080/graphql',
+        URL: 'http://localhost:8080',
         ENDPOINT: {
             SIGNUP:     '/signup',
             SIGNIN:     '/users/signin',

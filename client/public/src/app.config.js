@@ -6,8 +6,8 @@
     .config(config)
     .run(run);
 
-    config.$inject = ['$locationProvider', '$httpProvider', '$logProvider', '$translatePartialLoaderProvider', '$compileProvider'];
-    function config($locationProvider, $httpProvider, $logProvider, $translatePartialLoaderProvider, $compileProvider) {
+    config.$inject = ['$locationProvider', '$httpProvider', '$logProvider', '$translatePartialLoaderProvider', '$compileProvider', 'PROD'];
+    function config($locationProvider, $httpProvider, $logProvider, $translatePartialLoaderProvider, $compileProvider, PROD) {
         $locationProvider.html5Mode(true).hashPrefix('!');
 
         $httpProvider.defaults.headers.common['Content-Type'] = 'application/json';
@@ -18,6 +18,10 @@
         // Setup jwt interceptor
         // HTTP calls can override with { skipAuthorization: true }
         $httpProvider.interceptors.push('authHttpResponseInterceptor');
+
+        if (PROD){
+            $logProvider.debugEnabled(false);
+        }
 
         // Common i18n
         $translatePartialLoaderProvider.addPart('app');

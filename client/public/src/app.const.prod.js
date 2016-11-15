@@ -3,6 +3,7 @@
 
     angular
     .module('remindRewind')
+    .constant('PROD', true)
     .constant('API', {
         URL: 'http://api.remind-rewind.com',
         ENDPOINT: {
