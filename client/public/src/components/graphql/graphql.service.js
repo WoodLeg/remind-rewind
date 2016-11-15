@@ -11,7 +11,7 @@
 
 
         this.send = function(payload) {
-            return $http.post(API.URL +'/graphql', payload);
+            return $http.post(API.URL, payload);
         };
 
 
