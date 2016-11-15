@@ -19,26 +19,34 @@ const searchArtist = {
     },
     resolve: (root, args) => {
         return new Promise((resolve, reject) => {
-            ApiSpotify.searchArtist(args.name).then((response) => {
-                resolve(response);
-            }).catch((reason) => {
-                reject(reason);
-            });
+            if (root.token.isAdmin || root.token.isModerator){
+                ApiSpotify.searchArtist(args.name).then((response) => {
+                    resolve(response);
+                }).catch((reason) => {
+                    reject(reason);
+                });
+            } else {
+                reject('Not Authorized');
+            }
         })
     }
 };
 
 const artists = {
     type: new GraphQLList(ArtistType),
-    resolve: (_) => {
+    resolve: (root) => {
         return new Promise((resolve, reject) => {
-            Artist.find({}, (err, artists) => {
-                if (err) {
-                    reject(err);
-                } else {
-                    resolve(artists);
-                }
-            });
+            if (root.token.isAdmin || root.token.isModerator){
+                Artist.find({}, (err, artists) => {
+                    if (err) {
+                        reject(err);
+                    } else {
+                        resolve(artists);
+                    }
+                });
+            } else {
+                reject('Not Authorized');
+            }
         })
     }
 };
@@ -50,8 +58,12 @@ const artistDetail = {
             type: new GraphQLNonNull(GraphQLString)
         }
     },
-    resolve: (_, args) => {
-        return ApiSpotify.getArtist(args.id);
+    resolve: (root, args) => {
+        if (root.token.isAdmin || root.token.isModerator) {
+            return ApiSpotify.getArtist(args.id);
+        } else {
+            return new Promise((_, reject) => reject('Not Authorized'));
+        }
     }
 };
 

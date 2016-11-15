@@ -34,14 +34,7 @@ const posts = {
         }
     },
     resolve: (root, args) => {
-        root.token = {};
-        if (root.token) {
-            return promiseListAll(args.admin)
-        } else {
-            return new Promise((resolve, reject) => {
-                reject("Not authorized");
-            });
-        }
+        return promiseListAll(args.admin)
     }
 };
 

@@ -45,21 +45,25 @@ const MutationAdd = {
     },
     resolve: (root, args) => {
         return new Promise((resolve, reject) => {
-            let newPost = new Post({
-                title: args.title,
-                content: args.content,
-                author: args.author,
-                likes: 0,
-                artist: args.artist,
-                date: new Date(),
-                featured: args.featured,
-                online: args.online
-            });
-            newPost.id = newPost._id;
-            newPost.save(function (err, post) {
-                if (err) reject(err);
-                else resolve(post);
-            });
+            if(root.token.isAdmin || root.token.isModerator){
+                let newPost = new Post({
+                    title: args.title,
+                    content: args.content,
+                    author: args.author,
+                    likes: 0,
+                    artist: args.artist,
+                    date: new Date(),
+                    featured: args.featured,
+                    online: args.online
+                });
+                newPost.id = newPost._id;
+                newPost.save(function (err, post) {
+                    if (err) reject(err);
+                    else resolve(post);
+                });
+            } else {
+                reject('Not authorized');
+            }
         });
     }
 };
@@ -91,21 +95,25 @@ const MutationEdit = {
     },
     resolve: (root, args) => {
         return new Promise((resolve, reject) => {
-            Post.findById(args.id, (err, value) => {
-                if (err) {
-                    reject(err);
-                } else if (!value){
-                    reject('Post not found')
-                } else {
-                    value.title = args.title;
-                    value.content = args.content;
-                    value.artist = args.artist;
-                    value.save((err, post) => {
-                        if (err) reject(err);
-                        else resolve(post);
-                    });
-                }
-            });
+            if (root.token.isAdmin || root.token.isModerator){
+                Post.findById(args.id, (err, value) => {
+                    if (err) {
+                        reject(err);
+                    } else if (!value){
+                        reject('Post not found')
+                    } else {
+                        value.title = args.title;
+                        value.content = args.content;
+                        value.artist = args.artist;
+                        value.save((err, post) => {
+                            if (err) reject(err);
+                            else resolve(post);
+                        });
+                    }
+                });
+            } else {
+                reject('Not authorized');
+            }
         });
     }
 };
@@ -124,21 +132,25 @@ const MutationFeatured = {
             description: 'Featured value of the post'
         }
     },
-    resolve: (_, args) => {
+    resolve: (root, args) => {
         return new Promise((resolve, reject) => {
-            Post.findById(args.id, (err, post) => {
-                if (err) {
-                    reject(err);
-                } else if (!post){
-                    reject('Post not found')
-                } else {
-                    post.featured = args.featured;
-                    post.save((err, newPost) => {
-                        if (err) reject(err);
-                        else resolve(newPost)
-                    });
-                }
-            })
+            if (root.token.isAdmin || root.token.isModerator){
+                Post.findById(args.id, (err, post) => {
+                    if (err) {
+                        reject(err);
+                    } else if (!post){
+                        reject('Post not found')
+                    } else {
+                        post.featured = args.featured;
+                        post.save((err, newPost) => {
+                            if (err) reject(err);
+                            else resolve(newPost)
+                        });
+                    }
+                })
+            } else {
+                reject('Not authorized');
+            }
         })
     }
 }
@@ -156,21 +168,25 @@ const MutationOnline = {
             description: 'Online value of the post'
         }
     },
-    resolve: (_, args) => {
+    resolve: (root, args) => {
         return new Promise((resolve, reject) => {
-            Post.findById(args.id, (err, post) => {
-                if (err) {
-                    reject(err);
-                } else if (!post){
-                    reject('Post not found')
-                } else {
-                    post.online = args.online;
-                    post.save((err, newPost) => {
-                        if (err) reject(err);
-                        else resolve(newPost)
-                    });
-                }
-            })
+            if (root.token.isAdmin || root.token.isModerator) {
+                Post.findById(args.id, (err, post) => {
+                    if (err) {
+                        reject(err);
+                    } else if (!post){
+                        reject('Post not found')
+                    } else {
+                        post.online = args.online;
+                        post.save((err, newPost) => {
+                            if (err) reject(err);
+                            else resolve(newPost)
+                        });
+                    }
+                })
+            } else {
+                reject('Not Authorized');
+            }
         })
     }
 }
@@ -187,18 +203,22 @@ const MutationDestroy = {
     },
     resolve: (root, args) => {
         return new Promise((resolve, reject) => {
-            Post.findById(args.id, (err, post) => {
-                if (err) {
-                    reject(err);
-                } else if (!post) {
-                    reject('Post NOT found');
-                } else {
-                    post.remove((err) => {
-                        if (err) reject(err);
-                        else resolve(post);
-                    });
-                }
-            });
+            if (root.token.isAdmin || root.token.isModerator) {
+                Post.findById(args.id, (err, post) => {
+                    if (err) {
+                        reject(err);
+                    } else if (!post) {
+                        reject('Post NOT found');
+                    } else {
+                        post.remove((err) => {
+                            if (err) reject(err);
+                            else resolve(post);
+                        });
+                    }
+                });
+            } else {
+                reject('Not Authorized');
+            }
         });
     }
 };

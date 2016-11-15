@@ -19,11 +19,10 @@ const promiseListAll = () => {
 const users = {
     type: new GraphQLList(UserType),
     resolve: (root) => {
-        root.token = {};
-        if (root.token) {
+        if (root.token.isAdmin) {
             return promiseListAll()
         } else {
-            return new Promise((resolve, reject) => {
+            return new Promise((_, reject) => {
                 reject("Not authorized");
             });
         }

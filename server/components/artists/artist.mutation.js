@@ -26,22 +26,26 @@ const MutationAdd = {
     },
     resolve: (root, args) => {
         return new Promise((resolve, reject) => {
-            let newArtist = new Artist({
-                id: args.digital_id,
-                spotify_id: args.spotify_id,
-                name: args.name
-            });
-            ApiSongkick.searchArtist(args.name).then((value) => {
-                newArtist.songkick_id = value.resultsPage.results.artist[0].id;
-            }).finally(() => {
-                newArtist.save(function(err, artist){
-                    if (err) {
-                        reject(err)
-                    } else {
-                        resolve(artist);
-                    }
+            if (root.token.isAdmin || root.token.isModerator){
+                let newArtist = new Artist({
+                    id: args.digital_id,
+                    spotify_id: args.spotify_id,
+                    name: args.name
                 });
-            });
+                ApiSongkick.searchArtist(args.name).then((value) => {
+                    newArtist.songkick_id = value.resultsPage.results.artist[0].id;
+                }).finally(() => {
+                    newArtist.save(function(err, artist){
+                        if (err) {
+                            reject(err)
+                        } else {
+                            resolve(artist);
+                        }
+                    });
+                });
+            } else {
+                reject('Not Authorized');
+            }
         });
     }
 };
@@ -61,19 +65,23 @@ const MutationFeatured = {
     },
     resolve: (root, args) => {
         return new Promise((resolve, reject) => {
-            Artist.findById(args.id, (err, artist) => {
-                if (err) {
-                    reject(err);
-                } else if (!artist){
-                    reject('Artist not found');
-                } else {
-                    artist.featured = args.featured;
-                    artist.save((err) => {
-                        if (err) reject(err);
-                        else resolve(artist);
-                    });
-                }
-            })
+            if (root.token.isAdmin || root.token.isModerator) {
+                Artist.findById(args.id, (err, artist) => {
+                    if (err) {
+                        reject(err);
+                    } else if (!artist){
+                        reject('Artist not found');
+                    } else {
+                        artist.featured = args.featured;
+                        artist.save((err) => {
+                            if (err) reject(err);
+                            else resolve(artist);
+                        });
+                    }
+                })
+            } else {
+                reject('Not Authorized');
+            }
         })
     }
 };
@@ -89,18 +97,22 @@ const MutationDestroy = {
     },
     resolve: (root, args) => {
         return new Promise((resolve, reject) => {
-            Artist.findById(args.id, (err, artist) => {
-                if (err) {
-                    reject(err);
-                } else if (!artist) {
-                    reject('Artist NOT found');
-                } else {
-                    artist.remove((err) => {
-                        if (err) reject(err);
-                        else resolve(artist);
-                    });
-                }
-            });
+            if(root.token.isAdmin || root.token.isModerator) {
+                Artist.findById(args.id, (err, artist) => {
+                    if (err) {
+                        reject(err);
+                    } else if (!artist) {
+                        reject('Artist NOT found');
+                    } else {
+                        artist.remove((err) => {
+                            if (err) reject(err);
+                            else resolve(artist);
+                        });
+                    }
+                });
+            } else {
+                reject('Not Authorized');
+            }
         });
     }
 };

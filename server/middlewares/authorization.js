@@ -1,4 +1,5 @@
 import jwt from 'jwt-simple';
+import config from '../config'
 
 module.exports.verifyJWT = function(req, res, next) {
     var token = req.headers.authorization;
@@ -11,11 +12,10 @@ module.exports.verifyJWT = function(req, res, next) {
         var tokenArray = token.split(' ');
         // Check if the token is valid
         try {
-            if (tokenArray.length !== 2 || tokenArray[0] !== 'Bearer ') {
+            if (tokenArray.length !== 2 || tokenArray[0] !== 'Bearer') {
                 throw new Error('Malformatted access token');
             }
-
-            var decoded = jwt.decode(tokenArray[1]);
+            var decoded = jwt.decode(tokenArray[1], 'secretdefou', false, 'HS256');
 
             req._token = decoded;
             next();

@@ -58,7 +58,6 @@ const ArtistType = new GraphQLObjectType({
                     Artist.findOne({'spotify_id': id}, (err, value) => {
                         if (err) reject(err);
                         ApiSongkick.getEvents(value.songkick_id).then((events) => {
-                            console.log(events.resultsPage.results.event);
                             resolve(events.resultsPage.results.event);
                         }).catch((reason) => {
                             reject(reason);

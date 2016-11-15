@@ -1,4 +1,7 @@
 const config = {
+    SERVER: {
+        PORT: 8080
+    },
     API_DIGITAL: {
         oauth_consumer_key: '7dj9s3rk79nx',
         oauth_consumer_secret: '2tzq7d7qm4zm9mpz'
@@ -9,6 +12,13 @@ const config = {
     },
     SONGKICK: {
         api_key: '9EIuF9lLz9fUHl0W'
+    },
+    GRAPHQL: {
+        gui: true
+    },
+    JWT: {
+        SECRET: "gfjgè_@^jd",
+        algo: 'HS256'
     }
 };
 

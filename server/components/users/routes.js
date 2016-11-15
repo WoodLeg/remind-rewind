@@ -14,6 +14,7 @@ router.post('/signin', function(request, response){
         } else {
             bcrypt.compare(request.body.password, user.password, function(err, res){
                 if (res) {
+                    console.log(user);
                     var token = jwt.encode(user, 'secretdefou');
                     user = user.toObject();
                     delete(user.password);
