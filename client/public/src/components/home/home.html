@@ -17,7 +17,7 @@
         <div class="home__post-latest-content pull-left">
             <h1 class="home__post-content-latest-title">{{ ctrl.posts[0].title }}</h1>
             <h2 class="home__post-content-latest-artist">{{ ctrl.posts[0].artist.name }}</h2>
-            <p class="home__post-latest-content-text col-xs-12 col-sm-8 col-sm-offset-2">
+            <p class="home__post-latest-content-text col-xs-12 col-md-12">
                 {{ ctrl.posts[0].content | limitTo: 300}}
             </p>
             <button ng-click="ctrl.goToPost(ctrl.posts[0].id)" class="home__post-latest-content-btn col-xs-12 col-sm-4 col-sm-offset-4"type="button" name="button">
@@ -48,13 +48,11 @@
                     </div>
                 </div>
                 <div class="home__post-article-content col-xs-12 col-sm-7 ">
-                    <div class="col-xs-12">
                         <h2 class="home__post-article-content-title">{{ post.title }}</h2>
                         <p class="home__post-article-content-body">
-                            {{ post.content | limitTo: 200}}
+                            {{ post.content | limitTo: 100}}
                         </p>
                         <span>{{ post.date }} by {{post.author}}</span>
-                    </div>
                 </div>
             </div>
         </div>
