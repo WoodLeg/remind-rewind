@@ -49,9 +49,7 @@
                 </div>
                 <div class="home__post-article-content col-xs-12 col-sm-7 ">
                         <h2 class="home__post-article-content-title">{{ post.title }}</h2>
-                        <p class="home__post-article-content-body">
-                            {{ post.content | limitTo: 100}}
-                        </p>
+                        <div marked="post.content | limitTo: 150" class="home__post-article-content-body"><div>
                         <span>{{ post.date }} by {{post.author}}</span>
                 </div>
             </div>

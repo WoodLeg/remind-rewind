@@ -11,6 +11,9 @@
             'ngStorage',
             'ngMessages',
             'angular-jwt',
+            'hc.marked',
+            'hljs',
+            'angular-markdown-editor',
 
 
 

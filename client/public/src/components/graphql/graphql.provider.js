@@ -31,7 +31,7 @@
                 },
                 prepapreAddPostMutation: function(post, user) {
                     return {
-                        query: 'mutation {addPost (title: \"'+ post.title +'\", content: \"'+ post.body +'\", author: \"'+user+'\", artist: \"'+ post.artist+'\", featured: '+post.featured+', online: '+post.online+') {id title content author{id firstName lastName} artist{id name}}}',
+                        query: 'mutation {addPost (title: \"'+ post.title +'\", content: \"'+ post.content +'\", author: \"'+user+'\", artist: \"'+ post.artist+'\", featured: '+post.featured+', online: '+post.online+') {id title content author{id firstName lastName} artist{id name}}}',
                         variables: null
                     };
                 },

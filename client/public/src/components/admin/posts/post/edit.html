@@ -3,14 +3,14 @@
         <h1>Edit Post</h1>
     </div>
 
-    <form name="editPostForm" ng-submit="ctrl.editPostSubmit()" class="admin__content-post-edit-form col-xs-12 col-sm-10">
+    <form name="editPostForm" ng-submit="ctrl.editPostSubmit()" class="admin__content-post-edit-form col-xs-12 col-sm-6">
         <div class="form-group">
             <label for="">Title</label>
             <input ng-model="ctrl.editPost.title" type="text" name="title" class="form-control admin__content-post-edit-form-input" value="">
         </div>
         <div class="form-group">
             <label for="">Content</label>
-            <textarea ng-model="ctrl.editPost.content" class="form-control form-control admin__content-post-edit-form-textarea" rows="3"></textarea>
+            <textarea ng-model="ctrl.editPost.content" markdown-editor="{addExtraButtons: true}" class="form-control form-control admin__content-post-edit-form-textarea" rows="10"></textarea>
         </div>
         <div class="form-group">
             <label>Featured</label>
@@ -30,5 +30,7 @@
         <button type="submit" class="admin__content-post-edit-submit col-xs-12 col-sm-4 col-sm-offset-4 btn">Save</button>
         <div class="clearfix"></div>
     </form>
+
+    <div marked="ctrl.editPost.content" class="admin__content-post-edit-markdown-preview markdown col-xs-12 col-sm-6" style="padding: 20px"></div>
 
 </div>

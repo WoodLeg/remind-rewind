@@ -12,7 +12,10 @@
         var self = this;
         this.user = userFactory.getUser();
         this.artistsListDisplay = false;
-        this.editPost = editPost;
+        if (editPost){
+            this.editPost = editPost;
+            this.editPost.content = this.editPost.content.replace(/<br\s*[\/]?>/gi, "\n");
+        }
 
 
         this.createPost = function(){

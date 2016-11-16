@@ -39,6 +39,7 @@
         };
 
         graphqlFactory.addPostMutation = function(post, user){
+            post.content = post.content.replace(/\n/g, '<br/>');
             var payload = graphqlProvider.prepapreAddPostMutation(post, user);
             return graphqlService.send(payload).then(function(response){
                 return $q.resolve(response.data);
@@ -48,6 +49,7 @@
         };
 
         graphqlFactory.editPostMutation = function(post, user){
+            post.content = post.content.replace(/\n/g, '<br/>');
             var payload = graphqlProvider.prepapreEditPostMutation(post, user);
             return graphqlService.send(payload).then(function(response){
                 return $q.resolve(response.data);

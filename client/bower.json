@@ -32,6 +32,7 @@
     "angular-translate-storage-cookie": "^2.11.0",
     "angular-translate-storage-local": "^2.11.0",
     "angular-translate-loader-static-files": "^2.11.0",
-    "angular-translate-handler-log": "^2.11.0"
+    "angular-translate-handler-log": "^2.11.0",
+    "angular-markdown-editor-ghiscoding": "^1.1.0"
   }
 }
