@@ -12,9 +12,13 @@
         var self = this;
         this.user = userFactory.getUser();
         this.artistsListDisplay = false;
+        this.newPost = {};
+        this.newPost.featured = false;
+        this.newPost.online = false;
         if (editPost){
             self.editPost = editPost;
             self.editPost.content = $base64.decode(self.editPost.content);
+            $log.debug(self.editPost);
         }
 
 
