@@ -14,6 +14,7 @@
             'hc.marked',
             'hljs',
             'angular-markdown-editor',
+            'base64',
 
 
 

@@ -28,6 +28,13 @@ const request = {
         }).catch((reason) => {
             return reason;
         });
+    },
+    getAlbum: (id) => {
+        return spotifyApi.getAlbums([id]).then((response) => {
+            return response.body;
+        }).catch((reason) => {
+            return reason;
+        });
     }
 };
 

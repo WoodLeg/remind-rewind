@@ -17,9 +17,6 @@ const promiseListAll = (admin) => {
             });
         } else {
             Post.find({'online': true}).sort({'date': -1}).exec().then((posts) => {
-                for (var i = 0; i < posts.length; i++) {
-                    posts[i].content = posts[i].content.replace(/<br\s*[\/]?>/gi, "\n");
-                }
                 resolve(posts);
             }).catch((err) => {
                 reject(err);
@@ -55,7 +52,6 @@ const post = {
                     reject(err);
                 }
                 else {
-                    post.content = post.content.replace(/<br\s*[\/]?>/gi, "\n");
                     resolve(post);
                 }
             });

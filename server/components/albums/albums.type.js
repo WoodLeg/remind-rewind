@@ -7,6 +7,7 @@ import {
 
 import ArtistType from '../artists/artist.type';
 import ImageType from '../common/image.type';
+import TrackType from '../tracks/tracks.type';
 
 const AlbumType = new GraphQLObjectType({
     name: 'Album',
@@ -27,6 +28,21 @@ const AlbumType = new GraphQLObjectType({
         id: {
             type: GraphQLString,
             description: 'Spotify_ID of the album.'
+        },
+        release_date: {
+            type: GraphQLString,
+            description: 'Release date of the album'
+        },
+        label: {
+            type: GraphQLString,
+            description: 'Label of the album'
+        },
+        tracks: {
+            type: new GraphQLList(TrackType),
+            description: 'Tracks of the album',
+            resolve:(root) => {
+                return root.tracks.items;
+            }
         }
     })
 });
