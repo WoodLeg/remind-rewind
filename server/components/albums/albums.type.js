@@ -41,7 +41,6 @@ const AlbumType = new GraphQLObjectType({
             type: new GraphQLList(TrackType),
             description: 'Tracks of the album',
             resolve:(root) => {
-                console.log(root.tracks.items);
                 return root.tracks.items;
             }
         }
