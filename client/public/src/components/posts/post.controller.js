@@ -14,6 +14,14 @@
 
         $log.debug(this.post);
 
+        this.getAlbum  = function(id){
+            graphqlFactory.query('query { album (id: \"'+id+'\"){ id name label images {url} tracks{id name duration track_number}}}').then(function(response){
+                $log.debug('GET ALBUM SUCCESS:' , response);
+            }).catch(function(reason){
+                $log.debug('GET ALBUM FAILED: ', reason);
+            });
+        }
+
     }
 
 

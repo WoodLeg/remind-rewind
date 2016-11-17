@@ -14,6 +14,7 @@ import PostQuery from './components/posts/post.query';
 import PostMutation from './components/posts/post.mutation';
 import ArtistQuery from './components/artists/artist.query';
 import ArtistMutation from './components/artists/artist.mutation';
+import AlbumQuery from './components/albums/albums.query';
 
 const QueryType = new GraphQLObjectType({
     name: 'Query',
@@ -25,7 +26,8 @@ const QueryType = new GraphQLObjectType({
         post: PostQuery.post,
         artist: ArtistQuery.searchArtist,
         artists: ArtistQuery.artists,
-        artistDetail: ArtistQuery.artistDetail
+        artistDetail: ArtistQuery.artistDetail,
+        album: AlbumQuery.album
     })
 });
 
