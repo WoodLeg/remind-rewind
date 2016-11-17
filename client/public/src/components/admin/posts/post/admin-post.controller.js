@@ -18,7 +18,6 @@
         if (editPost){
             self.editPost = editPost;
             self.editPost.content = $base64.decode(self.editPost.content);
-            $log.debug(self.editPost);
         }
 
 
@@ -31,6 +30,10 @@
         };
 
         this.editPostSubmit = function(){
+            $log.debug('Send editpost payload: ', self.editPost);
+            if (typeof self.editPost.artist !== 'string') {
+                self.editPost.artist = self.editPost.artist.spotify_id;
+            }
             graphqlFactory.editPostMutation(self.editPost).then(function(){
                 $state.go('remindRewind.admin.posts.many');
             }).catch(function(reason){

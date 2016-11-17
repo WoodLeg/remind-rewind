@@ -59,11 +59,13 @@
                         }
                     }],
                     editPost : ['$stateParams', 'graphqlFactory', '$timeout', '$q', '$state', function($stateParams, graphqlFactory, $timeout, $q, $state){
-                        return graphqlFactory.query('{post(id: \"'+$stateParams.id+'\") {id title date content author {email} featured online artist{name spotify_id}}}').then(function(response){
+                        return graphqlFactory.query('{post(id: \"'+$stateParams.id+'\") {id title date content author {email} featured online artist(admin: true){name spotify_id}}}').then(function(response){
                             return response.data.post;
                         }).catch(function(reason){
                             $timeout(function(){
-                                $state.go('remindRewind.admin.posts.many');
+                                $timeout(function(){
+                                    $state.go('remindRewind.admin.posts.many');
+                                });
                                 return $q.reject(reason);
                             });
                         });

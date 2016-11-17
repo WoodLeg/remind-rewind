@@ -43,8 +43,19 @@ const PostType = new GraphQLObjectType({
         artist: {
             type: ArtistType,
             description: 'Artist involved in the post',
-            resolve: ({artist}) => {
-                return ApiSpotify.getArtist(artist);
+            args: {
+                admin: {
+                    type :GraphQLBoolean
+                }
+            },
+            resolve: ({artist}, args) => {
+                if (args.admin){
+                    return Artist.find({'spotify_id': artist}).exec().then((response) => {
+                        return response[0];
+                    });
+                } else {
+                    return ApiSpotify.getArtist(artist);
+                }
             }
         },
         date: {

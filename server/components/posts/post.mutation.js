@@ -102,6 +102,7 @@ const MutationEdit = {
                     } else if (!value){
                         reject('Post not found')
                     } else {
+                        console.log(args.artist);
                         value.title = args.title;
                         value.content = args.content;
                         value.artist = args.artist;
