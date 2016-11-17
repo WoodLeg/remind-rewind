@@ -5,16 +5,16 @@
         .module('remindRewind.admin.posts.solo')
         .controller('postAdminController', PostAdminController);
 
-    PostAdminController.$inject = ['userFactory', 'graphqlFactory', '$log', '$state', '$timeout', 'editPost'];
+    PostAdminController.$inject = ['userFactory', 'graphqlFactory', '$log', '$state', '$timeout', 'editPost', '$base64'];
 
-    function PostAdminController(userFactory, graphqlFactory, $log, $state, $timeout, editPost){
+    function PostAdminController(userFactory, graphqlFactory, $log, $state, $timeout, editPost, $base64){
 
         var self = this;
         this.user = userFactory.getUser();
         this.artistsListDisplay = false;
         if (editPost){
-            this.editPost = editPost;
-            this.editPost.content = this.editPost.content.replace(/<br\s*[\/]?>/gi, "\n");
+            self.editPost = editPost;
+            self.editPost.content = $base64.decode(self.editPost.content);
         }
 
 

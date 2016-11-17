@@ -5,9 +5,9 @@
     .module('remindRewind.home')
     .controller('homeController', HomeController);
 
-    HomeController.$inject = ['graphqlFactory', '$log', '$timeout', '$state'];
+    HomeController.$inject = ['graphqlFactory', '$log', '$timeout', '$state', '$base64'];
 
-    function HomeController(graphqlFactory, $log, $timeout, $state) {
+    function HomeController(graphqlFactory, $log, $timeout, $state, $base64) {
 
         var self = this;
         this.featuredPosts = [];
@@ -16,6 +16,7 @@
         this.getPosts = function(){
             graphqlFactory.query('{ posts (admin: false){ id title date content artist { name  albums { images {url}}} featured author {firstName}}}').then(function(response){
                 for (var i = 0; i < response.data.posts.length; i++) {
+                    response.data.posts[i].content = $base64.decode(response.data.posts[i].content);
                     if (response.data.posts[i].featured){
                         self.featuredPosts.push(response.data.posts[i]);
                     } else {

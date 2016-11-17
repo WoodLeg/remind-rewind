@@ -5,9 +5,9 @@
         .module('remindRewind.graphql')
         .factory('graphqlFactory', GraphqlFactory);
 
-    GraphqlFactory.$inject = ['graphqlProvider', 'graphqlService', '$q'];
+    GraphqlFactory.$inject = ['graphqlProvider', 'graphqlService', '$q', '$base64'];
 
-    function GraphqlFactory(graphqlProvider, graphqlService, $q){
+    function GraphqlFactory(graphqlProvider, graphqlService, $q, $base64){
         var graphqlFactory = {};
 
 
@@ -39,7 +39,7 @@
         };
 
         graphqlFactory.addPostMutation = function(post, user){
-            post.content = post.content.replace(/\n/g, '<br/>');
+            post.content = $base64.encode(post.content);
             var payload = graphqlProvider.prepapreAddPostMutation(post, user);
             return graphqlService.send(payload).then(function(response){
                 return $q.resolve(response.data);
@@ -49,7 +49,7 @@
         };
 
         graphqlFactory.editPostMutation = function(post, user){
-            post.content = post.content.replace(/\n/g, '<br/>');
+            post.content = $base64.encode(post.content);
             var payload = graphqlProvider.prepapreEditPostMutation(post, user);
             return graphqlService.send(payload).then(function(response){
                 return $q.resolve(response.data);
