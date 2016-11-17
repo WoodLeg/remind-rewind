@@ -11,16 +11,22 @@
         var self = this;
 
         self.post = post;
+        this.albumDetail = null;
 
-        $log.debug(this.post);
+        $log.debug(this.albumDetail);
 
         this.getAlbum  = function(id){
             graphqlFactory.query('query { album (id: \"'+id+'\"){ id name label images {url} tracks{id name duration track_number}}}').then(function(response){
                 $log.debug('GET ALBUM SUCCESS:' , response);
+                self.albumDetail = response.data.album;
             }).catch(function(reason){
                 $log.debug('GET ALBUM FAILED: ', reason);
             });
-        }
+        };
+
+        this.resetAlbum = function(){
+            self.albumDetail = null;
+        };
 
     }
 
