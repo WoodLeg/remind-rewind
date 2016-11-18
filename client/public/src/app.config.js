@@ -6,8 +6,8 @@
     .config(config)
     .run(run);
 
-    config.$inject = ['$locationProvider', '$httpProvider', '$logProvider', '$translatePartialLoaderProvider', '$compileProvider', 'PROD'];
-    function config($locationProvider, $httpProvider, $logProvider, $translatePartialLoaderProvider, $compileProvider, PROD) {
+    config.$inject = ['$sceProvider','$locationProvider', '$httpProvider', '$logProvider', '$translatePartialLoaderProvider', '$compileProvider', 'PROD'];
+    function config($sceProvider, $locationProvider, $httpProvider, $logProvider, $translatePartialLoaderProvider, $compileProvider, PROD) {
         $locationProvider.html5Mode(true).hashPrefix('!');
 
         $httpProvider.defaults.headers.common['Content-Type'] = 'application/json';
@@ -23,6 +23,7 @@
             $logProvider.debugEnabled(false);
         }
 
+        $sceProvider.enabled(false);
         // Common i18n
         $translatePartialLoaderProvider.addPart('app');
         $translatePartialLoaderProvider.addPart('error');

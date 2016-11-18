@@ -24,6 +24,11 @@
             </div>
         </div>
         <div ng-class="{'open': ctrl.albumDetail}" class="post__albums-detail col-xs-12">
+            <div class="col-xs-12">
+                <audio ng-src="{{ctrl.link}}" controls autoplay>
+
+                </audio>
+            </div>
             <div class="post__albums-detail-close" ng-click="ctrl.resetAlbum()">
                 <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
             </div>
@@ -34,7 +39,7 @@
                 <h2>{{ ctrl.albumDetail.name }}</h2>
                 <h4>{{ ctrl.albumDetail.label }}</h4>
                 <ul>
-                    <li ng-repeat="track in ctrl.albumDetail.tracks">
+                    <li ng-click="ctrl.playPreview(track.preview_url)"ng-repeat="track in ctrl.albumDetail.tracks">
                         <span class="post__albums-detail-data-number">{{ track.track_number}}.</span>  {{ track.name }} <span class="post__albums-detail-data-duration">({{ track.duration | date:'mm:ss'}})</span>
                     </li>
                 </ul>

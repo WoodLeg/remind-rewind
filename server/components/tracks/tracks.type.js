@@ -33,6 +33,10 @@ const TrackType = new GraphQLObjectType({
         name: {
             type: GraphQLString,
             description: "Name of the Track"
+        },
+        preview_url: {
+            type: GraphQLString,
+            description: "Preview URL for the track"
         }
     })
 });
