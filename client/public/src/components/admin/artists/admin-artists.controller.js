@@ -5,9 +5,9 @@
         .module('remindRewind.admin.artists')
         .controller('artistsAdminController', ArtistsAdminController);
 
-    ArtistsAdminController.$inject = ['graphqlFactory', '$log', 'modalFactory', '$timeout', '$state', '$localStorage'];
+    ArtistsAdminController.$inject = ['errorFactory', 'graphqlFactory', '$log', 'modalFactory', '$timeout', '$state', '$localStorage'];
 
-    function ArtistsAdminController(graphqlFactory, $log, modalFactory, $timeout, $state, $localStorage){
+    function ArtistsAdminController(errorFactory,graphqlFactory, $log, modalFactory, $timeout, $state, $localStorage){
         var self = this;
         this.artistToSave = null;
         this.searchResult = [];
@@ -17,7 +17,17 @@
 
         this.saveArtist = function(artist){
             graphqlFactory.addArtistMutation(artist).then(function(response){
-                self.artists.push(response.data.addArtist);
+                $log.debug(response);
+                if (response.errors){
+                    var error = errorFactory.handle(response.errors[0]);
+                    modalFactory.launch({
+                        title: error.errorTitle,
+                        content: error.errorContent,
+                        confirm: 'OK'
+                    });
+                } else {
+                    self.artists.push(response.data.addArtist);
+                }
                 self.artistToSave = null;
                 self.artistToSearch = '';
                 self.searchResult = [];

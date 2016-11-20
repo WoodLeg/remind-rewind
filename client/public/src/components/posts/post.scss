@@ -26,6 +26,12 @@
             background: url('/assets/img/sound_wave.png') repeat-x;
             animation: drift 60s infinite linear;
         }
+        ng-wavesurfer {
+            width: 100%;
+            position: absolute;
+            bottom: -170px;
+            left: 0px;
+        }
     }
     &__title {
         text-align:center;
@@ -91,9 +97,50 @@
             left: 100%;
             width: 100%;
             height: 100%;
-            padding-top: 60px;
+            padding-top: 80px;
             color: white;
             transition: all 1.2s cubic-bezier(.55,0,.1,1);
+            &-wave {
+                &-btn {
+                    font-family: 'Roboto Medium', sans-serif;
+                    position: relative;
+                    border-radius: 3px;
+                    overflow:hidden;
+                    margin-top: 30px;
+                    background: transparent;
+                    border:1px solid #F2CF42;
+                    color: #F2CF42;
+                    padding: 15px;
+                    font-size: 2em;
+                    text-transform: uppercase;
+                    &-filter {
+                        position: absolute;
+                        top:0;
+                        left:0;
+                        padding: 15px;
+                        width: 100%;
+                        height: 100%;
+                        background: #F2CF42;
+                        color: black;
+                        shape-inside: polygon(0% 0%, 15% 0%, 30% 100%, 0% 100%);
+                        -webkit-clip-path: polygon(0% 0%, 15% 0%, 30% 100%, 0% 100%);
+                        transition: all 0.7s cubic-bezier(0.4,0,0.2,1);
+                        .glyphicon {
+                            color: black;
+                        }
+                        @media only screen and (min-width: $screen-md) {
+                            shape-inside: polygon(0% 0%, 10% 0%, 25% 100%, 0% 100%);
+                            -webkit-clip-path: polygon(0% 0%, 10% 0%, 25% 100%, 0% 100%);
+                        }
+                    }
+                    &:hover {
+                        .post__albums-detail-wave-btn-filter {
+                            shape-inside: polygon(0% 0%, 115% 0%, 130% 100%, 0% 100%);
+                            -webkit-clip-path: polygon(0% 0%, 115% 0%, 130% 100%, 0% 100%)
+                        }
+                    }
+                }
+            }
             &-img {
                 img {
                     width: 90%;
@@ -148,6 +195,11 @@
                             height: 30px;
                             line-height: 30px;
                         }
+                    }
+                }
+                &-track {
+                    &:hover {
+                        cursor: pointer;
                     }
                 }
                 &-number {

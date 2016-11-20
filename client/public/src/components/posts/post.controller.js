@@ -5,13 +5,15 @@
         .module('remindRewind.posts')
         .controller('postController', PostController);
 
-    PostController.$inject = ['$stateParams', 'graphqlFactory', '$timeout', '$log', 'post', '$sce'];
+    PostController.$inject = ['$stateParams', 'graphqlFactory', '$timeout', '$log', 'post', '$sce', '$scope'];
 
-    function PostController($stateParams, graphqlFactory, $timeout, $log, post, $sce){
+    function PostController($stateParams, graphqlFactory, $timeout, $log, post, $sce, $scope){
         var self = this;
 
         self.post = post;
         this.albumDetail = null;
+
+        $log.debug(self.post.artist.albums[0]);
 
         $log.debug(this.albumDetail);
 
@@ -28,9 +30,47 @@
             self.albumDetail = null;
         };
 
-        this.playPreview = function(link) {
-            $log.debug($sce.getTrustedResourceUrl(link));
-            self.link = $sce.getTrustedResourceUrl(link);
+        var activeUrl = null;
+
+        this.paused = true;
+
+
+        $scope.$on('wavesurferInit', function (e, wavesurfer) {
+            self.wavesurfer = wavesurfer;
+            $log.debug(self.wavesurfer);
+
+            self.wavesurfer.on('play', function () {
+                self.paused = false;
+            });
+
+            self.wavesurfer.on('pause', function () {
+                self.paused = true;
+            });
+
+            self.wavesurfer.on('finish', function () {
+                self.paused = true;
+                self.wavesurfer.seekTo(0);
+                $scope.$apply();
+            });
+        });
+
+        self.play = function (url) {
+            if (!self.wavesurfer) {
+                return;
+            }
+
+            activeUrl = url;
+
+            self.wavesurfer.once('ready', function () {
+                self.wavesurfer.play();
+                $scope.$apply();
+            });
+
+            self.wavesurfer.load(activeUrl);
+        };
+
+        self.isPlaying = function (url) {
+            return url == activeUrl;
         };
 
     }

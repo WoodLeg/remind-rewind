@@ -24,11 +24,6 @@
             </div>
         </div>
         <div ng-class="{'open': ctrl.albumDetail}" class="post__albums-detail col-xs-12">
-            <div class="col-xs-12">
-                <audio ng-src="{{ctrl.link}}" controls autoplay>
-
-                </audio>
-            </div>
             <div class="post__albums-detail-close" ng-click="ctrl.resetAlbum()">
                 <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
             </div>
@@ -39,10 +34,34 @@
                 <h2>{{ ctrl.albumDetail.name }}</h2>
                 <h4>{{ ctrl.albumDetail.label }}</h4>
                 <ul>
-                    <li ng-click="ctrl.playPreview(track.preview_url)"ng-repeat="track in ctrl.albumDetail.tracks">
+                    <li class="post__albums-detail-data-track" ng-click="ctrl.play(track.preview_url)"ng-repeat="track in ctrl.albumDetail.tracks">
                         <span class="post__albums-detail-data-number">{{ track.track_number}}.</span>  {{ track.name }} <span class="post__albums-detail-data-duration">({{ track.duration | date:'mm:ss'}})</span>
                     </li>
                 </ul>
+            </div>
+            <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+                <ng-wavesurfer url="{{ctrl.albumDetail.tracks[0].preview_url}}" wave-color="#EFC600" progress-color="rgba(255,255,255,0.5)" height="128">
+                </ng-wavesurfer>
+                <button class="post__albums-detail-wave-btn pull-right" ng-click="ctrl.wavesurfer.playPause()">
+                    <div class="post__albums-detail-wave-btn-filter">
+                        <span id="play" ng-show="ctrl.paused">
+                            <i class="glyphicon glyphicon-play"></i>
+                            Play
+                        </span>
+                        <span id="pause" ng-show="!ctrl.paused">
+                            <i class="glyphicon glyphicon-pause"></i>
+                            Pause
+                        </span>
+                    </div>
+                    <span id="play" ng-show="ctrl.paused">
+                        <i class="glyphicon glyphicon-play"></i>
+                        Play
+                    </span>
+                    <span id="pause" ng-show="!ctrl.paused">
+                        <i class="glyphicon glyphicon-pause"></i>
+                        Pause
+                    </span>
+                </button>
             </div>
         </div>
     </div>

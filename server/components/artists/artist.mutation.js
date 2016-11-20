@@ -27,22 +27,30 @@ const MutationAdd = {
     resolve: (root, args) => {
         return new Promise((resolve, reject) => {
             if (root.token.isAdmin || root.token.isModerator){
-                let newArtist = new Artist({
-                    id: args.digital_id,
-                    spotify_id: args.spotify_id,
-                    name: args.name
+                let newArtist = new Artist();
+                Artist.findOne({'spotify_id': args.spotify_id}).exec().then((value) => {
+                    if (value) {
+                        reject('ARTIST_ALREADY_EXISTS');
+                    } else {
+                        newArtist.id = args.digital_id;
+                        newArtist.spotify_id = args.spotify_id;
+                        newArtist.name = args.name;
+                        ApiSongkick.searchArtist(args.name).then((value) => {
+                            newArtist.songkick_id = value.resultsPage.results.artist[0].id;
+                        }).finally(() => {
+                            newArtist.save(function(err, artist){
+                                if (err) {
+                                    reject(err)
+                                } else {
+                                    resolve(artist);
+                                }
+                            });
+                        });
+                    }
+                }).catch((err) => {
+                    reject(err);
                 });
-                ApiSongkick.searchArtist(args.name).then((value) => {
-                    newArtist.songkick_id = value.resultsPage.results.artist[0].id;
-                }).finally(() => {
-                    newArtist.save(function(err, artist){
-                        if (err) {
-                            reject(err)
-                        } else {
-                            resolve(artist);
-                        }
-                    });
-                });
+
             } else {
                 reject('Not Authorized');
             }
