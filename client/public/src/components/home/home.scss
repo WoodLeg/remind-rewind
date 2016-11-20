@@ -93,10 +93,22 @@
             position: absolute;
             top:0;
             right:0;
-            background: #27ae60;
+            background: url('/assets/img/girl.jpg') no-repeat top center;
+            background-size: 100%;
             width: 40%;
-            height: 400px;
-            -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 80%);
+            height: 500px;
+            -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 70% 100%);
+        }
+        &-filter-2 {
+            z-index: -19;
+            position: absolute;
+            top:0;
+            right:0;
+            background: rgba(255,255,255,0.5);
+            background-size: 100%;
+            width: 40%;
+            height: 500px;
+            -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 70% 100%);
         }
         &-img {
             display: block;
