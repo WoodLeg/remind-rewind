@@ -5,9 +5,9 @@
     .module('remindRewind.user')
     .factory('userFactory', UserFactory);
 
-    UserFactory.$inject = ['$q', '$localStorage', 'userService', 'userProvider', '$log'];
+    UserFactory.$inject = ['$q', '$localStorage', 'userService', 'userProvider', '$log', '$window'];
 
-    function UserFactory($q, $localStorage, userService, userProvider, $log) {
+    function UserFactory($q, $localStorage, userService, userProvider, $log, $window) {
         var user = null;
         var userFactory = {};
 
@@ -48,6 +48,12 @@
                 $log.debug('Success: ', response);
                 userFactory.setToken(response.data.token);
                 userFactory.setUser(response.data.user);
+                $window.Intercom("update", {
+                    app_id: "sager85e",
+                    email: user.email,
+                    firstName: user.firstName,
+                    lastName: user.lastName
+                });
                 return response;
             }, function(reason){
                 return $q.reject(reason);

@@ -5,22 +5,26 @@
         .module('remindRewind.posts')
         .controller('postController', PostController);
 
-    PostController.$inject = ['$stateParams', 'graphqlFactory', '$timeout', '$log', 'post', '$sce', '$scope'];
+    PostController.$inject = ['$stateParams', 'graphqlFactory', '$timeout', '$log', 'post', '$sce', '$scope', '$window', 'userFactory'];
 
-    function PostController($stateParams, graphqlFactory, $timeout, $log, post, $sce, $scope){
+    function PostController($stateParams, graphqlFactory, $timeout, $log, post, $sce, $scope, $window, userFactory){
         var self = this;
 
         self.post = post;
         this.albumDetail = null;
 
-        $log.debug(self.post.artist.albums[0]);
-
-        $log.debug(this.albumDetail);
+        $log.debug(self.post);
 
         this.getAlbum  = function(id){
             graphqlFactory.query('query { album (id: \"'+id+'\"){ id name label images {url} tracks{id name duration track_number preview_url}}}').then(function(response){
                 $log.debug('GET ALBUM SUCCESS:' , response);
                 self.albumDetail = response.data.album;
+                $window.Intercom('trackEvent', 'album_clicked', {
+                    'album_id': self.albumDetail.id,
+                    'user':  userFactory.getUser().email,
+                    'artist': self.post.artist.name,
+                    'album': self.albumDetail.name,
+                });
             }).catch(function(reason){
                 $log.debug('GET ALBUM FAILED: ', reason);
             });
@@ -37,7 +41,6 @@
 
         $scope.$on('wavesurferInit', function (e, wavesurfer) {
             self.wavesurfer = wavesurfer;
-            $log.debug(self.wavesurfer);
 
             self.wavesurfer.on('play', function () {
                 self.paused = false;

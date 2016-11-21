@@ -27,12 +27,17 @@
         // Common i18n
         $translatePartialLoaderProvider.addPart('app');
         $translatePartialLoaderProvider.addPart('error');
+
     }
 
 
 
-    run.$inject = ['$rootScope', '$state', 'authenticationFactory', '$timeout', '$translate'];
-    function run($rootScope, $state, authenticationFactory, $timeout, $translate) {
+    run.$inject = ['$window','$rootScope', '$state', 'authenticationFactory', '$timeout', '$translate'];
+    function run($window, $rootScope, $state, authenticationFactory, $timeout, $translate) {
+
+
+
+
 
         $rootScope.$on('$translatePartialLoaderStructureChanged', function() {
             $translate.refresh();
@@ -40,6 +45,10 @@
 
         // Set change start handler
         $rootScope.$on('$stateChangeStart', function(evnt, toState, toStateParams) {
+
+            $window.Intercom("boot", {
+                app_id: "sager85e"
+            });
 
             // Check if state wants to redirect
             if (toState.redirectTo) {
@@ -57,7 +66,7 @@
 
             // Handle protected states
             if (toState.protected) {
-                authenticationFactory.getAuthenticatedUser().then(function() {
+                authenticationFactory.getAuthenticatedUser().then(function(response) {
                     // Do nothing if authenticated
                 }, function() {
                     // Redirect to signin otherwise
