@@ -21,7 +21,6 @@
                 self.albumDetail = response.data.album;
                 $window.Intercom('trackEvent', 'album_clicked', {
                     'album_id': self.albumDetail.id,
-                    'user':  userFactory.getUser().email,
                     'artist': self.post.artist.name,
                     'album': self.albumDetail.name,
                 });

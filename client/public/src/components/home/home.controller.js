@@ -34,8 +34,7 @@
             $window.Intercom('trackEvent', 'post_clicked', {
                 'post_id': postID,
                 'artist': artist,
-                'author': author.firstName + ' ' + author.lastName,
-                'user':  userFactory.getUser().email
+                'author': author.firstName + ' ' + author.lastName
             });
             $state.go('remindRewind.posts', {id: postID});
         };
