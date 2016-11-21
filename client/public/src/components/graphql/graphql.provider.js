@@ -11,6 +11,12 @@
 
         this.$get = [function() {
             return {
+                prepareFacebookLogin : function(id) {
+                    return {
+                        query: 'mutation {addUser{facebookId: '+id+'}}',
+                        variables: null
+                    };
+                },
                 prepareQuery: function(dataQuery) {
                     return {
                         query: 'query ' + dataQuery,

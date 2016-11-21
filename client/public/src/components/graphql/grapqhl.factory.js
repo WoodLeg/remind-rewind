@@ -20,6 +20,14 @@
             });
         };
 
+        graphqlFactory.facebookLogin = function(id){
+            return graphqlService.send(payload).then(function(response){
+                return $q.resolve(response.data);
+            }).catch(function(reason){
+                return $q.reject(reason);
+            });
+        }
+
         graphqlFactory.addUserMutation = function(user) {
             var payload = graphqlProvider.prepareAddUserMutation(user);
             return graphqlService.send(payload).then(function(response){

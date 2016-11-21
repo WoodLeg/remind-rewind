@@ -16,6 +16,7 @@
             'angular-markdown-editor',
             'base64',
             'ngWavesurfer',
+            'ezfb',
 
 
 

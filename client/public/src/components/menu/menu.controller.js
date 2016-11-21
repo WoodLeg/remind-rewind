@@ -5,12 +5,24 @@
         .module('remindRewind.menu')
         .controller('menuController', MenuController);
 
-    MenuController.$inject = ['modalFactory', 'userFactory', '$log', '$state'];
+    MenuController.$inject = ['modalFactory', 'userFactory', '$log', '$state', 'ezfb', '$timeout'];
 
-    function MenuController(modalFactory, userFactory, $log, $state){
+    function MenuController(modalFactory, userFactory, $log, $state, ezfb, $timeout){
 
         var self = this;
         this.user = userFactory.getUser() || null;
+
+        this.facebookLoggedIn = function() {
+            ezfb.getLoginStatus(function(response){
+                if (response.status === 'connected') {
+                    ezfb.api('/me?fields=id,name,email,picture').then(function(response){
+                        $log.debug(response);
+                        userFactory.setUser(response);
+                        self.user = userFactory.getUser();
+                    });
+                }
+            });
+        };
 
         this.login = function(){
             modalFactory.launch({
@@ -34,10 +46,16 @@
         };
 
         this.logout = function(){
-            userFactory.clean();
-            self.user = null;
-            $state.go('remindRewind.home');
+            ezfb.logout().then(function(){
+                userFactory.clean();
+                self.user = null;
+                $state.go('remindRewind.home');
+            });
         };
+
+        $timeout(function(){
+            self.facebookLoggedIn();
+        });
 
     }
 

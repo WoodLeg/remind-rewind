@@ -6,18 +6,23 @@
     .config(config)
     .run(run);
 
-    config.$inject = ['$sceProvider','$locationProvider', '$httpProvider', '$logProvider', '$translatePartialLoaderProvider', '$compileProvider', 'PROD'];
-    function config($sceProvider, $locationProvider, $httpProvider, $logProvider, $translatePartialLoaderProvider, $compileProvider, PROD) {
+    config.$inject = ['ezfbProvider', '$sceProvider','$locationProvider', '$httpProvider', '$logProvider', '$translatePartialLoaderProvider', '$compileProvider', 'PROD'];
+    function config(ezfbProvider, $sceProvider, $locationProvider, $httpProvider, $logProvider, $translatePartialLoaderProvider, $compileProvider, PROD) {
         $locationProvider.html5Mode(true).hashPrefix('!');
 
         $httpProvider.defaults.headers.common['Content-Type'] = 'application/json';
-
         $httpProvider.interceptors.push('spinnerInterceptor');
+        $httpProvider.interceptors.push('authHttpResponseInterceptor');
 
         $compileProvider.debugInfoEnabled(false);
         // Setup jwt interceptor
         // HTTP calls can override with { skipAuthorization: true }
-        $httpProvider.interceptors.push('authHttpResponseInterceptor');
+        ezfbProvider.setInitParams({
+            appId      : '169155673554740',
+            xfbml      : true,
+            cookie     : true,
+            version    : 'v2.8'
+        });
 
         if (PROD){
             $logProvider.debugEnabled(false);
@@ -34,10 +39,6 @@
 
     run.$inject = ['$window','$rootScope', '$state', 'authenticationFactory', '$timeout', '$translate'];
     function run($window, $rootScope, $state, authenticationFactory, $timeout, $translate) {
-
-
-
-
 
         $rootScope.$on('$translatePartialLoaderStructureChanged', function() {
             $translate.refresh();

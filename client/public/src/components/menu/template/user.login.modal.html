@@ -1,18 +1,9 @@
 <div class="menu__signin-modal">
     <h2>{{ctrl.options.title}}</h2>
-    <form name="signinForm" ng-submit="ctrl.confirm(ctrl.user)">
-        <div class="form-group">
-            <label for="">Email</label>
-            <input ng-model="ctrl.user.email" type="email" name="email" class="form-control menu__signin-modal-email" value="">
+    <button ng-click="ctrl.facebookLogin()" class="menu__signin-modal-btn"type="button" name="button">
+        <div class="menu__signin-modal-btn-filter">
+            Facebook
         </div>
-        <div class="form-group">
-            <label for="">Password</label>
-            <input ng-model="ctrl.user.password" type="password" name="password" class="form-control menu__signin-modal-password" value="">
-        </div>
-        <div class="form-group">
-            <button type="button" ng-click="ctrl.cancel()" class="menu__signin-modal-btn col-sm-6 btn">Cancel</button>
-            <button type="submit" class="menu__signin-modal-btn btn col-xs-12 col-sm-6">Signin</button>
-        </div>
-        <div class="clearfix"></div>
-    </form>
+        Facebook
+    </button>
 </div>

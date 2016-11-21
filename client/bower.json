@@ -35,6 +35,7 @@
     "angular-translate-handler-log": "^2.11.0",
     "angular-markdown-editor-ghiscoding": "^1.1.0",
     "angular-base64": "^2.0.5",
-    "wavesurfer.js": "^1.2.6"
+    "wavesurfer.js": "^1.2.6",
+    "angular-easyfb": "^1.5.1"
   }
 }

@@ -12,24 +12,29 @@ const MutationAdd = {
     type: UserType,
     description: 'Add a User',
     args: {
+        facebookId: {
+            type: 'Facebook ID',
+            type: GraphQLString,
+            description: 'Facebook ID of the user'
+        },
         firstName: {
             name: 'First name',
-            type: new GraphQLNonNull(GraphQLString),
+            type: GraphQLString,
             description: 'First name of the User.'
         },
         lastName: {
             name: 'Last name',
-            type: new GraphQLNonNull(GraphQLString),
+            type: GraphQLString,
             description: 'Last name of the User.'
         },
         email: {
             name: 'email',
-            type: new GraphQLNonNull(GraphQLString),
+            type: GraphQLString,
             description: 'Email of the User'
         },
         password: {
             name: 'password',
-            type: new GraphQLNonNull(GraphQLString),
+            type: GraphQLString,
             description: 'Password of the User.'
         },
         isAdmin: {
@@ -49,6 +54,11 @@ const MutationAdd = {
                 if (err){
                     reject(err);
                 } else {
+                    if (args.facebookId) {
+                        let newUser = new User({
+                            facebookId: args.facebookId
+                        });
+                    }
                     let newUser = new User({
                         firstName: args.firstName,
                         lastName: args.lastName,
