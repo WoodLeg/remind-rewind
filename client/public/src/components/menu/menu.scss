@@ -30,6 +30,9 @@
             @media only screen and (max-width: $screen-sm){
                 -webkit-clip-path: polygon(0% 0%, 80% 0%, 90% 100%, 0% 100%);
             }
+            @media only screen and (max-width: $screen-md){
+                -webkit-clip-path: polygon(0% 0%, 25% 0%, 31% 100%, 0% 100%);
+            }
         }
         &-title {
             padding-left: 10px;

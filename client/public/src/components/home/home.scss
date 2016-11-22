@@ -9,8 +9,8 @@
         @media only screen and (max-width: $screen-sm){
             height: 550px;
         }
-        @media only screen and (min-width: 1379px){
-            height: 600px;
+        @media only screen and (max-width: $screen-md){
+            height: 550px;
         }
         @media only screen and (min-width: 1380px) {
             height: 800px;
@@ -25,6 +25,13 @@
             background: rgba(241, 196, 15, 1);
             -webkit-clip-path: polygon(0 0, 0% 100%, 17% 50%);
             transition: all 0.3s ease;
+            @media only screen and (max-width: $screen-md){
+                top: 39.9%;
+                left: 49.9%;
+                width: 25.3%;
+                height: 25.3%;
+                -webkit-clip-path: polygon(0 0, 0% 100%, 28% 53%);
+            }
             &:hover {
                 cursor: pointer;
                 transform:translateX(15px);
@@ -43,6 +50,9 @@
             background: $yellow;
             z-index:-2;
             -webkit-clip-path: polygon(0% 0%, 25% 0%, 37.5% 40% , 37.5% 65%, 25% 100%, 0% 100%);
+            @media only screen and (max-width: $screen-md){
+                -webkit-clip-path: polygon(0% 0%, 31% 0%, 50% 40% , 50% 65%, 25% 100%, 0% 100%);
+            }
         }
         img {
             position: absolute;
