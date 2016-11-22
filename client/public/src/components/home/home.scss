@@ -3,8 +3,10 @@
         position:relative;
         padding: 0;
         overflow: hidden;
-
-        @media only screen and (max-width: 1379px){
+        @media only screen and (max-width: $screen-xs){
+            height: 430px;
+        }
+        @media only screen and (min-width: 1379px){
             height: 600px;
         }
         @media only screen and (min-width: 1380px) {
@@ -52,6 +54,51 @@
             @media only screen and (min-width: $screen-md) {
                 padding-left: 30px;
             }
+            &-btn-xs {
+                font-family: 'Roboto Medium', sans-serif;
+                position: relative;
+                border-radius: 3px;
+                overflow:hidden;
+                margin-top: 30px;
+                background: transparent;
+                border:1px solid $yellow;
+                color: $yellow;
+                padding: 15px;
+                font-size: 2em;
+                text-transform: uppercase;
+                @media only screen and (max-width: $screen-xs){
+                    padding: 5px;
+                    font-size: 1.2em;
+                    margin-bottom: 30px;
+                }
+                &-filter {
+                    position: absolute;
+                    top:0;
+                    left:0;
+                    padding: 15px;
+                    width: 100%;
+                    height: 100%;
+                    background: $yellow;
+                    color: black;
+                    shape-inside: polygon(0% 0%, 15% 0%, 30% 100%, 0% 100%);
+                    -webkit-clip-path: polygon(0% 0%, 15% 0%, 30% 100%, 0% 100%);
+                    transition: all 0.7s cubic-bezier(0.4,0,0.2,1);
+                    @media only screen and (max-width: $screen-xs){
+                        padding: 5px;
+                    }
+                    @media only screen and (min-width: $screen-md) {
+                        shape-inside: polygon(0% 0%, 10% 0%, 25% 100%, 0% 100%);
+                        -webkit-clip-path: polygon(0% 0%, 10% 0%, 25% 100%, 0% 100%);
+                    }
+                }
+                &:hover {
+                    .home__post-featured-content-btn-xs-filter {
+                        shape-inside: polygon(0% 0%, 115% 0%, 130% 100%, 0% 100%);
+                        -webkit-clip-path: polygon(0% 0%, 115% 0%, 130% 100%, 0% 100%)
+                        // animation: buttonAnimationHover 0.7s cubic-bezier(0.4,0,0.2,1) forwards;
+                    }
+                }
+            }
             h1 {
                 margin-top: 70%;
                 // font-family: 'Roboto Bold', sans-serif;
@@ -60,6 +107,11 @@
                 font-size: 3.5em;
                 text-transform: uppercase;
                 text-shadow: 1px 2px 3px black;
+                @media only screen and (max-width: $screen-xs){
+                    margin-top: 25%;
+                    font-size: 2.5em;
+                    text-align: center;
+                }
                 @media only screen and (min-width: $screen-md) {
                     margin-top: 35%;
                     font-size: 4em;
@@ -74,6 +126,10 @@
                 font-size: 3em;
                 letter-spacing: 0px;
                 font-family: 'Rock Salt', cursive;
+                @media only screen and (max-width: $screen-xs){
+                    font-size: 2.3em;
+                    text-align: center;
+                }
                 @media only screen and (min-width: $screen-md) {
                     font-size: 3em;
                 }
@@ -88,6 +144,7 @@
     &__post-latest {
         // position: relative;
         padding-left:0;
+        padding-right:0;
         &-filter {
             z-index: -20;
             position: absolute;
@@ -98,6 +155,9 @@
             width: 40%;
             height: 100%;
             -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 70% 100%);
+            @media only screen and (max-width: $screen-xs){
+                width: 80%;
+            }
         }
         &-filter-2 {
             z-index: -19;
@@ -109,14 +169,18 @@
             width: 40%;
             height: 100%;
             -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 70% 100%);
+            @media only screen and (max-width: $screen-xs){
+                width: 80%;
+                background: rgba(255,255,255,0.7);
+            }
         }
         &-img {
+            padding-left:0;
+            padding-right: 0;
             display: block;
-            width: 40%;
             height: auto;
         }
         &-content {
-            width: 60%;
             &-title {
                 margin-top: 30px;
                 margin-bottom: 10px;
@@ -124,6 +188,10 @@
                 font-size: 4em;
                 font-family: 'Rock Salt', cursive;
                 letter-spacing: 5px;
+                @media only screen and (max-width: $screen-xs){
+                    margin-top: 20px;
+                    font-size: 2em;
+                }
                 @media only screen and (min-width: 1380px){
                     font-size: 5.5em;
                     margin-top: 50px;
@@ -131,6 +199,11 @@
             }
             h2 {
                 text-align: center;
+                @media only screen and (max-width: $screen-xs){
+                    font-size: 1.5em;
+                    margin-top: 30px;
+                    letter-spacing: 5px;
+                }
                 @media only screen and (min-width: $screen-md){
                     font-size: 3.5em;
                     margin-top: 120px;
@@ -142,30 +215,23 @@
                     margin-bottom: 150px;
                 }
             }
-            &-text {
-                font-size: 2em;
-                text-align: center;
-                h1 {
-                    text-align: left;
-                    font-family: 'Roboto Light', sans-serif;
-                    font-size: 1.4em;
-                    margin-top:0;
-                    margin-left: 20px;
-                }
-                @media only screen and (min-width: $screen-md) {
-                    padding-left:30px;
-                    padding-righ: 30px;
-                    font-size: 1.7em;
-                }
-                @media only screen and (min-width: 1380px) {
-                    font-size: 2.5em;
-                    padding-left: 120px;
-                    padding-right: 120px;
-                    margin-bottom: 50px;
-                }
-            }
             &-btn {
                 font-family: 'Roboto Medium', sans-serif;
+                position: relative;
+                border-radius: 3px;
+                overflow:hidden;
+                margin-top: 30px;
+                background: transparent;
+                border:1px solid $yellow;
+                color: $yellow;
+                padding: 15px;
+                font-size: 2em;
+                text-transform: uppercase;
+                @media only screen and (max-width: $screen-xs){
+                    padding: 5px;
+                    font-size: 1.2em;
+                    margin-bottom: 30px;
+                }
                 &-filter {
                     position: absolute;
                     top:0;
@@ -178,21 +244,14 @@
                     shape-inside: polygon(0% 0%, 15% 0%, 30% 100%, 0% 100%);
                     -webkit-clip-path: polygon(0% 0%, 15% 0%, 30% 100%, 0% 100%);
                     transition: all 0.7s cubic-bezier(0.4,0,0.2,1);
+                    @media only screen and (max-width: $screen-xs){
+                        padding: 5px;
+                    }
                     @media only screen and (min-width: $screen-md) {
                         shape-inside: polygon(0% 0%, 10% 0%, 25% 100%, 0% 100%);
                         -webkit-clip-path: polygon(0% 0%, 10% 0%, 25% 100%, 0% 100%);
                     }
                 }
-                position: relative;
-                border-radius: 3px;
-                overflow:hidden;
-                margin-top: 30px;
-                background: transparent;
-                border:1px solid $yellow;
-                color: $yellow;
-                padding: 15px;
-                font-size: 2em;
-                text-transform: uppercase;
                 &:hover {
                     .home__post-latest-content-btn-filter {
                         shape-inside: polygon(0% 0%, 115% 0%, 130% 100%, 0% 100%);
@@ -236,6 +295,9 @@
             margin-bottom: 50px;
             padding-left:0;
             padding-right: 0;
+            &:hover {
+                cursor: pointer;
+            }
             &-metadata {
                 position: relative;
                 padding: 0;
@@ -253,6 +315,7 @@
                             @media only screen and (min-width: $screen-md){
                                 margin-top: -50px;
                                 margin-bottom: 20px;
+                                box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
                             }
                         }
                     }
