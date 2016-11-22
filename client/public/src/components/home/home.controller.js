@@ -24,7 +24,7 @@
                     }
                 }
                 self.featurePostRandom = Math.floor(Math.random() * (self.featuredPosts.length - 0) + 0);
-                $log.debug(self.posts);
+                // $log.debug(self.posts);
             }).catch(function(reason){
                 $log.debug('ERR LIST POST: ', reason);
             });

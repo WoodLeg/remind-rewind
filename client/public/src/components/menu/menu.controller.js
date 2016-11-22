@@ -14,11 +14,14 @@
 
         this.facebookLoggedIn = function() {
             ezfb.getLoginStatus(function(response){
+                $log.debug('Facebook status: ', response);
                 if (response.status === 'connected') {
-                    ezfb.api('/me?fields=id,name,email,picture').then(function(response){
-                        $log.debug(response);
-                        userFactory.setUser(response);
-                        self.user = userFactory.getUser();
+                    ezfb.api('/me?fields=id,name,email,picture').then(function(facebookData){
+                        userFactory.signin(facebookData).then(function(response){
+                            self.user = response.data.user;
+                            self.user.picture = facebookData.picture;
+                            userFactory.setUser(self.user);
+                        });
                     });
                 }
             });
@@ -34,6 +37,8 @@
             }).then(function(user){
                 userFactory.signin(user).then(function(response){
                     self.user = response.data.user;
+                    self.user.picture = user.picture;
+                    userFactory.setUser(self.user);
                 }).catch(function(err){
                     // ERRor manager
                     modalFactory.launch({

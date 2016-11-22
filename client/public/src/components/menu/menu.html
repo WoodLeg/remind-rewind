@@ -7,7 +7,6 @@
     </div>
     <ul class="menu__list pull-right">
         <div class="menu__list-filter">
-            <li ng-if="ctrl.user" class="menu__list-item" >{{ctrl.user.firstName}}</li>
             <li ng-if="ctrl.user" class="menu__list-facebook"><img ng-src="{{ctrl.user.picture.data.url}}" alt="" /></li>
             <li ng-if="ctrl.user" class="menu__list-item" ng-click="ctrl.logout()">Logout</li>
             <li ng-if="!ctrl.user" class="menu__list-item" ng-click="ctrl.login()">Signin</li>
