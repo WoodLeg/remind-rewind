@@ -48,9 +48,8 @@
     }
     &__content {
         padding-top: 40px;
-        padding-bottom: 40px;
         background: white;
-        margin-bottom: 30px;
+        margin-bottom: 10px;
         border-radius: 2px;
         text-align: justify;
         h1 {
@@ -71,6 +70,14 @@
             font-size: 1em;
             font-family: 'Rock Salt', cursive;
             color: #EFC600;
+        }
+    }
+    &__author {
+        margin-bottom: 30px;
+        &-name {
+            font-size: 1.3em;
+            // font-family: 'Roboto Italic', cursive;
+            font-style: italic;
         }
     }
     &__albums {

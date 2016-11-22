@@ -34,38 +34,24 @@
         <div class="home__post-articles-title">
             <h1>Articles</h1>
         </div>
-        <div ng-if="$index > 0" ng-click="ctrl.goToPost(post.id, post.artist.name, post.author)" ng-class="{'col-sm-offset-1': $index % 2 !== 0}" class="col-xs-12 col-sm-5" ng-repeat="post in ctrl.posts">
-            <div class="home__post-article shadow-1">
-                <div class="home__post-article-metadata col-sm-5">
-                    <div class="home__post-article-metadata-img-wrapper shadow-1">
-                        <img class="home__post-article-img " ng-src="{{ post.artist.albums[0].images[1].url }}" alt="" />
+        <div ng-if="$index > 0"  ng-class="{'col-sm-offset-1': $index % 2 !== 0}" class="col-xs-12 col-sm-5" ng-repeat="post in ctrl.posts">
+            <div ng-click="ctrl.goToPost(post.id, post.artist.name, post.author)" class="home__post-article col-xs-12 shadow-1">
+                <div class="home__post-article-metadata col-xs-12 col-sm-12 col-md-6 col-lg-5">
+                    <div class="home__post-article-metadata-img-wrapper ">
+                        <img class="home__post-article-img shadow-1" ng-src="{{ post.artist.albums[0].images[1].url }}" alt="" />
                     </div>
 
                     <div class="home__post-article-metadata-text">
                         <h3 class="home__post-article-metadata-artist">{{ post.artist.name }}</h3>
                     </div>
                 </div>
-                <div class="home__post-article-content col-xs-12 col-sm-7 ">
+                <div class="home__post-article-content col-xs-12 hidden-xs hidden-sm col-sm-5 col-md-6 col-lg-7">
                         <h2 class="home__post-article-content-title">{{ post.title }}</h2>
-                        <div marked="post.content | limitTo: 150" class="home__post-article-content-body"><div>
-                        <span>{{ post.date }} by {{post.author}}</span>
+                        <div marked="post.content | limitTo: 150" class="home__post-article-content-body "></div>
+                        <span class="hidden-md">{{ post.date }} by {{post.author.firstName}}</span>
                 </div>
             </div>
         </div>
-    </div>
-
-
-    <!-- <div class="col-xs-12 col-sm-3" ng-repeat="post in ctrl.posts">
-        <div class='box'>
-            <div class='wave one'></div>
-            <div class='wave two'></div>
-            <div class='wave three'></div>
-            <div class='title'>{{ post.title }}</div>
-        </div>
-    </div> -->
-
-    <div class="clearfix">
-
     </div>
 
 </div>

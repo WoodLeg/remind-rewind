@@ -2,9 +2,9 @@
     &__post-featured {
         position:relative;
         padding: 0;
-
         overflow: hidden;
-        @media only screen and (min-width: $screen-md){
+
+        @media only screen and (max-width: 1379px){
             height: 600px;
         }
         @media only screen and (min-width: 1380px) {
@@ -35,7 +35,7 @@
             left:0;
             width: 100%;
             height: 100%;
-            background: rgba(241, 196, 15, 0.77);
+            background: $yellow;
             z-index:-2;
             -webkit-clip-path: polygon(0% 0%, 25% 0%, 37.5% 40% , 37.5% 65%, 25% 100%, 0% 100%);
         }
@@ -173,7 +173,7 @@
                     padding: 15px;
                     width: 100%;
                     height: 100%;
-                    background: #F2CF42;
+                    background: $yellow;
                     color: black;
                     shape-inside: polygon(0% 0%, 15% 0%, 30% 100%, 0% 100%);
                     -webkit-clip-path: polygon(0% 0%, 15% 0%, 30% 100%, 0% 100%);
@@ -188,8 +188,8 @@
                 overflow:hidden;
                 margin-top: 30px;
                 background: transparent;
-                border:1px solid #F2CF42;
-                color: #F2CF42;
+                border:1px solid $yellow;
+                color: $yellow;
                 padding: 15px;
                 font-size: 2em;
                 text-transform: uppercase;
@@ -224,120 +224,66 @@
                 -webkit-clip-path: polygon(0% 0%, 100% 0%, 70% 110%, 0% 20%);
             }
             &-title {
-                margin-bottom: 100px;
+                margin-bottom: 10px;
                 margin-left: 20px;
                 color: white;
             }
         }
         &-article {
             border-radius: 2px;
-            height: 250px;
             background: white;
-            margin-bottom: 100px;
-
-            @media only screen and (min-width: $screen-md) {
-                height: 150px;
-            }
-            @media only screen and (min-width: 1380px){
-                height: 250px;
-            }
+            margin-top: 50px;
+            margin-bottom: 50px;
+            padding-left:0;
+            padding-right: 0;
             &-metadata {
                 position: relative;
-                font-size: 1.2em;
-                color: #000;
-                transition: all 0.7s cubic-bezier(.55,0,.1,1);
-                @media only screen and (min-width: $screen-md) {
-                    height: 150px;
-                }
-                @media only screen and (min-width: 1380px){
-                    height: 250px;
-                }
+                padding: 0;
                 &-img-wrapper {
-                    position: absolute;
-                    top:-50px;
-                    left:30px;
-                    width: 70%;
-                    height: auto;
-                    overflow:hidden;
-                    transition: all 0.7s cubic-bezier(.55,0,.1,1);
-                    @media only screen and (min-width: 1380px){
-                        left: 50px;
+                    @media only screen and (min-width: $screen-md){
+                        padding: 0px 30px 0px 30px;
                     }
                     img {
                         width: 100%;
-                        height: auto;
+                        transition: all 0.7s cubic-bezier(.55,0,.1,1);
+                        @media only screen and (min-width: $screen-md){
+                            margin-top: -30px;
+                        }
+                        &:hover {
+                            @media only screen and (min-width: $screen-md){
+                                margin-top: -50px;
+                                margin-bottom: 20px;
+                            }
+                        }
                     }
                 }
+                &-text {
+                    padding-left: 15px;
+                    padding-right: 15px;
+                }
                 &-artist{
-                    width: 100%;
+                    margin: 20px 0px 20px 0px;
                     text-align: center;
-
-                    @media only screen and (min-width: $screen-md){
-                        margin-top: 115px;
-                        font-size: 1.3em;
+                    @media only screen and (min-width: $screen-xs){
+                        margin: 30px 0px 30px 0px;
                     }
-                    @media only screen and (min-width: 1380px){
-                        margin-top: 195px;
+                    @media only screen and (min-width: $screen-md){
                         font-size: 1.5em;
                     }
                 }
             }
             &-content {
-                padding-top: 20px;
-                padding-bottom: 30px;
-                background: white;
-                height: 100%;
-                @media only screen and (min-width: $screen-md) {
-                    padding-top: 10px;
-                    padding-left: 0;
-                    padding-right: 0;
-                }
-                @media only screen and (min-width: 1380px){
-                    padding-right: 15px;
-                }
+                padding-left: 0px;
                 &-title {
-
-                    transition: all 0.7s cubic-bezier(.55,0,.1,1);
                     @media only screen and (min-width: $screen-md){
                         font-size: 2em;
-                        margin-top: 0;
-                        margin-bottom: 0px;
-                    }
-                    @media only screen and (min-width: 1380px){
                         margin-top: 10px;
-                        font-size: 2.5em;
                     }
-
                 }
-                &-body {
-                    h1, h2, h3  {
-
-                        @media only screen and (max-width: 1379px){
-                            font-size: 1.3em;
-                        }
-                        @media only screen and (min-width: 1380px){
-                            font-size: 2em;
-                        }
-                    }
-                    img {
-                        display: none;
-                    }
+                h3 {
                     @media only screen and (min-width: $screen-md){
-                        margin-top: 10px;
-                        font-size: 1em;
+                        font-size: 1.5em;
                     }
-                    @media only screen and (min-width: 1380px){
-                        margin-top: 20px;
-                        font-size: 1.3em;
-                    }
-                }
-
-            }
-            &:hover {
-                cursor: pointer;
-                .home__post-article-metadata-img-wrapper{
-                    top: -70px;
-                    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
                 }
             }
         }

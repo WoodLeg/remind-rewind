@@ -12,6 +12,8 @@ body {
         .content{
             font-family: 'Roboto Light', sans-serif;
             padding-top:70px;
+            padding-left: 0px;
+            padding-right: 0px;
             @media only screen and (min-width: $screen-xs){
                 font-size: 11px;
             }

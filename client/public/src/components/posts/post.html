@@ -14,6 +14,12 @@
     <div marked="ctrl.post.content" class="post__content col-xs-12 col-sm-8 col-sm-offset-2 markdown">
     </div>
 
+    <div class="post__author col-xs-12 col-sm-8 col-sm-offset-2">
+        <div class="post__author-name pull-right">
+            by {{ ctrl.post.author.firstName }}
+        </div>
+    </div>
+
     <div class="post__albums-container col-xs-12">
         <div ng-class="{'closed': ctrl.albumDetail}" class="post__albums col-xs-12">
             <div ng-click="ctrl.getAlbum(album.id)" class="post__albums-item col-xs-12 col-sm-3 " ng-repeat="album in ctrl.post.artist.albums">
