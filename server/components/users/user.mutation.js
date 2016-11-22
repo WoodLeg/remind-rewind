@@ -105,7 +105,47 @@ const MutationDestroy = {
     }
 };
 
+const MutationPromoteUser = {
+    type: UserType,
+    description: 'Promote a user',
+    args: {
+        id: {
+            name: 'User id',
+            type: new GraphQLNonNull(GraphQLString)
+        },
+        isModerator: {
+            name: 'Moderator value',
+            type: new GraphQLNonNull(GraphQLBoolean)
+        }
+    },
+    resolve: (root, args) => {
+        return new Promise((resolve, reject) => {
+            if (root.token.isAdmin){
+                User.findById(args.id, (err, user) => {
+                    if (err) {
+                        reject(err);
+                    } else if (!user) {
+                        reject('User not found');
+                    } else {
+                        user.isModerator = args.isModerator;
+                        user.save((err, updatedUser) => {
+                            if (err) {
+                                reject(err);
+                            } else {
+                                resolve(updatedUser);
+                            }
+                        });
+                    }
+                });
+            } else {
+                reject('Not authorized');
+            }
+        })
+    }
+}
+
 export default {
     add: MutationAdd,
-    destroy: MutationDestroy
+    destroy: MutationDestroy,
+    promoteUser: MutationPromoteUser
 }

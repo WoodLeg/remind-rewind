@@ -18,9 +18,7 @@
                     userFactory.setUser(response);
                     self.user = userFactory.getUser();
                     $uibModalInstance.close(response);
-                })
-                // graphqlFactory.facebookLogin(userID)
-
+                });
             });
         };
 

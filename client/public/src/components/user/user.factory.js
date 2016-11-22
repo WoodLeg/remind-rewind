@@ -50,9 +50,11 @@
                 userFactory.setUser(response.data.user);
                 $window.Intercom("update", {
                     app_id: "sager85e",
-                    email: user.email,
-                    firstName: user.firstName,
-                    lastName: user.lastName
+                    email: response.data.user.email,
+                    firstName: response.data.user.firstName,
+                    lastName: response.data.user.lastName,
+                    facebookId: response.data.user.facebookId,
+                    user_id: response.data.user.id
                 });
                 return response;
             }, function(reason){

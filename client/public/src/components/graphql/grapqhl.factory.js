@@ -37,6 +37,15 @@
             });
         };
 
+        graphqlFactory.promoteUserMutation = function(id, moderator) {
+            var payload = graphqlProvider.preparePromoteUserMutation(id, moderator);
+            return graphqlService.send(payload).then(function(response) {
+                return $q.resolve(response.data);
+            }).catch(function(reason) {
+                return $q.reject(reason);
+            });
+        };
+
         graphqlFactory.destroyUserMutation = function(user) {
             var payload = graphqlProvider.prepareDestroyUserMutation(user);
             return graphqlService.send(payload).then(function(response){

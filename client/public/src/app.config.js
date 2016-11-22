@@ -6,8 +6,8 @@
     .config(config)
     .run(run);
 
-    config.$inject = ['ezfbProvider', '$sceProvider','$locationProvider', '$httpProvider', '$logProvider', '$translatePartialLoaderProvider', '$compileProvider', 'PROD'];
-    function config(ezfbProvider, $sceProvider, $locationProvider, $httpProvider, $logProvider, $translatePartialLoaderProvider, $compileProvider, PROD) {
+    config.$inject = ['FACEBOOK_APP', 'ezfbProvider', '$sceProvider','$locationProvider', '$httpProvider', '$logProvider', '$translatePartialLoaderProvider', '$compileProvider', 'PROD'];
+    function config(FACEBOOK_APP, ezfbProvider, $sceProvider, $locationProvider, $httpProvider, $logProvider, $translatePartialLoaderProvider, $compileProvider, PROD) {
         $locationProvider.html5Mode(true).hashPrefix('!');
 
         $httpProvider.defaults.headers.common['Content-Type'] = 'application/json';
@@ -18,7 +18,7 @@
         // Setup jwt interceptor
         // HTTP calls can override with { skipAuthorization: true }
         ezfbProvider.setInitParams({
-            appId      : '169155673554740',
+            appId      : FACEBOOK_APP,
             xfbml      : true,
             cookie     : true,
             version    : 'v2.8'
@@ -44,12 +44,13 @@
             $translate.refresh();
         });
 
+        $window.Intercom("boot", {
+            app_id: "sager85e"
+        });
         // Set change start handler
         $rootScope.$on('$stateChangeStart', function(evnt, toState, toStateParams) {
 
-            $window.Intercom("boot", {
-                app_id: "sager85e"
-            });
+            $window.Intercom('update');
 
             // Check if state wants to redirect
             if (toState.redirectTo) {

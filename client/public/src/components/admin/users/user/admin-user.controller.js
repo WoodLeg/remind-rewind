@@ -20,6 +20,14 @@
             });
         };
 
+        this.promoteUser = function(id, moderator) {
+            graphqlFactory.promoteUserMutation(id, moderator).then(function(response){
+                self.user.isModerator = response.data.promoteUser.isModerator;
+            }).catch(function(reason){
+                $log.debug('ERR PROMOTE USER: ',reason);
+            });
+        };
+
 
         $timeout(function(){
             self.getUserInfo($stateParams.id);

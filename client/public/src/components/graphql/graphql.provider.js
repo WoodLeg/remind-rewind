@@ -29,6 +29,12 @@
                         variables: null
                     };
                 },
+                preparePromoteUserMutation: function(id, moderator) {
+                    return {
+                        query: 'mutation {promoteUser(id: \"'+id+'\", isModerator: '+moderator+'){id isModerator}}',
+                        variables: null
+                    };
+                },
                 prepareDestroyUserMutation: function(id){
                     return {
                         query: 'mutation {destroyUser (id: \"' + id + '\") {id}}',

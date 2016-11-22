@@ -1,14 +1,17 @@
 <div class="admin__content-user">
     <div class="admin__content-user-infos col-xs-12">
         <h1>{{ ctrl.user.firstName }} {{ ctrl.user.lastName }}</h1>
-
         <ul>
             <li>Email: {{ ctrl.user.email }}</li>
             <li>Role: {{ ctrl.user.isAdmin ? 'Admin' : ctrl.user.isModerator ? 'Moderator': 'User' }}</li>
+            <li>
+                <label for="">Moderator</label>
+                <input ng-click="ctrl.promoteUser(ctrl.user.id, ctrl.user.isModerator)" type="checkbox" name="name" ng-model="ctrl.user.isModerator">
+            </li>
         </ul>
     </div>
 
-    <div class="admin__content-user-posts col-xs-12">
+    <div ng-if="ctrl.user.isAdmin || ctrl.user.isModerator" class="admin__content-user-posts col-xs-12">
         <h3>Posts</h3>
         <table class="table admin__content-users-table ">
             <thead>

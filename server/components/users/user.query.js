@@ -10,7 +10,6 @@ import UserType from './user.type';
 const promiseListAll = () => {
     return new Promise((resolve, reject) => {
         User.find((err, users) => {
-            console.log(users);
             if (err) reject(err)
             else resolve(users)
         });
