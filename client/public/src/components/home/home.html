@@ -1,4 +1,4 @@
-<div class="home">
+<div class="home col-xs-12">
     <div class="home__post-featured col-xs-12">
         <div ng-click="ctrl.goToPost(ctrl.featuredPosts[ctrl.featurePostRandom].id,ctrl.featuredPosts[ctrl.featurePostRandom].artist.name, ctrl.featuredPosts[ctrl.featurePostRandom].author)" class="home__post-featured-btn hidden-xs"></div>
         <div class="home__post-featured-filter hidden-xs"></div>
@@ -22,7 +22,7 @@
         <div class="home__post-latest-content col-xs-12 col-sm-7 col-md-7">
             <h1 class="home__post-latest-content-title">{{ ctrl.posts[0].title }}</h1>
             <h2 class="home__post-latest-content-artist">{{ ctrl.posts[0].artist.name }}</h2>
-            <button ng-click="ctrl.goToPost(ctrl.posts[0].id, ctrl.posts[0].artist.name, ctrl.posts[0].author)" class="home__post-latest-content-btn col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-4"type="button" name="button">
+            <button ng-click="ctrl.goToPost(ctrl.posts[0].id, ctrl.posts[0].artist.name, ctrl.posts[0].author)" class="home__post-latest-content-btn col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3"type="button" name="button">
                 <div class="home__post-latest-content-btn-filter">
                     View Article
                 </div>
