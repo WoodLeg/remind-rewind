@@ -181,11 +181,16 @@
             width: 40%;
             height: 100%;
             -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 70% 100%);
-            @media only screen and (max-width: $screen-xs){
-                width: 80%;
+            @media only screen and (max-width: $screen-md){
+                width: 60%;
+                -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 120%, 70% 120%);
             }
             @media only screen and (max-width: $screen-sm){
                 width: 65%;
+            }
+            @media only screen and (max-width: $screen-xs){
+                -webkit-clip-path: polygon(0% 50%, 100% 50%, 100% 100%, 70% 100%);
+                width: 80%;
             }
         }
         &-filter-2 {
@@ -204,6 +209,9 @@
             }
             @media only screen and (max-width: $screen-sm){
                 width: 65%;
+            }
+            @media only screen and (max-width: $screen-md){
+                width: 80%;
             }
         }
         &-img {

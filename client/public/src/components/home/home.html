@@ -16,10 +16,10 @@
     </div>
 
     <div class="home__post-latest col-xs-12">
+        <div class="home__post-latest-filter"></div>
+        <div class="home__post-latest-filter-2"></div>
         <img class="home__post-latest-img col-xs-12 col-sm-5 col-md-5" ng-src="{{ ctrl.posts[0].artist.albums[0].images[0].url }}" alt="" />
-        <div class="home__post-latest-content col-xs-12 col-sm-5 col-md-7">
-            <div class="home__post-latest-filter"></div>
-            <div class="home__post-latest-filter-2"></div>
+        <div class="home__post-latest-content col-xs-12 col-sm-7 col-md-7">
             <h1 class="home__post-latest-content-title">{{ ctrl.posts[0].title }}</h1>
             <h2 class="home__post-latest-content-artist">{{ ctrl.posts[0].artist.name }}</h2>
             <button ng-click="ctrl.goToPost(ctrl.posts[0].id, ctrl.posts[0].artist.name, ctrl.posts[0].author)" class="home__post-latest-content-btn col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-4"type="button" name="button">
