@@ -11,7 +11,14 @@
         <h1>{{ ctrl.post.title }}</h1>
     </div>
 
-    <div marked="ctrl.post.content" class="post__content col-xs-12 col-sm-8 col-sm-offset-2 markdown">
+    <div class="post__content col-xs-12 col-sm-8 col-sm-offset-2 ">
+        <div class="post__content-social col-xs-12 col-sm-8 col-sm-offset-2">
+            <a ng-href="{{ ctrl.facebookShareLink}}" target="_blank">
+                FACEBOOK
+            </a>
+        </div>
+        <div marked="ctrl.post.content" class="markdown">
+        </div>
     </div>
 
     <div class="post__author col-xs-12 col-sm-8 col-sm-offset-2">
@@ -19,6 +26,7 @@
             by {{ ctrl.post.author.firstName }}
         </div>
     </div>
+
 
     <div class="post__albums-container col-xs-12">
         <div ng-class="{'closed': ctrl.albumDetail}" class="post__albums col-xs-12">

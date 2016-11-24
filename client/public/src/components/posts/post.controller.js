@@ -5,13 +5,14 @@
         .module('remindRewind.posts')
         .controller('postController', PostController);
 
-    PostController.$inject = ['$stateParams', 'graphqlFactory', '$timeout', '$log', 'post', '$sce', '$scope', '$window', 'userFactory'];
+    PostController.$inject = ['$stateParams', 'graphqlFactory', '$timeout', '$log', 'post', '$sce', '$scope', '$window', 'userFactory', '$location'];
 
-    function PostController($stateParams, graphqlFactory, $timeout, $log, post, $sce, $scope, $window, userFactory){
+    function PostController($stateParams, graphqlFactory, $timeout, $log, post, $sce, $scope, $window, userFactory, $location){
         var self = this;
 
         self.post = post;
         this.albumDetail = null;
+        this.facebookShareLink = 'https://www.facebook.com/sharer/sharer.php?u=' + $location.absUrl();
 
         $log.debug(self.post);
 
@@ -33,6 +34,7 @@
             self.albumDetail = null;
         };
 
+        // Wave
         var activeUrl = null;
 
         this.paused = true;
