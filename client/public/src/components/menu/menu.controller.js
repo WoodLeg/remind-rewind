@@ -23,6 +23,8 @@
                             userFactory.setUser(self.user);
                         });
                     });
+                } else {
+                    userFactory.clean();
                 }
             });
         };
