@@ -13,10 +13,18 @@
         self.post = post;
         this.albumDetail = null;
         this.facebookShareLink = 'https://www.facebook.com/sharer/sharer.php?u=' + $location.absUrl();
+        if (userFactory.getUser()){
+            if (this.post.likes.indexOf(userFactory.getUser().id) > -1){
+                $log.debug('Post already liked');
+                self.post.isLiked = true;
+            } else {
+                self.post.isLiked = false;
+            }
+        }
 
         $log.debug(self.post);
 
-        this.getAlbum  = function(id){
+        this.getAlbum = function(id){
             graphqlFactory.query('query { album (id: \"'+id+'\"){ id name label images {url} tracks{id name duration track_number preview_url}}}').then(function(response){
                 $log.debug('GET ALBUM SUCCESS:' , response);
                 self.albumDetail = response.data.album;

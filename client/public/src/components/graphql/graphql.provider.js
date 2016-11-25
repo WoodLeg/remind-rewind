@@ -59,6 +59,12 @@
                         variables: null
                     };
                 },
+                prepareLikesPostMutation: function (postId, userId, liked){
+                    return {
+                        query: 'mutation {updateLikes(postId: \"'+ postId+'\", userId: \"'+userId+'\", liked: '+ liked +'){id likes}}',
+                        variables: null
+                    };
+                },
                 prepareAddArtistMutation: function(artist){
                     return {
                         query: 'mutation {addArtist (spotify_id: \"'+artist.id+'\", name: \"'+artist.name+'\"){id name}}',

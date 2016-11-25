@@ -19,7 +19,8 @@
     function getBindings(){
         return {
             likes: '=',
-            isLiked: '='
+            isLiked: '=',
+            postId: '='
         };
     }
 
@@ -70,7 +71,10 @@
         var elembtn = elem.find('button')[0],
             elemspan = elem.find('span')[0],
             elemcounter = elem.find('span')[1];
-		new Animocon(elem, {
+        console.log(scope.$$watchers[0].eq);
+        if (!scope.ctrl.isLiked){
+            console.log('heghkehg');
+            new Animocon(elem, {
 			tweens : [
 				// ring animation
 				new mojs.Shape({
@@ -194,6 +198,7 @@
                 elemcounter.style.color = '#C0C1C3';
 			}
 		});
+        }
     }
 
 

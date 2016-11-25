@@ -16,7 +16,7 @@
             <!-- <a ng-href="{{ ctrl.facebookShareLink}}" target="_blank">
                 FACEBOOK
             </a> -->
-            <like-anim likes="10" is-liked="false"></like-anim>
+            <like-anim post-id="ctrl.post.id" likes="ctrl.post.likes.length" is-liked="ctrl.post.isLiked"></like-anim>
         </div>
         <div marked="ctrl.post.content" class="markdown">
         </div>

@@ -8,7 +8,7 @@ import {
 import PostType from './post.type';
 import UserType from '../users/user.type';
 import Post from './post.model';
-
+import User from '../users/user.model';
 
 const MutationAdd = {
     type: PostType,
@@ -50,7 +50,7 @@ const MutationAdd = {
                     title: args.title,
                     content: args.content,
                     author: args.author,
-                    likes: 0,
+                    likes: [],
                     artist: args.artist,
                     date: new Date(),
                     featured: args.featured,
@@ -118,7 +118,6 @@ const MutationEdit = {
         });
     }
 };
-
 
 const MutationFeatured = {
     type: PostType,
@@ -192,6 +191,73 @@ const MutationOnline = {
     }
 }
 
+const MutationLikes = {
+    type: PostType,
+    description: 'Update the likes property',
+    args: {
+        postId: {
+            name: 'ID post',
+            type: GraphQLString,
+            description: 'ID of the post to update'
+        },
+        userId: {
+            name: 'User ID',
+            type: GraphQLString,
+            description: 'ID of the user who liked the post'
+        },
+        liked: {
+            name: 'Value',
+            type: GraphQLBoolean,
+            description: 'Push or Splice the userId of the likes list'
+        }
+    },
+    resolve: (root, args) => {
+        let postPromise = new Promise((resolve, reject) => {
+            Post.findById(args.postId, (err, post) => {
+                if (err) {
+                    reject(err);
+                } else if (!post) {
+                    reject('POST_NOT_FOUND');
+                } else {
+                    if (args.liked){
+                        post.likes.push(args.userId);
+                    } else {
+                        let index = post.likes.indexOf(args.userId);
+                        post.likes.splice(index, 1);
+                    }
+                    post.save((err, post) => {
+                        if (err) reject(err);
+                        else resolve(post);
+                    });
+                }
+            });
+        });
+        let userPromise = new Promise((resolve, reject) => {
+            User.findById(args.userId, (err, user) => {
+                if (err) {
+                    reject(err);
+                } else if (!user) {
+                    reject('USER_NOT_FOUND');
+                } else {
+                    if (args.liked){
+                        user.likes.push(args.postId);
+                    } else {
+                        let index = user.likes.indexOf(args.userId);
+                        user.likes.splice(index, 1);
+                    }
+                    user.save((err, user) => {
+                        if (err) reject(err);
+                        else resolve(user);
+                    });
+                }
+            });
+        });
+        return Promise.all([postPromise, userPromise]).then((response) => {
+            return response[0];
+        });
+    }
+}
+
 
 const MutationDestroy = {
     type: PostType,
@@ -229,5 +295,6 @@ export default {
     destroy: MutationDestroy,
     featured: MutationFeatured,
     onlined: MutationOnline,
-    edit: MutationEdit
+    edit: MutationEdit,
+    updateLikes: MutationLikes
 }

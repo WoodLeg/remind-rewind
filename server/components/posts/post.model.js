@@ -8,7 +8,7 @@ const PostModel = mongoose.model('posts', {
     title: String,
     content: String,
     author: String,
-    likes: Number,
+    likes: [String],
     artist: String,
     date: Date,
     featured: Boolean,

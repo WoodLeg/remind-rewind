@@ -84,6 +84,15 @@
             });
         };
 
+        graphqlFactory.updateLikesPostMutation = function(postId, userId, liked){
+            var payload = graphqlProvider.prepareLikesPostMutation(postId, userId, liked);
+            return graphqlService.send(payload).then(function(response){
+                return $q.resolve(response.data);
+            }).catch(function(reason){
+                return $q.reject(reason);
+            });
+        };
+
         graphqlFactory.addArtistMutation = function(artist){
             var payload = graphqlProvider.prepareAddArtistMutation(artist);
             return graphqlService.send(payload).then(function(response){

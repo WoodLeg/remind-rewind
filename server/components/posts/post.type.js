@@ -3,7 +3,8 @@ import {
     GraphQLID,
     GraphQLBoolean,
     GraphQLString,
-    GraphQLInt
+    GraphQLInt,
+    GraphQLList
 } from 'graphql';
 
 import UserType from '../users/user.type';
@@ -37,8 +38,8 @@ const PostType = new GraphQLObjectType({
             description: 'Author of the post'
         },
         likes: {
-            type: GraphQLInt,
-            description: 'Number of Likes of the post'
+            type: new GraphQLList(GraphQLString),
+            description: 'IDs of every user who liked the post'
         },
         artist: {
             type: ArtistType,

@@ -10,7 +10,8 @@ var UserSchema = new mongoose.Schema({
     isAdmin: Boolean,
     isModerator: Boolean,
     password: String,
-    facebookId: {type: String, unique: true}
+    facebookId: {type: String, unique: true},
+    likes: [String]
 });
 
 const UserModel = mongoose.model('users', UserSchema);

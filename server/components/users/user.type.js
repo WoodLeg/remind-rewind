@@ -51,6 +51,10 @@ const UserType = new GraphQLObjectType({
                     });
                 });
             }
+        },
+        likes: {
+            type: new GraphQLList(GraphQLString),
+            description: 'All postId that the user has liked'
         }
     })
 });
