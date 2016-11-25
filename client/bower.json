@@ -36,6 +36,7 @@
     "angular-markdown-editor-ghiscoding": "^1.1.0",
     "angular-base64": "^2.0.5",
     "wavesurfer.js": "^1.2.6",
-    "angular-easyfb": "^1.5.1"
+    "angular-easyfb": "^1.5.1",
+    "mojs": "^0.288.1"
   }
 }

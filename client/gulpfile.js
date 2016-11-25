@@ -158,6 +158,7 @@ gulp.task('bower-js', function(){
     return merge2(
         gulp.src('public/bower_components/jquery/dist/jquery.js'),
         gulp.src('public/bower_components/wavesurfer.js/dist/wavesurfer.js'),
+        gulp.src('public/bower_components/mojs/build/mo.js'),
         gulp.src(bowerFiles(['**/*.js', '!**/jquery.js']))
     )
     .pipe(gulpif(util.env.debug,using()))

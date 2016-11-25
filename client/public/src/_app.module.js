@@ -35,6 +35,7 @@
             'remindRewind.home',
             'remindRewind.admin',
             'remindRewind.posts',
-            'remindRewind.footer'
+            'remindRewind.footer',
+            'remindRewind.animicons'
         ]);
 })();
