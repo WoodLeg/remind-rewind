@@ -61,7 +61,7 @@
                 },
                 prepareLikesPostMutation: function (postId, userId, liked){
                     return {
-                        query: 'mutation {updateLikes(postId: \"'+ postId+'\", userId: \"'+userId+'\", liked: '+ liked +'){id likes}}',
+                        query: 'mutation {updateLikes(postId: \"'+ postId+'\", userId: \"'+userId+'\", liked: '+ liked +'){id likes }}',
                         variables: null
                     };
                 },
