@@ -73,6 +73,10 @@
             }).then(function(){
                 graphqlFactory.diggearRequestMutation(self.user.id).catch(function(err){
                     $log.debug('FAILED DIGGEAR REQUEST: ', err);
+                    modalFactory.launch({
+                        title: 'Success !',
+                        content: 'You have been added to the diggearz waiting list !'
+                    });
                 });
             });
         };
