@@ -28,6 +28,7 @@
         userFactory.clean = function(){
             delete $localStorage.token;
             delete $localStorage.user;
+            user = null;
         };
 
         userFactory.signup = function(credentials) {

@@ -60,6 +60,9 @@
             width: 150px;
             height: auto;
             // background: rgba($yellow, 0.6);
+            @media only screen and (min-width: $screen-lg){
+                right: -200px;
+            }
         }
         h1 {
             font-size: 4em;
