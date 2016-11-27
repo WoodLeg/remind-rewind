@@ -11,6 +11,7 @@
 
         var self = this;
         this.user = userFactory.getUser() || null;
+        $log.debug(this.user);
 
         this.facebookLoggedIn = function() {
             ezfb.getLoginStatus(function(response){
@@ -67,6 +68,7 @@
                 template: '/src/components/menu/template/diggear-modal.html',
                 windowClass: 'menu__diggear-modal-window',
                 confirm: 'Sure I do !',
+                user: userFactory.getUser(),
                 cancel: 'Hell no !'
             }).then(function(){
                 graphqlFactory.diggearRequestMutation(self.user.id).catch(function(err){

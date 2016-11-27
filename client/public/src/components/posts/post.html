@@ -4,12 +4,13 @@
         <div class="post__head-container">
             <img ng-src="{{ ctrl.post.artist.images[0].url }}" alt="" />
             <div class="post__head-soundwave"></div>
+            <div class="post__head-title col-xs-12">
+                <h1>{{ ctrl.post.title }}</h1>
+            </div>
         </div>
     </div>
 
-    <div class="post__title col-xs-12">
-        <h1>{{ ctrl.post.title }}</h1>
-    </div>
+
 
     <div class="post__content col-xs-12 col-sm-8 col-sm-offset-2 ">
         <div class="post__content-social col-xs-12 col-sm-8 col-sm-offset-2">
