@@ -35,6 +35,12 @@
                         variables: null
                     };
                 },
+                prepareDiggearRequestMutation: function(userId){
+                    return {
+                        query: 'mutation {diggearRequest(id: \"'+userId+'\"){id}}',
+                        variables: null
+                    };
+                },
                 prepareDestroyUserMutation: function(id){
                     return {
                         query: 'mutation {destroyUser (id: \"' + id + '\") {id}}',

@@ -144,8 +144,33 @@ const MutationPromoteUser = {
     }
 }
 
+const MutationDiggearRequest = {
+    type: UserType,
+    description: 'Request of a user to become a diggear',
+    args: {
+        id: {
+            name: 'User ID',
+            type: new GraphQLNonNull(GraphQLString)
+        }
+    },
+    resolve: (root, args) => {
+        return new Promise((resolve, reject) => {
+            User.findById(args.id).exec().then((user) => {
+                user.diggearRequest = true;
+                user.save((err, userSaved) => {
+                    if (err) reject(err);
+                    else resolve(userSaved);
+                });
+            }).catch((err) => {
+                reject(err);
+            });
+        });
+    }
+}
+
 export default {
     add: MutationAdd,
     destroy: MutationDestroy,
-    promoteUser: MutationPromoteUser
+    promoteUser: MutationPromoteUser,
+    diggearRequest: MutationDiggearRequest
 }

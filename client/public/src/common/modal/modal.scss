@@ -18,19 +18,11 @@
     &-content {
         font-size: 1em;
     }
-
 }
 
 .modal__footer {
     .btn {
         text-transform: uppercase;
-        background: transparent;
-        color: $accent-color;
-        box-shadow: none;
-        transition: all 0.3s ease;
-        &:hover {
-            color: white;
-        }
     }
 }
 

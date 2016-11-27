@@ -10,6 +10,12 @@
         <li ng-if="ctrl.user" class="menu__list-item hidden-xs" ng-click="ctrl.logout()">Logout</li>
         <li ng-if="!ctrl.user" class="menu__list-item hidden-xs" ng-click="ctrl.login()">Signin</li>
         <li ng-if="ctrl.user.isAdmin || ctrl.user.isModerator" class="menu__list-item" ui-sref="remindRewind.admin.posts.many">Admin</li>
+        <li ng-if="!ctrl.user.diggearRequest || !ctrl.user.isModerator" ng-click="ctrl.diggearModal()" class="menu__list-item-btn">
+            <div class="menu__list-item-btn-filter">
+                Are you a diggear ?
+            </div>
+            Are you a diggear ?
+        </li>
     </ul>
     <div class="clearfix"></div>
 </div>

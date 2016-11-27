@@ -1,0 +1,28 @@
+<div class="menu__diggear-modal">
+    <h2>{{ctrl.options.title}}</h2>
+    <div class="menu__diggear-modal-description col-xs-12">
+        <p>
+            Diggear (dig - ear) comes from his homonyme Digger. It's an adventurer who loves digging in some unknown "places" for discovering new music. He/She is willing to support criticism, fighting against wind and tide, just to find the precious jewel that will make his renon great all over the seven seas !
+        </p>
+    </div>
+
+    <h3 class="col-xs-12">Wanna join the crew ?</h3>
+    <div ng-if="!ctrl.user" class="menu__diggear-modal-diggear-appears col-xs-12">
+        <span class="pull-right">You need to be logged to become a diggear</span>
+    </div>
+    <div class="menu__diggear-modal-footer col-xs-12">
+
+        <button class="menu__diggear-modal-btn no col-xs-12 col-sm-4 col-sm-offset-1" type="button" name="button" ng-click="ctrl.cancel()" ng-if="ctrl.options.cancel">
+            <div class="menu__diggear-modal-btn-filter no">
+                {{ctrl.options.cancel}}
+            </div>
+            {{ctrl.options.cancel}}
+        </button>
+        <button ng-disabled="!ctrl.user" class="menu__diggear-modal-btn yes col-xs-12 col-sm-4 col-sm-offset-2" type="button" name="button" ng-click="ctrl.confirm()">
+            <div class="menu__diggear-modal-btn-filter yes">
+                {{ctrl.options.confirm}}
+            </div>
+            {{ctrl.options.confirm}}
+        </button>
+    </div>
+</div>

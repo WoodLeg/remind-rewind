@@ -12,7 +12,6 @@
 
         var self = this;
 
-        $log.debug(this.isLiked);
         this.updateLikePost = function(){
             $log.debug('UserId: ', userFactory.getUser().id);
             $log.debug('User liked it: ', this.isLiked);

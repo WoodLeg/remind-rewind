@@ -5,9 +5,9 @@
         .module('remindRewind.menu')
         .controller('menuController', MenuController);
 
-    MenuController.$inject = ['modalFactory', 'userFactory', '$log', '$state', 'ezfb', '$timeout'];
+    MenuController.$inject = ['modalFactory', 'userFactory', '$log', '$state', 'ezfb', '$timeout', 'graphqlFactory'];
 
-    function MenuController(modalFactory, userFactory, $log, $state, ezfb, $timeout){
+    function MenuController(modalFactory, userFactory, $log, $state, ezfb, $timeout, graphqlFactory){
 
         var self = this;
         this.user = userFactory.getUser() || null;
@@ -57,6 +57,21 @@
                 userFactory.clean();
                 self.user = null;
                 $state.go('remindRewind.home');
+            });
+        };
+
+
+        this.diggearModal = function(){
+            modalFactory.launch({
+                title: 'What\'s a diggear ?',
+                template: '/src/components/menu/template/diggear-modal.html',
+                windowClass: 'menu__diggear-modal-window',
+                confirm: 'Sure I do !',
+                cancel: 'Hell no !'
+            }).then(function(){
+                graphqlFactory.diggearRequestMutation(self.user.id).catch(function(err){
+                    $log.debug('FAILED DIGGEAR REQUEST: ', err);
+                });
             });
         };
 

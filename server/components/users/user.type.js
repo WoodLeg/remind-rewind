@@ -55,6 +55,10 @@ const UserType = new GraphQLObjectType({
         likes: {
             type: new GraphQLList(GraphQLString),
             description: 'All postId that the user has liked'
+        },
+        diggearRequest: {
+            type: GraphQLBoolean,
+            description: 'User asked for becoming a diggear'
         }
     })
 });

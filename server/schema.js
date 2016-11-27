@@ -46,7 +46,8 @@ var MutationType = new GraphQLObjectType({
         destroyArtist: ArtistMutation.destroy,
         updateFeatureArtist: ArtistMutation.updateFeatured,
         updateOnlinePost: PostMutation.onlined,
-        updateLikes: PostMutation.updateLikes
+        updateLikes: PostMutation.updateLikes,
+        diggearRequest: UserMutation.diggearRequest
     }
 });
 

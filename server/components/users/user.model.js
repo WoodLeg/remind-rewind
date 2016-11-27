@@ -11,7 +11,8 @@ var UserSchema = new mongoose.Schema({
     isModerator: Boolean,
     password: String,
     facebookId: {type: String, unique: true},
-    likes: [String]
+    likes: [String],
+    diggearRequest: Boolean
 });
 
 const UserModel = mongoose.model('users', UserSchema);

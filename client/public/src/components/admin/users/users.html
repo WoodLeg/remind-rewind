@@ -42,7 +42,7 @@
                         {{ user.email }}
                     </td>
                     <td>
-                        {{ ( user.isAdmin ? 'Admin' : ( user.isModerator ? 'Moderator' : 'User')) }}
+                        {{ ( user.isAdmin ? 'Admin' : ( user.isModerator ? 'Moderator' : (user.diggearRequest ? 'Pending Moderator' : 'User'))) }}
                     </td>
                     <td>
                         <ul class="admin__content-users-table-actions-list">
@@ -55,39 +55,6 @@
         </table>
     </div>
 
-    <form ng-if="!ctrl.displayListUsers" name="addUserForm" ng-submit="ctrl.addUser()" class="admin__content-users-form col-xs-12 col-sm-6">
-        <h2>Add user form:</h2>
 
-        <div class="form-group">
-            <label for="">First name</label>
-            <input ng-model="ctrl.newUserData.firstName" type="text" name="firstname" class="form-control admin__content-users-form-input" value="">
-        </div>
-        <div class="form-group">
-            <label for="">Last name</label>
-            <input ng-model="ctrl.newUserData.lastName" type="text" name="lastname" class="form-control admin__content-users-form-input" value="">
-        </div>
-        <div class="form-group">
-            <label for="">Email</label>
-            <input ng-model="ctrl.newUserData.email" type="email" name="email" class="form-control admin__content-users-form-input" value="">
-        </div>
-        <div class="form-group">
-            <label for="">Password</label>
-            <input ng-model="ctrl.newUserData.password" type="password" name="password" class="form-control admin__content-users-form-input" value="">
-        </div>
-        <div class="form-check">
-            <label class="form-check-label">
-                <input ng-model="ctrl.newUserData.isAdmin" class="form-check-input" type="checkbox" value=""> Admin
-            </label>
-        </div>
-        <div class="form-check">
-            <label class="form-check-label">
-                <input ng-model="ctrl.newUserData.isModerator" class="form-check-input" type="checkbox" value=""> Moderator
-            </label>
-        </div>
-        <div class="form-group">
-            <button type="submit" class="col-sm-6 btn">Save</button>
-        </div>
-        <div class="clearfix"></div>
-    </form>
 
 </div>
