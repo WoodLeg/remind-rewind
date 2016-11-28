@@ -12,7 +12,7 @@
             <label for="">Content</label>
             <textarea ng-model="ctrl.editPost.content" markdown-editor="{addExtraButtons: true}" class="form-control form-control admin__content-post-edit-form-textarea" rows="10"></textarea>
         </div>
-        <div class="form-group">
+        <div ng-if="ctrl.user.isAdmin "class="form-group">
             <label>Featured</label>
             <input ng-click="ctrl.updateFeaturePost(ctrl.editPost.id, ctrl.editPost.featured)" type="checkbox" name="name" ng-model="ctrl.editPost.featured">
         </div>

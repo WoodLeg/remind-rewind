@@ -12,8 +12,9 @@
         position: relative;
         width: 30%;
         img {
-            width: 70px;
+            width: 60px;
             height: auto;
+            margin-top: 5px;
             margin-right: 10px;
         }
         @media only screen and (max-width: $screen-xs){

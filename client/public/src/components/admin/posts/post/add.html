@@ -13,7 +13,7 @@
             <label for="">Body</label>
             <textarea ng-model="ctrl.newPost.content" markdown-editor="{addExtraButtons: true}" class="form-control form-control admin__content-post-add-form-textarea" rows="10"></textarea>
         </div>
-        <div class="form-group">
+        <div ng-if="ctrl.user.idAdmin" class="form-group">
             <label>Featured</label>
             <input type="checkbox" name="name" ng-model="ctrl.newPost.featured">
         </div>
