@@ -19,7 +19,7 @@
                     self.user = userFactory.getUser();
                     $uibModalInstance.close(response);
                 });
-            });
+            }, {scope: 'public_profile, email'});
         };
 
         this.cancel = function() {

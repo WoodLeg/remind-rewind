@@ -5,7 +5,6 @@ var UserSchema = new mongoose.Schema({
     id: mongoose.Schema.Types.ObjectId,
     firstName: String,
     lastName: String,
-    username: String,
     email: String,
     isAdmin: Boolean,
     isModerator: Boolean,

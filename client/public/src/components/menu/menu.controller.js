@@ -38,6 +38,7 @@
                 confirm: 'Send',
                 cancel: 'Close'
             }).then(function(user){
+                $log.debug('User after facebook login', user);
                 userFactory.signin(user).then(function(response){
                     self.user = response.data.user;
                     self.user.picture = user.picture;
