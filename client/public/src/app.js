@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import jQuery from 'jquery';
 
 
-class DummyComponent extends React.Component {
+class RemindrewindComponent extends React.Component {
 
     constructor() {
         super();
@@ -27,7 +27,7 @@ class DummyComponent extends React.Component {
 
 jQuery(function() {
     ReactDOM.render(
-        <DummyComponent />,
-        document.getElementById('dummy-component')
+        <RemindrewindComponent />,
+        document.getElementById('remindrewind-component')
     );
 })
