@@ -165,10 +165,12 @@ gulp.task('serve', ['build'], () => sync.init({
     host: process.env.IP || 'localhost'
 }));
 
+gulp.task('style-watch', ['app-style'], () => sync.reload());
+
 gulp.task('js-watch', ['transpile'], () => sync.reload());
 
 gulp.task('watch', ['serve'], () => {
-    gulp.watch(PATHS.SRC.BASE + '/**/*.scss', ['app-style']);
+    gulp.watch(PATHS.SRC.BASE + '/**/*.scss', ['style-watch']);
     gulp.watch(PATHS.SRC.BASE +'/**/*.js', ['js-watch']);
     gulp.watch(PATHS.SRC.INDEX, sync.reload);
 });

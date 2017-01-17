@@ -1,0 +1,17 @@
+.menu {
+    width: 100%;
+    background: rgba(0,0,0,0.3);
+    &__list {
+        height: 60px;
+        list-style: none;
+        margin-bottom: 0;
+        &-item{
+            height: 60px;
+            width: 70px;
+            text-align:center;
+            line-height: 60px;
+            color: white;
+            background: rgba(0,0,0,0.4);
+        }
+    }
+}
