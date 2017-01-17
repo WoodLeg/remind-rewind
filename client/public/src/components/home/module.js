@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 export default class HomeComponent extends React.Component {
 
     constructor() {
@@ -16,11 +15,8 @@ export default class HomeComponent extends React.Component {
         return(
             <div>
                 <div className="col-xs-12">
-                <h1> Home component!! </h1>
+                    <h1> Home component!! </h1>
                 </div>
-
-
-                
             </div>
         );
     }

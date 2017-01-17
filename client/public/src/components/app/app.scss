@@ -143,12 +143,15 @@
         list-style: none;
         margin-bottom: 0;
         &-item{
+            display: inline-block;
             height: 60px;
             width: 70px;
             text-align:center;
             line-height: 60px;
-            color: white;
             background: rgba(0,0,0,0.4);
+            a {
+                color: white;
+            }
         }
     }
 }
