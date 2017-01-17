@@ -86,6 +86,13 @@ function bundle() {
     .pipe(gulp.dest(PATHS.DEST.LIB.JS));
 }
 
+// Project pictures
+gulp.task('app-images', function() {
+    return gulp.src(PATHS.SRC.ASSETS.IMG + '/**')
+        .pipe(gulpif(util.env.debug, using()))
+        .pipe(gulp.dest(PATHS.DEST.ASSETS.IMG));
+});
+
 // Project style
 gulp.task('app-style', function() {
     return gulp.src([
@@ -149,7 +156,7 @@ gulp.task('lint', () => {
 });
 
 gulp.task('build', (cb) => {
-    return runSequence ('clean', ['index', 'app-style', 'lint', 'transpile'], 'inject', cb);
+    return runSequence ('clean', ['index', 'app-style', 'app-images', 'lint', 'transpile'], 'inject', cb);
 });
 
 gulp.task('serve', ['build'], () => sync.init({
