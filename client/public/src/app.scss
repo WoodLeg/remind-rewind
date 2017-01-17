@@ -1,29 +1,3 @@
 @import 'bootstrap';
-@import 'bootstrap/theme';
 
-@import 'assets/style/variables';
-@import 'assets/style/mixins';
-@import 'assets/style/common';
-@import 'assets/style/main';
-@import 'assets/style/errors';
-@import 'assets/style/main';
-@import 'assets/style/typography';
-
-
-@import 'common/notification/notification';
-@import 'common/spinner/spinner';
-@import 'common/modal/modal';
-@import 'common/animicons/animicons';
-
-@import 'components/menu/menu';
-@import 'components/home/home';
-@import 'components/admin/admin';
-@import 'components/admin/posts/posts';
-@import 'components/admin/posts/post/post';
-@import 'components/admin/users/users';
-@import 'components/admin/users/user/user';
-@import 'components/admin/artists/artists';
-@import 'components/admin/artists/artist/artist';
-@import 'components/posts/post';
-@import 'components/footer/footer';
-@import 'components/user/signup/signup';
+@import './components/menu/menu.scss';
