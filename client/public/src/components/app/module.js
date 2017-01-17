@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {Link} from 'react-router';
 
 export default class MenuComponent extends React.Component {
 
@@ -17,10 +17,11 @@ export default class MenuComponent extends React.Component {
             <div>
                 <div className="menu">
                     <ul className="menu__list">
-                        <li className="menu__list-item">Home</li>
+                        <li className="menu__list-item"><Link to="/">Home</Link></li>
+                        <li className="menu__list-item"><Link to="/login">Login</Link></li>
                     </ul>
                 </div>
-                    {this.props.children}
+                {this.props.children}
             </div>
         );
     }
