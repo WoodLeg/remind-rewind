@@ -12,7 +12,7 @@ export default class LoginComponent extends React.Component {
 
     render() {
         return (
-            <div className="signin">
+            <div className="col-xs-12 signin">
                 <h1> Login Component ! </h1>
             </div>
         )
