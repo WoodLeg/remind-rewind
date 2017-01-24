@@ -1,17 +1,15 @@
 import React from 'react';
 
-
-export default class CalendarComponent extends React.Component(){
-
+export default class CalendarComponent extends React.Component {
     constructor() {
         super();
     }
 
-    componentWillMount(){
+    componentWillMount() {
 
     }
 
-    render(){
+    render() {
         return (
             <div>
                 <div className="col-xs-12">
@@ -20,6 +18,5 @@ export default class CalendarComponent extends React.Component(){
             </div>
         )
     }
-
 
 }

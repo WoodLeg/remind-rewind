@@ -1,11 +1,11 @@
 import React from 'react';
 
 export default class GearsComponent extends React.Component {
-    constructor(){
+    constructor() {
         super();
     }
 
-    componentWillMount(){
+    componentWillMount() {
 
     }
 
