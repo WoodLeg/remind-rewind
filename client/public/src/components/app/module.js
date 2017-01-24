@@ -16,12 +16,16 @@ export default class MenuComponent extends React.Component {
         return(
             <div>
                 <div className="menu">
-                    <ul className="menu__list">
-                        <li className="menu__list-item"><Link to="/">Home</Link></li>
-                        <li className="menu__list-item"><Link to="/gears">Gears</Link></li>
-                        <li className="menu__list-item"><Link to="/calendar">Calendar</Link></li>
-                        <li className="menu__list-item"><Link to="/login">Login</Link></li>
-                        <li className="menu__list-item"><Link to="/signup">Signup</Link></li>
+                    <div className="menu__logo col-xs-4 pull-left">
+                        <img src="/assets/img/RRnb.png" />
+                    </div>
+                    <ul className="menu__list col-xs-8 pull-right">
+                        <li className="menu__list-item col-md-2"><Link to="/signup">Signup</Link></li>
+                        <li className="menu__list-item col-md-2"><Link to="/login">Login</Link></li>
+                        <li className="menu__list-item col-md-2"><Link to="/calendar">Calendar</Link></li>
+                        <li className="menu__list-item col-md-2"><Link to="/gears">Gears</Link></li>
+                        <li className="menu__list-item col-md-2"><Link to="/artists">Artists</Link></li>
+                        <li className="menu__list-item col-md-2"><Link to="/">Home</Link></li>
                     </ul>
                 </div>
                 {this.props.children}
