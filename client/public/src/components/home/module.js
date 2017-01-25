@@ -1,5 +1,8 @@
 import React from 'react';
 
+
+import ContactForm from '../common/form/contact.js';
+
 export default class HomeComponent extends React.Component {
 
     constructor() {
@@ -22,6 +25,10 @@ export default class HomeComponent extends React.Component {
                 </div>
                 <div className="col-xs-12">
                     <h1>Gears available</h1>
+                </div>
+                <div className="col-xs-12">
+                    <h1>Wanna record ?</h1>
+                    <ContactForm></ContactForm>
                 </div>
             </div>
         );
