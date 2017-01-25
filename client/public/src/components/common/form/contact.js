@@ -12,6 +12,7 @@ export default class ContactFormComponent extends React.Component {
 
     render() {
         return (
+
             <form className="col-xs-12 col-sm-6 col-sm-offset-3">
                 <div className="form-group">
                     <label htmlFor="exampleInputEmail1">Email address</label>
@@ -23,10 +24,9 @@ export default class ContactFormComponent extends React.Component {
                     />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="exampleInputPassword1">Password</label>
-                    <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
+                    <label htmlFor="exampleTextarea">Example textarea</label>
+                    <textarea className="form-control" id="exampleTextarea" rows="3"></textarea>
                 </div>
-
                 <button type="submit" className="col-xs-12 btn btn-primary">Submit</button>
             </form>
         )
