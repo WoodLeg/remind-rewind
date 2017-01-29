@@ -1,0 +1,56 @@
+.home {
+    &__header {
+        position: relative;
+        padding: 0;
+        padding-top: 70px;
+        height: 800px;
+        color: white;
+        font-family: 'Nothing You Could Do', 'cursive';
+        &-img {
+            position: absolute;
+            top:0; left:0;
+            z-index: -1;
+            width: 100%;
+            height: 800px;
+            background: url('/assets/img/headphones.jpg') no-repeat top center;
+            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 90%);
+            background-size: cover;
+        }
+    }
+    &__deaf {
+        position: relative;
+        height: 700px;
+        padding: 0;
+        color: black;
+        margin-top: -40px;
+        &-body {
+            &-title {
+                font-family: 'Nothing You Could Do', 'cursive';
+                text-align: center;
+            }
+            &-content {
+                margin-top: 40px;
+                padding: 0px 40px 0px 40px;
+                font-size: 1.5em;
+                text-align: justify;
+                font-family: 'Raleway', 'sans-serif';
+            }
+        }
+        &-img {
+            position: absolute;
+            top:0px; right: 0;
+            z-index: -3;
+            width: 100%;
+            height: 700px;
+            background: url('/assets/img/microphone.jpg') no-repeat top center;
+            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 90%);
+            background-size: cover;
+        }
+    }
+    &__gears {
+        color: black;
+    }
+    &__contact {
+        color: black;
+    }
+}
