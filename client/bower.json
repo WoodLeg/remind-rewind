@@ -1,6 +1,6 @@
 {
-  "name": "RemindRewind_Studio",
-  "description": "Starter code for using Babel with Gulp",
+  "name": "remindrewind-studio",
+  "description": "Remind Rewind Studio website",
   "main": "app.js",
   "authors": [
     "WoodLeg"
