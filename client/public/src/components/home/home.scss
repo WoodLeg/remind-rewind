@@ -51,7 +51,22 @@
         color: black;
     }
     &__contact {
-        color: black;
->>>>>>> Home page.
+        color: white;
+        height: 700px;
+        position: relative;
+        &-title {
+            font-family: 'Nothing You Could Do', 'cursive';
+            text-align:center;
+            margin: 50px 0px 50px 0px;
+        }
+        &-bg {
+            z-index: -2;
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 700px;
+            background: url('/assets/img/microphone-2.jpg') no-repeat top center;
+            background-size: cover;
+        }
     }
 }

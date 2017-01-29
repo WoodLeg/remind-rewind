@@ -37,7 +37,8 @@ export default class HomeComponent extends React.Component {
                     <h1>Gears available</h1>
                 </div>
                 <div className="col-xs-12 home__contact">
-                    <h1>Wanna record ?</h1>
+                    <div className="home__contact-bg"></div>
+                    <h1 className="home__contact-title">Wanna record ?</h1>
                     <ContactForm></ContactForm>
                 </div>
             </div>
