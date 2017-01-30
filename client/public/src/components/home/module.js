@@ -2,7 +2,7 @@ import React from 'react';
 
 
 import ContactForm from '../common/form/contact.js';
-import Footer from '../footer/module.js';
+import PriceTable from '../common/price/table.js';
 
 export default class HomeComponent extends React.Component {
 
@@ -40,6 +40,7 @@ export default class HomeComponent extends React.Component {
                 </div>
                 <div className="col-xs-12 home__tarif">
                     <h1 className="home__tarif-title">Tarifs</h1>
+                    <PriceTable></PriceTable>
                 </div>
                 <div className="col-xs-12 home__contact">
                     <div className="home__contact-bg"></div>
