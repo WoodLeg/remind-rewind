@@ -39,7 +39,6 @@ export default class HomeComponent extends React.Component {
                     </div>
                 </div>
                 <div className="col-xs-12 home__tarif">
-                    <div className="home__tarif-img"></div>
                     <h1 className="home__tarif-title">Tarifs</h1>
                 </div>
                 <div className="col-xs-12 home__contact">
