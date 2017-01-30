@@ -1,0 +1,26 @@
+.column {
+    font-family: 'Ralewat', 'sans-serif';
+    &__container {
+        min-height: 500px;
+        overflow: hidden;
+        border-radius: 3px;
+    }
+    &__header {
+        height: 150px;
+        width: 100%;
+        clip-path: ellipse(70% 70% at 50% 0%);
+        h1 {
+            text-align:center;
+            margin:0;
+            padding:0;
+            line-height: 70px;
+            height: 70px;
+        }
+        &.blue {
+            background: #198baa;
+        }
+        &.red {
+            background: #aa2a19;
+        }
+    }
+}
