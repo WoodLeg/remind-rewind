@@ -159,7 +159,7 @@ gulp.task('build', (cb) => {
     return runSequence ('clean', ['index', 'app-style', 'app-images', 'lint', 'transpile'], 'inject', cb);
 });
 
-gulp.task('serve', ['build'], () => sync.init({
+gulp.task('serve', ['watch'], () => sync.init({
     server: PATHS.DEST.BASE,
     port: process.env.PORT || 8000,
     host: process.env.IP || 'localhost'
@@ -169,7 +169,7 @@ gulp.task('style-watch', ['app-style'], () => sync.reload());
 
 gulp.task('js-watch', ['transpile'], () => sync.reload());
 
-gulp.task('watch', ['serve'], () => {
+gulp.task('watch', ['build'], () => {
     gulp.watch(PATHS.SRC.BASE + '/**/*.scss', ['style-watch']);
     gulp.watch(PATHS.SRC.BASE +'/**/*.js', ['js-watch']);
     gulp.watch(PATHS.SRC.INDEX, sync.reload);

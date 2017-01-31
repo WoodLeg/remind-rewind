@@ -18,11 +18,14 @@ export default class ColumnComponent extends React.Component {
                 <div className="column__container shadow-1">
                     <div className="column__header" >
                         <div className="column__header-background"></div>
-                        <h1>{this.props.title}</h1>
+                        <div className="column__header-description">
+                            par Musicien
+                        </div>
                         <div className="column__header-price">
                             <div className="column__header-price-background"></div>
-                            <div className="column__header-price-content">
-                            {this.props.price}€
+                            <h1>{this.props.title}</h1>
+                            <div className="column__header-price-body">
+                                {this.props.price}€
                             </div>
                         </div>
                     </div>

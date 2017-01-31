@@ -2,37 +2,21 @@
     font-family: 'Ralewat', 'sans-serif';
     &.red {
         .column {
-            &__container {
-                background: rgba(170, 42, 25, 0.1);
-            }
             &__header {
                 &-background {
                     background: rgba(170, 42, 25,1);
                 }
-                &-price {
-                    background: rgba(170, 42, 25,1);
-                }
-            }
-            &__body {
-                background: rgba(170,42,25,0.1);
             }
         }
     }
     &.blue {
         .column{
-            &__container {
-                background: rgba(25, 139, 170, 0.1);
-            }
             &__header {
                 &-background {
-                    background: rgba(25, 139, 170,1);
+                    background: -webkit-linear-gradient(left, #eda642 0%,#7843d3 100%); /* Chrome10-25,Safari5.1-6 */
+                    background: linear-gradient(to right, #eda642 0%,#7843d3 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                    box-shadow: 0px 0px 30px rgba(#7843d3, 0.6);
                 }
-                &-price {
-                    background: rgba(25, 139, 170,1);
-                }
-            }
-            &__body {
-                background: rgba(25,139,170,0.1);
             }
         }
 
@@ -40,60 +24,79 @@
     }
     &__container {
         position: relative;
-        z-index: -5;
         min-height: 500px;
         overflow: hidden;
         border-radius: 3px;
+        top:0;
+        left:0;
     }
     &__header {
         position: relative;
         font-family: 'Raleway', 'sans-serif';
         font-weight: 200;
         letter-spacing: 5px;
+        height: 200px;
+        width: 100%;
+        z-index: 10;
+        top:0;
+        left:0;
+        &:hover {
+            cursor: pointer;
+            .column__header-price {
+                top: -70px;
+            }
+        }
         &-background {
             position:absolute;
-            height: 600px;
-            width: 800px;
-            top: -400px;
-            left: -185px;
+            width: 120%;
+            height: 160%;
+            top: -100px;
+            left: -50px;
             border-radius: 50%;
             z-index: -3;
         }
-        &-price {
-            z-index:-2;
+        &-description {
+            position: absolute;
+            top: 130px;
+            width: 100%;
+            height: 50px;
+            text-align:center;
+            font-size: 1.3em;
+            font-weight: 300;
+            color: white;
+        }
+        &-price{
             position: relative;
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            margin: 30px auto;
-            padding-top: 15px;
+            height: 150px;
+            width: 100%;
+            top: 0;
+            left:0;
+            transition: all 0.7s cubic-bezier(0.4,0,0.2,1);
+            z-index:0;
             &-background {
                 z-index: -1;
                 position: absolute;
-                top:18px;
-                left:18px;
-                width:165px;
-                height: 165px;
+                top: -270px;
+                left: -8px;
+                width:450px;
+                height: 450px;
                 background: white;
                 border-radius: 50%;
+                box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
             }
-            &-content {
-                width: 200px;
-                height: 200px;
+            h1 {
+                color: black;
+                height: 70px;
+                margin:0;
+                text-align:center;
+                padding-top: 20px;
+                font-weight: 200;
+            }
+            &-body {
+                text-align:center;
                 font-size: 5em;
-                padding-top: 40px;
-                text-align: center;
-                font-family: 'Nothing You Could Do', 'cursive';
+                font-family: 'Nothing You Could Do','cursive';
             }
-
-        }
-        h1 {
-            text-align:center;
-            color: white;
-            margin:0;
-            padding:0;
-            line-height: 70px;
-            height: 70px;
         }
     }
     &__body {
