@@ -6,11 +6,20 @@ export default class ColumnComponent extends React.Component {
         super();
     }
 
+    _computeFullFeaturePrice(array) {
+        let price = 0;
+        for (var i = 0; i < array.length; i++) {
+            price += array[i].price;
+        }
+        return price;
+    };
+
     componentWillMount(){
 
+        this.features = this.props.data;
+        this.featuresPrice = this._computeFullFeaturePrice(this.features);
 
     }
-
 
     render() {
         return (
@@ -29,7 +38,17 @@ export default class ColumnComponent extends React.Component {
                             </div>
                         </div>
                     </div>
-                    <div className="column__body"></div>
+                    <div className="column__plus">+</div>
+                    <div className="column__body">
+                        <ul className="col-xs-12">
+                            {
+                                this.features.map((feature, index) => {
+                                    return <li key={index} ><span className="pull-left">{feature.name} :</span> <span className="pull-right">{feature.price} €</span></li>;
+                                })
+                            }
+                        </ul>
+                        <div className=" column__body-features-price col-xs-12"> = {this.featuresPrice}€</div>
+                    </div>
                 </div>
             </div>
         )
