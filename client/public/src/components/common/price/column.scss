@@ -4,7 +4,9 @@
         .column {
             &__header {
                 &-background {
-                    background: rgba(170, 42, 25,1);
+                    background: -webkit-linear-gradient(left, #1D60B4 0%,#E74C3C 100%); /* Chrome10-25,Safari5.1-6 */
+                    background: linear-gradient(to right, #1D60B4 0%, #E74C3C 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                    box-shadow: 0px 0px 30px rgba(#1D60B4, 0.6);
                 }
             }
         }
@@ -50,14 +52,14 @@
             position:absolute;
             width: 120%;
             height: 160%;
-            top: -100px;
-            left: -50px;
+            top: -125px;
+            left: -30px;
             border-radius: 50%;
             z-index: -3;
         }
         &-description {
             position: absolute;
-            top: 130px;
+            top: 120px;
             width: 100%;
             height: 50px;
             text-align:center;
@@ -76,10 +78,10 @@
             &-background {
                 z-index: -1;
                 position: absolute;
-                top: -270px;
+                top: -220px;
                 left: -8px;
-                width:450px;
-                height: 450px;
+                width:105%;
+                height: 260%;
                 background: white;
                 border-radius: 50%;
                 box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
@@ -99,6 +101,33 @@
             }
         }
     }
+    &__plus {
+        width: 100%;
+        height: 50px;
+        font-family: 'Nothing You Could Do', 'cursive';
+        text-align: center;
+        font-size: 4em;
+    }
     &__body {
+        margin-top: 30px;
+        ul {
+            list-style: none;
+            margin:0;
+            padding: 0px 20px 0px 20px;
+            li {
+                width: 100%;
+                height: 40px;
+                line-height: 40px;
+                font-family: 'Raleway', 'sans-serif';
+                font-weight: 200;
+                font-size: 1.5em;
+            }
+        }
+        &-features-price {
+            margin: 30px 0px 20px 0px;
+            text-align: center;
+            font-size: 4em;
+            font-family: 'Nothing You Could Do', 'cursive';
+        }
     }
 }
