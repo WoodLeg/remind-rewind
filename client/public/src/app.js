@@ -10,6 +10,7 @@ import Gears from './components/gears/module.js';
 // import Signup from './components/signup/module.js';
 // import Calendar from './components/calendar/module.js';
 import Artists from './components/artists/module.js';
+import Jam from './components/jam/module.js';
 
 const app = (
     <Router history={browserHistory}>
@@ -17,6 +18,7 @@ const app = (
             <IndexRoute component={Home} />
             <Route path="gears" component={Gears} />
             <Route path="artists" component={Artists} />
+            <Route path="jam-sessions" component={Jam} />
             <Redirect from="*" to="/" />
         </Route>
     </Router>

@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 export default class ContactFormComponent extends React.Component {
     constructor() {
         super();
@@ -13,21 +12,19 @@ export default class ContactFormComponent extends React.Component {
     render() {
         return (
 
-            <form className="col-xs-12 col-sm-6 col-sm-offset-3">
+            <form className="col-xs-12 col-sm-6 col-sm-offset-3 form__contact">
                 <div className="form-group">
-                    <label htmlFor="exampleInputEmail1">Email address</label>
                     <input  type="email"
-                        className="form-control"
+                        className="form-control form__contact-email"
                         id="exampleInputEmail1"
                         aria-describedby="emailHelp"
                         placeholder="Enter email"
                     />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="exampleTextarea">Example textarea</label>
-                    <textarea className="form-control" id="exampleTextarea" rows="3"></textarea>
+                    <textarea placeholder="Entre ton message"className="form-control form__contact-message" id="exampleTextarea"></textarea>
                 </div>
-                <button type="submit" className="col-xs-12 btn btn-primary">Submit</button>
+                <button type="submit" className="col-xs-12 form__contact-btn">Submit</button>
             </form>
         )
     }
