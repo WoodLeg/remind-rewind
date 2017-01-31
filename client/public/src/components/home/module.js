@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-import ContactForm from '../common/form/contact.js';
+import ContactForm from '../common/form/contact/contact.js';
 import PriceTable from '../common/price/table.js';
 
 export default class HomeComponent extends React.Component {
