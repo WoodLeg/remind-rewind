@@ -3,35 +3,41 @@ import { observable } from 'mobx';
 
 
 class PricingTableStore {
-    @observable musicians;
-    @observable deaf = [
-        {
-            name: 'Enregistrement',
-            price: 2
-        },
-        {
-            name: 'Mix',
-            price: 3
-        },
-        {
-            name: 'Mastering',
-            price: 0
-        }
-    ];
-    @observable live = [
-        {
-            name: 'Enregistrement',
-            price: 5
-        },
-        {
-            name: 'Mix',
-            price: 3
-        },
-        {
-            name: 'Mastering',
-            price: 2
-        }
-    ];
+    @observable musicians = 0;
+    deaf = {
+        pricePerMusician: 5,
+        features: [
+            {
+                name: 'Enregistrement',
+                price: 2
+            },
+            {
+                name: 'Mix',
+                price: 3
+            },
+            {
+                name: 'Mastering',
+                price: 0
+            }
+        ]
+    };
+    live = {
+        pricePerMusician: 10,
+        features: [
+            {
+                name: 'Enregistrement',
+                price: 5
+            },
+            {
+                name: 'Mix',
+                price: 3
+            },
+            {
+                name: 'Mastering',
+                price: 2
+            }
+        ]
+    };
 
 
     setMusiciansNumber(number) {
@@ -40,4 +46,4 @@ class PricingTableStore {
 
 }
 
-export default PricingTableStore;
+export default new PricingTableStore();

@@ -1,44 +1,58 @@
 import React from 'react';
-
+import { observer } from 'mobx-react';
 
 import store from './store.js';
 
+@observer
 export default class ColumnComponent extends React.Component {
     constructor(props) {
         super(props);
 
-        this.fullPrice = this._computeFullFeaturePrice.bind(this);
+        this.fullPrice = this._computeFullPrice.bind(this);
+        this.musiciansPrice = this._computeMusiciansPrice.bind(this);
 
     }
 
-    _computeFullFeaturePrice(array) {
+    _computeFullPrice(array, musiciansPrice) {
         let price = 0;
         for (let i = 0; i < array.length; i++) {
             price += array[i].price;
         }
-        return price;
+        return price + musiciansPrice;
     };
 
+    _computeMusiciansPrice(price, number) {
+        return price * number;
+    }
+
     componentWillMount(){
-        console.log(this.props.data);
-        this.features = this.props.data;
-        this.featuresPrice = this.fullPrice(this.features);
+        this.data = this.props.data;
+        this.fullMusicianPrice = this.musiciansPrice(this.data.pricePerMusician, this.props.nbMusicians);
+        this.featuresPrice = this.fullPrice(this.data.features, this.fullMusicianPrice);
+
+    }
+
+    componentWillReact() {
+        this.fullMusicianPrice = this.musiciansPrice(this.data.pricePerMusician, this.props.nbMusicians);
+        this.featuresPrice = this.fullPrice(this.data.features, this.fullMusicianPrice);
     }
 
     render() {
+
+
         return (
             <div className={this.props.style}>
                 <div className="column__container shadow-1">
                     <div className="column__header" >
                         <div className="column__header-background"></div>
                         <div className="column__header-description">
-                            pour  musiciens
+                            pour {this.props.nbMusicians} musiciens
                         </div>
                         <div className="column__header-price">
                             <div className="column__header-price-background"></div>
                             <h1>{this.props.title}</h1>
                             <div className="column__header-price-body">
-                                {this.props.price}€
+                                {this.fullMusicianPrice}€
                             </div>
                         </div>
                     </div>
@@ -46,7 +60,7 @@ export default class ColumnComponent extends React.Component {
                     <div className="column__body">
                         <ul className="col-xs-12">
                             {
-                                this.features.map((feature, index) => {
+                                this.data.features.map((feature, index) => {
                                     return <li key={index} ><span className="pull-left">{feature.name} :</span> <span className="pull-right">{feature.price} €</span></li>;
                                 })
                             }
