@@ -1,6 +1,8 @@
 import React from 'react';
 
 
+import store from './store.js';
+
 export default class ColumnComponent extends React.Component {
     constructor(props) {
         super(props);
@@ -11,13 +13,14 @@ export default class ColumnComponent extends React.Component {
 
     _computeFullFeaturePrice(array) {
         let price = 0;
-        for (var i = 0; i < array.length; i++) {
+        for (let i = 0; i < array.length; i++) {
             price += array[i].price;
         }
         return price;
     };
 
     componentWillMount(){
+        console.log(this.props.data);
         this.features = this.props.data;
         this.featuresPrice = this.fullPrice(this.features);
     }

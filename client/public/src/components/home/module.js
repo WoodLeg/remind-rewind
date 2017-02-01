@@ -25,7 +25,7 @@ export default class HomeComponent extends React.Component {
                         <p className="home__header-body">
                             Un nouveau Home recording studio en proche banlieue parisienne
                         </p>
-                        <Scrollchor to="#pricing-table" animate={{offset: -60, duration: 600, ease: 'cubic-bezier(0.645, 0.045, 0.355, 1)'}} className="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 home__header-body-btn">Voir les prix</Scrollchor>
+                        <Scrollchor to="#pricing-table" animate={{ offset: -60, duration: 600, ease: 'cubic-bezier(0.645, 0.045, 0.355, 1)' }} className="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 home__header-body-btn">Voir les prix</Scrollchor>
                     </div>
                 </div>
                 <div className="col-xs-12 home__deaf">

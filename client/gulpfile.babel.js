@@ -22,7 +22,7 @@ import runSequence from 'run-sequence';
 import del from 'del';
 
 
-var PATHS = {
+const PATHS = {
     SRC 	: {
         BASE 	: 'public/src',
         INDEX  	: 'public/src/index.html',
@@ -63,20 +63,18 @@ const sync = browserSync.create();
 
 // Input file.
 watchify.args.debug = true;
-var bundler = browserify(PATHS.SRC.BASE + '/app.js', watchify.args);
+const bundler = browserify(PATHS.SRC.BASE + '/app.js', watchify.args);
 
 // Babel transform
 bundler.transform(babelify.configure({
-    sourceMapRelative: PATHS.SRC.BASE
+    sourceMapRelative: PATHS.SRC.BASE,
+    presets: ["es2015", "react", "stage-1"],
+    plugins: ["transform-decorators-legacy", "transform-class-properties"]
 }));
-
-// On updates recompile
-bundler.on('update', bundle);
 
 function bundle() {
     return bundler.bundle()
-    .on('error', function(error){
-        console.error( '\nError: ', error.message, '\n');
+    .on('error', function(){
         this.emit('end');
     })
     .pipe(exorcist(PATHS.DEST.LIB.JS + '/bundle.js.map'))
@@ -85,6 +83,11 @@ function bundle() {
     .pipe(ifElse(process.env.NODE_ENV === 'production', uglify))
     .pipe(gulp.dest(PATHS.DEST.LIB.JS));
 }
+
+
+// On updates recompile
+bundler.on('update', bundle);
+
 
 // Project pictures
 gulp.task('app-images', function() {
@@ -124,7 +127,7 @@ gulp.task('inject', function() {
             PATHS.DEST.LIB.JS + '/**/*.js',
             PATHS.DEST.BASE + '/**/*.css',
             PATHS.DEST.BASE + '/**/*.js'
-        ], {read : false}),
+        ], { read : false }),
         {
             addRootSlash    : false,
             ignorePath      : PATHS.DEST.BASE
