@@ -24,7 +24,7 @@ export default class ContactFormComponent extends React.Component {
                 <div className="form-group">
                     <textarea placeholder="Entre ton message"className="form-control form__contact-message" id="exampleTextarea"></textarea>
                 </div>
-                <button type="submit" className="col-xs-12 form__contact-btn">Submit</button>
+                <button type="submit" className="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 form__contact-btn">Submit</button>
             </form>
         )
     }

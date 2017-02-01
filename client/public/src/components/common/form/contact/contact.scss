@@ -1,94 +1,35 @@
-@mixin backlight($x, $y, $spread, $size, $colorA, $colorB, $duration) {
-  &:after {
-    position: absolute;
-    content: "";
-    top: $y;
-    left: $x;
-    right: 0;
-    z-index: -1;
-    height: 100%;
-    width: 100%;
-    margin: 0 auto;
-    transform: scale($size);
-    -webkit-filter: blur($spread);
-    -moz-filter: blur($spread);
-    -ms-filter: blur($spread);
-    filter: blur($spread);
-    background: linear-gradient(270deg, $colorA, $colorB);
-    background-size: 50% 50%;
-    animation: animateGlow $duration ease infinite;
 
-    @keyframes animateGlow {
-      0%{background-position:0% 50%}
-      50%{background-position:100% 50%}
-      100%{background-position:0% 50%}
-    }
-  }
-}
 
 
 .form__contact {
-
-    padding: 20px 40px 40px 40px;
-    position: relative;
-    background-color: rgba(#151823, 1);
-    border-radius: 2px;
-    animation: textColor 10s ease infinite;
-    @include backlight(0, 5vw, 5vw, 0.75, #0fffc1, #7e0fff, 10s);
-
     .form-group {
         margin-bottom: 40px;
     }
     &-email {
-        color: #0fffc1;
-        border-radius: 0;
-        background: transparent;
-        outline: 0;
-        border: none;
-        border-bottom: 1px solid rgba(#0fffc1, 0.5);
-        padding: 20px 10px 20px 0px;
-        &:focus {
-            box-shadow:none;
-            border-bottom: 1px solid rgba(#0fffc1, 1);
+        padding: 40px 10px 40px 20px;
+        font-size: 2em;
+        &::placeholder {
+            color: black;
         }
-        &::-webkit-input-placeholder {
-           color: rgba(#0fffc1, 0.5);
+        &:hover, &:focus {
+            outline: 0;
+            box-shadow: none;
         }
     }
 
     &-message {
-        color: #0fffc1;
-        border-radius: 0;
-        background: transparent;
-        outline: 0;
-        border: none;
-        border-bottom: 1px solid rgba(#0fffc1, 0.5);
-        padding: 0px 10px 20px 0px;
         resize: none;
-        min-height: 50px;
-        &:focus {
-            box-shadow: none;
-            border-bottom: 1px solid rgba(#0fffc1, 1);
-        }
-        &::-webkit-input-placeholder {
-           color: rgba(#0fffc1, 0.5);
-        }
+        padding: 10px 10px 40px 20px;
+        font-size: 2em;
     }
+
     &-btn {
-        margin-top: 20px;
-        background: transparent;
-        padding: 15px 0px 15px 0px;
-        border: 1px solid #0fffc1;
+        padding: 20px;
+        color: white;
+        font-size: 1.3em;
+        background: $orangish;
+        border: none;
         border-radius: 2px;
-        color: #0fffc1;
-        letter-spacing: 5px;
-        font-family: 'Raleway', 'sans-serif';
-        font-weight: 200;
-        transition: all 0.3s ease;
-        &:hover {
-            background: #0fffc1;
-            color: #151823;
-        }
     }
 
 }

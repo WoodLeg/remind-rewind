@@ -40,12 +40,12 @@ export default class HomeComponent extends React.Component {
                     </div>
                 </div>
                 <div className="col-xs-12 home__tarif">
-                    <h1 id="pricing-table" className="home__tarif-title">Tarifs</h1>
+                    <h1 id="pricing-table" className="home__tarif-title col-xs-12">Tarifs</h1>
                     <PriceTable></PriceTable>
+                    <h1 className="home__contact-title col-xs-12">Wanna record ?</h1>
                 </div>
                 <div className="col-xs-12 home__contact">
                     <div className="home__contact-bg"></div>
-                    <h1 className="home__contact-title">Wanna record ?</h1>
                     <ContactForm></ContactForm>
                 </div>
             </div>
