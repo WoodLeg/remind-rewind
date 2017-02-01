@@ -36,6 +36,22 @@
             font-weight: 200;
             text-align:justify;
             letter-spacing: 5px;
+            &-btn {
+                margin-top: 60px;
+                padding: 30px;
+                text-decoration: none;
+                text-align: center;
+                font-family: 'Raleway', 'sans-serif';
+                font-weight: 500;
+                font-size: 2em;
+                color: white;
+                background: $green;
+                border-radius: 2px;
+                &:hover, &:focus {
+                    text-decoration: none;
+                    color: white;
+                }
+            }
         }
     }
     &__deaf {
