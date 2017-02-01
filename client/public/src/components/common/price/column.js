@@ -27,13 +27,13 @@ export default class ColumnComponent extends React.Component {
 
     componentWillMount(){
         this.data = this.props.data;
-        this.fullMusicianPrice = this.musiciansPrice(this.data.pricePerMusician, this.props.nbMusicians);
+        this.fullMusicianPrice = this.musiciansPrice(this.data.pricePerMusician, store.musicians);
         this.featuresPrice = this.fullPrice(this.data.features, this.fullMusicianPrice);
 
     }
 
     componentWillReact() {
-        this.fullMusicianPrice = this.musiciansPrice(this.data.pricePerMusician, this.props.nbMusicians);
+        this.fullMusicianPrice = this.musiciansPrice(this.data.pricePerMusician, store.musicians);
         this.featuresPrice = this.fullPrice(this.data.features, this.fullMusicianPrice);
     }
 
@@ -46,7 +46,7 @@ export default class ColumnComponent extends React.Component {
                     <div className="column__header" >
                         <div className="column__header-background"></div>
                         <div className="column__header-description">
-                            pour {this.props.nbMusicians} musiciens
+                            pour {store.musicians} musiciens
                         </div>
                         <div className="column__header-price">
                             <div className="column__header-price-background"></div>

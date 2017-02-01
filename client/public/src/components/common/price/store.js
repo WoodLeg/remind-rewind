@@ -41,7 +41,17 @@ class PricingTableStore {
 
 
     setMusiciansNumber(number) {
-        this.musicians = number
+        if (number == '') {
+            console.log('yeah');
+            this.musicians = 0;
+            return;
+        }
+
+        if (this.musicians > 6){
+            this.musicians = 6
+        } else {
+            this.musicians = number;
+        }
     }
 
 }
