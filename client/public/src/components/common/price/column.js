@@ -2,8 +2,14 @@ import React from 'react';
 
 
 export default class ColumnComponent extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
+
+        this.fullPrice = this._computeFullFeaturePrice.bind(this);
+        this.state = {
+            musicians: ''
+        };
+
     }
 
     _computeFullFeaturePrice(array) {
@@ -15,10 +21,8 @@ export default class ColumnComponent extends React.Component {
     };
 
     componentWillMount(){
-
         this.features = this.props.data;
-        this.featuresPrice = this._computeFullFeaturePrice(this.features);
-
+        this.featuresPrice = this.fullPrice(this.features);
     }
 
     render() {
@@ -28,7 +32,7 @@ export default class ColumnComponent extends React.Component {
                     <div className="column__header" >
                         <div className="column__header-background"></div>
                         <div className="column__header-description">
-                            par Musicien
+                            pour {this.state.nbMusician} musiciens
                         </div>
                         <div className="column__header-price">
                             <div className="column__header-price-background"></div>
