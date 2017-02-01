@@ -5,7 +5,6 @@
         padding-top: 70px;
         height: 720px;
         color: white;
-        font-family: 'Nothing You Could Do', 'cursive';
         @media only screen and (min-width: $screen-lg){
             height: 850px;
         }
@@ -23,6 +22,7 @@
             }
         }
         &-title {
+            font-family: 'Nothing You Could Do', 'cursive';
             margin-top: 120px;
             text-align:center;
             text-shadow: 1px solid black;
@@ -31,7 +31,6 @@
         &-body {
             margin-top: 30px;
             padding: 0px 40px 0px 40px;
-            font-family: 'Raleway', 'sans-serif';
             font-size: 1.5em;
             font-weight: 200;
             text-align:justify;
@@ -41,15 +40,17 @@
                 padding: 30px;
                 text-decoration: none;
                 text-align: center;
-                font-family: 'Raleway', 'sans-serif';
                 font-weight: 500;
                 font-size: 2em;
                 color: white;
                 background: $green;
                 border-radius: 2px;
+                opacity: 0.8;
+                transition: opacity 0.5s ease;
                 &:hover, &:focus {
                     text-decoration: none;
                     color: white;
+                    opacity: 1;
                 }
             }
         }
@@ -61,6 +62,12 @@
         color: black;
         margin-top: -50px;
         &-body {
+            z-index: -3;
+            margin-top: -40px;
+            padding-top: 40px;
+            height: 744.5px;
+            background: rgba($yellow, 0.9);
+            clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 0% 100%);
             &-title {
                 font-family: 'Nothing You Could Do', 'cursive';
                 text-align: center;
@@ -71,7 +78,6 @@
                 font-weight: 300;
                 font-size: 1.5em;
                 text-align: justify;
-                font-family: 'Raleway', 'sans-serif';
             }
         }
         &-img {
@@ -103,10 +109,15 @@
         color: white;
         height: 700px;
         position: relative;
+        margin-top: -150px;
+        padding-top: 200px;
+        clip-path: polygon(0% 0%, 0% 100% , 100% 100%, 100% 0%, 50% 20%, 0% 0%);
         &-title {
+            display: block;
             font-family: 'Nothing You Could Do', 'cursive';
             text-align:center;
-            margin: 50px 0px 50px 0px;
+            font-size: 4em;
+            margin-top: 120px;
         }
         &-bg {
             z-index: -2;
