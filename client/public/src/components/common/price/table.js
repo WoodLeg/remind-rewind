@@ -5,6 +5,9 @@ import PriceColumn from './column.js';
 export default class PrincingTableComponent extends React.Component {
     constructor() {
         super();
+
+        this.state = {nbMusician: ''};
+        this.handleChange = this.handleChange.bind(this);
     }
 
     componentWillMount() {
@@ -41,15 +44,19 @@ export default class PrincingTableComponent extends React.Component {
 
     render() {
         return (
-            <div className="princing__table col-xs-12">
-                <PriceColumn title="Deaf" price="5" data={this.deaf} style="col-xs-12 col-sm-6 col-md-4 col-md-offset-2 col-lg-3 col-lg-offset-3 column blue"></PriceColumn>
-                <PriceColumn title="Live" price="10" data={this.live} style="col-xs-12 col-sm-6 col-md-4 col-lg-3 column red"></PriceColumn>
+            <div className="pricing__table col-xs-12">
+                <div className="pricing__table-musicians col-xs-12">
+                    <input value={this.state.nbMusician} onChange={this.handleChange} className="pricing__table-musicians-input col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4" />
+                </div>
+                <PriceColumn title="Deaf" ngMusicians={this.state.nbMusician} price="5" data={this.deaf} style="col-xs-12 col-sm-6 col-md-4 col-md-offset-2 col-lg-3 col-lg-offset-3 column blue"></PriceColumn>
+                <PriceColumn title="Live" nbMusician={this.state.nbMusician} price="10" data={this.live} style="col-xs-12 col-sm-6 col-md-4 col-lg-3 column red"></PriceColumn>
             </div>
         );
     }
 
-    displayPrice(value) {
-        return ( {value} )
+    handleChange(event){
+        this.setState({nbMusician: event.target.value})
     }
+
 
 }
