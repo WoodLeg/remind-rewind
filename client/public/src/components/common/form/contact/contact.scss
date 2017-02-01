@@ -30,6 +30,10 @@
         background: $orangish;
         border: none;
         border-radius: 2px;
+        transition: background 0.3s ease;
+        &:hover {
+            background: darken($orangish, 10%);
+        }
     }
 
 }

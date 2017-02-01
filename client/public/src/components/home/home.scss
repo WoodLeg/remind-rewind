@@ -43,14 +43,13 @@
                 font-weight: 500;
                 font-size: 2em;
                 color: white;
-                background: $green;
+                background: darken($green, 10%);
                 border-radius: 2px;
-                opacity: 0.8;
-                transition: opacity 0.5s ease;
+                transition: background 0.5s ease;
                 &:hover, &:focus {
                     text-decoration: none;
                     color: white;
-                    opacity: 1;
+                    background: $green;
                 }
             }
         }
