@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import jQuery from 'jquery';
-import {Router, Route, browserHistory, IndexRoute, Redirect} from 'react-router';
+import { Router, Route, browserHistory, IndexRoute, Redirect } from 'react-router';
 
 import App from './components/app/module.js';
 import Home from './components/home/module.js';
