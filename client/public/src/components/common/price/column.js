@@ -6,9 +6,6 @@ export default class ColumnComponent extends React.Component {
         super(props);
 
         this.fullPrice = this._computeFullFeaturePrice.bind(this);
-        this.state = {
-            musicians: ''
-        };
 
     }
 
@@ -32,7 +29,7 @@ export default class ColumnComponent extends React.Component {
                     <div className="column__header" >
                         <div className="column__header-background"></div>
                         <div className="column__header-description">
-                            pour {this.state.nbMusician} musiciens
+                            pour  musiciens
                         </div>
                         <div className="column__header-price">
                             <div className="column__header-price-background"></div>
