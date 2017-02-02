@@ -39,6 +39,7 @@ export default class HomeComponent extends React.Component {
                 </div>
                 <div className="col-xs-12 home__tarif">
                     <h1 id="pricing-table" className="home__tarif-title col-xs-12">Tarifs</h1>
+                    <h2 className="col-xs-12 home__tarif-subtitle">Combien de musiciens ?</h2>
                     <PriceTable></PriceTable>
                     <h1 className="home__contact-title col-xs-12">Record !</h1>
                 </div>

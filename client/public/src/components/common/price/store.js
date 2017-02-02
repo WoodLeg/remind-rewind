@@ -39,19 +39,18 @@ class PricingTableStore {
         ]
     };
 
-
-    setMusiciansNumber(number) {
-        if (number == '') {
-            console.log('yeah');
-            this.musicians = 0;
+    increment(){
+        if(this.musicians >= 6){
             return;
         }
+        this.musicians++;
+    }
 
-        if (this.musicians > 6){
-            this.musicians = 6
-        } else {
-            this.musicians = number;
+    decrement() {
+        if (this.musicians <= 0) {
+            return;
         }
+        this.musicians--;
     }
 
 }
