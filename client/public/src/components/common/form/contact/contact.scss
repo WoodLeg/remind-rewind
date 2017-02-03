@@ -3,17 +3,78 @@
     border-radius: 2px;
     padding: 20px;
     .form-group {
+        position: relative;
         margin-bottom: 40px;
+        &:focus {
+        }
+    }
+    .form-control {
+        &:focus {
+            outline: 0;
+            border-color: $blue;
+            box-shadow: none;
+            .form__contact-label {
+                background: blue;
+            }
+        }
     }
     &-email {
-        padding: 40px 10px 40px 20px;
+        padding: 30px 10px 30px 0px;
         font-size: 2em;
+        border: none;
+        border-bottom: 2px solid black;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
         &::placeholder {
             color: black;
         }
-        &:hover, &:focus {
+        &:focus , &:active {
+            ~ label, &:active ~ label {
+                top: -5px;
+                font-size: 1em;
+                color: $blue;
+            }
+            &.is-valid {
+                border-color: $green;
+            }
+            &.has-error {
+                border-color: $red;
+            }
+        }
+        &:hover {
             outline: 0;
             box-shadow: none;
+            .form__contact-email-label {
+                top: 0;
+                font-size: 1em;
+            }
+        }
+        &.has-error {
+            border-color: $red;
+            & ~ label {
+                color: $red;
+            }
+        }
+        &.is-valid, {
+            border-color: $green;
+            & ~ label {
+                color: $green;
+            }
+        }
+        &-label {
+            position: absolute;
+            top:15px;
+            left:0;
+            margin-bottom: 0;
+            color: black;
+            font-weight: 200;
+            font-size: 2em;
+            transition: all 0.3s ease;
+            &.stuck {
+                top: -5px;
+                font-size: 1em;
+            }
         }
     }
 
