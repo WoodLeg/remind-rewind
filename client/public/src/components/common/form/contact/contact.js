@@ -25,8 +25,10 @@ export default class ContactFormComponent extends React.Component {
                 <div className="form-group">
                     <input
                         {...form.$('email').bind()}
-                        className="form-control form__contact-email"
+                        className={"form-control form__contact-email " + (
+                            form.$('email').error ? 'has-error' : form.$('email').isValid ? 'is-valid' : '')}
                     />
+                    <label className={"form__contact-email-label " + (!form.$('email').isPristine ? 'stuck': '')}>{form.$('email').label}</label>
                     <p className="col-xs-12 form__contact-errors-email">{form.$('email').error}</p>
                 </div>
                 <p className="col-xs-12 form__contact-errors-generic">{form.error}</p>
