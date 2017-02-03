@@ -4,6 +4,7 @@ import Scrollchor from 'react-scrollchor';
 import ContactForm from '../common/form/contact/contact.js';
 import PriceTable from '../common/price/table.js';
 
+
 export default class HomeComponent extends React.Component {
 
     constructor() {

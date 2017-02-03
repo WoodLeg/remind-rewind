@@ -1,7 +1,7 @@
-
-
-
 .form__contact {
+    background: $background;
+    border-radius: 2px;
+    padding: 20px;
     .form-group {
         margin-bottom: 40px;
     }
@@ -23,6 +23,19 @@
         font-size: 2em;
     }
 
+    &-errors {
+        &-generic {
+            color: $red;
+            font-weight: 500;
+        }
+        &-email {
+            color: $red;
+            padding-left: 0;
+            font-weight: 500;
+            margin-top: 10px;
+        }
+    }
+
     &-btn {
         padding: 20px;
         color: white;
@@ -30,9 +43,13 @@
         background: $orangish;
         border: none;
         border-radius: 2px;
-        transition: background 0.3s ease;
+        transition: all 0.3s ease;
         &:hover {
             background: darken($orangish, 10%);
+        }
+        &[disabled]{
+            background: darken($background, 5%);
+            color: darken($background, 10%);
         }
     }
 
