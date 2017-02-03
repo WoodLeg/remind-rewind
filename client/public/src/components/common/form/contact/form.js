@@ -1,18 +1,23 @@
 import Validatorjs from 'validatorjs';
 import MobxReactFrom from 'mobx-react-form';
 
+// Validatorjs.useLang('fr');
 
 const plugins = { dvr: Validatorjs };
 
 const fields = [{
     name: 'email',
     label: 'Email',
+    type: 'email',
     rules: 'required|email|string|between:5,25'
+}, {
+    name: 'message',
+    label: 'Message',
+    type: 'textarea',
+    rules: 'required|string|between:20,250'
 }];
 
 class Form extends MobxReactFrom{
-
-
 
     onSubmit(form){
         console.log('SUBMITTED BEACH: ', form.values());
