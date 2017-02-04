@@ -83,12 +83,18 @@
         font-weight: 200;
         font-size: 2em;
         transition: all 0.3s ease;
+        @media only screen and (max-width: $screen-sm) {
+            font-size: 1.6em;
+        }
         @media only screen and (max-width: $screen-xs) {
             font-size: 1.3em;
         }
         &.stuck {
             top: -5px;
             font-size: 1em;
+            @media only screen and (max-width: $screen-sm) {
+
+            }
             @media only screen and (max-width: $screen-xs) {
                 top: -20px;
             }
@@ -104,6 +110,9 @@
         border-radius: 0;
         background: transparent;
         box-shadow: none;
+        @media only screen and (max-width: $screen-sm) {
+
+        }
         @media only screen and (max-width: $screen-xs) {
             padding: 20px 10px 20px 0px;
         }

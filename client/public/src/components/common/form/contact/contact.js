@@ -16,7 +16,7 @@ export default class ContactFormComponent extends React.Component {
 
     render() {
         return (
-            <form onSubmit={form.onSubmit} className="col-xs-12 col-sm-4 col-sm-offset-4 form__contact">
+            <form onSubmit={form.onSubmit} className="col-xs-12 col-sm-6 col-sm-offset-3 form__contact">
                 <div className="form-group">
                     <input
                         {...form.$('email').bind()}
