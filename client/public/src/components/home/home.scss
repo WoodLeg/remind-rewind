@@ -36,6 +36,10 @@
             text-align:center;
             text-shadow: 1px solid black;
             font-size: 8em;
+            @media only screen and (max-width: $screen-lg) {
+                margin-top: 70px;
+                font-size: 6.5em;
+            }
             @media only screen and (max-width: $screen-sm) {
                 margin-top: 60px;
                 font-size: 6em;
@@ -52,6 +56,10 @@
             font-weight: 200;
             text-align:justify;
             letter-spacing: 5px;
+            @media only screen and (max-width: $screen-lg) {
+                font-size: 2em;
+                padding: 0px 20px 0px 20px;
+            }
             @media only screen and (max-width: $screen-sm) {
                 padding: 5px 80px 0px 80px;
                 font-size: 2.5em;
@@ -75,6 +83,10 @@
                 font-family: 'Bahiana', cursive;
                 letter-spacing: 3px;
                 font-size: 3em;
+                @media only screen and (max-width: $screen-lg) {
+                    padding: 20px;
+                    font-size: 2em;
+                }
                 @media only screen and (max-width: $screen-sm) {
                     margin-top: 120px;
                     padding: 30px;
@@ -101,6 +113,9 @@
         color: black;
         margin-top: -100px;
         padding-top: 50px;
+        @media only screen and (max-width: $screen-lg) {
+            padding-top: 100px;
+        }
         @media only screen and (max-width: $screen-sm) {
             margin-top: 0px;
             height: 850px;
