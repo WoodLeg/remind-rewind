@@ -20,6 +20,9 @@
             @media only screen and (max-width: $screen-xs) {
                 height: 600px;
             }
+            @media only screen and (max-width: $screen-sm ) {
+                height: 700px;
+            }
             @media only screen and (min-width: $screen-lg) {
                 height: 850px;
             }
@@ -34,6 +37,10 @@
                 margin-top: 40px;
                 font-size: 4em;
             }
+            @media only screen and (max-width: $screen-xs) {
+                margin-top: 60px;
+                font-size: 6em;
+            }
         }
         &-body {
             margin-top: 30px;
@@ -45,6 +52,9 @@
             @media only screen and (max-width: $screen-xs) {
                 padding: 0px 20px 0px 20px;
                 text-align: center;
+            }
+            @media only screen and (max-width: $screen-sm) {
+                padding: 5px 20px 0px 20px;
             }
             &-btn {
                 margin-top: 60px;
@@ -65,6 +75,10 @@
                     font-size: 2em;
                     margin-top: 30px;
                 }
+                @media only screen and (max-width: $screen-sm) {
+                    padding: 15px;
+                    font-size: 2.3em;
+                }
                 &:hover, &:focus {
                     text-decoration: none;
                     color: white;
@@ -84,6 +98,9 @@
         @media only screen and (max-width: $screen-xs) {
             height: 850px;
         }
+        @media only screen and (max-width: $screen-sm) {
+            margin-top: 0px;
+        }
         &-body {
             z-index: -3;
             margin-top: 20px;
@@ -93,6 +110,9 @@
                 font-family: 'Bahiana', 'cursive';
                 text-align: center;
                 font-size: 4em;
+                @media only screen and (max-width: $screen-sm) {
+                    font-size: 5em;
+                }
             }
             &-content {
                 margin-top: 40px;
@@ -102,6 +122,9 @@
                 text-align: justify;
                 @media only screen and (max-width: $screen-xs) {
                     padding: 0px 10px 0px 10px;
+                }
+                @media only screen and (max-width: $screen-sm) {
+                    font-size: 1.7em;
                 }
             }
         }
@@ -137,6 +160,12 @@
             font-size: 5em;
             font-family: 'Bahiana', 'cursive';
             text-align: center;
+            @media only screen and (max-width: $screen-xs) {
+
+            }
+            @media only screen and (max-width: $screen-sm) {
+                font-size: 6em;
+            }
         }
         &-subtitle {
             text-align: center;
@@ -144,6 +173,9 @@
             margin: 0 0 30px 0;
             @media only screen and (max-width: $screen-xs) {
                 font-size: 2em;
+            }
+            @media only screen and (max-width: $screen-sm) {
+                font-size: 2.5em;
             }
         }
     }
