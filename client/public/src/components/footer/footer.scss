@@ -1,12 +1,19 @@
 .footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 50px;
-    background: transparent;
+    margin-top: -75px;
+    height: 75px;
+    background: rgba($background-footer, 0.8);
+
     &__title {
         text-align: center;
         color: white;
-
+        margin: 0;
+        font-size: 1em;
+        line-height: 75px;
+        font-weight: 100;
+        letter-spacing: 3px;
+        img {
+            width: 30px;
+            height: auto;
+        }
     }
 }
