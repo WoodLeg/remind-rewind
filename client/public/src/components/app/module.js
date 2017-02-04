@@ -20,10 +20,6 @@ export default class MenuComponent extends React.Component {
                         <img src="/assets/img/RRnb.png" />
                     </div>
                     <ul className="menu__list col-xs-8 pull-right">
-                        <li className="menu__list-item col-md-2"><Link to="/artists">Artists</Link></li>
-                        <li className="menu__list-item col-md-2"><Link to="/gears">Gears</Link></li>
-                        <li className="menu__list-item col-md-2"><Link to="/jam-sessions">Jam</Link></li>
-                        <li className="menu__list-item col-md-2"><Link to="/">Home</Link></li>
                     </ul>
                 </div>
                 {this.props.children}
@@ -31,3 +27,10 @@ export default class MenuComponent extends React.Component {
         );
     }
 }
+
+
+    // 
+    // <li className="menu__list-item col-md-2"><Link to="/artists">Artists</Link></li>
+    // <li className="menu__list-item col-md-2"><Link to="/gears">Gears</Link></li>
+    // <li className="menu__list-item col-md-2"><Link to="/jam-sessions">Jam</Link></li>
+    // <li className="menu__list-item col-md-2"><Link to="/">Home</Link></li>

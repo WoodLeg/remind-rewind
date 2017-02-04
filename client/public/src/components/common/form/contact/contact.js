@@ -2,12 +2,7 @@ import React from 'react';
 import { observer, inject } from 'mobx-react';
 
 import form from './form.js';
-import MobxReactFormDevTools from 'mobx-react-form-devtools';
 
-MobxReactFormDevTools.register({form});
-MobxReactFormDevTools.select('form');
-
-MobxReactFormDevTools.open(true);
 
 @observer
 export default class ContactFormComponent extends React.Component {
@@ -21,7 +16,7 @@ export default class ContactFormComponent extends React.Component {
 
     render() {
         return (
-            <form onSubmit={form.onSubmit} className="col-xs-12 col-sm-6 col-sm-offset-3 form__contact">
+            <form onSubmit={form.onSubmit} className="col-xs-12 col-sm-4 col-sm-offset-4 form__contact">
                 <div className="form-group">
                     <input
                         {...form.$('email').bind()}
@@ -37,8 +32,7 @@ export default class ContactFormComponent extends React.Component {
                     <p className="col-xs-12 form__contact-errors-message">{form.$('message').error}</p>
                 </div>
                 <p className="col-xs-12 form__contact-errors-generic">{form.error}</p>
-                <button disabled={!form.isValid} type="submit"  className="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 form__contact-btn">Submit</button>
-                <MobxReactFormDevTools.UI />
+                <button disabled={!form.isValid} type="submit"  className="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 form__contact-btn">Envoyer</button>
             </form>
         )
     }

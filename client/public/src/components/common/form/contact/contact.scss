@@ -1,7 +1,8 @@
 .form__contact {
     background: $background;
     border-radius: 2px;
-    padding: 20px;
+    margin-top: 30px;
+    padding: 40px 40px 20px 40px;
     .form-group {
         position: relative;
         margin-bottom: 40px;
@@ -20,9 +21,9 @@
     }
     &-email {
         padding: 30px 10px 30px 0px;
-        font-size: 2em;
+        font-size: 1.6em;
         border: none;
-        border-bottom: 2px solid black;
+        border-bottom: 1px solid black;
         border-radius: 0;
         background: transparent;
         box-shadow: none;
@@ -81,9 +82,9 @@
     &-message {
         resize: none;
         padding: 30px 10px 30px 0px;
-        font-size: 2em;
+        font-size: 1.6em;
         border: none;
-        border-bottom: 2px solid black;
+        border-bottom: 1px solid black;
         border-radius: 0;
         background: transparent;
         box-shadow: none;
@@ -142,19 +143,23 @@
     }
 
     &-btn {
+        margin-bottom: 20px;
         padding: 20px;
         color: white;
         font-size: 1.3em;
-        background: $orangish;
+        background: $blue;
         border: none;
         border-radius: 2px;
         transition: all 0.3s ease;
         &:hover {
-            background: darken($orangish, 10%);
+            background: darken($blue, 10%);
         }
         &[disabled]{
             background: darken($background, 5%);
             color: darken($background, 10%);
+        }
+        &:focus, &:active {
+            outline: 0;
         }
     }
 
