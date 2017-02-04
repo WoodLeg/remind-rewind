@@ -21,7 +21,7 @@ export default class HomeComponent extends React.Component {
             <div className="home">
                 <div className="col-xs-12 home__header">
                     <div className="home__header-img"></div>
-                    <div className="col-xs-12 col-sm-6">
+                    <div className="col-xs-12 col-sm-12">
                         <h1 className="home__header-title">Remind Rewind Studio</h1>
                         <p className="home__header-body">
                             Un nouveau Home recording studio en proche banlieue parisienne
