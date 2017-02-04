@@ -8,6 +8,9 @@
         height: 70px;
         padding-left: 20px;
         padding-top: 5px;
+        @media only screen and (min-width: $screen-lg) {
+            padding-top: 20px;
+        }
         @media only screen and (max-width: $screen-sm) {
             padding-top: 20px;
         }

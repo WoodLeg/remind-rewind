@@ -5,6 +5,9 @@
         padding-top: 70px;
         height: 720px;
         color: white;
+        @media only screen and (min-width: $screen-lg) {
+            height: 1000px;
+        }
         @media only screen and (max-width: $screen-sm) {
             height: 750px;
         }
@@ -21,7 +24,7 @@
             clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 90%);
             background-size: cover;
             @media only screen and (min-width: $screen-lg) {
-                height: 850px;
+                height: 1000px;
             }
             @media only screen and (max-width: $screen-sm ) {
                 height: 850px;
@@ -36,6 +39,9 @@
             text-align:center;
             text-shadow: 1px solid black;
             font-size: 8em;
+            @media only screen and (min-width: $screen-lg) {
+                font-size: 10em;
+            }
             @media only screen and (max-width: $screen-lg) {
                 margin-top: 70px;
                 font-size: 6.5em;
@@ -56,6 +62,12 @@
             font-weight: 200;
             text-align:justify;
             letter-spacing: 5px;
+            @media only screen and (min-width: $screen-lg) {
+                margin-top: 50px;
+                padding: 0px 80px 0px 80px;
+                font-size: 3em;
+                text-align: center;
+            }
             @media only screen and (max-width: $screen-lg) {
                 font-size: 2em;
                 padding: 0px 20px 0px 20px;
@@ -83,6 +95,10 @@
                 font-family: 'Bahiana', cursive;
                 letter-spacing: 3px;
                 font-size: 3em;
+                @media only screen and (min-width: $screen-lg) {
+                    font-size: 4em;
+                    padding: 30px 20px 30px 20px;
+                }
                 @media only screen and (max-width: $screen-lg) {
                     padding: 20px;
                     font-size: 2em;
@@ -113,6 +129,10 @@
         color: black;
         margin-top: -100px;
         padding-top: 50px;
+        @media only screen and (min-width: $screen-lg) {
+            height: 900px;
+            padding-top: 100px;
+        }
         @media only screen and (max-width: $screen-lg) {
             padding-top: 100px;
         }
@@ -131,7 +151,9 @@
             &-title {
                 font-family: 'Bahiana', 'cursive';
                 text-align: center;
-                font-size: 4em;
+                @media only screen and (min-width: $screen-lg) {
+                    font-size: 6em;
+                }
                 @media only screen and (max-width: $screen-sm) {
                     font-size: 6em;
                 }
@@ -145,6 +167,10 @@
                 font-weight: 300;
                 font-size: 1.5em;
                 text-align: justify;
+                @media only screen and (min-width: $screen-lg) {
+                    font-size: 2em;
+                    margin-top: 75px;
+                }
                 @media only screen and (max-width: $screen-sm) {
                     font-size: 2.2em;
                 }
@@ -163,6 +189,9 @@
             background: url('/assets/img/headphones.jpg') no-repeat top center;
             background-size: cover;
             clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 85%, 0% 100%);
+            @media only screen and (min-width: $screen-lg){
+                height: 900px;
+            }
             @media only screen and (max-width: $screen-sm){
                 height: 850px;
             }
@@ -192,6 +221,9 @@
             font-size: 5em;
             font-family: 'Bahiana', 'cursive';
             text-align: center;
+            @media only screen and (min-width: $screen-lg) {
+                font-size: 7em;
+            }
             @media only screen and (max-width: $screen-sm) {
                 font-size: 6em;
             }
@@ -203,6 +235,11 @@
             text-align: center;
             font-weight: 200;
             margin: 0 0 30px 0;
+            @media only screen and (min-width: $screen-lg) {
+                font-size: 3em;
+                margin-top: 20px;
+                margin-bottom: 60px;
+            }
             @media only screen and (max-width: $screen-sm) {
                 font-size: 2em;
             }
@@ -225,6 +262,9 @@
             text-align:center;
             font-size: 5em;
             margin-top: 120px;
+            @media only screen and (min-width: $screen-lg) {
+                font-size: 9em;
+            }
             @media only screen and (max-width: $screen-xs) {
                 margin-top: 30px;
             }

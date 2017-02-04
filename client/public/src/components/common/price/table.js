@@ -32,7 +32,6 @@ export default class PrincingTableComponent extends React.Component {
                 </div>
                 <PriceColumn title="Deaf" data={store.deaf} style="col-xs-12 col-sm-6 col-md-4 col-md-offset-2 col-lg-3 col-lg-offset-3 column blue"></PriceColumn>
                 <PriceColumn title="Live" data={store.live} style="col-xs-12 col-sm-6 col-md-4 col-lg-3 column red"></PriceColumn>
-
             </div>
         );
     }

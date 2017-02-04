@@ -10,6 +10,9 @@
             background-color: #fff;
             border-radius: 5px;
             font-size: 30px;
+            @media only screen and (min-width: $screen-lg) {
+                margin-bottom: 100px;
+            }
         }
         &-counter {
             position: relative;
