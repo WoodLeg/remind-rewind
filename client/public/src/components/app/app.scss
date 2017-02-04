@@ -145,8 +145,18 @@
         height: 70px;
         padding-left: 20px;
         padding-top: 5px;
+        @media only screen and (max-width: $screen-sm) {
+            padding-top: 20px;
+        }
+        @media only screen and (max-width: $screen-xs) {
+            padding-left: 10px;
+            padding-top: 10px;
+        }
         img {
             height: 60px;
+            @media only screen and (max-width: $screen-xs) {
+                height: 40px;
+            }
         }
     }
     &__list {
