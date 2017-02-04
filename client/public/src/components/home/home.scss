@@ -5,8 +5,8 @@
         padding-top: 70px;
         height: 720px;
         color: white;
-        @media only screen and (min-width: $screen-lg){
-            height: 850px;
+        @media only screen and (max-width: $screen-xs){
+            height: 600px;
         }
         &-img {
             position: absolute;
@@ -17,7 +17,10 @@
             background: url('/assets/img/header_bg.jpg') no-repeat top center;
             clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 90%);
             background-size: cover;
-            @media only screen and (min-width: $screen-lg){
+            @media only screen and (max-width: $screen-xs) {
+                height: 600px;
+            }
+            @media only screen and (min-width: $screen-lg) {
                 height: 850px;
             }
         }
@@ -27,6 +30,10 @@
             text-align:center;
             text-shadow: 1px solid black;
             font-size: 8em;
+            @media only screen and (max-width: $screen-xs) {
+                margin-top: 40px;
+                font-size: 4em;
+            }
         }
         &-body {
             margin-top: 30px;
@@ -35,6 +42,10 @@
             font-weight: 200;
             text-align:justify;
             letter-spacing: 5px;
+            @media only screen and (max-width: $screen-xs) {
+                padding: 0px 20px 0px 20px;
+                text-align: center;
+            }
             &-btn {
                 margin-top: 60px;
                 padding: 30px;
@@ -49,6 +60,11 @@
                 font-family: 'Bahiana', cursive;
                 letter-spacing: 3px;
                 font-size: 3em;
+                @media only screen and (max-width: $screen-xs) {
+                    padding: 10px;
+                    font-size: 2em;
+                    margin-top: 30px;
+                }
                 &:hover, &:focus {
                     text-decoration: none;
                     color: white;
@@ -65,6 +81,9 @@
         color: black;
         margin-top: -100px;
         padding-top: 50px;
+        @media only screen and (max-width: $screen-xs) {
+            height: 850px;
+        }
         &-body {
             z-index: -3;
             margin-top: 20px;
@@ -81,6 +100,9 @@
                 font-weight: 300;
                 font-size: 1.5em;
                 text-align: justify;
+                @media only screen and (max-width: $screen-xs) {
+                    padding: 0px 10px 0px 10px;
+                }
             }
         }
         &-img {
@@ -92,6 +114,9 @@
             background: url('/assets/img/headphones.jpg') no-repeat top center;
             background-size: cover;
             clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 85%, 0% 100%);
+            @media only screen and (max-width: $screen-xs) {
+                height: 850px;
+            }
         }
     }
     &__tarif {
@@ -103,6 +128,9 @@
         min-height: 500px;
         padding-bottom: 100px;
         background: $background;
+        @media only screen and (max-width: $screen-xs) {
+            margin-top: -130px;
+        }
         &-title {
             margin-top: 50px;
             margin-bottom: 30px;
@@ -114,6 +142,9 @@
             text-align: center;
             font-weight: 200;
             margin: 0 0 30px 0;
+            @media only screen and (max-width: $screen-xs) {
+                font-size: 2em;
+            }
         }
     }
     &__contact {
@@ -130,6 +161,9 @@
             text-align:center;
             font-size: 5em;
             margin-top: 120px;
+            @media only screen and (max-width: $screen-xs) {
+                margin-top: 30px;
+            }
         }
         &-bg {
             z-index: -2;
