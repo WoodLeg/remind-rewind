@@ -3,6 +3,9 @@
         padding: 0;
         margin-bottom: 30px;
     }
+    @media only screen and (max-width: $screen-sm) {
+        margin-bottom: 60px;
+    }
     &.red {
         .column {
             &__header {
@@ -62,6 +65,9 @@
             @media only screen and (max-width: $screen-xs) {
                 left: -27px;
             }
+            @media only screen and (max-width: $screen-sm) {
+                left: -35px;
+            }
         }
         &-description {
             position: absolute;
@@ -94,6 +100,9 @@
                 @media only screen and (max-width: $screen-xs) {
                     width: 110%;
                     left: -15px;
+                }
+                @media only screen and (max-width: $screen-sm) {
+                    left: -18px;
                 }
             }
             h1 {
