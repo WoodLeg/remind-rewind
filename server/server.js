@@ -1,23 +1,9 @@
 import express from 'express';
 import Schema from './schema';
 import graphQLHTTP from 'express-graphql';
-import mongoose from 'mongoose';
-import bodyParser from 'body-parser';
-import morgan from 'morgan';
-
-import headers from './middlewares/headers';
-import authorization from './middlewares/authorization';
-import userRouter from './components/users/routes';
-
-import config from './config';
-
 
 const app = express();
 
-mongoose.connect('mongodb://localhost/graphql', function (error) {
-    if (error) console.error(error)
-    else console.log('mongo connected')
-});
 
 app.use(morgan('dev'));
 app.use(bodyParser.json());
