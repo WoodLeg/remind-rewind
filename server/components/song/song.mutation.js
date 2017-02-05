@@ -3,14 +3,12 @@ import {
     GraphQLString
 } from 'graphql';
 
-import UserType from './user.type';
-import User from './user.model';
-
+import SongType from './song.type';
 
 
 const MutationAdd = {
-    type: UserType,
-    description: 'Add a User',
+    type: SongType,
+    description: 'Add a Song',
     args: {
         firstName: {
             name: 'First name',
@@ -26,14 +24,14 @@ const MutationAdd = {
         }
     },
     resolve: (root, args) => {
-        let newUser = new User({
+        let newSong = new Song({
             firstName: args.firstName,
             lastName: args.lastName,
             email: args.email
         });
-        newUser.id = newUser._id;
+        newSong.id = newSong._id;
         return new Promise((resolve, reject) => {
-            newUser.save(function (err, user) {
+            newSong.save(function (err, user) {
                 if (err) reject(err)
                 else resolve(user)
             })
@@ -42,17 +40,17 @@ const MutationAdd = {
 };
 
 const MutationDestroy = {
-    type: UserType,
+    type: SongType,
     description: 'Delete the user',
     args: {
         id: {
-            name: 'User Id',
+            name: 'Song Id',
             type: new GraphQLNonNull(GraphQLString)
         }
     },
     resolve: (root, args) => {
         return new Promise((resolve, reject) => {
-            User.findById(args.id, (err, user) => {
+            Song.findById(args.id, (err, user) => {
                 if (err) {
                     reject(err)
                 } else if (!user) {

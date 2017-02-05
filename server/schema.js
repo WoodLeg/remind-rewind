@@ -8,23 +8,27 @@ import {
     GraphQLSchema
 } from 'graphql';
 
-import UserQuery from './components/users/user.query';
-import UserMutation from './components/users/user.mutation';
+import SongQuery from './components/song/song.query';
+import SongMutation from './components/song/song.mutation';
+
+import MusicianQuery from './components/musician/musician.query';
 
 
 const QueryType = new GraphQLObjectType({
     name: 'Query',
     fields: () => ({
-        users: UserQuery.users,
-        user: UserQuery.user
+        songs: SongQuery.songs,
+        song: SongQuery.song,
+        musicians: MusicianQuery.musicians,
+        musician: MusicianQuery.musician
     })
 });
 
 var MutationType = new GraphQLObjectType({
     name: 'Mutation',
     fields: {
-        addUser: UserMutation.add,
-        destroyUser: UserMutation.destroy,
+        addSong: SongMutation.add,
+        destroySong: SongMutation.destroy,
     }
 });
 

@@ -1,14 +1,9 @@
 import express from 'express';
 import Schema from './schema';
 import graphQLHTTP from 'express-graphql';
-import mongoose from 'mongoose';
 
 const app = express();
 
-mongoose.connect('mongodb://localhost/graphql', function (error) {
-    if (error) console.error(error)
-    else console.log('mongo connected')
-});
 
 app.use('/', graphQLHTTP({
     schema: Schema,

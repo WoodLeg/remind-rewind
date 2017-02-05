@@ -2,11 +2,12 @@ import {
     GraphQLObjectType,
     GraphQLID,
     GraphQLBoolean,
-    GraphQLString
+    GraphQLString,
+    GraphQLList
 } from 'graphql';
 
-const UserType = new GraphQLObjectType({
-    name: 'user',
+const MusicianType = new GraphQLObjectType({
+    name: 'musician',
     fields: () => ({
         id: {
             type: GraphQLID
@@ -17,13 +18,10 @@ const UserType = new GraphQLObjectType({
         lastName: {
             type: GraphQLString
         },
-        email: {
+        instrument: {
             type: GraphQLString
-        },
-        isAdmin: {
-            type: GraphQLBoolean
         }
     })
 });
 
-export default UserType;
+export default MusicianType;
