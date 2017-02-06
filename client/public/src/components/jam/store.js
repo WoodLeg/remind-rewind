@@ -1,4 +1,4 @@
-import { observable, computed, action } from 'mobx';
+import { observable, computed, action, autorun } from 'mobx';
 import transport from '../lokka/module.js';
 
 class JamStore {
@@ -32,6 +32,11 @@ class JamStore {
         console.log('Jam store action: ', response);
     }
 
+    constructor(){
+        autorun( _ => {
+            this.fetchJams();
+        });
+    }
 
 }
 
