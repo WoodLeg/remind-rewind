@@ -175,7 +175,7 @@ gulp.task('serve', ['watch'], () => sync.init({
         baseDir: PATHS.DEST.BASE,
         middleware: historyApiFallback()
     },
-    port: process.env.PORT || 8000,
+    port: process.env.PORT || 9000,
     host: process.env.IP || 'localhost'
 }));
 

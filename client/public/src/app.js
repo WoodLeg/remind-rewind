@@ -12,10 +12,11 @@ import Home from './components/home/module.js';
 import Artists from './components/artists/module.js';
 import Jam from './components/jam/module.js';
 
+
 const app = (
     <Router history={browserHistory}>
         <Route path="/" component={App}>
-            <IndexRoute component={Home} />
+            <IndexRoute component={Home} />""
             <Route path="jam-sessions" component={Jam} />
             <Redirect from="*" to="/" />
         </Route>
