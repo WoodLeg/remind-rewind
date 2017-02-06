@@ -20,6 +20,8 @@ import minifyCss from 'gulp-minify-css';
 import inject from 'gulp-inject';
 import runSequence from 'run-sequence';
 import del from 'del';
+import historyApiFallback from 'connect-history-api-fallback';
+
 
 
 const PATHS = {
@@ -163,7 +165,16 @@ gulp.task('build', (cb) => {
 });
 
 gulp.task('serve', ['watch'], () => sync.init({
-    server: PATHS.DEST.BASE,
+    files: [
+        PATHS.DEST.BASE + '/**/*.css',
+        PATHS.DEST.BASE + '/**/*.js',
+        PATHS.DEST.BASE + '/**/*.html',
+        PATHS.DEST.BASE + '/**/*.json'
+    ],
+    server: {
+        baseDir: PATHS.DEST.BASE,
+        middleware: historyApiFallback()
+    },
     port: process.env.PORT || 8000,
     host: process.env.IP || 'localhost'
 }));
