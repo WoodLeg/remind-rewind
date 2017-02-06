@@ -1,22 +1,13 @@
 import { observable, computed, action } from 'mobx';
-import graphql from '../lokka/module';
+import transport from '../lokka/module.js';
 
 class JamStore {
     @observable jams = null;
     @observable isLoading = false;
 
-    @computed get jams() {
-        if (this.jams === null) {
-            this.fetchJams();
-        } else {
-            return this.jams;
-        }
-    }
-
-
     fetchJams() {
         this.isLoading = true;
-        graphql.query(`
+        transport.query(`
             {
                 songs {
                     id

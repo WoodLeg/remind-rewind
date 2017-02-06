@@ -29,7 +29,9 @@ const promiseListAll = () => {
                 instrument: 'Drums'
             }]
         }];
-        resolve(songs);
+        setTimeout(() => {
+            resolve(songs);
+        }, 3000);
     });
 };
 
