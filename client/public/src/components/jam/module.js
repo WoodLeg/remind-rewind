@@ -13,7 +13,6 @@ export default class JamComponent extends React.Component {
     }
 
     componentWillMount() {
-        store.fetchJams();
     }
 
     render() {
