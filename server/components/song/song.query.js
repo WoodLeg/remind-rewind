@@ -28,6 +28,26 @@ const promiseListAll = () => {
                 lastName: 'Souvestre',
                 instrument: 'Drums'
             }]
+        }, {
+            id: '2',
+            name: 'Floydy Poopy',
+            url: 'http://www.remind-rewind.com/trololol/half_time_crap.mp3',
+            musicians: [{
+                id: '1',
+                firstName: 'Clément',
+                lastName: 'Freymond',
+                instrument: 'Guitar'
+            }, {
+                id: '2',
+                firstName: 'Henry',
+                lastName: 'XXX',
+                instrument: 'Bass'
+            }, {
+                id: '3',
+                firstName: 'Paul',
+                lastName: 'Souvestre',
+                instrument: 'Drums'
+            }]
         }];
         setTimeout(() => {
             resolve(songs);
