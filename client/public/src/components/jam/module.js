@@ -2,6 +2,7 @@ import React from 'react';
 import { observer } from 'mobx-react';
 import DevTools from 'mobx-react-devtools';
 
+
 import store from './store.js';
 
 
@@ -23,16 +24,26 @@ export default class JamComponent extends React.Component {
     render() {
         return (
             <div className="jam col-xs-12">
+                <div className="jam__background"></div>
                 <DevTools />
-                <h1>Jam component</h1>
-                {this.renderSongs()}
+                <div className="jam__title col-xs-12">
+                    <h1 className="jam__title-jam col-xs-12">Jam</h1>
+                    <h2 className="jam__title-sessions col-xs-12">Sessions</h2>
+                </div>
+                <div className="col-xs-12 col-md-8 col-md-offset-2 jam__songs-list-container">
+                    {this.renderSongs()}
+                </div>
             </div>
         )
     }
 
     _renderSongs(){
         if (store.isLoading){
-            return (<h2>Loading....</h2>)
+            return (
+                <div className="jam__songs-list-loading">
+                    Loadding....
+                </div>
+            )
         } else {
             return (
                 <ul className="jam__songs-list">
