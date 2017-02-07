@@ -50,15 +50,15 @@ export default class JamComponent extends React.Component {
                 <ul className="jam__songs-list">
                     { store.songs.map((song, index) => {
                         return (
-                            <li className="jam__songs-list-item" key={index}>
+                            <li className="jam__songs-list-item col-xs-12" key={index}>
                                 <h3 className="jam__songs-list-item-title">{song.name}</h3>
                                 <h5>{song.url}</h5>
-                                <h3> Musicians: </h3>
+                                <h3 className="jam__songs-list-item-musicians-list"> Musicians: </h3>
                                 <ul>
                                     {
                                         song.musicians.map((musician, index2) => {
                                             return (
-                                                <li key={index2}>
+                                                <li key={index2} className="jam__songs-list-item-musicians-list-item">
                                                     {musician.firstName} {musician.lastName} on {musician.instrument}
                                                 </li>
                                             )
@@ -66,6 +66,7 @@ export default class JamComponent extends React.Component {
                                     }
 
                                 </ul>
+                                <div className="jam__songs-list-item-separator"></div>
                             </li>
                         )
                     })}
