@@ -4,7 +4,6 @@ import Scrollchor from 'react-scrollchor';
 import ContactForm from '../common/form/contact/contact.js';
 import PriceTable from '../common/price/table.js';
 
-import Footer from '../footer/module.js';
 
 
 export default class HomeComponent extends React.Component {
@@ -50,7 +49,7 @@ export default class HomeComponent extends React.Component {
                     <div className="home__contact-bg"></div>
                     <ContactForm></ContactForm>
                 </div>
-                <Footer></Footer>
+
             </div>
         );
     }

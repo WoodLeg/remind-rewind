@@ -4,6 +4,7 @@
     min-height: 1200px;
     color: white;
     overflow: hidden;
+    padding-bottom: 100px;
     &__background {
         position: absolute;
         z-index: -1;
@@ -40,6 +41,7 @@
         &-list {
             font-size: 2em;
             color: black;
+            list-style: none;
             &-container {
                 margin-top: 150px;
                 padding-top: 20px;
@@ -49,6 +51,20 @@
                 color: black;
                 font-size: 5em;
                 margin-top: 50px;
+            }
+            &-item {
+                margin-bottom: 20px;
+                padding: 0;
+                &-title {
+                    font-size: 2em;
+                }
+                &-separator {
+                    margin-top: 40px;
+                    width: 100%;
+                    height: 1px;
+                    background: $text-color;
+                    opacity: 0.3;
+                }
             }
         }
     }
