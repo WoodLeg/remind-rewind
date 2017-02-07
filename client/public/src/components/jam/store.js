@@ -1,11 +1,15 @@
-import { observable, computed, action, autorun } from 'mobx';
+import { observable, action, autorun, whyRun } from 'mobx';
 import transport from '../lokka/module.js';
 
 class JamStore {
-    @observable jams = null;
+    @observable songs = [];
     @observable isLoading = false;
 
-    fetchJams() {
+    constructor(){
+        this.fetchSongs();
+    }
+
+    @action fetchSongs() {
         this.isLoading = true;
         transport.query(`
             {
@@ -24,18 +28,12 @@ class JamStore {
 
         `).then(result => {
             this.isLoading = false;
-            this.jamsLoaded(result);
+            this.updateSongs(result.songs);
         });
     }
 
-    @action jamsLoaded(response) {
-        console.log('Jam store action: ', response);
-    }
-
-    constructor(){
-        autorun( _ => {
-            this.fetchJams();
-        });
+    @action updateSongs(songs) {
+        this.songs = songs;
     }
 
 }
