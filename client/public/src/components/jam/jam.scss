@@ -41,13 +41,14 @@
             font-size: 2em;
             color: black;
             &-container {
-                margin-top: 100px;
+                margin-top: 150px;
                 padding-top: 20px;
             }
             &-loading {
                 text-align:center;
                 color: black;
                 font-size: 5em;
+                margin-top: 50px;
             }
         }
     }

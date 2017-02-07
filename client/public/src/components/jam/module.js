@@ -1,6 +1,7 @@
 import React from 'react';
 import { observer } from 'mobx-react';
 import DevTools from 'mobx-react-devtools';
+import Spinner from '../common/spinner/module.js';
 
 
 import store from './store.js';
@@ -41,7 +42,7 @@ export default class JamComponent extends React.Component {
         if (store.isLoading){
             return (
                 <div className="jam__songs-list-loading">
-                    Loadding....
+                    <Spinner></Spinner>
                 </div>
             )
         } else {
