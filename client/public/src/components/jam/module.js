@@ -26,6 +26,7 @@ export default class JamComponent extends React.Component {
         return (
             <div className="jam col-xs-12">
                 <div className="jam__background"></div>
+                <div className="jam__filter"></div>
                 <DevTools />
                 <div className="jam__title col-xs-12">
                     <h1 className="jam__title-jam col-xs-12">Jam</h1>

@@ -31,7 +31,27 @@ const promiseListAll = () => {
         }, {
             id: '2',
             name: 'Floydy Poopy',
-            url: 'http://www.remind-rewind.com/trololol/half_time_crap.mp3',
+            url: 'http://www.remind-rewind.com/trololol/floydy_poopy.mp3',
+            musicians: [{
+                id: '1',
+                firstName: 'Clément',
+                lastName: 'Freymond',
+                instrument: 'Guitar'
+            }, {
+                id: '2',
+                firstName: 'Henry',
+                lastName: 'XXX',
+                instrument: 'Bass'
+            }, {
+                id: '3',
+                firstName: 'Paul',
+                lastName: 'Souvestre',
+                instrument: 'Drums'
+            }]
+        }, {
+            id: '2',
+            name: 'Shitty Things Happens',
+            url: 'http://www.remind-rewind.com/trololol/shitty_things_happen.mp3',
             musicians: [{
                 id: '1',
                 firstName: 'Clément',
