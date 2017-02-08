@@ -1,5 +1,7 @@
 import React from 'react';
 import { observer } from 'mobx-react';
+import DevTools from 'mobx-react-devtools';
+
 
 import store from './store.js';
 
@@ -27,32 +29,24 @@ export default class ColumnComponent extends React.Component {
 
     componentWillMount(){
         this.data = this.props.data;
-        this.fullMusicianPrice = this.musiciansPrice(this.data.pricePerMusician, store.musicians);
-        this.featuresPrice = this.fullPrice(this.data.features, this.fullMusicianPrice);
-
     }
 
     componentWillReact() {
-        this.fullMusicianPrice = this.musiciansPrice(this.data.pricePerMusician, store.musicians);
-        this.featuresPrice = this.fullPrice(this.data.features, this.fullMusicianPrice);
+        console.log('React');
     }
 
     render() {
-
-
         return (
             <div className={this.props.style}>
+                <DevTools />
                 <div className="column__container shadow-1">
                     <div className="column__header" >
-                        <div className="column__header-background"></div>
-                        <div className="column__header-description">
-                            pour {store.musicians} musiciens
-                        </div>
                         <div className="column__header-price">
-                            <div className="column__header-price-background"></div>
-                            <h1>{this.props.title}</h1>
                             <div className="column__header-price-body">
-                                {this.fullMusicianPrice}€
+                                {store.musicianPrice}€
+                            </div>
+                            <div className="column__header-price-description">
+                                Par musicien
                             </div>
                         </div>
                     </div>
@@ -60,12 +54,12 @@ export default class ColumnComponent extends React.Component {
                     <div className="column__body">
                         <ul className="col-xs-12">
                             {
-                                this.data.features.map((feature, index) => {
+                                store.features.map((feature, index) => {
                                     return <li key={index} ><span className="pull-left">{feature.name} :</span> <span className="pull-right">{feature.price} €</span></li>;
                                 })
                             }
                         </ul>
-                        <div className=" column__body-features-price col-xs-12"> = {this.featuresPrice}€</div>
+                        <div className=" column__body-features-price col-xs-12">= {store.fullPrice} €</div>
                     </div>
                 </div>
             </div>

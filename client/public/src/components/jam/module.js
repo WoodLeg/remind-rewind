@@ -1,6 +1,5 @@
 import React from 'react';
 import { observer } from 'mobx-react';
-import DevTools from 'mobx-react-devtools';
 import Spinner from '../common/spinner/module.js';
 
 
@@ -27,7 +26,6 @@ export default class JamComponent extends React.Component {
             <div className="jam col-xs-12">
                 <div className="jam__background"></div>
                 <div className="jam__filter"></div>
-                <DevTools />
                 <div className="jam__title col-xs-12">
                     <h1 className="jam__title-jam col-xs-12">Jam</h1>
                     <h2 className="jam__title-sessions col-xs-12">Sessions</h2>
