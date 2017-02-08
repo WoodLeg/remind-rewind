@@ -30,18 +30,17 @@ export default class PrincingTableComponent extends React.Component {
                         <div onClick={this.increment} className='col-xs-2 pricing__table-musicians-button pricing__table-musicians-button--increment pull-right'>+</div>
                     </div>
                 </div>
-                <PriceColumn title="Deaf" data={store.deaf} style="col-xs-12 col-sm-6 col-md-4 col-md-offset-2 col-lg-3 col-lg-offset-3 column blue"></PriceColumn>
-                <PriceColumn title="Live" data={store.live} style="col-xs-12 col-sm-6 col-md-4 col-lg-3 column red"></PriceColumn>
+                <PriceColumn data={store.deaf} style="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 column blue"></PriceColumn>
             </div>
         );
     }
 
 
-    _increment(event) {
+    _increment() {
         store.increment();
     }
 
-    _decrement(event) {
+    _decrement() {
         store.decrement();
     }
 

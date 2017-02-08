@@ -43,93 +43,30 @@
         position: relative;
         font-weight: 200;
         letter-spacing: 5px;
-        height: 200px;
+        min-height: 200px;
         width: 100%;
         z-index: 10;
         top:0;
         left:0;
-        &:hover {
-            cursor: pointer;
-            .column__header-price {
-                top: -70px;
-            }
-        }
-        &-background {
-            position:absolute;
-            width: 120%;
-            height: 160%;
-            top: -125px;
-            left: -30px;
-            border-radius: 50%;
-            z-index: -3;
-            @media only screen and (min-width: $screen-lg) {
-                left: -31px;
-            }
-            @media only screen and (max-width: $screen-lg) {
-                left: -35px;
-            }
-            @media only screen and (max-width: $screen-sm) {
-                left: -33px;
-            }
-            @media only screen and (max-width: $screen-xs) {
-                left: -27px;
-            }
-
-        }
-        &-description {
-            position: absolute;
-            top: 120px;
-            width: 100%;
-            height: 50px;
-            text-align:center;
-            font-size: 1em;
-            font-weight: 300;
-            color: white;
-        }
+        background: $pinkish;
         &-price{
-            position: relative;
-            height: 150px;
             width: 100%;
-            top: 0;
-            left:0;
             transition: all 0.7s cubic-bezier(0.4,0,0.2,1);
             z-index:0;
-            &-background {
-                z-index: -1;
-                position: absolute;
-                top: -220px;
-                left: -10.5px;
-                width:105%;
-                height: 260%;
-                background: white;
-                border-radius: 50%;
-                box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
-                @media only screen and (min-width: $screen-lg) {
-                    left: -8px;
-                }
-                @media only screen and (max-width: $screen-lg) {
-                    left: -9px;
-                }
-                @media only screen and (max-width: $screen-sm) {
-                    left: -8px;
-                }
-                @media only screen and (max-width: $screen-xs) {
-                    width: 110%;
-                    left: -15px;
-                }
-
-            }
-            h1 {
-                color: black;
-                height: 70px;
-                margin:0;
+            &-description {
+                width: 100%;
                 text-align:center;
-                padding-top: 20px;
-                font-weight: 200;
+                font-size: 2em;
+                font-weight: 300;
+                color: white;
             }
             &-body {
+                padding-top: 25px;
                 text-align:center;
                 font-size: 4.5em;
+                margin-bottom: 15px;
+                color: white;
+                font-weight: 500;
             }
         }
     }
@@ -157,7 +94,9 @@
         &-features-price {
             margin: 30px 0px 20px 0px;
             text-align: center;
-            font-size: 4em;
+            font-size: 7em;
+            color: darken($green, 10%);
+            font-family: 'Bahiana', 'cursive';
         }
     }
 }
