@@ -21,6 +21,7 @@ import inject from 'gulp-inject';
 import runSequence from 'run-sequence';
 import del from 'del';
 import historyApiFallback from 'connect-history-api-fallback';
+import bowerFiles from 'main-bower-files';
 
 
 
@@ -150,6 +151,25 @@ gulp.task('index',function(){
         .pipe(gulp.dest(PATHS.DEST.BASE));
 });
 
+gulp.task('app-fonts', function() {
+    return gulp.src([PATHS.SRC.ASSETS.FONTS + '/**/*.@(eot|svg|ttf|woff|woff2)'])
+        .pipe(gulpif(util.env.debug, using()))
+        .pipe(gulp.dest(PATHS.DEST.LIB.FONTS));
+});
+
+gulp.task('bower', function() {
+    return gulp.src(bowerFiles(), {
+        base: 'public/bower_components'
+    });
+});
+
+gulp.task('bower-fonts', function() {
+    return gulp
+        .src(bowerFiles('**/*.@(eot|svg|ttf|woff|woff2)'))
+        .pipe(gulpif(util.env.debug, using()))
+        .pipe(gulp.dest(PATHS.DEST.LIB.FONTS + '/bootstrap'));
+});
+
 gulp.task('default', ['transpile']);
 
 gulp.task('transpile', ['lint'], () => bundle());
@@ -161,7 +181,7 @@ gulp.task('lint', () => {
 });
 
 gulp.task('build', (cb) => {
-    return runSequence ('clean', ['index', 'app-style', 'app-images', 'lint', 'transpile'], 'inject', cb);
+    return runSequence ('clean', ['index', 'app-style', 'app-images', 'app-fonts', 'bower-fonts', 'lint', 'transpile'], 'inject', cb);
 });
 
 gulp.task('serve', ['watch'], () => sync.init({

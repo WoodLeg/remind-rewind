@@ -8,7 +8,7 @@
     svg {
         position: absolute;
         left: 50%;
-        top: 25%;
+        top: 15%;
         fill: #eda642;
     }
     &-button {
@@ -18,6 +18,16 @@
         height: 80px;
         margin-top:10px;
         margin-right: 15px;
+        background: $orange;
+        color: white;
+        transition: all 0.3s ease;
+        padding: 0;
+        .fa-play {
+            padding-left: 8px;
+        }
+        &:hover {
+            background: darken($orange, 10%);
+        }
         &:active, &:focus {
             outline: 0;
         }
