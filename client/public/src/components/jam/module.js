@@ -1,6 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react';
-import Spinner from '../common/spinner/module.js';
+import { Spinner } from '../common/spinner/module.js';
 
 import Audio from '../audio/module.js';
 
@@ -56,7 +56,6 @@ export default class JamComponent extends React.Component {
                             <li className="jam__songs-list-item col-xs-12" key={index}>
                                 <h3 className="jam__songs-list-item-title">{song.name}</h3>
                                 <Audio url={song.url}></Audio>
-                                <h5>{song.url}</h5>
                                 <h3 className="jam__songs-list-item-musicians-list"> Musicians: </h3>
                                 <ul>
                                     {

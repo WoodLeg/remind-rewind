@@ -2,7 +2,7 @@
 	width : 90px;
     z-index: 1000;
     margin: 0 auto;
-    
+
   ul {
     margin : 0;
     list-style:none;
@@ -21,7 +21,10 @@
   }
 }
 
-
+svg {
+	height: 60px;
+	width: 55px;
+}
 @keyframes sequence1 {
 	0%{ height: 10px; }
 	50%{ height:50px; }
