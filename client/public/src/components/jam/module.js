@@ -2,6 +2,7 @@ import React from 'react';
 import { observer } from 'mobx-react';
 import Spinner from '../common/spinner/module.js';
 
+import Audio from '../audio/module.js';
 
 import store from './store.js';
 
@@ -14,7 +15,9 @@ export default class JamComponent extends React.Component {
         this.renderSongs = this._renderSongs.bind(this);
     }
 
+
     componentWillMount() {
+
     }
 
     componentWillReact(){
@@ -30,7 +33,9 @@ export default class JamComponent extends React.Component {
                     <h1 className="jam__title-jam col-xs-12">Jam</h1>
                     <h2 className="jam__title-sessions col-xs-12">Sessions</h2>
                 </div>
-                <div className="col-xs-12 col-md-8 col-md-offset-2 jam__songs-list-container">
+
+                <div className="col-xs-12 jam__songs-list-container">
+                    <Audio></Audio>
                     {this.renderSongs()}
                 </div>
             </div>
@@ -40,13 +45,13 @@ export default class JamComponent extends React.Component {
     _renderSongs(){
         if (store.isLoading){
             return (
-                <div className="jam__songs-list-loading">
+                <div className="col-xs-12 col-md-8 col-md-offset-2 jam__songs-list-loading">
                     <Spinner></Spinner>
                 </div>
             )
         } else {
             return (
-                <ul className="jam__songs-list">
+                <ul className="jam__songs-list col-xs-12 col-md-8 col-md-offset-2">
                     { store.songs.map((song, index) => {
                         return (
                             <li className="jam__songs-list-item col-xs-12" key={index}>
