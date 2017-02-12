@@ -10,7 +10,7 @@ export default class AudioComponent extends React.Component {
         super(props);
 
         this.state = {
-            play: false,
+            playing: false,
             pos: 0,
             ready: false
         };
@@ -25,7 +25,7 @@ export default class AudioComponent extends React.Component {
 
     _handleTogglePlay() {
         this.setState({
-            play: !this.state.play
+            playing: !this.state.playing
         });
     }
     _handlePosChange(e) {
@@ -71,7 +71,9 @@ export default class AudioComponent extends React.Component {
             )
         } else {
             return (
-                <button className="pull-left wave-button" onClick={this.handleTogglePlay}>{ (this.state.play ? 'Pause' : 'Play')}</button>
+                <button className="pull-left wave-button" onClick={this.handleTogglePlay}>
+                    <i className={ (!this.state.playing) ? "fa fa-play" : "fa fa-pause"} aria-hidden="true"></i>
+                </button>
             )
         }
     }
@@ -85,7 +87,7 @@ export default class AudioComponent extends React.Component {
                     audioFile={this.url}
                     pos={this.state.pos}
                     onPosChange={this.handlePosChange}
-                    playing={this.state.play}
+                    playing={this.state.playing}
                     onReady={this.onReady}
                     onPlay={this.onPlay}
                     onFinish={this.onFinish}
