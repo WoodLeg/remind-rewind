@@ -35,7 +35,6 @@ export default class JamComponent extends React.Component {
                 </div>
 
                 <div className="col-xs-12 jam__songs-list-container">
-                    <Audio></Audio>
                     {this.renderSongs()}
                 </div>
             </div>
@@ -56,6 +55,7 @@ export default class JamComponent extends React.Component {
                         return (
                             <li className="jam__songs-list-item col-xs-12" key={index}>
                                 <h3 className="jam__songs-list-item-title">{song.name}</h3>
+                                <Audio url={song.url}></Audio>
                                 <h5>{song.url}</h5>
                                 <h3 className="jam__songs-list-item-musicians-list"> Musicians: </h3>
                                 <ul>

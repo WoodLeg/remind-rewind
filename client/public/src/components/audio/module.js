@@ -1,6 +1,5 @@
 import React from 'react';
 import { observer, observable, action } from 'mobx-react';
-
 import Wavesurfer from 'react-wavesurfer';
 
 
@@ -16,6 +15,9 @@ export default class AudioComponent extends React.Component {
 
         this.handleTogglePlay = this._handleTogglePlay.bind(this);
         this.handlePosChange = this._handlePosChange.bind(this);
+        this.onReady = this._onReady.bind(this);
+        this.onFinish = this._onFinish.bind(this);
+        this.onPlay = this._onPlay.bind(this);
     }
 
     _handleTogglePlay() {
@@ -29,22 +31,53 @@ export default class AudioComponent extends React.Component {
         });
     }
 
-    componentWillMount() {
+    _onReady(e) {
+        console.log("I'm ready...");
+        console.log(e);
+    }
 
+    _onFinish(e){
+        console.log("I've finished...");
+        console.log(e);
+    }
+
+    _onPlay(e){
+        console.log("I'm playing...");
+        console.log(e);
+    }
+
+    componentWillMount() {
+        this.url = this.props.url;
+        console.log(this.url);
+        this.options = {
+            progressColor: '#e67e22',
+            pixelRatio: 1
+        }
+        this.timelineOptions = {
+            timeInterval: 0.5,
+            height: 30,
+            primaryFontColor: '#00f',
+            primaryColor: '#00f'
+        };
     }
 
 
     render() {
         return (
             <div className="wave col-xs-12">
+                <button className="pull-left wave-button " onClick={this.handleTogglePlay}>{ (this.state.play ? 'Pause' : 'Play')}</button>
                 <Wavesurfer
-                    audioFile={'/assets/Floydish_Poopy.mp3'}
+                    className="pull-right"
+                    audioFile={this.url}
                     pos={this.state.pos}
                     onPosChange={this.handlePosChange}
                     playing={this.state.play}
-
-                />
-                <button onClick={this.handleTogglePlay}>Play</button>
+                    onReady={this.onReady}
+                    onPlay={this.onPlay}
+                    onFinish={this.onFinish}
+                    options={this.options}
+                >
+                </Wavesurfer>
             </div>
         )
     }
