@@ -1,6 +1,7 @@
 import React from 'react';
 import { observer, observable, action } from 'mobx-react';
 import Wavesurfer from 'react-wavesurfer';
+import { InlineSpinner } from '../common/spinner/module.js';
 
 
 @observer
@@ -10,7 +11,8 @@ export default class AudioComponent extends React.Component {
 
         this.state = {
             play: false,
-            pos: 0
+            pos: 0,
+            ready: false
         };
 
         this.handleTogglePlay = this._handleTogglePlay.bind(this);
@@ -18,6 +20,7 @@ export default class AudioComponent extends React.Component {
         this.onReady = this._onReady.bind(this);
         this.onFinish = this._onFinish.bind(this);
         this.onPlay = this._onPlay.bind(this);
+        this.renderWave = this._renderWave.bind(this);
     }
 
     _handleTogglePlay() {
@@ -34,6 +37,9 @@ export default class AudioComponent extends React.Component {
     _onReady(e) {
         console.log("I'm ready...");
         console.log(e);
+        this.setState({
+            ready: true
+        });
     }
 
     _onFinish(e){
@@ -50,22 +56,30 @@ export default class AudioComponent extends React.Component {
         this.url = this.props.url;
         console.log(this.url);
         this.options = {
-            progressColor: '#e67e22',
-            pixelRatio: 1
+            height: 100,
+            progressColor: '#eda642',
+            pixelRatio: 1,
+            barWidth: 3,
+            reflection: true
         }
-        this.timelineOptions = {
-            timeInterval: 0.5,
-            height: 30,
-            primaryFontColor: '#00f',
-            primaryColor: '#00f'
-        };
     }
 
+    _renderWave() {
+        if (!this.state.ready) {
+            return (
+                <InlineSpinner />
+            )
+        } else {
+            return (
+                <button className="pull-left wave-button" onClick={this.handleTogglePlay}>{ (this.state.play ? 'Pause' : 'Play')}</button>
+            )
+        }
+    }
 
     render() {
         return (
             <div className="wave col-xs-12">
-                <button className="pull-left wave-button " onClick={this.handleTogglePlay}>{ (this.state.play ? 'Pause' : 'Play')}</button>
+                {this.renderWave()}
                 <Wavesurfer
                     className="pull-right"
                     audioFile={this.url}
