@@ -11,7 +11,7 @@ const promiseListAll = () => {
         let songs = [{
             id: '1',
             name: 'Half Time Crap',
-            url: 'http://www.remind-rewind.com/trololol/half_time_crap.mp3',
+            url: 'http://remind-rewind.com/music/2.wav',
             musicians: [{
                 id: '1',
                 firstName: 'Clément',
@@ -31,7 +31,7 @@ const promiseListAll = () => {
         }, {
             id: '2',
             name: 'Floydy Poopy',
-            url: 'http://www.remind-rewind.com/trololol/floydy_poopy.mp3',
+            url: 'http://remind-rewind.com/music/2.wav',
             musicians: [{
                 id: '1',
                 firstName: 'Clément',
@@ -51,7 +51,7 @@ const promiseListAll = () => {
         }, {
             id: '2',
             name: 'Shitty Things Happens',
-            url: 'http://www.remind-rewind.com/trololol/shitty_things_happen.mp3',
+            url: 'http://remind-rewind.com/music/2.wav',
             musicians: [{
                 id: '1',
                 firstName: 'Clément',
@@ -94,7 +94,7 @@ const song = {
             let song = {
                 id: '1',
                 name: 'Half Time Crap',
-                url: 'http://www.remind-rewind.com/trololol/half_time_crap.mp3',
+                url: 'http://remind-rewind.com/music/2.wav',
                 musicians: [{
                     id: '1',
                     firstName: 'Clément',
