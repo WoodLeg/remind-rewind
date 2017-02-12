@@ -4,33 +4,33 @@ import {
     GraphQLString
 } from 'graphql';
 
-    // {
-    //     id: '1',
-    //     name: 'Half Time Crap',
-    //     url: 'http://remind-rewind.com/music/2.wav',
-    //     musicians: [{
-    //         id: '1',
-    //         firstName: 'Clément',
-    //         lastName: 'Freymond',
-    //         instrument: 'Guitar'
-    //     }, {
-    //         id: '2',
-    //         firstName: 'Henry',
-    //         lastName: 'XXX',
-    //         instrument: 'Bass'
-    //     }, {
-    //         id: '3',
-    //         firstName: 'Paul',
-    //         lastName: 'Souvestre',
-    //         instrument: 'Drums'
-    //     }]
-    // },
+
 
 import SongType from './song.type';
 
 const promiseListAll = () => {
     return new Promise((resolve, reject) => {
         let songs = [{
+            id: '1',
+            name: 'Half Time Crap',
+            url: 'http://remind-rewind.com/music/Half_Time_Crap.mp3',
+            musicians: [{
+                id: '1',
+                firstName: 'Clément',
+                lastName: 'Freymond',
+                instrument: 'Guitar'
+            }, {
+                id: '2',
+                firstName: 'Henry',
+                lastName: 'XXX',
+                instrument: 'Bass'
+            }, {
+                id: '3',
+                firstName: 'Paul',
+                lastName: 'Souvestre',
+                instrument: 'Drums'
+            }]
+        },{
             id: '2',
             name: 'Floydy Poopy',
             url: 'http://remind-rewind.com/music/Floydish_Poopy.mp3',
