@@ -4,34 +4,36 @@ import {
     GraphQLString
 } from 'graphql';
 
+    // {
+    //     id: '1',
+    //     name: 'Half Time Crap',
+    //     url: 'http://remind-rewind.com/music/2.wav',
+    //     musicians: [{
+    //         id: '1',
+    //         firstName: 'Clément',
+    //         lastName: 'Freymond',
+    //         instrument: 'Guitar'
+    //     }, {
+    //         id: '2',
+    //         firstName: 'Henry',
+    //         lastName: 'XXX',
+    //         instrument: 'Bass'
+    //     }, {
+    //         id: '3',
+    //         firstName: 'Paul',
+    //         lastName: 'Souvestre',
+    //         instrument: 'Drums'
+    //     }]
+    // },
+
 import SongType from './song.type';
 
 const promiseListAll = () => {
     return new Promise((resolve, reject) => {
         let songs = [{
-            id: '1',
-            name: 'Half Time Crap',
-            url: 'http://remind-rewind.com/music/2.wav',
-            musicians: [{
-                id: '1',
-                firstName: 'Clément',
-                lastName: 'Freymond',
-                instrument: 'Guitar'
-            }, {
-                id: '2',
-                firstName: 'Henry',
-                lastName: 'XXX',
-                instrument: 'Bass'
-            }, {
-                id: '3',
-                firstName: 'Paul',
-                lastName: 'Souvestre',
-                instrument: 'Drums'
-            }]
-        }, {
             id: '2',
             name: 'Floydy Poopy',
-            url: 'http://remind-rewind.com/music/2.wav',
+            url: 'http://remind-rewind.com/music/Floydish_Poopy.mp3',
             musicians: [{
                 id: '1',
                 firstName: 'Clément',
@@ -51,7 +53,7 @@ const promiseListAll = () => {
         }, {
             id: '2',
             name: 'Shitty Things Happens',
-            url: 'http://remind-rewind.com/music/2.wav',
+            url: 'http://remind-rewind.com/music/Shitty_Things_Happens.mp3',
             musicians: [{
                 id: '1',
                 firstName: 'Clément',
@@ -69,9 +71,7 @@ const promiseListAll = () => {
                 instrument: 'Drums'
             }]
         }];
-        setTimeout(() => {
-            resolve(songs);
-        }, 3000);
+        resolve(songs);
     });
 };
 
