@@ -41,7 +41,7 @@ export default class HomeComponent extends React.Component {
                     </div>
                 </div>
                 <div className="col-xs-12 home__props">
-                    <h1 className="home__props-title">Revendiquez votre musique</h1>
+                    
                     <div className="col-xs-12 home__props-card-list">
                         <div className="col-xs-12 col-sm-5 col-sm-offset-1 home__props-card-container">
                             <div className="home__props-card">
