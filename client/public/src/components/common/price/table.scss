@@ -22,8 +22,8 @@
             overflow: hidden;
             margin:0;
             background: #fff;
-            border-bottom: 1px solid $pinkish;
-            border-top: 1px solid $pinkish;
+            border-bottom: 1px solid $orange;
+            border-top: 1px solid $orange;
             padding: 0;
             &-num {
                 position: absolute;
@@ -43,15 +43,15 @@
             text-align: center;
             color: #fff;
             cursor: pointer;
-            background-color: $pinkish;
+            background-color: $orange;
             transition: background-color 100ms ease-in;
             &:hover {
-                background-color: mix($pinkish, #fff, 90%);
+                background-color: mix($orange, #fff, 90%);
                 transition: background-color 100ms ease-in;
             }
 
             &:active {
-                background-color: mix($pinkish, #000, 90%);
+                background-color: mix($orange, #000, 90%);
                 transition: background-color 100ms ease-in;
             }
 
