@@ -6,5 +6,5 @@ const options = {
 };
 
 export default new Lokka({
-    transport: new Transport('http://localhost:8000/graphql', options)
+    transport: new Transport('http://api.remind-rewind.com/graphql', options)
 });
