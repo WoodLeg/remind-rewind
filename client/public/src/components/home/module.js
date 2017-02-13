@@ -30,14 +30,45 @@ export default class HomeComponent extends React.Component {
                         <Scrollchor to="#pricing-table" animate={{ offset: -60, duration: 600, ease: 'cubic-bezier(0.645, 0.045, 0.355, 1)' }} className="col-xs-12 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 home__header-body-btn">Voir les prix</Scrollchor>
                     </div>
                 </div>
-                <div className="col-xs-12 home__deaf">
-                    <div className="home__deaf-img"></div>
-                    <div className="col-xs-12 col-md-6 col-md-offset-6 col-lg-6 col-lg-offset-6 home__deaf-body">
-                        <h1 className="home__deaf-body-title">Deaf Experience ! </h1>
-                        <div className="home__deaf-body-content">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <div className="col-xs-12 home__streamline">
+                    <div className="home__streamline-filter"></div>
+                    <div className="home__streamline-img"></div>
+                    <div className="col-xs-12 col-md-8 col-md-offset-2 home__streamline-body">
+                        <h1 className="home__streamline-body-title"><span className="home__streamline-body-title-big">Streamlinez</span> votre production</h1>
+                        <div className="home__streamline-body-content">
+                            <p>RemindRewind Studio vous permet de gérer tout le process de production d'un morceau en entier. Pas besoin d'intéragir avec plusieurs personnes pour que votre morceau voit le jour. <span className="orange">Recording</span>, <span className="orange">Mixing</span>, <span className="orange">Mastering</span>, tout au même endroit.</p>
                         </div>
                     </div>
+                </div>
+                <div className="col-xs-12 home__props">
+                    <h1 className="home__props-title">Revendiquez votre musique</h1>
+                    <div className="col-xs-12 home__props-card-list">
+                        <div className="col-xs-12 col-sm-5 col-sm-offset-1 home__props-card-container">
+                            <div className="home__props-card">
+                                <div className="home__props-card-decoration"></div>
+
+                            </div>
+                        </div>
+                        <div className="col-xs-12 col-sm-5 home__props-card-container">
+                            <div className="home__props-card">
+                                <div className="home__props-card-decoration"></div>
+
+                            </div>
+                        </div>
+                        <div className="col-xs-12 col-sm-5 col-sm-offset-1 home__props-card-container">
+                            <div className="home__props-card">
+                                <div className="home__props-card-decoration"></div>
+
+                            </div>
+                        </div>
+                        <div className="col-xs-12 col-sm-5 home__props-card-container">
+                            <div className="home__props-card">
+                                <div className="home__props-card-decoration"></div>
+
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
                 <div className="col-xs-12 home__tarif">
                     <h1 id="pricing-table" className="home__tarif-title col-xs-12">Tarifs</h1>

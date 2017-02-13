@@ -1,4 +1,12 @@
 .home {
+    .remindrewind {
+        font-family: 'Bahiana', cursive;
+        letter-spacing: 5px;
+        font-size: 1.5em;
+    }
+    .orange {
+        color: $orange;
+    }
     &__header {
         position: relative;
         padding: 0;
@@ -89,7 +97,7 @@
                 font-weight: 500;
                 font-size: 2em;
                 color: white;
-                background: darken($green, 10%);
+                background: darken($blue, 10%);
                 border-radius: 2px;
                 transition: background 0.5s ease;
                 font-family: 'Bahiana', cursive;
@@ -116,13 +124,13 @@
                 &:hover, &:focus {
                     text-decoration: none;
                     color: white;
-                    background: $green;
+                    background: darken($blue, 15%);
                     cursor: pointer;
                 }
             }
         }
     }
-    &__deaf {
+    &__streamline {
         position: relative;
         height: 700px;
         padding: 0;
@@ -130,7 +138,7 @@
         margin-top: -100px;
         padding-top: 50px;
         @media only screen and (min-width: $screen-lg) {
-            height: 900px;
+            height: 700px;
             padding-top: 100px;
         }
         @media only screen and (max-width: $screen-lg) {
@@ -144,10 +152,9 @@
             height: 850px;
         }
         &-body {
-            z-index: -3;
-            margin-top: 20px;
-            padding-top: 40px;
-            color: $text-color;
+            z-index: -1;
+            padding-top: 20px;
+            color: white;
             &-title {
                 text-align: center;
                 font-weight: 100;
@@ -160,24 +167,48 @@
                 @media only screen and (max-width: $screen-xs) {
                     font-size: 4em;
                 }
+                &-big {
+                    font-weight: 500;
+                    color: $orange;
+                }
             }
             &-content {
+                z-index: 1;
                 margin-top: 40px;
                 padding: 0px 40px 0px 40px;
                 font-weight: 300;
                 font-size: 1.5em;
                 text-align: justify;
                 @media only screen and (min-width: $screen-lg) {
-                    font-size: 2em;
-                    margin-top: 75px;
+                    font-size: 2.2em;
+                    margin-top: 40px;
                 }
                 @media only screen and (max-width: $screen-sm) {
-                    font-size: 2.2em;
+                    font-size: 2.4em;
                 }
                 @media only screen and (max-width: $screen-xs) {
                     padding: 0px 10px 0px 10px;
-                    font-size: 1.5em;
+                    font-size: 1.7em;
                 }
+            }
+        }
+        &-filter {
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index:-2;
+            width: 100%;
+            height: 700px;
+            background: rgba(0,0,0,0.7);
+            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 85%, 0% 100%);
+            @media only screen and (min-width: $screen-lg){
+                height: 700px;
+            }
+            @media only screen and (max-width: $screen-sm){
+                height: 650px;
+            }
+            @media only screen and (max-width: $screen-xs) {
+                height: 650px;
             }
         }
         &-img {
@@ -187,22 +218,65 @@
             width: 100%;
             height: 700px;
             background: $background;
-            // background: url('/assets/img/headphones.jpg') no-repeat top center;
-            // background-size: cover;
+            background: url('/assets/img/neve2.jpg') no-repeat top center;
+            background-size: cover;
+            background-position: 0% -50px;
             clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 85%, 0% 100%);
             @media only screen and (min-width: $screen-lg){
-                height: 900px;
+                height: 700px;
             }
             @media only screen and (max-width: $screen-sm){
-                height: 850px;
+                height: 650px;
             }
             @media only screen and (max-width: $screen-xs) {
-                height: 850px;
+                height: 650px;
+            }
+        }
+    }
+    &__props {
+        margin-top: -120px;
+        padding-top: 70px;
+        padding-bottom: 100px;
+        z-index: -4;
+        background: $blue;
+        &-title {
+            color: white;
+            margin-top: 50px;
+            margin-bottom: 30px;
+            font-size: 5em;
+            font-family: 'Bahiana', 'cursive';
+            text-align: center;
+            @media only screen and (min-width: $screen-lg) {
+                font-size: 7em;
+            }
+            @media only screen and (max-width: $screen-sm) {
+                font-size: 6em;
+            }
+            @media only screen and (max-width: $screen-xs) {
+
+            }
+        }
+        &-card {
+            &-container {
+                margin-top: 70px;
+            }
+            position: relative;
+            height: 200px;
+            background: white;
+            border-radius: 3px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+            &-decoration {
+                position: absolute;
+                bottom:0;
+                left:0;
+                height: 15px;
+                width: 100%;
+                background: $orange;
             }
         }
     }
     &__tarif {
-        margin-top: -120px;
         padding-top: 60px;
         z-index: -5;
         color: black;
