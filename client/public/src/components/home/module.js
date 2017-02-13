@@ -36,7 +36,7 @@ export default class HomeComponent extends React.Component {
                     <div className="col-xs-12 col-md-8 col-md-offset-2 home__streamline-body">
                         <h1 className="home__streamline-body-title"><span className="home__streamline-body-title-big">Streamlinez</span> votre production</h1>
                         <div className="home__streamline-body-content">
-                            <p>RemindRewind Studio vous permet de gérer tout le process de production d'un morceau en entier. Pas besoin d'intéragir avec plusieurs personnes pour que votre morceau voit le jour. <span className="orange">Recording</span>, <span className="orange">Mixing</span>, <span className="orange">Mastering</span>, tout au même endroit.</p>
+                            <p>RemindRewind Studio vous permet de gérer tout le processus de production d'un morceau en entier. Pas besoin d'intéragir avec plusieurs personnes pour que votre morceau voit le jour. <span className="orange">Recording</span>, <span className="orange">Mixing</span>, <span className="orange">Mastering</span>, tout au même endroit.</p>
                         </div>
                     </div>
                 </div>
