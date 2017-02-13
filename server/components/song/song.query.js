@@ -32,7 +32,7 @@ const promiseListAll = () => {
             }]
         },{
             id: '2',
-            name: 'Floydy Poopy',
+            name: 'Floydish Poopy v1',
             url: 'http://remind-rewind.com/music/Floydish_Poopy.mp3',
             musicians: [{
                 id: '1',
@@ -51,9 +51,29 @@ const promiseListAll = () => {
                 instrument: 'Drums'
             }]
         }, {
-            id: '2',
-            name: 'Shitty Things Happens',
+            id: '3',
+            name: 'Shitty Things Happens v1',
             url: 'http://remind-rewind.com/music/Shitty_Things_Happens.mp3',
+            musicians: [{
+                id: '1',
+                firstName: 'Clément',
+                lastName: 'Freymond',
+                instrument: 'Guitar'
+            }, {
+                id: '2',
+                firstName: 'Henry',
+                lastName: 'XXX',
+                instrument: 'Bass'
+            }, {
+                id: '3',
+                firstName: 'Paul',
+                lastName: 'Souvestre',
+                instrument: 'Drums'
+            }]
+        }, {
+            id: '4',
+            name: 'Come As A Crap v1',
+            url: 'http://remind-rewind.com/music/Come_As_A_Crap.mp3',
             musicians: [{
                 id: '1',
                 firstName: 'Clément',
