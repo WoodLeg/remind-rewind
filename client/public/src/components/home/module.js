@@ -51,7 +51,7 @@ export default class HomeComponent extends React.Component {
                                     <h1 className="home__props-card-header-title">Revendiquez votre musique</h1>
                                 </div>
                                 <div className="home__props-card-body">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+                                    Assurez-vous du résultat. Notre objectif est de <strong>vous</strong> permettre de produire votre musique, pas la notre ou celle d''un autre.
                                 </div>
                             </div>
                         </div>
@@ -60,10 +60,10 @@ export default class HomeComponent extends React.Component {
                                 <div className="home__props-card-decoration"></div>
                                 <div className="home__props-card-header">
                                     <img src={"/assets/img/animat-essential/rocket/animat-rocket-color.gif"} className="home__props-card-header-logo  pull-left" />
-                                    <h1 className="home__props-card-header-title">Propulsez rapidement</h1>
+                                    <h1 className="home__props-card-header-title">Partagez rapidement</h1>
                                 </div>
                                 <div className="home__props-card-body">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+                                    RR Studio vous propose de diffuser gratuitement votre morceau sur une page artiste dédiée. <em>(plusieurs services associés coming soon)</em>
                                 </div>
                             </div>
                         </div>
@@ -75,7 +75,7 @@ export default class HomeComponent extends React.Component {
                                     <h1 className="home__props-card-header-title">Une idée ? Record it !</h1>
                                 </div>
                                 <div className="home__props-card-body">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+                                    Un projet pas encore abouti, mais vous voulez pouvoir prendre du recul dessus ? Enregistrez une démo.
                                 </div>
                             </div>
                         </div>
@@ -84,10 +84,10 @@ export default class HomeComponent extends React.Component {
                                 <div className="home__props-card-decoration"></div>
                                 <div className="home__props-card-header">
                                     <img src={"/assets/img/animat-essential/diamond/animat-diamond-color.gif"} className="home__props-card-header-logo  pull-left" />
-                                    <h1 className="home__props-card-header-title">Prix très abordable</h1>
+                                    <h1 className="home__props-card-header-title">Prix cassé</h1>
                                 </div>
                                 <div className="home__props-card-body">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+                                    Nous voulons testez de nouveaux moyens de production sur l''industrie de la musique grâce à Internet, nos prix reflètent cette volonté.
                                 </div>
                             </div>
                         </div>
