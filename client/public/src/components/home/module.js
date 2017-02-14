@@ -41,30 +41,54 @@ export default class HomeComponent extends React.Component {
                     </div>
                 </div>
                 <div className="col-xs-12 home__props">
-                    
+
                     <div className="col-xs-12 home__props-card-list">
                         <div className="col-xs-12 col-sm-5 col-sm-offset-1 home__props-card-container">
                             <div className="home__props-card">
                                 <div className="home__props-card-decoration"></div>
-
+                                <div className="home__props-card-header">
+                                    <img src={"/assets/img/animat-essential/checkmark/animat-checkmark-color.gif"} className="home__props-card-header-logo  pull-left" />
+                                    <h1 className="home__props-card-header-title">Revendiquez votre musique</h1>
+                                </div>
+                                <div className="home__props-card-body">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+                                </div>
                             </div>
                         </div>
                         <div className="col-xs-12 col-sm-5 home__props-card-container">
                             <div className="home__props-card">
                                 <div className="home__props-card-decoration"></div>
-
+                                <div className="home__props-card-header">
+                                    <img src={"/assets/img/animat-essential/rocket/animat-rocket-color.gif"} className="home__props-card-header-logo  pull-left" />
+                                    <h1 className="home__props-card-header-title">Propulsez rapidement</h1>
+                                </div>
+                                <div className="home__props-card-body">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+                                </div>
                             </div>
                         </div>
                         <div className="col-xs-12 col-sm-5 col-sm-offset-1 home__props-card-container">
                             <div className="home__props-card">
                                 <div className="home__props-card-decoration"></div>
-
+                                <div className="home__props-card-header">
+                                    <img src={"/assets/img/animat-essential/lightbulb/animat-lightbulb-color.gif"} className="home__props-card-header-logo  pull-left" />
+                                    <h1 className="home__props-card-header-title">Une idée ? Record it !</h1>
+                                </div>
+                                <div className="home__props-card-body">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+                                </div>
                             </div>
                         </div>
                         <div className="col-xs-12 col-sm-5 home__props-card-container">
                             <div className="home__props-card">
                                 <div className="home__props-card-decoration"></div>
-
+                                <div className="home__props-card-header">
+                                    <img src={"/assets/img/animat-essential/diamond/animat-diamond-color.gif"} className="home__props-card-header-logo  pull-left" />
+                                    <h1 className="home__props-card-header-title">Prix très abordable</h1>
+                                </div>
+                                <div className="home__props-card-body">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+                                </div>
                             </div>
                         </div>
                     </div>
