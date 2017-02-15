@@ -45,11 +45,13 @@ export default class HomeComponent extends React.Component {
                     <div className="col-xs-12 home__props-card-list">
                         <div className="col-xs-12 col-sm-5 col-sm-offset-1 home__props-card-container">
                             <div className="home__props-card">
-                                <div className="home__props-card-decoration"></div>
+                                <div className="home__props-card-decoration-orange"></div>
+                                <div className="home__props-card-decoration-blue"></div>
                                 <div className="home__props-card-header">
-                                    <img src={"/assets/img/animat-essential/checkmark/animat-checkmark-color.gif"} className="home__props-card-header-logo  pull-left" />
+                                    <img src={"/assets/img/animat-essential/checkmark/animat-checkmark-color.gif"} className="home__props-card-header-logo  pull-right" />
                                     <h1 className="home__props-card-header-title">Revendiquez votre musique</h1>
                                 </div>
+                                <hr></hr>
                                 <div className="home__props-card-body">
                                     Assurez-vous du résultat. Notre objectif est de <strong>vous</strong> permettre de produire votre musique, pas la notre ou celle d''un autre.
                                 </div>
@@ -57,11 +59,13 @@ export default class HomeComponent extends React.Component {
                         </div>
                         <div className="col-xs-12 col-sm-5 home__props-card-container">
                             <div className="home__props-card">
-                                <div className="home__props-card-decoration"></div>
+                                <div className="home__props-card-decoration-orange"></div>
+                                <div className="home__props-card-decoration-pinkish"></div>
                                 <div className="home__props-card-header">
-                                    <img src={"/assets/img/animat-essential/rocket/animat-rocket-color.gif"} className="home__props-card-header-logo  pull-left" />
+                                    <img src={"/assets/img/animat-essential/rocket/animat-rocket-color.gif"} className="home__props-card-header-logo  pull-right" />
                                     <h1 className="home__props-card-header-title">Partagez rapidement</h1>
                                 </div>
+                                <hr></hr>
                                 <div className="home__props-card-body">
                                     RR Studio vous propose de diffuser gratuitement votre morceau sur une page artiste dédiée. <em>(plusieurs services associés coming soon)</em>
                                 </div>
@@ -69,11 +73,13 @@ export default class HomeComponent extends React.Component {
                         </div>
                         <div className="col-xs-12 col-sm-5 col-sm-offset-1 home__props-card-container">
                             <div className="home__props-card">
-                                <div className="home__props-card-decoration"></div>
+                                <div className="home__props-card-decoration-orange"></div>
+                                <div className="home__props-card-decoration-green"></div>
                                 <div className="home__props-card-header">
-                                    <img src={"/assets/img/animat-essential/lightbulb/animat-lightbulb-color.gif"} className="home__props-card-header-logo  pull-left" />
+                                    <img src={"/assets/img/animat-essential/lightbulb/animat-lightbulb-color.gif"} className="home__props-card-header-logo  pull-right" />
                                     <h1 className="home__props-card-header-title">Une idée ? Record it !</h1>
                                 </div>
+                                <hr></hr>
                                 <div className="home__props-card-body">
                                     Un projet pas encore abouti, mais vous voulez pouvoir prendre du recul dessus ? Enregistrez une démo.
                                 </div>
@@ -81,11 +87,13 @@ export default class HomeComponent extends React.Component {
                         </div>
                         <div className="col-xs-12 col-sm-5 home__props-card-container">
                             <div className="home__props-card">
-                                <div className="home__props-card-decoration"></div>
+                                <div className="home__props-card-decoration-orange"></div>
+                                <div className="home__props-card-decoration-orangish"></div>
                                 <div className="home__props-card-header">
-                                    <img src={"/assets/img/animat-essential/diamond/animat-diamond-color.gif"} className="home__props-card-header-logo  pull-left" />
+                                    <img src={"/assets/img/animat-essential/diamond/animat-diamond-color.gif"} className="home__props-card-header-logo  pull-right" />
                                     <h1 className="home__props-card-header-title">Prix cassé</h1>
                                 </div>
+                                <hr></hr>
                                 <div className="home__props-card-body">
                                     Nous voulons testez de nouveaux moyens de production sur l''industrie de la musique grâce à Internet, nos prix reflètent cette volonté.
                                 </div>
