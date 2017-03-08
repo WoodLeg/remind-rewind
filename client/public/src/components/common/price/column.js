@@ -12,13 +12,14 @@ export default class ColumnComponent extends React.Component {
 
         this.fullPrice = this._computeFullPrice.bind(this);
         this.musiciansPrice = this._computeMusiciansPrice.bind(this);
+        this.featurePrice = this._featurePrice.bind(this);
 
     }
 
     _computeFullPrice(array, musiciansPrice) {
         let price = 0;
         for (let i = 0; i < array.length; i++) {
-            price += array[i].price;
+            price += this.featurePrice(array[i].price);
         }
         return price + musiciansPrice;
     };
@@ -27,12 +28,19 @@ export default class ColumnComponent extends React.Component {
         return price * number;
     }
 
+    _featurePrice(price) {
+        if (store.musicians > 3) {
+            return price + (((price * 50) / 100) * store.musicians);
+        } else {
+            return price;
+        }
+    }
+
     componentWillMount(){
         this.data = this.props.data;
     }
 
     componentWillReact() {
-        console.log('React');
     }
 
     render() {
@@ -55,7 +63,7 @@ export default class ColumnComponent extends React.Component {
                         <ul className="col-xs-12">
                             {
                                 store.features.map((feature, index) => {
-                                    return <li key={index} ><span className="pull-left">{feature.name} :</span> <span className="pull-right">{feature.price} €</span></li>;
+                                    return <li key={index} ><span className="pull-left">{feature.name} :</span> <span className="pull-right">{this.featurePrice(feature.price)} €</span></li>;
                                 })
                             }
                         </ul>

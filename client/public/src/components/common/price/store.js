@@ -45,11 +45,18 @@ class PricingTableStore {
     featurePrice() {
         let price = 0;
         for (let i = 0; i < this.features.length; i++) {
-            price += this.features[i].price;
+            price += this.pricePourcent(this.features[i].price);
         }
         return price;
     }
 
+    pricePourcent(price) {
+        if (this.musicians > 3) {
+            return price + (((price * 50) / 100) * this.musicians);
+        } else {
+            return price;
+        }
+    }
 
 
 }
