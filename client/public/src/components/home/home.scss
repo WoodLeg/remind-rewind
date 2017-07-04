@@ -2,7 +2,7 @@
     .remindrewind {
         font-family: 'Bahiana', cursive;
         letter-spacing: 5px;
-        font-size: 1.5em;
+        font-size: 1em;
     }
     .orange {
         color: $orange;
@@ -10,117 +10,47 @@
     &__header {
         position: relative;
         padding: 0;
-        padding-top: 70px;
-        height: 720px;
+        height: 100vh;
         color: white;
-        @media only screen and (min-width: $screen-lg) {
-            height: 1000px;
-        }
-        @media only screen and (max-width: $screen-sm) {
-            height: 750px;
-        }
-        @media only screen and (max-width: $screen-xs){
-            height: 500px;
-        }
-        &-img {
-            position: absolute;
-            top:0; left:0;
-            z-index: -1;
-            width: 100%;
-            height: 720px;
-            background: url('/assets/img/header_bg.jpg') no-repeat top center;
-            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 90%);
-            background-size: cover;
-            @media only screen and (min-width: $screen-lg) {
-                height: 1000px;
-            }
-            @media only screen and (max-width: $screen-sm ) {
-                height: 850px;
-            }
-            @media only screen and (max-width: $screen-xs) {
-                height: 600px;
-            }
-        }
+        background: url('/assets/img/header_bg.jpg') no-repeat top center;
+        background-color: #6E4F6A;
+        background-size: cover;
         &-title {
-            font-family: 'Bahiana', cursive;
-            margin-top: 120px;
-            text-align:center;
+            margin-top: 30vh;
+            text-align:left;
             text-shadow: 1px solid black;
-            font-size: 8em;
-            @media only screen and (min-width: $screen-lg) {
-                font-size: 10em;
-            }
-            @media only screen and (max-width: $screen-lg) {
-                margin-top: 70px;
-                font-size: 6.5em;
-            }
-            @media only screen and (max-width: $screen-sm) {
-                margin-top: 60px;
-                font-size: 6em;
-            }
-            @media only screen and (max-width: $screen-xs) {
-                margin-top: 40px;
-                font-size: 4em;
-            }
+            font-size: 4em;
+            font-weight: 800;
+            transform: translate3d(-2%,-2%,0);
+            opacity: 0;
+            animation: appear 2s cubic-bezier(.47,.01,0,1.01) forwards 0.5s;
+            animation-delay: 0.5s;
         }
         &-body {
-            margin-top: 30px;
-            padding: 0px 40px 0px 40px;
+            margin-top: 10px;
             font-size: 1.5em;
             font-weight: 200;
-            text-align:justify;
-            letter-spacing: 5px;
-            @media only screen and (min-width: $screen-lg) {
-                margin-top: 50px;
-                padding: 0px 80px 0px 80px;
-                font-size: 3em;
-                text-align: center;
-            }
-            @media only screen and (max-width: $screen-lg) {
-                font-size: 2em;
-                padding: 0px 20px 0px 20px;
-            }
-            @media only screen and (max-width: $screen-sm) {
-                padding: 5px 80px 0px 80px;
-                font-size: 2.5em;
-            }
-            @media only screen and (max-width: $screen-xs) {
-                padding: 0px 20px 0px 20px;
-                text-align: center;
-                font-size: 1.5em;
-            }
+            text-align:left;
+            letter-spacing: 1px;
+            transform: translate3d(2%,-2%,0);
+            opacity: 0;
+            animation: appear 2s cubic-bezier(.47,.01,0,1.01) forwards 1s;
+            animation-delay: 1s;
             &-btn {
-                margin-top: 60px;
-                padding: 15px;
+                display: inline-block;
+                margin-top: 5vh;
+                padding: 11px 32px 11px 32px;
                 text-decoration: none;
                 text-align: center;
-                font-weight: 500;
-                font-size: 2em;
+                font-weight: 100;
+                font-size: 1.5em;
                 color: white;
                 background: darken($blue, 10%);
                 border-radius: 2px;
+                opacity: 0;
+                transform: translate3d(0%, 50%,0);
+                animation: appear 2s cubic-bezier(.47,.01,0,1.01) forwards 1.5s;
                 transition: background 0.5s ease;
-                font-family: 'Bahiana', cursive;
-                letter-spacing: 3px;
-                font-size: 3em;
-                @media only screen and (min-width: $screen-lg) {
-                    font-size: 2.5em;
-                    padding: 15px 10px 15px 10px;
-                }
-                @media only screen and (max-width: $screen-lg) {
-                    padding: 15px;
-                    font-size: 2em;
-                }
-                @media only screen and (max-width: $screen-sm) {
-                    margin-top: 120px;
-                    padding: 30px;
-                    font-size: 3em;
-                }
-                @media only screen and (max-width: $screen-xs) {
-                    padding: 10px;
-                    font-size: 2em;
-                    margin-top: 30px;
-                }
                 &:hover, &:focus {
                     text-decoration: none;
                     color: white;
