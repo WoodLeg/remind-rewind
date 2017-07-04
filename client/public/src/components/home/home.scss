@@ -62,132 +62,67 @@
     }
     &__streamline {
         position: relative;
-        height: 700px;
-        padding: 0;
-        color: black;
-        margin-top: -100px;
-        @media only screen and (min-width: $screen-lg) {
-            height: 700px;
-            padding-top: 120px;
-        }
-        @media only screen and (max-width: $screen-lg) {
-            padding-top: 120px;
-        }
-        @media only screen and (max-width: $screen-sm) {
-            margin-top: 0px;
-            height: 850px;
-        }
-        @media only screen and (max-width: $screen-xs) {
-            height: 850px;
-        }
+        height: 85vh;
+        padding-top: 15vh;
         &-body {
-            z-index: -1;
-            padding-top: 20px;
             color: white;
             &-title {
                 text-align: center;
                 font-weight: 100;
-                @media only screen and (min-width: $screen-lg) {
-                    font-size: 6em;
-                }
-                @media only screen and (max-width: $screen-sm) {
-                    font-size: 6em;
-                }
-                @media only screen and (max-width: $screen-xs) {
-                    font-size: 4em;
-                }
+                font-size: 4em;
                 &-big {
                     font-weight: 500;
                     color: $orange;
                 }
             }
             &-content {
-                z-index: 1;
                 margin-top: 40px;
                 padding: 0px 40px 0px 40px;
                 font-weight: 300;
-                font-size: 1.5em;
+                font-size: 2em;
                 text-align: justify;
-                @media only screen and (min-width: $screen-lg) {
-                    font-size: 2.2em;
-                    margin-top: 40px;
-                }
-                @media only screen and (max-width: $screen-sm) {
-                    font-size: 2.4em;
-                }
-                @media only screen and (max-width: $screen-xs) {
-                    padding: 0px 10px 0px 10px;
-                    font-size: 1.7em;
-                }
             }
         }
         &-filter {
             position: absolute;
             top: 0;
             right: 0;
-            z-index:-2;
+            z-index: -2;
             width: 100%;
-            height: 700px;
+            height: 85vh;
             background: rgba(0,0,0,0.7);
-            clip-path: polygon(0% 0%, 100% 0%, 100% 87%, 0% 100%);
-            @media only screen and (min-width: $screen-lg){
-                height: 700px;
-            }
-            @media only screen and (max-width: $screen-sm){
-                height: 650px;
-            }
-            @media only screen and (max-width: $screen-xs) {
-                height: 650px;
-            }
         }
         &-img {
             position: absolute;
             top:0px; right: 0;
             z-index: -3;
             width: 100%;
-            height: 700px;
+            height: 85vh;
             background: $background;
             background: url('/assets/img/neve2.jpg') no-repeat top center;
             background-size: cover;
             background-position: 0% -50px;
-            clip-path: polygon(0% 0%, 100% 0%, 100% 87%, 0% 100%);
-            @media only screen and (min-width: $screen-lg){
-                height: 700px;
-            }
-            @media only screen and (max-width: $screen-sm){
-                height: 650px;
-            }
-            @media only screen and (max-width: $screen-xs) {
-                height: 650px;
-            }
         }
     }
     &__props {
-        margin-top: -140px;
-        padding-top: 70px;
+        position: relative;
         padding-bottom: 100px;
-        z-index: -4;
-        &-title {
-            color: white;
-            margin-top: 50px;
-            margin-bottom: 30px;
-            font-size: 5em;
-            font-family: 'Bahiana', 'cursive';
-            text-align: center;
-            @media only screen and (min-width: $screen-lg) {
-                font-size: 7em;
-            }
-            @media only screen and (max-width: $screen-sm) {
-                font-size: 6em;
-            }
-            @media only screen and (max-width: $screen-xs) {
-
-            }
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.08), 0 1px 10px 0 rgba(0, 0, 0, 0.06);
+        &::before {
+          content: '';
+          position: absolute;
+          z-index: 1;
+          top: -10vh;
+          left: 0;
+          width: 100%;
+          height: 150px;
+          transform: skewY(-5deg);
+          background: $background;
         }
-
         &-card {
+            z-index: 11;
             &-list {
-                padding-top: 70px;
+                padding-top: 0px;
             }
             &-container {
                 margin-top: 70px;
@@ -290,7 +225,7 @@
         position: relative;
         min-height: 500px;
         padding-bottom: 100px;
-        background: $background;
+        background: white;
         @media only screen and (max-width: $screen-sm ) {
             margin-top: -130px;
         }
