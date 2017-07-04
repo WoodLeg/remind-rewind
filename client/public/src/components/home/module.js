@@ -37,62 +37,62 @@ export default class HomeComponent extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div className="col-xs-12 home__props">
 
-                    <div className="col-xs-12 home__props-card-list">
-                        <div className="col-xs-12 col-sm-5 col-sm-offset-1 home__props-card-container">
-                            <div className="home__props-card">
-                                <div className="home__props-card-decoration-orange"></div>
-                                <div className="home__props-card-decoration-blue"></div>
-                                <div className="home__props-card-header">
-                                    <img src={"/assets/img/animat-essential/checkmark/animat-checkmark-color.gif"} className="home__props-card-header-logo  pull-right" />
-                                    <h1 className="home__props-card-header-title">Revendiquez votre musique</h1>
+                <div className="col-xs-12 home__descr">
+                    <div className="col-xs-12 home__descr-card-list">
+
+                        <div className="col-xs-12 col-md-offset-1 col-md-5">
+                            <div className="home__descr-card music">
+                                <div className="home__descr-card-artist-title">
+                                    <h1 className="home__descr-card-music-title">Revendiquez votre musique</h1>
                                 </div>
-                                <hr></hr>
-                                <div className="home__props-card-body">
+                                <div className="home__descr-card-music-text">
                                     Assurez-vous du résultat. Notre objectif est de <strong>vous</strong> permettre de produire votre musique, pas la notre ou celle d''un autre.
                                 </div>
+                                <div className="home__descr-card-music-pastille shadow-1">
+                                    <img src={"/assets/img/animat-essential/checkmark/animat-checkmark-color.gif"} className="home__descr-card-music-pastille-img" />
+                                </div>
                             </div>
                         </div>
-                        <div className="col-xs-12 col-sm-5 home__props-card-container">
-                            <div className="home__props-card">
-                                <div className="home__props-card-decoration-orange"></div>
-                                <div className="home__props-card-decoration-pinkish"></div>
-                                <div className="home__props-card-header">
-                                    <img src={"/assets/img/animat-essential/rocket/animat-rocket-color.gif"} className="home__props-card-header-logo  pull-right" />
-                                    <h1 className="home__props-card-header-title">Partagez rapidement</h1>
+
+                        <div className="col-xs-12 col-md-5">
+                            <div className="home__descr-card record">
+                                <div className="home__descr-card-record-title">
+                                    <h1 className="home__descr-card-record-title">Une idée ? Record it !</h1>
                                 </div>
-                                <hr></hr>
-                                <div className="home__props-card-body">
+                                <div className="home__descr-card-record-text">
+                                Un projet pas encore abouti, mais vous voulez pouvoir prendre du recul dessus ? Enregistrez une démo.
+                                </div>
+                                <div className="home__descr-card-record-pastille shadow-1">
+                                    <img src={"/assets/img/animat-essential/lightbulb/animat-lightbulb-color.gif"} className="home__descr-card-record-pastille-img" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="col-xs-12 col-md-offset-1 col-md-5">
+                            <div className="home__descr-card price">
+                                <div className="home__descr-card-price-title">
+                                    <h1 className="home__descr-card-price-title">Prix cassé</h1>
+                                </div>
+                                <div className="home__descr-card-price-text">
+                                    Nous voulons testez de nouveaux moyens de production sur l''industrie de la musique grâce à Internet, nos prix reflètent cette volonté.
+                                </div>
+                                <div className="home__descr-card-price-pastille shadow-1">
+                                    <img src={"/assets/img/animat-essential/diamond/animat-diamond-color.gif"} className="home__descr-card-price-pastille-img" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="col-xs-12 col-md-5">
+                            <div className="home__descr-card share">
+                                <div className="home__descr-card-share-title">
+                                    <h1 className="home__descr-card-share-title">Partagez rapidement</h1>
+                                </div>
+                                <div className="home__descr-card-share-text">
                                     RR Studio vous propose de diffuser gratuitement votre morceau sur une page artiste dédiée. <em>(plusieurs services associés coming soon)</em>
                                 </div>
-                            </div>
-                        </div>
-                        <div className="col-xs-12 col-sm-5 col-sm-offset-1 home__props-card-container">
-                            <div className="home__props-card">
-                                <div className="home__props-card-decoration-orange"></div>
-                                <div className="home__props-card-decoration-green"></div>
-                                <div className="home__props-card-header">
-                                    <img src={"/assets/img/animat-essential/lightbulb/animat-lightbulb-color.gif"} className="home__props-card-header-logo  pull-right" />
-                                    <h1 className="home__props-card-header-title">Une idée ? Record it !</h1>
-                                </div>
-                                <hr></hr>
-                                <div className="home__props-card-body">
-                                    Un projet pas encore abouti, mais vous voulez pouvoir prendre du recul dessus ? Enregistrez une démo.
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-xs-12 col-sm-5 home__props-card-container">
-                            <div className="home__props-card">
-                                <div className="home__props-card-decoration-orange"></div>
-                                <div className="home__props-card-decoration-orangish"></div>
-                                <div className="home__props-card-header">
-                                    <img src={"/assets/img/animat-essential/diamond/animat-diamond-color.gif"} className="home__props-card-header-logo  pull-right" />
-                                    <h1 className="home__props-card-header-title">Prix cassé</h1>
-                                </div>
-                                <hr></hr>
-                                <div className="home__props-card-body">
-                                    Nous voulons testez de nouveaux moyens de production sur l''industrie de la musique grâce à Internet, nos prix reflètent cette volonté.
+                                <div className="home__descr-card-share-pastille shadow-1">
+                                    <img src={"/assets/img/animat-essential/rocket/animat-rocket-color.gif"} className="home__descr-card-share-pastille-img" />
                                 </div>
                             </div>
                         </div>

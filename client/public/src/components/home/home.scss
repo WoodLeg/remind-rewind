@@ -68,10 +68,10 @@
             color: white;
             &-title {
                 text-align: center;
-                font-weight: 100;
+                font-weight: 300;
                 font-size: 4em;
                 &-big {
-                    font-weight: 500;
+                    font-weight: 800;
                     color: $orange;
                 }
             }
@@ -104,8 +104,9 @@
             background-position: 0% -50px;
         }
     }
-    &__props {
+    &__descr {
         position: relative;
+        padding-top: 120px;
         padding-bottom: 100px;
         box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.08), 0 1px 10px 0 rgba(0, 0, 0, 0.06);
         &::before {
@@ -120,102 +121,277 @@
           background: $background;
         }
         &-card {
-            z-index: 11;
-            &-list {
-                padding-top: 0px;
+          position: relative;
+          margin-bottom: 70px;
+          padding: 10px 20px 30px 20px;
+          color: $primary-text;
+          box-shadow: 0 1px 3px rgba(0,0,0,0.2), 0 1px 1px rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12) !important;
+          &.music {
+            &::before {
+              content: '';
+              position: absolute;
+              z-index: 1;
+              top: 19px;
+              left: 0;
+              height: 75px;
+              width: 100%;
+              border-radius: 5px;
+              background: -webkit-linear-gradient(right,#de599c,#752995);
+              transform: scale(0);
+              transition: all 0.3s ease-in-out;
             }
-            &-container {
-                margin-top: 70px;
+          }
+          &.record {
+            &::before {
+              content: '';
+              position: absolute;
+              z-index: 0;
+              top: 19px;
+              left: 0;
+              height: 75px;
+              width: 100%;
+              border-radius: 5px;
+              background: -webkit-linear-gradient(left,black, $red);
+              transform: scale(0);
+              transition: all 0.2s ease-in-out;
             }
-            position: relative;
-            height: 250px;
-            background: white;
-            color: $text-color;
-            border-radius: 2px;
-            overflow: hidden;
-            padding: 0px;
-            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-            transition: all 0.3s ease;
-            &:hover {
+          }
+          &.price {
+            &::before {
+              content: '';
+              position: absolute;
+              z-index: 0;
+              top: 19px;
+              left: 0;
+              height: 75px;
+              width: 100%;
+              border-radius: 5px;
+              background: -webkit-linear-gradient(right,#F7CA4A,#F7724A);
+              transform: scale(0);
+              transition: all 0.2s ease-in-out;
+            }
+          }
+          &.share {
+            &::before {
+              content: '';
+              position: absolute;
+              z-index: 0;
+              top: 19px;
+              left: 0;
+              height: 75px;
+              width: 100%;
+              border-radius: 5px;
+              background: -webkit-linear-gradient(left,#3E80F7,#36D6BD);
+              transform: scale(0);
+              transition: all 0.2s ease-in-out;
+            }
+          }
+          &:hover {
+            cursor: pointer;
+            &.music {
+              &::before {
+                transform: scale(1.1);
+              }
+              .home__descr-card-music-pastille{
                 transform: translateY(-10px);
-                cursor: pointer;
-                box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+              }
             }
-            &-header {
-                height: 80px;
-                width: 100%;
-                position: relative;
-                &-logo {
-                    width: 60px;
-                    height: auto;
-                    margin-top: 10px;
-                    margin-right: 10px;
-                }
-                &-title {
-                    font-size: 2em;
-                    font-weight: 300;
-                    margin: 0px 0px 0px 20px;
-                    line-height: 78px;
-                }
+            &.record {
+              &::before {
+                transform: scale(1.1);
+              }
+              .home__descr-card-record-pastille{
+                transform: translateY(-10px);
+              }
             }
-            hr {
-                margin:0;
-                width: 92%;
-                margin-left: 4%;
-                border-color: rgba($text-color, 0.2);
+            &.price {
+              &::before {
+                transform: scale(1.1);
+              }
+              .home__descr-card-price-pastille{
+                transform: translateY(-10px);
+              }
             }
-            &-body {
-                padding: 20px;
-                font-size: 1.5em;
-                font-weight: 200;
+            &.share {
+              &::before {
+                transform: scale(1.1);
+              }
+              .home__descr-card-share-pastille{
+                transform: translateY(-10px);
+              }
             }
-            &-decoration {
-                &-orange{
-                    position: absolute;
-                    bottom:0;
-                    left:0;
-                    width: 100%;
-                    height: 60px;
-                    background: rgba($orange, 0.5);
-                    clip-path: polygon(20% 100%, 100% 0%, 100% 100%);
-                }
-                &-pinkish{
-                    position: absolute;
-                    bottom:0;
-                    left:0;
-                    height: 50px;
-                    width: 100%;
-                    background: rgba($pinkish, 0.5);
-                    clip-path: polygon(0% 20%, 60% 100%, 0% 100%);
-                }
-                &-blue{
-                    position: absolute;
-                    bottom:0;
-                    left:0;
-                    height: 50px;
-                    width: 100%;
-                    background: rgba($blue, 0.5);
-                    clip-path: polygon(0% 20%, 60% 100%, 0% 100%);
-                }
-                &-green{
-                    position: absolute;
-                    bottom:0;
-                    left:0;
-                    height: 50px;
-                    width: 100%;
-                    background: rgba($green, 0.5);
-                    clip-path: polygon(0% 20%, 60% 100%, 0% 100%);
-                }
-                &-orangish{
-                    position: absolute;
-                    bottom:0;
-                    left:0;
-                    height: 50px;
-                    width: 100%;
-                    background: rgba($orangish, 0.5);
-                    clip-path: polygon(0% 20%, 60% 100%, 0% 100%);
-                }
+            .home__descr-card-music-title {
+              background: white;
+              -webkit-text-fill-color: transparent;
+              -webkit-background-clip: text;
             }
+            .home__descr-card-record-title {
+              background: white;
+              -webkit-text-fill-color: transparent;
+              -webkit-background-clip: text;
+            }
+            .home__descr-card-price-title {
+              background: white;
+              -webkit-text-fill-color: transparent;
+              -webkit-background-clip: text;
+            }
+            .home__descr-card-share-title {
+              background: white;
+              -webkit-text-fill-color: transparent;
+              -webkit-background-clip: text;
+            }
+          }
+          &-music {
+            &-title {
+              position: relative;
+              z-index: 10;
+              @media only screen and (max-width: $screen-xs) {
+                color: black;
+              }
+              color: $purple;
+              background: -webkit-linear-gradient(right,#de599c,#752995);
+              -webkit-text-fill-color: transparent;
+              -webkit-background-clip: text;
+              font-weight: 900;
+              font-size: 2.5em;
+              margin-top: 25px;
+              text-transform: capitalize;
+              letter-spacing: -1px;
+              transition: all 0.2s ease-in-out;
+            }
+            &-text {
+              font-size: 1.5em;
+              margin-top: 30px;
+              margin-bottom: 30px;
+            }
+            &-pastille {
+              position: absolute;
+              bottom: -32px;
+              left: 41%;
+              width: 65px;
+              height: 65px;
+              background: white;
+              border-radius: 50%;
+              transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+              &-img {
+                display: block;
+                width: 65px;
+                margin: 0px auto;
+                height: auto;
+              }
+            }
+          }
+          &-share {
+            &-title {
+              position: relative;
+              z-index: 10;
+              color: $yellow;
+              background: -webkit-linear-gradient(left,#3E80F7,#36D6BD);
+              -webkit-text-fill-color: transparent;
+              -webkit-background-clip: text;
+              font-weight: 900;
+              margin-top: 25px;
+            //   font-size: 2.5em;
+              text-transform: capitalize;
+              letter-spacing: -1px;
+              transition: all 0.2s ease-in-out;
+            }
+            &-text {
+              font-size: 1.5em;
+              margin-top: 30px;
+              margin-bottom: 30px;
+            }
+            &-pastille {
+              position: absolute;
+              bottom: -30px;
+              left: 41%;
+              width: 65px;
+              height: 65px;
+              background: white;
+              border-radius: 50%;
+              transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+              &-img {
+                display: block;
+                width: 65px;
+                margin: 0px auto;
+                height: auto;
+              }
+            }
+          }
+          &-price {
+            &-title {
+              position: relative;
+              z-index: 10;
+              color: $yellow;
+              background: -webkit-linear-gradient(right,#F7CA4A,#F7724A);
+              -webkit-text-fill-color: transparent;
+              -webkit-background-clip: text;
+              font-weight: 900;
+            //   font-size: 3em;
+            margin-top: 25px;
+              text-transform: capitalize;
+              letter-spacing: -1px;
+              transition: all 0.2s ease-in-out;
+            }
+            &-text {
+              font-size: 1.5em;
+              margin-top: 30px;
+              margin-bottom: 30px;
+            }
+            &-pastille {
+              position: absolute;
+              bottom: -30px;
+              left: 41%;
+              width: 65px;
+              height: 65px;
+              background: white;
+              border-radius: 50%;
+              transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+              &-img {
+                display: block;
+                width: 65px;
+                margin: 0px auto;
+                height: auto;
+              }
+            }
+          }
+          &-record {
+            &-title {
+              position: relative;
+              z-index: 10;
+              color: $yellow;
+              background: -webkit-linear-gradient(left,#000000 10%,$red 30%);
+              -webkit-text-fill-color: transparent;
+              -webkit-background-clip: text;
+              font-weight: 900;
+            //   font-size: 3em;
+                margin-top: 25px;
+              text-transform: capitalize;
+              letter-spacing: -1px;
+              transition: all 0.2s ease-in-out;
+            }
+            &-text {
+              font-size: 1.5em;
+              margin-top: 30px;
+              margin-bottom: 30px;
+            }
+            &-pastille {
+              position: absolute;
+              bottom: -30px;
+              left: 41%;
+              width: 65px;
+              height: 65px;
+              background: white;
+              border-radius: 50%;
+              transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+              &-img {
+                display: block;
+                width: 65px;
+                margin: 0px auto;
+                height: auto;
+              }
+            }
+          }
         }
     }
     &__tarif {
