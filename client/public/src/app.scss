@@ -1,8 +1,8 @@
 @import 'bootstrap';
-@import url('https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:100,200,300,400');
-@import url('https://fonts.googleapis.com/css?family=Bahiana');
+@import "../bower_components/bourbon/app/assets/stylesheets/_bourbon.scss";
 
 @import './assets/style/palette.scss';
+@import './assets/style/fonts_loader.scss';
 @import './assets/style/fonts/font-awesome.scss';
 @import './assets/style/main.scss';
 @import './assets/style/common.scss';

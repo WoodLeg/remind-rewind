@@ -1,0 +1,33 @@
+// Raleway Regular
+@include font-face('Raleway', '../fonts/Raleway/Raleway-Regular', 400, $file-formats: ttf);
+// @include font-face('Raleway', '@/static/fonts/Raleway/Raleway-Regular', 400, italic);
+
+// Raleway Light
+@include font-face('Raleway', '../fonts/Raleway/Raleway-Light', 300, $file-formats: ttf);
+@include font-face('Raleway', '../fonts/Raleway/Raleway-LightItalic', 300, italic, $file-formats: ttf);
+
+// Raleway extra light
+@include font-face('Raleway', '../fonts/Raleway/Raleway-ExtraLight', 200, $file-formats: ttf);
+@include font-face('Raleway', '../fonts/Raleway/Raleway-ExtraLightItalic', 200, italic, $file-formats: ttf);
+
+// Raleway Thin
+@include font-face('Raleway', '../fonts/Raleway/Raleway-Thin', 100, $file-formats: ttf);
+@include font-face('Raleway', '../fonts/Raleway/Raleway-ThinItalic', 100, italic, $file-formats: ttf);
+
+// Raleway Medium
+@include font-face('Raleway', '../fonts/Raleway/Raleway-Medium', 500, $file-formats: ttf);
+@include font-face('Raleway', '../fonts/Raleway/Raleway-MediumItalic', 500, italic, $file-formats: ttf);
+
+// Raleway Bold
+@include font-face('Raleway', '../fonts/Raleway/Raleway-Bold', 700, $file-formats: ttf);
+@include font-face('Raleway', '../fonts/Raleway/Raleway-BoldItalic', 700, italic, $file-formats: ttf);
+
+// Raleway ExtraBold
+@include font-face('Raleway', '../fonts/Raleway/Raleway-ExtraBold', 800, $file-formats: ttf);
+@include font-face('Raleway', '../fonts/Raleway/Raleway-ExtraBoldItalic', 800, italic, $file-formats: ttf);
+
+//Raleway Black
+@include font-face('Raleway', '../fonts/Raleway/Raleway-Black', 900, $file-formats: ttf);
+@include font-face('Raleway', '../fonts/Raleway/Raleway-BlackItalic', 900, italic, $file-formats: ttf);
+
+@include font-face('Bahiana', '../fonts/Bahiana/Bahiana-Regular', 44, $file-formats: ttf);
