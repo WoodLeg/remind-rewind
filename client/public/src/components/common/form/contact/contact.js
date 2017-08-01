@@ -3,7 +3,6 @@ import { observer, inject } from 'mobx-react';
 
 import form from './form.js';
 
-
 @observer
 export default class ContactFormComponent extends React.Component {
     constructor() {
@@ -11,7 +10,7 @@ export default class ContactFormComponent extends React.Component {
     }
 
     componentWillMount() {
-      console.log(this.props);
+
     }
 
     render() {

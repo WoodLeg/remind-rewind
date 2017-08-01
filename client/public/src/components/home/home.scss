@@ -45,8 +45,9 @@
                 font-weight: 100;
                 font-size: 1.5em;
                 color: white;
+                border: none;
                 background: darken($blue, 10%);
-                border-radius: 2px;
+                border-radius: 30px;
                 opacity: 0;
                 transform: translate3d(0%, 50%,0);
                 animation: appear 2s cubic-bezier(.47,.01,0,1.01) forwards 1.5s;

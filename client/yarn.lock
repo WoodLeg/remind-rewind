@@ -1063,10 +1063,6 @@ boom@2.x.x:
   dependencies:
     hoek "2.x.x"
 
-bourbon@^4.3.4:
-  version "4.3.4"
-  resolved "https://registry.yarnpkg.com/bourbon/-/bourbon-4.3.4.tgz#4da380029e92c0c8f9764c779451a134b11e7cc3"
-
 brace-expansion@^1.0.0:
   version "1.1.6"
   resolved "https://registry.yarnpkg.com/brace-expansion/-/brace-expansion-1.1.6.tgz#7197d7eaa9b87e648390ea61fc66c84427420df9"
@@ -5663,6 +5659,10 @@ weinre@^2.0.0-pre-I0Z7U9OV:
 whatwg-fetch@>=0.10.0, whatwg-fetch@^1.0.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/whatwg-fetch/-/whatwg-fetch-1.1.1.tgz#ac3c9d39f320c6dce5339969d054ef43dd333319"
+
+whatwg-fetch@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/whatwg-fetch/-/whatwg-fetch-2.0.3.tgz#9c84ec2dcf68187ff00bc64e1274b442176e1c84"
 
 which-module@^1.0.0:
   version "1.0.0"

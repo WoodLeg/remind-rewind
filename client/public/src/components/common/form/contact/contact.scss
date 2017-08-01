@@ -172,14 +172,16 @@
 
     &-btn {
         margin-bottom: 20px;
-        padding: 20px;
+        padding: 11px 20px;
         color: white;
         font-size: 1.3em;
         background: $blue;
         border: none;
-        border-radius: 2px;
+        border-radius: 30px;
         transition: all 0.3s ease;
+        transform: translate3d(0,-7px, 0);
         &:hover {
+          transform: translate3d(0,0px, 0);
             background: darken($blue, 10%);
         }
         &[disabled]{

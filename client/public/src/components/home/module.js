@@ -8,7 +8,6 @@ export default class HomeComponent extends React.Component {
 
     constructor() {
         super();
-
     }
 
     componentWillMount() {
@@ -24,7 +23,7 @@ export default class HomeComponent extends React.Component {
                         <p className="home__header-body">
                             Un nouveau Home recording studio en proche banlieue parisienne
                         </p>
-                        <Scrollchor to="#pricing-table" animate={{ offset: -60, duration: 600, ease: 'cubic-bezier(0.645, 0.045, 0.355, 1)' }} className="home__header-body-btn">Voir les prix</Scrollchor>
+                        <Scrollchor to="#contact-us" animate={{ offset: -60, duration: 600, ease: 'cubic-bezier(0.645, 0.045, 0.355, 1)' }} className="home__header-body-btn">Me contacter</Scrollchor>
                     </div>
                 </div>
                 <div className="col-xs-12 home__streamline">
@@ -105,7 +104,7 @@ export default class HomeComponent extends React.Component {
                 <div className="col-xs-12 home__contact">
                     <div className="home__contact-bg"></div>
                     <div className="row">
-                      <h3 className="col-xs-12 col-sm-4 col-sm-offset-4">Pour me contacter</h3>
+                      <h3 id="contact-us" className="col-xs-12 col-sm-4 col-sm-offset-4">Pour me contacter</h3>
                     </div>
                     <ContactForm grid="col-xs-12 col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4"></ContactForm>
                 </div>
