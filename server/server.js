@@ -1,23 +1,23 @@
 import express from 'express';
-import Schema from './schema';
-import graphQLHTTP from 'express-graphql';
 import cors from 'cors';
-
+import bodyParser from 'body-parser';
+import morgan from 'morgan';
 const app = express();
 
 app.use(cors({origin: true, credentials: true}));
+app.use(bodyParser.json());
+app.use(morgan('dev'));
 
-
-app.use('/', graphQLHTTP({
-    schema: Schema,
-    pretty: true,
-    graphiql: true
-}));
+app.post('/contact', function(request, response) {
+  console.log('Contact action');
+  console.log(request.body);
+  response.send(JSON.stringify('yeah bruv'));
+});
 
 app.listen(8000, (err) => {
     if (err) {
         console.error(err)
         return
     }
-    console.log('GraphQL Server is now running on localhost: ', 8000);
+    console.log('Server is now running on localhost: ', 8000);
 });
