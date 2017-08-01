@@ -11,12 +11,12 @@ export default class ContactFormComponent extends React.Component {
     }
 
     componentWillMount() {
-
+      console.log(this.props);
     }
 
     render() {
         return (
-            <form onSubmit={form.onSubmit} className="col-xs-12 col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4 form__contact">
+            <form onSubmit={form.onSubmit} className={'form__contact ' + this.props.grid}>
                 <div className="form-group">
                     <input
                         {...form.$('email').bind()}
