@@ -100,14 +100,14 @@ export default class HomeComponent extends React.Component {
 
                 </div>
                 <div className="col-xs-12 home__tarif">
-                    <h1 id="pricing-table" className="home__tarif-title col-xs-12">Tarifs</h1>
-                    <h2 className="col-xs-12 home__tarif-subtitle">Combien de musiciens ?</h2>
-                    <PriceTable></PriceTable>
                     <h1 className="home__contact-title col-xs-12">Record !</h1>
                 </div>
                 <div className="col-xs-12 home__contact">
                     <div className="home__contact-bg"></div>
-                    <ContactForm></ContactForm>
+                    <div className="row">
+                      <h3 className="col-xs-12 col-sm-4 col-sm-offset-4">Pour me contacter</h3>
+                    </div>
+                    <ContactForm grid="col-xs-12 col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4"></ContactForm>
                 </div>
 
             </div>
