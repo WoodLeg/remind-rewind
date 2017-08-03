@@ -11,7 +11,9 @@ app.use(morgan('dev'));
 app.post('/contact', function(request, response) {
   console.log('Contact action');
   console.log(request.body);
-  response.send(JSON.stringify('yeah bruv'));
+  setTimeout(function() {
+      response.send(JSON.stringify('yeah bruv'));
+  }, 3000);
 });
 
 app.listen(8000, (err) => {
