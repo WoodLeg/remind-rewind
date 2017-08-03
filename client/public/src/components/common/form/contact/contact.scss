@@ -1,8 +1,16 @@
 .form__contact {
     background: $background;
     border-radius: 2px;
-    margin-top: 30px;
     padding: 40px 40px 20px 40px;
+    transition: all 1s cubic-bezier(.47,.01,0,1.01);
+    &.success {
+      transform: translate3d(250%, 0%, 0);
+    }
+    &-title {
+      color: $text-color;
+      font-weight: 300;
+      margin-top: 0;
+    }
     @media only screen and (max-width: $screen-xs) {
         padding: 40px 20px 10px 20px;
     }
@@ -76,12 +84,12 @@
     }
     &-label {
         position: absolute;
-        top:15px;
+        top:20px;
         left:0;
         margin-bottom: 0;
         color: black;
         font-weight: 200;
-        font-size: 2em;
+        font-size: 1.4em;
         transition: all 0.3s ease;
         @media only screen and (max-width: $screen-sm) {
             font-size: 1.6em;
@@ -175,14 +183,15 @@
         padding: 11px 20px;
         color: white;
         font-size: 1.3em;
-        background: $blue;
+        // background: $blue;
+        background: -webkit-linear-gradient(left,#3E80F7,#36D6BD);
         border: none;
         border-radius: 30px;
         transition: all 0.3s ease;
-        transform: translate3d(0,-7px, 0);
+        transform: translate3d(0,-4px, 0);
         &:hover {
           transform: translate3d(0,0px, 0);
-            background: darken($blue, 10%);
+            // background: darken($blue, 10%);
         }
         &[disabled]{
             background: darken($background, 5%);

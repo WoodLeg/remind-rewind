@@ -1,6 +1,7 @@
 import Validatorjs from 'validatorjs';
 import MobxReactFrom from 'mobx-react-form';
 import 'whatwg-fetch';
+import store from './store.js';
 
 // Validatorjs.useLang('fr');
 
@@ -25,6 +26,7 @@ class Form extends MobxReactFrom{
     }
 
     onSuccess(form) {
+      store.updateFormRequesting(true);
         fetch('http://localhost:8000/contact', {
           method: 'POST',
           headers: {
@@ -38,7 +40,10 @@ class Form extends MobxReactFrom{
           return response.json();
         }).then((json) => {
           console.log('Succes: ', json);
+          store.updateFormData(json);
+          store.updateFormRequesting(false);
         }).catch((reason) => {
+          store.formFail = true;
           console.log('Failed: ', reason);
         });
     }

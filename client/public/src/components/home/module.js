@@ -1,13 +1,20 @@
 import React from 'react';
 import Scrollchor from 'react-scrollchor';
+import { observer } from 'mobx-react';
+
 
 import ContactForm from '../common/form/contact/contact.js';
 import PriceTable from '../common/price/table.js';
 
+import contactStore from '../common/form/contact/store.js';
+
+@observer
 export default class HomeComponent extends React.Component {
 
     constructor() {
         super();
+
+        this.success = contactStore.formData ? true : false;
     }
 
     componentWillMount() {
@@ -103,9 +110,10 @@ export default class HomeComponent extends React.Component {
                 </div>
                 <div className="col-xs-12 home__contact">
                     <div className="home__contact-bg"></div>
-                    <div className="row">
-                      <h3 id="contact-us" className="col-xs-12 col-sm-4 col-sm-offset-4">Pour me contacter</h3>
-                    </div>
+                    <div className={"col-xs-12 col-sm-6 col-sm-offset-3 home__contact-thanks " + (contactStore.formData ? 'success' : '')}>
+                        Merci beaucoup de m'avoir contacté, je vous répondrais le plus rapidement possible, <br />  Il y a de la musique à enregistrer !
+                        <img className="home__contact-thanks-img" src="/assets/img/moi.jpg" />
+                     </div>
                     <ContactForm grid="col-xs-12 col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4"></ContactForm>
                 </div>
 
