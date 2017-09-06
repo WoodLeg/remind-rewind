@@ -3,7 +3,7 @@ export default{
         console.log('Contact action');
         console.log(request.body);
         setTimeout(function() {
-            response.send(JSON.stringify('yeah bruv'));
+            response.status(200);
         }, 3000);
     }
 }
