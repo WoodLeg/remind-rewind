@@ -19,6 +19,7 @@ export default class MenuComponent extends React.Component {
             <div>
                 <div className="menu">
                     <div className="menu__logo col-xs-4 pull-left">
+                    
                         <img src="/assets/img/RRnb.png" />
                     </div>
                     <ul className="menu__list col-xs-8 pull-right">
