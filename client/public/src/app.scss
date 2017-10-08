@@ -1,0 +1,19 @@
+@import 'bootstrap';
+@import "../bower_components/bourbon/app/assets/stylesheets/_bourbon.scss";
+
+@import './assets/style/palette.scss';
+@import './assets/style/fonts_loader.scss';
+@import './assets/style/animations.scss';
+@import './assets/style/fonts/font-awesome.scss';
+@import './assets/style/main.scss';
+@import './assets/style/common.scss';
+
+@import './components/audio/audio.scss';
+@import './components/common/spinner/spinner.scss';
+@import './components/common/price/table.scss';
+@import './components/common/price/column.scss';
+@import './components/common/form/contact/contact.scss';
+
+@import './components/app/app.scss';
+@import './components/home/home.scss';
+@import './components/footer/footer.scss';
