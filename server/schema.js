@@ -8,26 +8,20 @@ import {
     GraphQLSchema
 } from 'graphql';
 
-import UserQuery from './components/users/user.query';
-import UserMutation from './components/users/user.mutation';
-import PostQuery from './components/posts/post.query';
-import PostMutation from './components/posts/post.mutation';
-import ArtistQuery from './components/artists/artist.query';
-import ArtistMutation from './components/artists/artist.mutation';
-import AlbumQuery from './components/albums/albums.query';
+import SongQuery from './components/song/song.query';
+import SongMutation from './components/song/song.mutation';
+
+import MusicianQuery from './components/musician/musician.query';
+
 
 const QueryType = new GraphQLObjectType({
     name: 'Query',
     description: 'List of all data you can access.',
     fields: () => ({
-        users: UserQuery.users,
-        user: UserQuery.user,
-        posts: PostQuery.posts,
-        post: PostQuery.post,
-        artist: ArtistQuery.searchArtist,
-        artists: ArtistQuery.artists,
-        artistDetail: ArtistQuery.artistDetail,
-        album: AlbumQuery.album
+        songs: SongQuery.songs,
+        song: SongQuery.song,
+        musicians: MusicianQuery.musicians,
+        musician: MusicianQuery.musician
     })
 });
 
@@ -35,19 +29,8 @@ var MutationType = new GraphQLObjectType({
     name: 'Mutation',
     description: 'List of every actions you can use on data.',
     fields: {
-        addUser: UserMutation.add,
-        destroyUser: UserMutation.destroy,
-        promoteUser: UserMutation.promoteUser,
-        addPost: PostMutation.add,
-        editPost: PostMutation.edit,
-        destroyPost: PostMutation.destroy,
-        updateFeaturedPost: PostMutation.featured,
-        addArtist: ArtistMutation.add,
-        destroyArtist: ArtistMutation.destroy,
-        updateFeatureArtist: ArtistMutation.updateFeatured,
-        updateOnlinePost: PostMutation.onlined,
-        updateLikes: PostMutation.updateLikes,
-        diggearRequest: UserMutation.diggearRequest
+        addSong: SongMutation.add,
+        destroySong: SongMutation.destroy,
     }
 });
 

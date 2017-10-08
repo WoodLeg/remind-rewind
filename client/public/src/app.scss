@@ -1,29 +1,19 @@
 @import 'bootstrap';
-@import 'bootstrap/theme';
+@import "../bower_components/bourbon/app/assets/stylesheets/_bourbon.scss";
 
-@import 'assets/style/variables';
-@import 'assets/style/mixins';
-@import 'assets/style/common';
-@import 'assets/style/main';
-@import 'assets/style/errors';
-@import 'assets/style/main';
-@import 'assets/style/typography';
+@import './assets/style/palette.scss';
+@import './assets/style/fonts_loader.scss';
+@import './assets/style/animations.scss';
+@import './assets/style/fonts/font-awesome.scss';
+@import './assets/style/main.scss';
+@import './assets/style/common.scss';
 
+@import './components/audio/audio.scss';
+@import './components/common/spinner/spinner.scss';
+@import './components/common/price/table.scss';
+@import './components/common/price/column.scss';
+@import './components/common/form/contact/contact.scss';
 
-@import 'common/notification/notification';
-@import 'common/spinner/spinner';
-@import 'common/modal/modal';
-@import 'common/animicons/animicons';
-
-@import 'components/menu/menu';
-@import 'components/home/home';
-@import 'components/admin/admin';
-@import 'components/admin/posts/posts';
-@import 'components/admin/posts/post/post';
-@import 'components/admin/users/users';
-@import 'components/admin/users/user/user';
-@import 'components/admin/artists/artists';
-@import 'components/admin/artists/artist/artist';
-@import 'components/posts/post';
-@import 'components/footer/footer';
-@import 'components/user/signup/signup';
+@import './components/app/app.scss';
+@import './components/home/home.scss';
+@import './components/footer/footer.scss';

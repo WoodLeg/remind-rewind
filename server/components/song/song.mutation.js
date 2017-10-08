@@ -4,13 +4,11 @@ import {
     GraphQLBoolean
 } from 'graphql';
 
-import UserType from './user.type';
-import User from './user.model';
-import bcrypt from 'bcrypt';
+import SongType from './song.type';
 
 const MutationAdd = {
-    type: UserType,
-    description: 'Add a User',
+    type: SongType,
+    description: 'Add a Song',
     args: {
         facebookId: {
             type: 'Facebook ID',
@@ -49,47 +47,33 @@ const MutationAdd = {
         }
     },
     resolve: (root, args) => {
+        let newSong = new Song({
+            firstName: args.firstName,
+            lastName: args.lastName,
+            email: args.email
+        });
+        newSong.id = newSong._id;
         return new Promise((resolve, reject) => {
-            bcrypt.hash(args.password, 10, function(err, hash){
-                if (err){
-                    reject(err);
-                } else {
-                    if (args.facebookId) {
-                        let newUser = new User({
-                            facebookId: args.facebookId
-                        });
-                    }
-                    let newUser = new User({
-                        firstName: args.firstName,
-                        lastName: args.lastName,
-                        email: args.email,
-                        password: hash,
-                        isAdmin: args.isAdmin,
-                        isModerator: args.isModerator
-                    });
-                    newUser.id = newUser._id;
-                    newUser.save(function (err, user) {
-                        if (err) reject(err);
-                        else resolve(user);
-                    });
-                }
-            });
+            newSong.save(function (err, user) {
+                if (err) reject(err)
+                else resolve(user)
+            })
         });
     }
 };
 
 const MutationDestroy = {
-    type: UserType,
+    type: SongType,
     description: 'Delete the user',
     args: {
         id: {
-            name: 'User Id',
+            name: 'Song Id',
             type: new GraphQLNonNull(GraphQLString)
         }
     },
     resolve: (root, args) => {
         return new Promise((resolve, reject) => {
-            User.findById(args.id, (err, user) => {
+            Song.findById(args.id, (err, user) => {
                 if (err) {
                     reject(err);
                 } else if (!user) {
