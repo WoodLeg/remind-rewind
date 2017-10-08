@@ -1,7 +1,0 @@
-<div class="alerts" ng-show="ctrl.notifications.queue.length > 0">
-	<div class="alert alert-{{(m.type)||'info'}}" ng-repeat="m in ctrl.notifications.queue">
-		<button type="button" class="close" ng-click="API.closeAlert(m.body)">&times;</button>
-		<label>{{m.title}}</label>
-		<p>{{m.body}}</p>
-	</div>
-</div>
