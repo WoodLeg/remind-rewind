@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"net/smtp"
 
 	"github.com/julienschmidt/httprouter"
 )
@@ -31,11 +32,23 @@ func (c Controller) CreateUser(response http.ResponseWriter, request *http.Reque
 	} else {
 		data := dataBuilder(`Successful`, 200)
 		toSend, _ := json.Marshal(data)
+		go sendMail(u)
 		response.Header().Set(`Content-Type`, `application/json`)
 		response.WriteHeader(http.StatusOK)
 		fmt.Fprintf(response, "%s\n", toSend)
 	}
 
+}
+
+func sendMail(data User) {
+	mess := []byte("To: " + data.Email + "\r\n" +
+		"Subject: Remind-rewind\r\n" +
+		"\r\n" +
+		data.Message + "\r\n")
+	err := smtp.SendMail("smtp.gmail.com:587", smtp.PlainAuth("", "paul.souvestre@gmail.com", "qn$]Cj;p", "smtp.gmail.com"), data.Email, []string{`paul.souvestre@gmail.com`}, []byte(mess))
+	if err != nil {
+		fmt.Println(err)
+	}
 }
 
 func dataBuilder(str string, code int) interface{} {
