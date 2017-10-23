@@ -7,6 +7,7 @@ import (
 
 	"github.com/gorilla/handlers"
 	"github.com/julienschmidt/httprouter"
+	"github.com/rs/cors"
 )
 
 func main() {
@@ -15,5 +16,5 @@ func main() {
 	r.POST("/user", userController.CreateUser)
 
 	loggedRouter := handlers.LoggingHandler(os.Stdout, r)
-	http.ListenAndServe(":8080", handlers.CORS()(loggedRouter))
+	http.ListenAndServe(":8080", cors.Default().Handler(loggedRouter))
 }

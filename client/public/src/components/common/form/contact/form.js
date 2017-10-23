@@ -27,7 +27,7 @@ class Form extends MobxReactFrom{
 
     onSuccess(form) {
       store.updateFormRequesting(true);
-        fetch('http://localhost:8000/contact', {
+        fetch('http://localhost:8080/user', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -39,7 +39,7 @@ class Form extends MobxReactFrom{
         }).then((response) => {
           return response.json();
         }).then((json) => {
-          console.log('Succes: ', json);
+          console.log('Success: ', json);
           store.updateFormData(json);
           store.updateFormRequesting(false);
         }).catch((reason) => {

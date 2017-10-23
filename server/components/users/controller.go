@@ -19,7 +19,7 @@ func NewController() *Controller {
 
 // CreateUser - Insert a user in the database then send an email
 func (c Controller) CreateUser(response http.ResponseWriter, request *http.Request, _ httprouter.Params) {
-	// request.ParseForm()
+	fmt.Println(request.Header)
 	u := User{}
 	json.NewDecoder(request.Body).Decode(&u)
 
@@ -34,6 +34,10 @@ func (c Controller) CreateUser(response http.ResponseWriter, request *http.Reque
 		toSend, _ := json.Marshal(data)
 		go sendMail(u)
 		response.Header().Set(`Content-Type`, `application/json`)
+		response.Header().Set("Access-Control-Allow-Origin", "*")
+		response.Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
+		response.Header().Set("Access-Control-Allow-Headers",
+			"Accept, Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization")
 		response.WriteHeader(http.StatusOK)
 		fmt.Fprintf(response, "%s\n", toSend)
 	}
